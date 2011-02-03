@@ -1,0 +1,114 @@
+
+twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.erb *.js.rjs"" {
+ Gemfile
+ Gemfile.lock
+ README.markdown
+ Rakefile
+ config.ru
+ app=app {
+  controllers=controllers {
+   application_controller.rb
+   pages_controller.rb
+  }
+  helpers=helpers {
+   application_helper.rb
+   pages_helper.rb
+  }
+  mailers=mailers {
+  }
+  models=models {
+  }
+  views=views {
+   layouts=layouts {
+		application.html.erb
+   }
+   pages=pages {
+    about.html.erb
+    contact.html.erb
+    home.html.erb
+   }
+  }
+ }
+ config=config {
+  application.rb
+  boot.rb
+  database.yml
+  environment.rb
+  routes.rb
+  environments=environments {
+   development.rb
+   production.rb
+   test.rb
+  }
+  initializers=initializers {
+   backtrace_silencers.rb
+   inflections.rb
+   mime_types.rb
+   secret_token.rb
+   session_store.rb
+  }
+  locales=locales {
+   en.yml
+  }
+ }
+ db=db {
+  seeds.rb
+ }
+ doc=doc {
+  README_FOR_APP
+ }
+ lib=lib {
+  tasks=tasks {
+  }
+ }
+ log=log {
+  development.log
+  production.log
+  server.log
+  test.log
+ }
+ public=public {
+  404.html
+  422.html
+  500.html
+  favicon.ico
+  index.html
+  robots.txt
+  images=images {
+   rails.png
+  }
+  javascripts=javascripts {
+   application.js
+   controls.js
+   dragdrop.js
+   effects.js
+   prototype.js
+   rails.js
+  }
+  stylesheets=stylesheets {
+  }
+ }
+ script=script {
+  rails
+ }
+ spec=spec {
+  spec_helper.rb
+  controllers=controllers {
+   pages_controller_spec.rb
+  }
+ }
+ tmp=tmp {
+  cache=cache {
+  }
+  pids=pids {
+  }
+  sessions=sessions {
+  }
+  sockets=sockets {
+  }
+ }
+ vendor=vendor {
+  plugins=plugins {
+  }
+ }
+}

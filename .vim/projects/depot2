@@ -1,0 +1,209 @@
+
+depot2=/home/luke/rails_projects/depot2 CD=. filter=""*.rb *.html.erb *js.rjs"" {
+ Gemfile
+ Gemfile.lock
+ README
+ Rakefile
+ config.ru
+ tags
+ app=app {
+  controllers=controllers {
+   admin_controller.rb
+   application_controller.rb
+   info_controller.rb
+   line_items_controller.rb
+   orders_controller.rb
+   products_controller.rb
+   store_controller.rb
+   users_controller.rb
+  }
+  helpers=helpers {
+   application_helper.rb
+   line_items_helper.rb
+   orders_helper.rb
+   products_helper.rb
+   store_helper.rb
+   users_helper.rb
+  }
+  mailers=mailers {
+  }
+  models=models {
+   cart.rb
+   cart_item.rb
+   line_item.rb
+   order.rb
+   product.rb
+   user.rb
+  }
+  views=views {
+  layouts=layouts {
+    application.html.erb
+    store.html.erb
+   }
+   products=products {
+    _form.html.erb
+    edit.html.erb
+    index.html.erb
+    new.html.erb
+    show.html.erb
+   }
+	store=store {	 
+    _cart.html.erb
+    _cart_item.html.erb
+    add_to_cart.js.rjs
+    checkout.html.erb
+    empty_cart.js.rjs
+    index.html.erb
+ }
+ 	users=users {
+	 index.html.erb
+	 edit.html.erb
+	 show.html.erb
+	 new.html.erb
+	 _form.html.erb
+
+	 }
+	admin=admin {
+	 index.html.erb
+	 login.html.erb
+	 logout.html.erb
+
+	}
+	 info=info {
+		who_bought.xml.builder
+		who_bought.html.erb
+		who_bought.atom.builder
+ }
+ }
+ }
+ config=config {
+  application.rb
+  boot.rb
+  database.yml
+  environment.rb
+  routes.rb
+  environments=environments {
+   development.rb
+   production.rb
+   test.rb
+  }
+  initializers=initializers {
+   backtrace_silencers.rb
+   inflections.rb
+   mime_types.rb
+   secret_token.rb
+   session_store.rb
+  }
+  locales=locales {
+   en.yml
+  }
+ }
+ db=db {
+  development.sqlite3
+  schema.rb
+  seeds.rb
+  test.sqlite3
+  migrate=migrate {
+   20110118165007_create_products.rb
+   20110118171343_add_price_to_product.rb
+   20110118183429_add_test_data.rb
+   20110119161109_add_sessions_table.rb
+   20110124232546_create_orders.rb
+   20110124233346_create_line_items.rb
+   20110126012231_create_users.rb
+  }
+ }
+ doc=doc {
+  README_FOR_APP
+ }
+ lib=lib {
+  tasks=tasks {
+  }
+ }
+ log=log {
+  development.log
+  production.log
+  server.log
+  test.log
+ }
+ public=public {
+  404.html
+  422.html
+  500.html
+  favicon.ico
+  index.html
+  robots.txt
+  images=images {
+   auto.jpg
+   logo.png
+   rails.png
+   svn.jpg
+   utc.jpg
+  }
+  javascripts=javascripts {
+   application.js
+   controls.js
+   dragdrop.js
+   effects.js
+   prototype.js
+   rails.js
+  }
+  stylesheets=stylesheets {
+   depot.css
+   scaffold.css
+  }
+ }
+ script=script {
+  rails
+ }
+ test=test {
+  test_helper.rb
+  fixtures=fixtures {
+   line_items.yml
+   orders.yml
+   products.yml
+   users.yml
+  }
+  functional=functional {
+   admin_controller_test.rb
+   info_controller_test.rb
+   line_items_controller_test.rb
+   orders_controller_test.rb
+   products_controller_test.rb
+   store_controller_test.rb
+   users_controller_test.rb
+  }
+  integration=integration {
+   user_stories_test.rb
+  }
+  performance=performance {
+   browsing_test.rb
+  }
+  unit=unit {
+   line_item_test.rb
+   order_test.rb
+   product_test.rb
+   user_test.rb
+	 cart_test.rb
+
+   helpers=helpers {
+    products_helper_test.rb
+   }
+  }
+ }
+ tmp=tmp {
+  cache=cache {
+  }
+  pids=pids {
+   server.pid
+  }
+  sessions=sessions {
+  }
+  sockets=sockets {
+  }
+ }
+ vendor=vendor {
+  plugins=plugins {
+  }
+ }
+

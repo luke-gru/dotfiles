@@ -1,0 +1,623 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <silent> <S-Tab> =BackwardsSnippet()
+inoremap <F1> 
+map! <S-Insert> <MiddleMouse>
+snoremap <silent> 	 i<Right>=TriggerSnippet()
+nnoremap <silent>  za
+nmap <silent> o <Plug>ProjectOnly
+nmap <silent>  o
+snoremap  b<BS>
+noremap  "+y
+noremap  "+p
+snoremap % b<BS>%
+snoremap ' b<BS>'
+inoremap í  
+xmap S <Plug>VSurround
+snoremap U b<BS>U
+snoremap \ b<BS>\
+snoremap ^ b<BS>^
+snoremap ` b<BS>`
+nmap cs <Plug>Csurround
+nmap ds <Plug>Dsurround
+nmap gx <Plug>NetrwBrowseX
+xmap gS <Plug>VgSurround
+xmap s <Plug>Vsurround
+nmap ySS <Plug>YSsurround
+nmap ySs <Plug>YSsurround
+nmap yss <Plug>Yssurround
+nmap yS <Plug>YSurround
+nmap ys <Plug>Ysurround
+snoremap <Left> bi
+snoremap <Right> a
+snoremap <BS> b<BS>
+snoremap <silent> <S-Tab> i<Right>=BackwardsSnippet()
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
+nmap <silent> <F12> <Plug>ToggleProject
+nnoremap <F11> :set virtualedit=all
+nnoremap <F9> :set virtualedit=
+noremap <F3> :e ~/.vimrc
+nnoremap <silent> <M-Right> :execute 'silent! tabmove ' . tabpagenr()
+nnoremap <silent> <M-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)
+nnoremap <C-Right> :tabnext
+nnoremap <C-Left> :tabprevious
+map <S-Insert> <MiddleMouse>
+imap S <Plug>ISurround
+imap s <Plug>Isurround
+cnoremap  <Left>
+inoremap <silent> 	 =TriggerSnippet()
+cnoremap <NL> <S-Left>
+cnoremap  <S-Right>
+cnoremap  <Right>
+inoremap <silent> 	 =ShowAvailableSnips()
+imap  <Plug>Isurround
+cnoremap  source ~/.vim/session
+cabbr mks mks! ~/.vim/session
+abbr proj 0r ~/.projects/railsdepot
+abbr attrr attr_reader
+abbr slt stylesheet_link_tag
+abbr attra attr_accessor
+abbr jsit javascript_include_tag
+abbr bto button_to
+abbr vco validates_confirmation_of
+abbr rto redirect_to
+abbr vlo validates_length_of
+abbr vfo validates_format_of
+abbr vno validates_numericality_of
+abbr vuo validates_uniqueness_of
+abbr vpo validates_presence_of
+abbr ie initialize
+let &cpo=s:cpo_save
+unlet s:cpo_save
+set autoindent
+set backspace=2
+set cmdheight=3
+set cpoptions=aABceFs$
+set noequalalways
+set fileencodings=ucs-bom,utf-8,default,latin1
+set helpheight=40
+set helplang=en
+set history=350
+set hlsearch
+set ignorecase
+set iminsert=0
+set imsearch=0
+set incsearch
+set iskeyword=@,48-57,_,192-255,$
+set laststatus=2
+set matchtime=3
+set mouse=a
+set path=.,~/rails_projects/depot/**
+set printoptions=paper:letter
+set ruler
+set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim72,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
+set scrolloff=3
+set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages,winsize,winpos
+set shiftwidth=2
+set showcmd
+set showmatch
+set smartcase
+set smartindent
+set softtabstop=2
+set splitbelow
+set splitright
+set statusline=%2*[b%n]%*\ %t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%r%y%m%=x=%c,y=%l/%L\ (%P)
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set tabstop=2
+set tags=tags;
+set termencoding=utf-8
+set viminfo='100,<50,s10,h,<100
+set wildmenu
+set window=37
+set winwidth=1
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/rails_projects/depot2
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +6 app/models/user.rb
+badd +9 app/views/info/who_bought.atom.builder
+badd +1 test/unit/product_test.rb
+badd +10 config/database.yml
+badd +12 app/models/product.rb
+badd +5 test/fixtures/products.yml
+badd +5 test/unit/cart_test.rb
+badd +1 app/models/cart.rb
+badd +1 app/models/cart_item.rb
+badd +17 test/fixtures/users.yml
+badd +7 app/controllers/admin_controller.rb
+badd +44 test/functional/admin_controller_test.rb
+badd +1 app/controllers/application_controller.rb
+badd +66 test/integration/user_stories_test.rb
+badd +1 app/models/line_item.rb
+badd +6 app/controllers/line_items_controller.rb
+badd +61 app/controllers/store_controller.rb
+badd +1 test/functional/users_controller_test.rb
+badd +21 test/functional/products_controller_test.rb
+badd +23 test/functional/orders_controller_test.rb
+badd +11 config/routes.rb
+badd +16 test/unit/user_test.rb
+badd +13 test/fixtures/orders.yml
+badd +1 config/environments/test.rb
+badd +1 config/initializers/session_store.rb
+badd +1 config/environment.rb
+badd +1 config/boot.rb
+badd +17 config/application.rb
+badd +1 db/schema.rb
+badd +1 db/test.sqlite3
+badd +1 db/seeds.rb
+badd +12 test/test_helper.rb
+badd +174 log/test.log
+badd +1 config/initializers/mime_types.rb
+badd +1 config/initializers/inflections.rb
+badd +4 config/initializers/backtrace_silencers.rb
+badd +1 test/unit/line_item_test.rb
+badd +10 app/models/order.rb
+badd +1 test/functional/store_controller_test.rb
+badd +18 test/functional/line_items_controller_test.rb
+badd +1 test/functional/info_controller_test.rb
+badd +1 app/controllers/products_controller.rb
+badd +21 app/views/admin/login.html.erb
+badd +1 app/controllers/users_controller.rb
+badd +1 app/views/users/_form.html.erb
+badd +6 app/views/users/edit.html.erb
+badd +27 public/javascripts/rails.js
+badd +1 public/javascripts/controls.js
+badd +1 public/javascripts/application.js
+badd +1 script/rails
+badd +0 app/views/users/index.html.erb
+silent! argdel *
+winpos 0 24
+edit ~/.vimprojects
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+2wincmd h
+wincmd w
+wincmd w
+wincmd t
+set winheight=1 winwidth=1
+exe 'vert 1resize ' . ((&columns * 24 + 77) / 155)
+exe 'vert 2resize ' . ((&columns * 78 + 77) / 155)
+exe 'vert 3resize ' . ((&columns * 51 + 77) / 155)
+argglobal
+let s:cpo_save=&cpo
+set cpo&vim
+nnoremap <buffer> <silent>  <Nop>
+nnoremap <buffer> <silent>   |:silent exec 'vertical resize '.(match(g:proj_flags, '\Ct')!=-1 && winwidth('.') > g:proj_window_width?(g:proj_window_width):(winwidth('.') + g:proj_window_increment))
+nmap <buffer> <silent> \<Down> <C-Down>
+nmap <buffer> <silent> \<Up> <C-Up>
+nmap <buffer> <silent> \v 
+nnoremap <buffer> <silent> \I :echo Project_GetFname(line('.'))
+nmap <buffer> <silent> \o <C-CR>
+nmap <buffer> <silent> \s <S-CR>
+nnoremap <buffer> <F1> :let g:proj_doinghelp = 1<F1>
+nmap <buffer> <silent> <4-RightMouse>  
+nmap <buffer> <silent> <3-RightMouse>  
+nmap <buffer> <silent> <2-RightMouse>  
+nmap <buffer> <silent> <RightMouse>  
+nnoremap <buffer> <silent> <3-LeftMouse> <Nop>
+nnoremap <buffer> <silent> <C-LeftMouse> <LeftMouse>
+nmap <buffer> <silent> <C-2-LeftMouse> <C-CR>
+nnoremap <buffer> <silent> <S-LeftMouse> <LeftMouse>
+nnoremap <buffer> <silent> <M-2-LeftMouse> 
+nmap <buffer> <silent>  p
+cnoremap <buffer> help let g:proj_doinghelp = 1:help
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal nobuflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=%s
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != ''
+setlocal filetype=
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={,}
+setlocal foldmethod=marker
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=ProjFoldText()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255,$
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal nomodeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+set number
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=1
+setlocal noshortname
+setlocal smartindent
+setlocal softtabstop=2
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal noswapfile
+setlocal synmaxcol=3000
+if &syntax != ''
+setlocal syntax=
+endif
+setlocal tabstop=2
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+set nowrap
+setlocal nowrap
+setlocal wrapmargin=0
+2
+normal zo
+8
+normal zo
+9
+normal zc
+37
+normal zo
+57
+normal zo
+65
+normal zc
+37
+normal zo
+8
+normal zo
+78
+normal zo
+78
+normal zc
+100
+normal zo
+100
+normal zc
+115
+normal zc
+118
+normal zo
+119
+normal zc
+118
+normal zc
+122
+normal zc
+128
+normal zo
+142
+normal zc
+128
+normal zc
+155
+normal zc
+2
+normal zo
+let s:l = 58 - ((57 * winheight(0) + 17) / 34)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+58
+normal! 0
+wincmd w
+argglobal
+edit test/integration/user_stories_test.rb
+let s:cpo_save=&cpo
+set cpo&vim
+nmap <buffer> gf <Plug>RailsTabFind
+nmap <buffer> f <Plug>RailsSplitFind
+nmap <buffer> [f <Plug>RailsAlternate
+nmap <buffer> ]f <Plug>RailsRelated
+nmap <buffer> gf <Plug>RailsFind
+nnoremap <buffer> <silent> <Plug>RailsTabFind :RTfind
+nnoremap <buffer> <silent> <Plug>RailsVSplitFind :RVfind
+nnoremap <buffer> <silent> <Plug>RailsSplitFind :RSfind
+nnoremap <buffer> <silent> <Plug>RailsFind :REfind
+nnoremap <buffer> <silent> <Plug>RailsRelated :R
+nnoremap <buffer> <silent> <Plug>RailsAlternate :A
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=RubyBalloonexpr()
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=:#
+setlocal commentstring=#\ %s
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=syntaxcomplete#Complete
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=^\\s*def\\s\\+\\(self\\.\\)\\=\\|^\\s*test\\s*['\"]
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'ruby'
+setlocal filetype=ruby
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=^\\s*\\<\\(load\\|w*require\\)\\>
+setlocal includeexpr=RailsIncludeexpr()
+setlocal indentexpr=GetRubyIndent()
+setlocal indentkeys=0{,0},0),0],!^F,o,O,e,=end,=elsif,=when,=ensure,=rescue,==begin,==end
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255,$
+setlocal keywordprg=ri\ -T
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=rubycomplete#Complete
+setlocal path=.,~/rails_projects/depot2,~/rails_projects/depot2/app,~/rails_projects/depot2/app/models,~/rails_projects/depot2/app/controllers,~/rails_projects/depot2/app/helpers,~/rails_projects/depot2/config,~/rails_projects/depot2/lib,~/rails_projects/depot2/app/views,~/rails_projects/depot2/test,~/rails_projects/depot2/test/unit,~/rails_projects/depot2/test/functional,~/rails_projects/depot2/test/integration,~/rails_projects/depot2/app/*,~/rails_projects/depot2/vendor,~/rails_projects/depot2/vendor/plugins/*/lib,~/rails_projects/depot2/vendor/plugins/*/test,~/rails_projects/depot2/vendor/rails/*/lib,~/rails_projects/depot2/vendor/rails/*/test,/usr/local/lib/site_ruby/1.8,/usr/local/lib/site_ruby/1.8/i686-linux,/usr/local/lib/site_ruby/1.8/i486-linux,/usr/local/lib/site_ruby,/usr/lib/ruby/vendor_ruby/1.8,/usr/lib/ruby/vendor_ruby/1.8/i686-linux,/usr/lib/ruby/vendor_ruby,/usr/lib/ruby/1.8,/usr/lib/ruby/1.8/i686-linux,/usr/lib/ruby/1.8/i486-linux
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=2
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=%2*[b%n]%*\ %t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%r%y%{rails#statusline()}%m%=x=%c,y=%l/%L\ (%P)
+setlocal suffixesadd=.rb,.rhtml,.erb,.rxml,.builder,.rjs,.mab,.liquid,.haml,.dryml,.mn,.yml,.csv,.rake,s.rb
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'ruby'
+setlocal syntax=ruby
+endif
+setlocal tabstop=2
+setlocal tags=~/rails_projects/depot2/tmp/tags,tags;,~/rails_projects/depot2/tags
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+set nowrap
+setlocal nowrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 82 - ((26 * winheight(0) + 17) / 34)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+82
+normal! 015l
+wincmd w
+argglobal
+edit app/views/users/index.html.erb
+let s:cpo_save=&cpo
+set cpo&vim
+nmap <buffer> gf <Plug>RailsTabFind
+nmap <buffer> f <Plug>RailsSplitFind
+nmap <buffer> [f <Plug>RailsAlternate
+nmap <buffer> ]f <Plug>RailsRelated
+nmap <buffer> gf <Plug>RailsFind
+nnoremap <buffer> <silent> <Plug>RailsTabFind :RTfind
+nnoremap <buffer> <silent> <Plug>RailsVSplitFind :RVfind
+nnoremap <buffer> <silent> <Plug>RailsSplitFind :RSfind
+nnoremap <buffer> <silent> <Plug>RailsFind :REfind
+nnoremap <buffer> <silent> <Plug>RailsRelated :R
+nnoremap <buffer> <silent> <Plug>RailsAlternate :A
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=RubyBalloonexpr()
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=:#
+setlocal commentstring=<%#%s%>
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=syntaxcomplete#Complete
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'eruby'
+setlocal filetype=eruby
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=0
+setlocal include=^\\s*\\<\\(load\\|w*require\\)\\>
+setlocal includeexpr=RailsIncludeexpr()
+setlocal indentexpr=GetErubyIndent()
+setlocal indentkeys=o,O,*<Return>,<>>,{,},0),0],o,O,!^F,=end,=else,=elsif,=rescue,=ensure,=when
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255,$
+setlocal keywordprg=ri\ -T
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:],<:>
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=rubycomplete#Complete
+setlocal path=.,~/rails_projects/depot2,~/rails_projects/depot2/app,~/rails_projects/depot2/app/models,~/rails_projects/depot2/app/controllers,~/rails_projects/depot2/app/helpers,~/rails_projects/depot2/config,~/rails_projects/depot2/lib,~/rails_projects/depot2/app/views,~/rails_projects/depot2/app/views/users,~/rails_projects/depot2/public,~/rails_projects/depot2/test,~/rails_projects/depot2/test/unit,~/rails_projects/depot2/test/functional,~/rails_projects/depot2/test/integration,~/rails_projects/depot2/app/*,~/rails_projects/depot2/vendor,~/rails_projects/depot2/vendor/plugins/*/lib,~/rails_projects/depot2/vendor/plugins/*/test,~/rails_projects/depot2/vendor/rails/*/lib,~/rails_projects/depot2/vendor/rails/*/test,/usr/local/lib/site_ruby/1.8,/usr/local/lib/site_ruby/1.8/i686-linux,/usr/local/lib/site_ruby/1.8/i486-linux,/usr/local/lib/site_ruby,/usr/lib/ruby/vendor_ruby/1.8,/usr/lib/ruby/vendor_ruby/1.8/i686-linux,/usr/lib/ruby/vendor_ruby,/usr/lib/ruby/1.8,/usr/lib/ruby/1.8/i686-linux,/usr/lib/ruby/1.8/i486-linux,
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=2
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=2
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=%2*[b%n]%*\ %t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%r%y%{rails#statusline()}%m%=x=%c,y=%l/%L\ (%P)
+setlocal suffixesadd=.rhtml,.erb,.rxml,.builder,.rjs,.mab,.liquid,.haml,.dryml,.mn,.rb,.css,.js,.html,.yml,.csv
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'eruby'
+setlocal syntax=eruby
+endif
+setlocal tabstop=2
+setlocal tags=~/rails_projects/depot2/tmp/tags,tags;,~/rails_projects/depot2/tags
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+set nowrap
+setlocal nowrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 13 - ((12 * winheight(0) + 17) / 34)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+13
+let s:c = 49 - ((25 * winwidth(0) + 25) / 51)
+if s:c > 0
+  exe 'normal! 0' . s:c . 'lzs' . (49 - s:c) . 'l'
+else
+  normal! 049l
+endif
+wincmd w
+2wincmd w
+exe 'vert 1resize ' . ((&columns * 24 + 77) / 155)
+exe 'vert 2resize ' . ((&columns * 78 + 77) / 155)
+exe 'vert 3resize ' . ((&columns * 51 + 77) / 155)
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=1 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :
