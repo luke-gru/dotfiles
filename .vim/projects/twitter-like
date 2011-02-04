@@ -21,11 +21,15 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
   views=views {
    layouts=layouts {
 		application.html.erb
+		_stylesheets.html.erb
+		_header.html.erb
+		_footer.html.erb
    }
    pages=pages {
     about.html.erb
     contact.html.erb
     home.html.erb
+		help.html.erb
    }
   }
  }
@@ -86,6 +90,12 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
    rails.js
   }
   stylesheets=stylesheets {
+	 custom.css
+	 blueprint=blueprint {
+    ie.css
+    print.css
+    screen.css
+	 }
   }
  }
  script=script {
@@ -96,7 +106,10 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
   controllers=controllers {
    pages_controller_spec.rb
   }
- }
+	integration=integration {
+		layout_links_spec.rb
+	}
+	}
  tmp=tmp {
   cache=cache {
   }
@@ -111,4 +124,4 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
   plugins=plugins {
   }
  }
-}
+

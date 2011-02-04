@@ -8,7 +8,7 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/yank
+~MSle0~/root
 
 # Last Substitute Search Pattern:
 ~MSle0&@user
@@ -17,36 +17,37 @@
 $@user1
 
 # Command Line History (newest to oldest):
-:!git add %
+:qall
+:mks! ~/.vim/sessions/sessiontwitter-like
 :w
+:b#
+:vnew
+:bwipe
+:q
+:h 212
+:#
+:q!
+:Project ~/.vim/projects/twitter-like
+:source ~/.vim/sessions/sessiontwitter-like
 :qall!
 :w!
-:h 212
 :new
 :set modifiable
 :IndentGuidesToggle
-:b#
 :h leader
 :h
 :h vim-indent-guides
 :e Gemfile
 :cd rails_projects/twitter-like/
 :helptags ~/.vim/doc
-:qall
-:q
 :Gstatus
 :h fugitive
 :ls
 :Gedit HEAD
 :pwd
-:source ~/.vim/sessions/sessiontwitter-like
 :cd twitter-like/
 :cd rails_projects/
-:mks! ~/.vim/sessions/sessiontwitter-like
 :wall
-:vnew
-:bwipe
-:Project ~/.vim/projects/twitter-like
 :so %
 :h vimball
 :so%
@@ -59,7 +60,6 @@ $@user1
 :Project
 :saveas ~/.projects/twitter-like
 :h project
-:q!
 :e README.markdown
 : h user_manual40
 :winpos
@@ -369,6 +369,7 @@ $@user1
 :wclose
 
 # Search String History (newest to oldest):
+?/root
 ?/yank
 ? ^\s*$
 ?/mks! ~/.vim/session
@@ -461,61 +462,50 @@ $@user1
 # Input Line History (newest to oldest):
 
 # Registers:
-"0	CHAR	0
-	"changed 3 Feb 2011 https://gist.github.com/256840
-	call <SID>HtmlIndentPush('article')
-	call <SID>HtmlIndentPush('aside')
-	call <SID>HtmlIndentPush('audio')
-	call <SID>HtmlIndentPush('canvas')
-	call <SID>HtmlIndentPush('details')
-	call <SID>HtmlIndentPush('figcaption')
-	call <SID>HtmlIndentPush('figure')
-	call <SID>HtmlIndentPush('footer')
-	call <SID>HtmlIndentPush('header')
-	call <SID>HtmlIndentPush('hgroup')
-	call <SID>HtmlIndentPush('mark')
-	call <SID>HtmlIndentPush('menu')
-	call <SID>HtmlIndentPush('meter')
-	call <SID>HtmlIndentPush('nav')
-	call <SID>HtmlIndentPush('output')
-	call <SID>HtmlIndentPush('progress')
-	call <SID>HtmlIndentPush('section')
-	call <SID>HtmlIndentPush('summary')
-	call <SID>HtmlIndentPush('time')
-	call <SID>HtmlIndentPush('video')
-	"end of changes
-"1	CHAR	0
-	*.swp
-	tags
-"2	CHAR	0
-	*.swp
-	tags
+"0	LINE	0
+			response.should have_selector('title', :content => "About")
+""1	LINE	0
+	  get "pages/home"
+	
+	  get "pages/contact"
+	
+	  get "pages/about"
+"2	LINE	0
+	 
 "3	LINE	0
-	set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+	describe "GET 'home'" do
+		it "should be successful" do
+			get 'home'
+			response.should be_success
+		end
+	end
 "4	LINE	0
-	set statusline+=%{fugitive#statusline()}
+		requests=requests {
 "5	LINE	0
-	  </body>
-	</html>
+	
 "6	LINE	0
-	<!DOCTYPE html>
-	<html>
-	  <head>
-	    <title>Ruby on Rails Tutorial Twitter-Like | <%= @title %></title>
-	  </head>
-	  <body>
+	      <header>
+	        <%= image_tag("logo.png", :alt => "Sample App", :class => "round") %>
+	        <nav class="round">
+	          <ul>
+	            <li><%= link_to "Home", '#' %></li>
+	            <li><%= link_to "Help", '#' %></li>
+	            <li><%= link_to "Sign in", '#' %></li>
+	          </ul>
+	        </nav>
+	      </header>
 "7	LINE	0
-	  </body>
-	</html>
+	
 "8	LINE	0
-	<!DOCTYPE html>
-	<html>
-	  <head>
-	    <title>Ruby on Rails Tutorial Twitter-Like | <%= @title %></title>
-	  </head>
-	  <body>
+	    <!--[if lt IE 9]>
+	    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->    
+	    <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
+	    <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
+	    <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
+	    <%= stylesheet_link_tag 'custom', :media => 'screen' %>
 "9	LINE	0
-	  <body>
+	set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 "a@	CHAR	0
 	%{fugitive#statusline()}
 "b	CHAR	0
@@ -541,39 +531,57 @@ $@user1
 	call <SID>HtmlIndentPush('time')
 	call <SID>HtmlIndentPush('video')
 	"end of changes
+"h	LINE	0
+	      <header>
+	        <%= image_tag("logo.png", :alt => "Sample App", :class => "round") %>
+	        <nav class="round">
+	          <ul>
+	            <li><%= link_to "Home", '#' %></li>
+	            <li><%= link_to "Help", '#' %></li>
+	            <li><%= link_to "Sign in", '#' %></li>
+	          </ul>
+	        </nav>
+	      </header>
 "q	CHAR	0
 	!Q
 "r	LINE	0
 	dfjsfljsdlfjdsklfdjfjdsfsdfjdskfjsdfjdkfjdslkfjdslfkjslfj
+"s	LINE	0
+	    <!--[if lt IE 9]>
+	    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->    
+	    <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
+	    <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
+	    <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
+	    <%= stylesheet_link_tag 'custom', :media => 'screen' %>
 "-	CHAR	0
-	global
+	}
 
 # File marks:
-'0  1  0  ~/.vim/after/syntax/css.vim
-'1  2  0  ~/.vim/misc/setup
-'2  1  0  ~/rails_projects/twitter-like/.rvmrc
-'3  1  0  ~/rails_projects/twitter-like/.rspec
-'4  1  22  ~/rails_projects/depot2/.rvmrc
-'5  1  0  ~/rails_projects/global_gemset_bundle/.rvmrc
-'6  1  0  ~/rails_projects/global_gemset_bundle/.gitignore
-'7  5  0  ~/rails_projects/depot2/.gitignore
-'8  5  0  ~/rails_projects/twitter-like/.gitignore
-'9  1  0  ~/.gitconfig
+'0  110  0  ~/.vim/projects/twitter-like
+'1  54  0  /usr/share/vim/vim72/indent/html.vim
+'2  66  0  /usr/share/vim/vim72/indent/html.vim
+'3  2  0  ~/.vim/after/indent/html.vim
+'4  18  1  ~/rails_projects/twitter-like/Gemfile
+'5  1  0  ~/rails_projects/twitter-like/Gemfile
+'6  28  17  ~/rails_projects/twitter-like/Gemfile
+'7  1  0  ~/.vimprojects
+'8  13  0  ~/.vimrc
+'9  1  241  ~/.vim/.VimballRecord
 
 # Jumplist (newest first):
--'  1  0  ~/.vim/after/syntax/css.vim
--'  2  0  ~/.vim/misc/setup
--'  1  0  ~/.vim/misc/setup
--'  1  0  ~/rails_projects/twitter-like/.rvmrc
--'  1  0  ~/rails_projects/twitter-like/.rspec
--'  1  22  ~/rails_projects/depot2/.rvmrc
--'  1  0  ~/rails_projects/global_gemset_bundle/.rvmrc
--'  1  0  ~/rails_projects/global_gemset_bundle/.gitignore
--'  5  0  ~/rails_projects/depot2/.gitignore
--'  1  0  ~/rails_projects/depot2/.gitignore
--'  5  0  ~/rails_projects/twitter-like/.gitignore
--'  1  0  ~/rails_projects/twitter-like/.gitignore
--'  1  0  ~/.gitconfig
+-'  110  0  ~/.vim/projects/twitter-like
+-'  112  1  ~/.vim/projects/twitter-like
+-'  105  0  ~/.vim/projects/twitter-like
+-'  113  0  ~/.vim/projects/twitter-like
+-'  106  0  ~/.vim/projects/twitter-like
+-'  104  0  ~/.vim/projects/twitter-like
+-'  95  3  ~/.vim/projects/twitter-like
+-'  97  4  ~/.vim/projects/twitter-like
+-'  98  2  ~/.vim/projects/twitter-like
+-'  94  0  ~/.vim/projects/twitter-like
+-'  99  0  ~/.vim/projects/twitter-like
+-'  92  0  ~/.vim/projects/twitter-like
 -'  54  0  /usr/share/vim/vim72/indent/html.vim
 -'  1  0  /usr/share/vim/vim72/indent/html.vim
 -'  66  0  /usr/share/vim/vim72/indent/html.vim
@@ -598,7 +606,7 @@ $@user1
 -'  218  31  ~/.vim/doc/fugitive.txt
 -'  1  0  ~/.vim/doc/fugitive.txt
 -'  1  241  ~/.vim/.VimballRecord
--'  5  0  ~/rails_projects/twitter-like/app/views/pages/home.html.erb
+-'  7  0  ~/rails_projects/twitter-like/app/views/pages/home.html.erb
 -'  5  0  ~/rails_projects/twitter-like/app/views/pages/contact.html.erb
 -'  1  4  ~/rails_projects/twitter-like/app/views/pages/about.html.erb
 -'  5  7  ~/rails_projects/twitter-like/app/views/layouts/application.html.erb
@@ -606,10 +614,10 @@ $@user1
 -'  1  62  ~/rails_projects/twitter-like/app/views/pages/home.html.erb
 -'  1  49  ~/rails_projects/twitter-like/app/views/pages/contact.html.erb
 -'  12  0  ~/.vim/projects/twitter-like
--'  26  3  ~/.vim/projects/twitter-like
--'  28  4  ~/.vim/projects/twitter-like
 -'  29  3  ~/.vim/projects/twitter-like
--'  25  3  ~/.vim/projects/twitter-like
+-'  31  4  ~/.vim/projects/twitter-like
+-'  33  3  ~/.vim/projects/twitter-like
+-'  28  3  ~/.vim/projects/twitter-like
 -'  1  0  ~/Downloads/specky.vba
 -'  45  0  ~/rails_projects/twitter-like/Gemfile
 -'  26  7  ~/rails_projects/twitter-like/spec/spec_helper.rb
@@ -625,6 +633,8 @@ $@user1
 -'  16  17  ~/rails_projects/global_gemset_bundle/Gemfile
 -'  1  0  ~/rails_projects/global_gemset_bundle/Gemfile
 -'  1  0  ~/rails_projects/global_gemset_bundle/gemfile
+-'  5  0  ~/rails_projects/twitter-like/.gitignore
+-'  1  0  ~/rails_projects/twitter-like/.gitignore
 -'  5  36  ~/rails_projects/twitter-like/README.markdown
 -'  6  0  ~/rails_projects/twitter-like/README.markdown
 -'  1  0  ~/rails_projects/twitter-like/README.markdown
@@ -634,34 +644,146 @@ $@user1
 -'  17  21  /usr/share/vim/vim72/doc/usr_32.txt
 -'  1  0  /usr/share/vim/vim72/doc/usr_31.txt
 -'  127  0  /usr/share/vim/vim72/doc/usr_32.txt
--'  270  18  /usr/share/vim/vim72/doc/usr_31.txt
--'  19  22  /usr/share/vim/vim72/doc/usr_30.txt
--'  641  1  /usr/share/vim/vim72/doc/usr_30.txt
--'  72  3  /usr/share/vim/vim72/doc/help.txt
--'  1  0  /usr/share/vim/vim72/doc/help.txt
--'  89  27  ~/rails_projects/depot2/test/integration/user_stories_test.rb
--'  21  1  ~/rails_projects/depot2/app/models/order.rb
--'  17  0  ~/rails_projects/depot2/app/models/order.rb
--'  1  0  ~/rails_projects/depot2/app/models/cart.rb
--'  65  0  ~/.vimrc
--'  37  0  /usr/share/vim/vim72/doc/usr_40.txt
--'  16  25  /usr/share/vim/vim72/doc/usr_32.txt
--'  18  24  /usr/share/vim/vim72/doc/usr_31.txt
--'  17  21  /usr/share/vim/vim72/doc/usr_32.txt
--'  1  0  /usr/share/vim/vim72/doc/usr_31.txt
--'  127  0  /usr/share/vim/vim72/doc/usr_32.txt
--'  270  18  /usr/share/vim/vim72/doc/usr_31.txt
--'  19  22  /usr/share/vim/vim72/doc/usr_30.txt
--'  641  1  /usr/share/vim/vim72/doc/usr_30.txt
--'  72  3  /usr/share/vim/vim72/doc/help.txt
--'  1  0  /usr/share/vim/vim72/doc/help.txt
--'  89  27  ~/rails_projects/depot2/test/integration/user_stories_test.rb
--'  21  1  ~/rails_projects/depot2/app/models/order.rb
--'  17  0  ~/rails_projects/depot2/app/models/order.rb
--'  1  0  ~/rails_projects/depot2/app/models/cart.rb
--'  37  0  /usr/share/vim/vim72/doc/usr_40.txt
 
 # History of marks within files (newest to oldest):
+
+> ~/rails_projects/twitter-like/app/views/pages/home.html.erb
+	"	6	66
+	^	6	67
+	.	6	66
+	+	1	15
+	+	7	7
+	+	1	0
+	+	7	0
+	+	5	0
+	+	1	0
+	+	6	66
+
+> ~/rails_projects/twitter-like/app/controllers/pages_controller.rb
+	"	17	0
+	^	17	0
+	.	17	0
+	+	12	4
+	+	3	18
+	+	7	21
+	+	11	19
+	+	17	0
+
+> ~/rails_projects/twitter-like/config/routes.rb
+	"	2	0
+	^	3	47
+	.	3	46
+	+	9	18
+	+	9	0
+	+	7	2
+	+	8	0
+	+	3	46
+
+> ~/rails_projects/twitter-like/app/views/layouts/application.html.erb
+	"	1	0
+	^	14	36
+	.	14	35
+	+	1	0
+	+	1	11
+	+	1	68
+	+	1	62
+	+	1	0
+	+	11	0
+	+	7	0
+	+	6	38
+	+	11	0
+	+	10	35
+	+	14	35
+
+> ~/.vim/projects/twitter-like
+	"	110	0
+	^	32	15
+	.	113	0
+	+	27	0
+	+	33	0
+	+	8	9
+	+	106	0
+	+	106	0
+	+	106	0
+	+	113	0
+	+	3	0
+	+	33	15
+	+	33	0
+	+	29	0
+	+	27	0
+	+	23	21
+	+	99	0
+	+	98	2
+	+	98	0
+	+	95	0
+	+	93	11
+	+	24	22
+	+	25	17
+	+	26	17
+	+	105	0
+	+	112	1
+	+	112	2
+	+	112	0
+	+	112	1
+	+	112	0
+	+	112	0
+	+	111	1
+	+	110	21
+	+	32	14
+	+	113	0
+	+	127	0
+	+	113	0
+	k	104	0
+
+> ~/rails_projects/twitter-like/public/stylesheets/custom.css
+	"	116	0
+	^	117	0
+	.	116	1
+	+	43	1
+	+	6	17
+	+	55	1
+	+	79	1
+	+	94	1
+	+	101	31
+	+	100	0
+	+	102	1
+	+	116	1
+
+> ~/rails_projects/twitter-like/app/views/layouts/_stylesheets.html.erb
+	"	1	0
+	.	1	0
+	+	1	0
+
+> ~/rails_projects/twitter-like/app/views/layouts/_header.html.erb
+	"	1	0
+	.	1	0
+	+	1	0
+
+> ~/rails_projects/twitter-like/app/views/layouts/_footer.html.erb
+	"	1	0
+	.	1	0
+	+	1	0
+
+> ~/rails_projects/twitter-like/spec/integration/layout_links_spec.rb
+	"	6	0
+	^	25	3
+	.	25	2
+	+	1	21
+	+	6	7
+	+	3	24
+	+	17	61
+	+	21	12
+	+	22	60
+	+	25	2
+
+> /usr/share/vim/vim72/doc/message.txt
+	"	162	14
+
+> ~/rails_projects/twitter-like/app/views/pages/help.html.erb
+	"	1	0
+	.	3	0
+	+	1	0
+	+	3	0
 
 > ~/.vim/after/syntax/css.vim
 	"	1	0
@@ -838,20 +960,8 @@ $@user1
 	+	96	17
 	m	100	0
 
-> /usr/share/vim/vim72/doc/message.txt
-	"	163	0
-
 > ~/Desktop/new file
 	"	1	0
-
-> ~/rails_projects/twitter-like/app/controllers/pages_controller.rb
-	"	13	2
-	^	11	20
-	.	11	19
-	+	12	4
-	+	3	18
-	+	7	21
-	+	11	19
 
 > ~/rails_projects/twitter-like/spec/controllers/pages_controller_spec.rb
 	"	17	0
@@ -869,12 +979,6 @@ $@user1
 	+	42	6
 	+	41	91
 
-> ~/rails_projects/twitter-like/config/routes.rb
-	"	1	0
-	^	6	19
-	.	6	18
-	+	6	18
-
 > ~/rails_projects/twitter-like/app/views/pages/about.html.erb
 	"	1	4
 	.	1	0
@@ -883,35 +987,6 @@ $@user1
 	+	1	0
 	+	6	0
 	+	1	0
-
-> ~/rails_projects/twitter-like/app/views/layouts/application.html.erb
-	"	24	0
-	.	17	0
-	+	1	0
-	+	1	11
-	+	1	68
-	+	1	62
-	+	1	0
-	+	17	0
-
-> ~/.vim/projects/twitter-like
-	"	23	0
-	^	23	22
-	.	23	21
-	+	24	0
-	+	29	0
-	+	8	9
-	+	96	0
-	+	96	0
-	+	95	0
-	+	99	0
-	+	3	0
-	+	29	15
-	+	29	0
-	+	26	0
-	+	24	0
-	+	23	21
-	k	25	3
 
 > ~/rails_projects/twitter-like/app/helpers/application_helper.rb
 	"	7	0
@@ -1094,14 +1169,6 @@ $@user1
 	"	1	241
 	.	1	0
 	+	1	0
-
-> ~/rails_projects/twitter-like/app/views/pages/home.html.erb
-	"	5	0
-	.	5	0
-	+	1	15
-	+	5	7
-	+	1	0
-	+	5	0
 
 > ~/rails_projects/twitter-like/app/views/pages/contact.html.erb
 	"	5	0
@@ -2038,26 +2105,4 @@ $@user1
 	"	13	1
 
 > ~/rails_projects/depot2/config/environments/test.rb
-	"	1	0
-
-> ~/rails_projects/depot2/config/initializers/session_store.rb
-	"	1	18
-	^	8	0
-	.	8	0
-	+	3	1
-	+	8	0
-
-> ~/rails_projects/depot2/config/environment.rb
-	"	1	0
-
-> ~/rails_projects/depot2/config/boot.rb
-	"	1	0
-
-> ~/rails_projects/depot2/config/application.rb
-	"	17	0
-
-> ~/rails_projects/depot2/db/schema.rb
-	"	1	0
-
-> ~/rails_projects/depot2/db/test.sqlite3
 	"	1	0
