@@ -3,6 +3,7 @@
 	mail = luke.gru@gmail.com
 [core]
 	editor = gvim
+	excludesfile = /home/luke/.gitignore
 
 	[alias]
   co = checkout

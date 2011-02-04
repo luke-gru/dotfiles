@@ -17,6 +17,7 @@
 $@user1
 
 # Command Line History (newest to oldest):
+:!git add %
 :w
 :qall!
 :w!
@@ -366,7 +367,6 @@ $@user1
 :tabf app/controllers/store_controller.rb
 :help rails
 :wclose
-:Rfind layouts/store.html.erb
 
 # Search String History (newest to oldest):
 ?/yank
@@ -484,20 +484,16 @@ $@user1
 	call <SID>HtmlIndentPush('time')
 	call <SID>HtmlIndentPush('video')
 	"end of changes
-"1	LINE	0
-	set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
-"2	LINE	0
-	set statusline+=%{fugitive#statusline()}
+"1	CHAR	0
+	*.swp
+	tags
+"2	CHAR	0
+	*.swp
+	tags
 "3	LINE	0
-	  </body>
-	</html>
+	set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 "4	LINE	0
-	<!DOCTYPE html>
-	<html>
-	  <head>
-	    <title>Ruby on Rails Tutorial Twitter-Like | <%= @title %></title>
-	  </head>
-	  <body>
+	set statusline+=%{fugitive#statusline()}
 "5	LINE	0
 	  </body>
 	</html>
@@ -509,11 +505,17 @@ $@user1
 	  </head>
 	  <body>
 "7	LINE	0
-	  <body>
-"8	LINE	0
 	  </body>
-"9	LINE	0
 	</html>
+"8	LINE	0
+	<!DOCTYPE html>
+	<html>
+	  <head>
+	    <title>Ruby on Rails Tutorial Twitter-Like | <%= @title %></title>
+	  </head>
+	  <body>
+"9	LINE	0
+	  <body>
 "a@	CHAR	0
 	%{fugitive#statusline()}
 "b	CHAR	0
@@ -544,21 +546,34 @@ $@user1
 "r	LINE	0
 	dfjsfljsdlfjdsklfdjfjdsfsdfjdskfjsdfjdkfjdslkfjdslfkjslfj
 "-	CHAR	0
-	}
+	global
 
 # File marks:
-'0  54  0  /usr/share/vim/vim72/indent/html.vim
-'1  66  0  /usr/share/vim/vim72/indent/html.vim
-'2  2  0  ~/.vim/after/indent/html.vim
-'3  18  1  ~/rails_projects/twitter-like/Gemfile
-'4  1  0  ~/rails_projects/twitter-like/Gemfile
-'5  28  17  ~/rails_projects/twitter-like/Gemfile
-'6  1  0  ~/.vimprojects
-'7  13  0  ~/.vimrc
-'8  1  241  ~/.vim/.VimballRecord
-'9  4  45  ~/rails_projects/twitter-like/app/views/layouts/application.html.erb
+'0  1  0  ~/.vim/after/syntax/css.vim
+'1  2  0  ~/.vim/misc/setup
+'2  1  0  ~/rails_projects/twitter-like/.rvmrc
+'3  1  0  ~/rails_projects/twitter-like/.rspec
+'4  1  22  ~/rails_projects/depot2/.rvmrc
+'5  1  0  ~/rails_projects/global_gemset_bundle/.rvmrc
+'6  1  0  ~/rails_projects/global_gemset_bundle/.gitignore
+'7  5  0  ~/rails_projects/depot2/.gitignore
+'8  5  0  ~/rails_projects/twitter-like/.gitignore
+'9  1  0  ~/.gitconfig
 
 # Jumplist (newest first):
+-'  1  0  ~/.vim/after/syntax/css.vim
+-'  2  0  ~/.vim/misc/setup
+-'  1  0  ~/.vim/misc/setup
+-'  1  0  ~/rails_projects/twitter-like/.rvmrc
+-'  1  0  ~/rails_projects/twitter-like/.rspec
+-'  1  22  ~/rails_projects/depot2/.rvmrc
+-'  1  0  ~/rails_projects/global_gemset_bundle/.rvmrc
+-'  1  0  ~/rails_projects/global_gemset_bundle/.gitignore
+-'  5  0  ~/rails_projects/depot2/.gitignore
+-'  1  0  ~/rails_projects/depot2/.gitignore
+-'  5  0  ~/rails_projects/twitter-like/.gitignore
+-'  1  0  ~/rails_projects/twitter-like/.gitignore
+-'  1  0  ~/.gitconfig
 -'  54  0  /usr/share/vim/vim72/indent/html.vim
 -'  1  0  /usr/share/vim/vim72/indent/html.vim
 -'  66  0  /usr/share/vim/vim72/indent/html.vim
@@ -610,8 +625,6 @@ $@user1
 -'  16  17  ~/rails_projects/global_gemset_bundle/Gemfile
 -'  1  0  ~/rails_projects/global_gemset_bundle/Gemfile
 -'  1  0  ~/rails_projects/global_gemset_bundle/gemfile
--'  5  0  ~/rails_projects/twitter-like/.gitignore
--'  1  0  ~/rails_projects/twitter-like/.gitignore
 -'  5  36  ~/rails_projects/twitter-like/README.markdown
 -'  6  0  ~/rails_projects/twitter-like/README.markdown
 -'  1  0  ~/rails_projects/twitter-like/README.markdown
@@ -647,16 +660,58 @@ $@user1
 -'  17  0  ~/rails_projects/depot2/app/models/order.rb
 -'  1  0  ~/rails_projects/depot2/app/models/cart.rb
 -'  37  0  /usr/share/vim/vim72/doc/usr_40.txt
--'  16  25  /usr/share/vim/vim72/doc/usr_32.txt
--'  18  24  /usr/share/vim/vim72/doc/usr_31.txt
--'  17  21  /usr/share/vim/vim72/doc/usr_32.txt
--'  12  0  ~/.vim/plugin/fugitive.txt
--'  1  0  ~/.vim/plugin/fugitive.txt
--'  1  0  ~/.vimprojects
--'  44  0  /usr/share/vim/vim72/indent/html.vim
--'  69  55  /usr/share/vim/vim72/indent/html.vim
 
 # History of marks within files (newest to oldest):
+
+> ~/.vim/after/syntax/css.vim
+	"	1	0
+	.	1	0
+	+	1	0
+
+> ~/.vim/misc/setup
+	"	2	0
+
+> ~/rails_projects/twitter-like/.rvmrc
+	"	1	0
+
+> ~/rails_projects/twitter-like/.rspec
+	"	1	0
+
+> ~/rails_projects/depot2/.rvmrc
+	"	1	22
+	^	1	23
+	.	1	22
+	+	1	22
+
+> ~/rails_projects/global_gemset_bundle/.rvmrc
+	"	1	0
+
+> ~/rails_projects/global_gemset_bundle/.gitignore
+	"	1	0
+
+> ~/rails_projects/depot2/.gitignore
+	"	5	0
+	^	5	5
+	.	6	0
+	+	5	3
+	+	5	0
+	+	6	0
+
+> ~/rails_projects/twitter-like/.gitignore
+	"	5	0
+	^	5	4
+	.	6	0
+	+	5	0
+	+	5	0
+	+	6	0
+
+> ~/.gitconfig
+	"	1	0
+
+> ~/.gitignore
+	"	2	3
+	.	2	0
+	+	2	0
 
 > /usr/share/vim/vim72/indent/html.vim
 	"	54	0
@@ -1110,12 +1165,6 @@ $@user1
 	+	1	77
 	+	3	18
 
-> ~/rails_projects/twitter-like/.gitignore
-	"	5	0
-	^	5	1
-	.	5	0
-	+	5	0
-
 > ~/rails_projects/global_gemset_bundle/gemfile
 	"	1	0
 
@@ -1358,9 +1407,6 @@ $@user1
 
 > /usr/share/vim/vim72/doc/usr_40.txt
 	"	37	0
-
-> ~/rails_projects/depot2/.gitignore
-	"	1	0
 
 > ~/rails_projects/depot2/test/unit/product_test.rb
 	"	1	0
@@ -2015,32 +2061,3 @@ $@user1
 
 > ~/rails_projects/depot2/db/test.sqlite3
 	"	1	0
-
-> ~/rails_projects/depot2/db/seeds.rb
-	"	1	0
-
-> ~/rails_projects/depot2/test/test_helper.rb
-	"	12	0
-
-> ~/rails_projects/depot2/log/test.log
-	"	174	57
-	.	1	0
-	+	1	0
-
-> ~/rails_projects/depot2/config/initializers/mime_types.rb
-	"	1	0
-
-> ~/rails_projects/depot2/config/initializers/inflections.rb
-	"	1	0
-
-> ~/rails_projects/depot2/config/initializers/backtrace_silencers.rb
-	"	4	0
-
-> ~/rails_projects/depot2/test/unit/line_item_test.rb
-	"	1	0
-
-> ~/.vim/doc/surround.txt
-	"	220	0
-
-> /usr/share/vim/vim72/doc/usr_27.txt
-	"	561	18
