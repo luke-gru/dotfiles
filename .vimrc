@@ -93,6 +93,7 @@ set splitbelow		"horiz. splits go below (good for splits)
 "n- and i-mode mappings
 nnoremap <C-y> "+y
 nnoremap <C-\> "+p
+vnoremap <C-y> "+y
 noremap <silent> <F3> <ESC>:e ~/.vimrc<CR>
 inoremap <A-m> <ESC> 
 inoremap <F1> <ESC>

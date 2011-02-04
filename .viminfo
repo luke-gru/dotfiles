@@ -8,7 +8,7 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/mks! ~
+~MSle0~/yank
 
 # Last Substitute Search Pattern:
 ~MSle0&@user
@@ -17,7 +17,12 @@
 $@user1
 
 # Command Line History (newest to oldest):
+:w
 :qall!
+:w!
+:h 212
+:new
+:set modifiable
 :IndentGuidesToggle
 :b#
 :h leader
@@ -30,11 +35,9 @@ $@user1
 :q
 :Gstatus
 :h fugitive
-:new
 :ls
 :Gedit HEAD
 :pwd
-:w
 :source ~/.vim/sessions/sessiontwitter-like
 :cd twitter-like/
 :cd rails_projects/
@@ -270,7 +273,6 @@ $@user1
 :set readonly?
 :set read-only?
 :set modifiable?
-:w!
 :1,7D
 :set ft=html.ruby
 :help snipmate
@@ -301,7 +303,6 @@ $@user1
 :e ~/.vimrc
 :wqa
 :e ~/.gitconfig
-:set modifiable
 :na
 :1
 :b 9
@@ -366,9 +367,9 @@ $@user1
 :help rails
 :wclose
 :Rfind layouts/store.html.erb
-:tabf app/views/store/_cart.html.erb
 
 # Search String History (newest to oldest):
+?/yank
 ? ^\s*$
 ?/mks! ~/.vim/session
 ?/mks
@@ -461,8 +462,29 @@ $@user1
 
 # Registers:
 "0	CHAR	0
-	<%= @title %>
-""1	LINE	0
+	"changed 3 Feb 2011 https://gist.github.com/256840
+	call <SID>HtmlIndentPush('article')
+	call <SID>HtmlIndentPush('aside')
+	call <SID>HtmlIndentPush('audio')
+	call <SID>HtmlIndentPush('canvas')
+	call <SID>HtmlIndentPush('details')
+	call <SID>HtmlIndentPush('figcaption')
+	call <SID>HtmlIndentPush('figure')
+	call <SID>HtmlIndentPush('footer')
+	call <SID>HtmlIndentPush('header')
+	call <SID>HtmlIndentPush('hgroup')
+	call <SID>HtmlIndentPush('mark')
+	call <SID>HtmlIndentPush('menu')
+	call <SID>HtmlIndentPush('meter')
+	call <SID>HtmlIndentPush('nav')
+	call <SID>HtmlIndentPush('output')
+	call <SID>HtmlIndentPush('progress')
+	call <SID>HtmlIndentPush('section')
+	call <SID>HtmlIndentPush('summary')
+	call <SID>HtmlIndentPush('time')
+	call <SID>HtmlIndentPush('video')
+	"end of changes
+"1	LINE	0
 	set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 "2	LINE	0
 	set statusline+=%{fugitive#statusline()}
@@ -494,6 +516,29 @@ $@user1
 	</html>
 "a@	CHAR	0
 	%{fugitive#statusline()}
+"b	CHAR	0
+	"changed 3 Feb 2011 https://gist.github.com/256840
+	call <SID>HtmlIndentPush('article')
+	call <SID>HtmlIndentPush('aside')
+	call <SID>HtmlIndentPush('audio')
+	call <SID>HtmlIndentPush('canvas')
+	call <SID>HtmlIndentPush('details')
+	call <SID>HtmlIndentPush('figcaption')
+	call <SID>HtmlIndentPush('figure')
+	call <SID>HtmlIndentPush('footer')
+	call <SID>HtmlIndentPush('header')
+	call <SID>HtmlIndentPush('hgroup')
+	call <SID>HtmlIndentPush('mark')
+	call <SID>HtmlIndentPush('menu')
+	call <SID>HtmlIndentPush('meter')
+	call <SID>HtmlIndentPush('nav')
+	call <SID>HtmlIndentPush('output')
+	call <SID>HtmlIndentPush('progress')
+	call <SID>HtmlIndentPush('section')
+	call <SID>HtmlIndentPush('summary')
+	call <SID>HtmlIndentPush('time')
+	call <SID>HtmlIndentPush('video')
+	"end of changes
 "q	CHAR	0
 	!Q
 "r	LINE	0
@@ -502,18 +547,26 @@ $@user1
 	}
 
 # File marks:
-'0  18  1  ~/rails_projects/twitter-like/Gemfile
-'1  1  0  ~/rails_projects/twitter-like/Gemfile
-'2  28  17  ~/rails_projects/twitter-like/Gemfile
-'3  1  0  ~/.vimprojects
-'4  13  0  ~/.vimrc
-'5  1  241  ~/.vim/.VimballRecord
-'6  4  45  ~/rails_projects/twitter-like/app/views/layouts/application.html.erb
-'7  1  0  ~/Downloads/specky.vba
-'8  1  0  ~/Downloads/specky.vba
-'9  1  32  ~/rails_projects/twitter-like/app/views/pages/home.html.erb
+'0  54  0  /usr/share/vim/vim72/indent/html.vim
+'1  66  0  /usr/share/vim/vim72/indent/html.vim
+'2  2  0  ~/.vim/after/indent/html.vim
+'3  18  1  ~/rails_projects/twitter-like/Gemfile
+'4  1  0  ~/rails_projects/twitter-like/Gemfile
+'5  28  17  ~/rails_projects/twitter-like/Gemfile
+'6  1  0  ~/.vimprojects
+'7  13  0  ~/.vimrc
+'8  1  241  ~/.vim/.VimballRecord
+'9  4  45  ~/rails_projects/twitter-like/app/views/layouts/application.html.erb
 
 # Jumplist (newest first):
+-'  54  0  /usr/share/vim/vim72/indent/html.vim
+-'  1  0  /usr/share/vim/vim72/indent/html.vim
+-'  66  0  /usr/share/vim/vim72/indent/html.vim
+-'  43  38  /usr/share/vim/vim72/indent/html.vim
+-'  41  60  /usr/share/vim/vim72/indent/html.vim
+-'  91  55  /usr/share/vim/vim72/indent/html.vim
+-'  40  58  /usr/share/vim/vim72/indent/html.vim
+-'  2  0  ~/.vim/after/indent/html.vim
 -'  18  1  ~/rails_projects/twitter-like/Gemfile
 -'  22  0  ~/rails_projects/twitter-like/Gemfile
 -'  24  0  ~/rails_projects/twitter-like/Gemfile
@@ -552,7 +605,7 @@ $@user1
 -'  5  0  ~/rails_projects/twitter-like/.autotest
 -'  30  33  ~/rails_projects/twitter-like/Gemfile
 -'  59  35  ~/.vimrc
--'  117  28  ~/.vimrc
+-'  118  28  ~/.vimrc
 -'  58  22  ~/.vimrc
 -'  16  17  ~/rails_projects/global_gemset_bundle/Gemfile
 -'  1  0  ~/rails_projects/global_gemset_bundle/Gemfile
@@ -600,17 +653,243 @@ $@user1
 -'  12  0  ~/.vim/plugin/fugitive.txt
 -'  1  0  ~/.vim/plugin/fugitive.txt
 -'  1  0  ~/.vimprojects
--'  4  45  ~/rails_projects/twitter-like/app/views/layouts/application.html.erb
--'  218  31  ~/.vim/doc/fugitive.txt
--'  1  0  ~/.vim/doc/fugitive.txt
--'  1  241  ~/.vim/.VimballRecord
--'  5  0  ~/rails_projects/twitter-like/app/views/pages/home.html.erb
--'  5  0  ~/rails_projects/twitter-like/app/views/pages/contact.html.erb
--'  1  4  ~/rails_projects/twitter-like/app/views/pages/about.html.erb
--'  5  7  ~/rails_projects/twitter-like/app/views/layouts/application.html.erb
--'  1  0  ~/rails_projects/twitter-like/app/views/layouts/application.html.erb
+-'  44  0  /usr/share/vim/vim72/indent/html.vim
+-'  69  55  /usr/share/vim/vim72/indent/html.vim
 
 # History of marks within files (newest to oldest):
+
+> /usr/share/vim/vim72/indent/html.vim
+	"	54	0
+	^	44	0
+	.	43	38
+	+	40	0
+	+	41	0
+	+	40	0
+	+	91	0
+	+	41	0
+	+	43	38
+
+> ~/.vim/after/indent/html.vim
+	"	1	0
+	^	22	15
+	.	22	14
+	+	2	0
+	+	1	19
+	+	22	14
+
+> ~/.vimrc
+	"	96	17
+	^	96	18
+	.	96	17
+	+	10	0
+	+	11	0
+	+	12	14
+	+	11	22
+	+	15	0
+	+	10	0
+	+	102	34
+	+	101	12
+	+	102	17
+	+	101	16
+	+	98	16
+	+	99	17
+	+	101	17
+	+	98	8
+	+	99	9
+	+	100	0
+	+	101	9
+	+	102	9
+	+	101	34
+	+	73	47
+	+	106	11
+	+	104	21
+	+	105	23
+	+	107	21
+	+	114	0
+	+	75	16
+	+	81	17
+	+	85	17
+	+	94	14
+	+	103	2
+	+	94	15
+	+	20	28
+	+	21	17
+	+	22	21
+	+	16	16
+	+	11	20
+	+	8	9
+	+	15	0
+	+	18	0
+	+	22	0
+	+	119	63
+	+	120	67
+	+	27	11
+	+	74	46
+	+	27	45
+	+	114	14
+	+	122	0
+	+	122	65
+	+	122	51
+	+	122	16
+	+	122	16
+	+	122	42
+	+	122	0
+	+	117	0
+	+	120	0
+	+	121	0
+	+	113	20
+	+	114	38
+	+	113	13
+	+	23	0
+	+	111	25
+	+	114	2
+	+	87	5
+	+	88	0
+	+	112	26
+	+	83	0
+	+	84	0
+	+	83	20
+	+	71	34
+	+	98	16
+	+	83	21
+	+	108	11
+	+	97	0
+	+	95	0
+	+	108	0
+	+	71	13
+	+	109	29
+	+	109	0
+	+	109	0
+	+	61	29
+	+	83	4
+	+	108	14
+	+	61	10
+	+	118	0
+	+	116	75
+	+	116	75
+	+	31	61
+	+	45	0
+	+	5	60
+	+	59	28
+	+	6	13
+	+	7	0
+	+	61	0
+	+	59	19
+	+	107	29
+	+	59	26
+	+	60	31
+	+	22	0
+	+	17	0
+	+	96	17
+	m	100	0
+
+> /usr/share/vim/vim72/doc/message.txt
+	"	163	0
+
+> ~/Desktop/new file
+	"	1	0
+
+> ~/rails_projects/twitter-like/app/controllers/pages_controller.rb
+	"	13	2
+	^	11	20
+	.	11	19
+	+	12	4
+	+	3	18
+	+	7	21
+	+	11	19
+
+> ~/rails_projects/twitter-like/spec/controllers/pages_controller_spec.rb
+	"	17	0
+	^	41	92
+	.	41	91
+	+	43	3
+	+	5	0
+	+	18	0
+	+	14	44
+	+	16	0
+	+	12	12
+	+	17	4
+	+	16	0
+	+	29	6
+	+	42	6
+	+	41	91
+
+> ~/rails_projects/twitter-like/config/routes.rb
+	"	1	0
+	^	6	19
+	.	6	18
+	+	6	18
+
+> ~/rails_projects/twitter-like/app/views/pages/about.html.erb
+	"	1	4
+	.	1	0
+	+	6	7
+	+	1	61
+	+	1	0
+	+	6	0
+	+	1	0
+
+> ~/rails_projects/twitter-like/app/views/layouts/application.html.erb
+	"	24	0
+	.	17	0
+	+	1	0
+	+	1	11
+	+	1	68
+	+	1	62
+	+	1	0
+	+	17	0
+
+> ~/.vim/projects/twitter-like
+	"	23	0
+	^	23	22
+	.	23	21
+	+	24	0
+	+	29	0
+	+	8	9
+	+	96	0
+	+	96	0
+	+	95	0
+	+	99	0
+	+	3	0
+	+	29	15
+	+	29	0
+	+	26	0
+	+	24	0
+	+	23	21
+	k	25	3
+
+> ~/rails_projects/twitter-like/app/helpers/application_helper.rb
+	"	7	0
+	^	4	23
+	.	7	0
+	+	8	20
+	+	9	5
+	+	10	0
+	+	4	17
+	+	8	0
+	+	6	0
+	+	6	0
+	+	8	0
+	+	6	15
+	+	3	8
+	+	6	10
+	+	8	13
+	+	4	22
+	+	8	0
+	+	5	0
+	+	6	0
+	+	7	0
+
+> /usr/share/vim/vim72/doc/eval.txt
+	"	3449	0
+
+> ~/.vim/after/syntax/html.vim
+	"	1	0
+	^	29	29
+	.	29	28
+	+	1	0
+	+	30	1
+	+	29	28
 
 > ~/rails_projects/twitter-like/Gemfile
 	"	18	1
@@ -647,129 +926,8 @@ $@user1
 > ~/rails_projects/twitter-like/.git/refs/heads/master
 	"	1	0
 
-> ~/.vimrc
-	"	17	0
-	.	17	0
-	+	12	0
-	+	10	0
-	+	11	0
-	+	12	14
-	+	11	22
-	+	15	0
-	+	10	0
-	+	101	34
-	+	100	12
-	+	101	17
-	+	100	16
-	+	97	16
-	+	98	17
-	+	100	17
-	+	97	8
-	+	98	9
-	+	99	0
-	+	100	9
-	+	101	9
-	+	100	34
-	+	73	47
-	+	105	11
-	+	103	21
-	+	104	23
-	+	106	21
-	+	113	0
-	+	75	16
-	+	81	17
-	+	85	17
-	+	94	14
-	+	102	2
-	+	94	15
-	+	20	28
-	+	21	17
-	+	22	21
-	+	16	16
-	+	11	20
-	+	8	9
-	+	15	0
-	+	18	0
-	+	22	0
-	+	118	63
-	+	119	67
-	+	27	11
-	+	74	46
-	+	27	45
-	+	113	14
-	+	121	0
-	+	121	65
-	+	121	51
-	+	121	16
-	+	121	16
-	+	121	42
-	+	121	0
-	+	116	0
-	+	119	0
-	+	120	0
-	+	112	20
-	+	113	38
-	+	112	13
-	+	23	0
-	+	110	25
-	+	113	2
-	+	87	5
-	+	88	0
-	+	111	26
-	+	83	0
-	+	84	0
-	+	83	20
-	+	71	34
-	+	97	16
-	+	83	21
-	+	107	11
-	+	96	0
-	+	95	0
-	+	107	0
-	+	71	13
-	+	108	29
-	+	108	0
-	+	108	0
-	+	61	29
-	+	83	4
-	+	107	14
-	+	61	10
-	+	117	0
-	+	115	75
-	+	115	75
-	+	31	61
-	+	45	0
-	+	5	60
-	+	59	28
-	+	6	13
-	+	7	0
-	+	61	0
-	+	59	19
-	+	106	29
-	+	59	26
-	+	60	31
-	+	22	0
-	+	17	0
-	m	99	0
-
 > ~/.vim/plugin/fugitive.txt
 	"	12	0
-
-> ~/rails_projects/twitter-like/app/controllers/pages_controller.rb
-	"	1	0
-	^	11	20
-	.	11	19
-	+	12	4
-	+	3	18
-	+	7	21
-	+	11	19
-
-> ~/rails_projects/twitter-like/app/views/layouts/application.html.erb
-	"	4	45
-	^	4	46
-	.	4	45
-	+	1	0
-	+	4	45
 
 > ~/.vimprojects
 	"	1	0
@@ -889,56 +1047,6 @@ $@user1
 	+	5	7
 	+	1	0
 	+	5	0
-
-> ~/.vim/projects/twitter-like
-	"	23	0
-	^	23	22
-	.	23	21
-	+	24	0
-	+	29	0
-	+	8	9
-	+	96	0
-	+	96	0
-	+	95	0
-	+	99	0
-	+	3	0
-	+	29	15
-	+	29	0
-	+	26	0
-	+	24	0
-	+	23	21
-	k	25	3
-
-> ~/rails_projects/twitter-like/spec/controllers/pages_controller_spec.rb
-	"	41	91
-	^	41	92
-	.	41	91
-	+	43	3
-	+	5	0
-	+	18	0
-	+	14	44
-	+	16	0
-	+	12	12
-	+	17	4
-	+	16	0
-	+	29	6
-	+	42	6
-	+	41	91
-
-> ~/rails_projects/twitter-like/config/routes.rb
-	"	22	27
-	^	6	19
-	.	6	18
-	+	6	18
-
-> ~/rails_projects/twitter-like/app/views/pages/about.html.erb
-	"	1	4
-	.	1	0
-	+	6	7
-	+	1	61
-	+	1	0
-	+	6	0
-	+	1	0
 
 > ~/rails_projects/twitter-like/app/views/pages/contact.html.erb
 	"	5	0
@@ -1936,55 +2044,3 @@ $@user1
 
 > /usr/share/vim/vim72/doc/usr_27.txt
 	"	561	18
-
-> /usr/share/vim/vim72/doc/usr_28.txt
-	"	1	0
-
-> /usr/share/vim/vim72/doc/diff.txt
-	"	29	0
-
-> /usr/share/vim/vim72/doc/motion.txt
-	"	1223	6
-
-> ~/rails_projects/depot2/test/fixtures/products.yml
-	"	5	42
-	^	5	44
-	.	5	43
-	+	14	0
-	+	5	13
-	+	4	19
-	+	7	28
-	+	4	1
-	+	5	0
-	+	6	0
-	+	7	0
-	+	5	1
-	+	6	1
-	+	7	1
-	+	9	11
-	+	13	30
-	+	5	43
-
-> ~/rails_projects/depot2/app/models/cart_item.rb
-	"	1	0
-	^	22	3
-	.	22	2
-	+	22	2
-
-> ~/rails_projects/depot2/app/models/line_item.rb
-	"	1	0
-	^	8	33
-	.	8	32
-	+	2	24
-	+	3	21
-	+	2	18
-	+	3	20
-	+	12	4
-	+	9	49
-	+	8	29
-	+	11	19
-	+	9	32
-	+	8	32
-
-> ~/rails_projects/depot2/app/controllers/line_items_controller.rb
-	"	6	0
