@@ -9,6 +9,7 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
   controllers=controllers {
    application_controller.rb
    pages_controller.rb
+   users_controller.rb
   }
   helpers=helpers {
    application_helper.rb
@@ -17,6 +18,7 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
   mailers=mailers {
   }
   models=models {
+   user.rb
   }
   views=views {
    layouts=layouts {
@@ -31,6 +33,10 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
     home.html.erb
 		help.html.erb
    }
+	 users=users {
+    new.html.erb
+		show.html.erb
+	}
   }
  }
  config=config {
@@ -56,7 +62,14 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
   }
  }
  db=db {
+  development.sqlite3
+  schema.rb
   seeds.rb
+  test.sqlite3
+	migrate=migrate {
+   20110206001304_create_users.rb
+   20110206022006_add_email_uniqueness_index.rb
+	}
  }
  doc=doc {
   README_FOR_APP
@@ -105,9 +118,13 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
   spec_helper.rb
   controllers=controllers {
    pages_controller_spec.rb
+   users_controller_spec.rb
   }
 	integration=integration {
 		layout_links_spec.rb
+	}
+	models=models {
+   user_spec.rb
 	}
 	}
  tmp=tmp {
