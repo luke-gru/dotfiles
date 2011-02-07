@@ -20,20 +20,30 @@ badd +116 public/stylesheets/custom.css
 badd +4 app/views/layouts/_stylesheets.html.erb
 badd +11 app/views/layouts/_header.html.erb
 badd +5 app/views/layouts/_footer.html.erb
-badd +30 spec/integration/layout_links_spec.rb
+badd +1 spec/integration/layout_links_spec.rb
 badd +1 app/views/pages/help.html.erb
 badd +1 .autotest
-badd +1 config/application.rb
-badd +15 spec/controllers/users_controller_spec.rb
+badd +5 config/application.rb
+badd +2 spec/controllers/users_controller_spec.rb
 badd +1 app/helpers/application_helper.rb
-badd +10 app/controllers/users_controller.rb
-badd +11 app/models/user.rb
-badd +48 spec/models/user_spec.rb
+badd +9 app/controllers/users_controller.rb
+badd +46 app/models/user.rb
+badd +134 spec/models/user_spec.rb
 badd +9 db/migrate/20110206022006_add_email_uniqueness_index.rb
 badd +1 app/views/users/new.html.erb
-badd +1 app/views/users/show.html.erb
+badd +2 app/views/users/show.html.erb
+badd +15 db/schema.rb
+badd +3 db/migrate/20110206203259_add_password_to_users.rb
+badd +1 db/migrate/20110206214822_add_salt_to_users.rb
+badd +11 Gemfile
+badd +6 spec/factories.rb
+badd +16 spec/spec_helper.rb
+badd +1 config/environment.rb
+badd +1 config/environments/test.rb
+badd +1 config.ru
+badd +7 config/environments/development.rb
 args .autotest
-winpos 500 38
+winpos 0 24
 edit ~/.vim/projects/twitter-like
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -45,9 +55,9 @@ wincmd w
 wincmd w
 wincmd t
 set winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 24 + 49) / 98)
-exe 'vert 2resize ' . ((&columns * 70 + 49) / 98)
-exe 'vert 3resize ' . ((&columns * 2 + 49) / 98)
+exe 'vert 1resize ' . ((&columns * 24 + 77) / 155)
+exe 'vert 2resize ' . ((&columns * 71 + 77) / 155)
+exe 'vert 3resize ' . ((&columns * 58 + 77) / 155)
 argglobal
 setlocal fdm=marker
 setlocal fde=0
@@ -59,17 +69,33 @@ setlocal fdn=20
 setlocal fen
 2
 normal zo
+8
+normal zo
+23
+normal zo
+36
+normal zo
+23
+normal zo
+8
+normal zo
+119
+normal zo
+122
+normal zo
+119
+normal zo
 2
 normal zo
-let s:l = 38 - ((37 * winheight(0) + 17) / 34)
+let s:l = 124 - ((120 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-38
+124
 normal! 0
 wincmd w
 argglobal
-edit app/controllers/users_controller.rb
+edit spec/controllers/users_controller_spec.rb
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -79,12 +105,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 8 - ((7 * winheight(0) + 17) / 34)
+let s:l = 49 - ((28 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-8
-normal! 027l
+49
+normal! 0
 wincmd w
 argglobal
 edit spec/controllers/users_controller_spec.rb
@@ -104,10 +130,9 @@ normal! zt
 1
 normal! 0
 wincmd w
-2wincmd w
-exe 'vert 1resize ' . ((&columns * 24 + 49) / 98)
-exe 'vert 2resize ' . ((&columns * 70 + 49) / 98)
-exe 'vert 3resize ' . ((&columns * 2 + 49) / 98)
+exe 'vert 1resize ' . ((&columns * 24 + 77) / 155)
+exe 'vert 2resize ' . ((&columns * 71 + 77) / 155)
+exe 'vert 3resize ' . ((&columns * 58 + 77) / 155)
 tabnext 1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

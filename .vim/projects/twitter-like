@@ -69,6 +69,8 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
 	migrate=migrate {
    20110206001304_create_users.rb
    20110206022006_add_email_uniqueness_index.rb
+   20110206203259_add_password_to_users.rb
+   20110206214822_add_salt_to_users.rb
 	}
  }
  doc=doc {
@@ -116,6 +118,7 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
  }
  spec=spec {
   spec_helper.rb
+	factories.rb
   controllers=controllers {
    pages_controller_spec.rb
    users_controller_spec.rb

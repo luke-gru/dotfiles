@@ -103,6 +103,6 @@ fi
 
 export PATH=/usr/lib/ruby:$PATH
 export EDITOR=/usr/bin/gvim
-
+source ~/.git-completion.bash
 #export PATH=/path/to/dir:$PATH          <<-- Format for adding to PATH in .bashrc
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
