@@ -8,7 +8,7 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/helphe
+~MSle0~/rspec
 
 # Last Substitute Search Pattern:
 ~MSle0&long_name_user
@@ -17,18 +17,20 @@
 $
 
 # Command Line History (newest to oldest):
+:w
+:q!
+:h 
+:q
+:autocmd
+:bwipe
 :qall
 :mks! ~/.vim/sessions/sessiontwitter-like
 :wall
-:w
 :Project ~/.vim/projects/twitter-like
-:bwipe
 :source ~/.vim/sessions/sessiontwitter-like
 :!git add %
 :set hlssearch?
-:q
 :h mapleader
-:q!
 :h 142
 ::w
 :5
@@ -41,7 +43,6 @@ $
 :Rfind spec/integration/layout_links_spec
 :b#
 :ls
-:h 
 :Rcontroller
 :%s/long_name_user/user_long_name
 :%s/no_name_user/user_no_name
@@ -366,9 +367,12 @@ $
 :colorscheme silent
 :colorscheme pyte
 :\c
-:tabe app
 
 # Search String History (newest to oldest):
+?/rspec
+?/be
+?/be_success
+?/have_selector
 ?/helphe
 ?/zzzzzz/
 ?/Factory
@@ -558,21 +562,34 @@ $
 	    <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
 	    <%= stylesheet_link_tag 'custom', :media => 'screen' %>
 ""-	CHAR	0
-	'new'
+	2
 
 # File marks:
-'0  1  0  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
-'1  1  0  ~/zim.notes/Home.txt
-'2  8  17  ~/.vimrc
-'3  1  0  ~/.vim/ftdetect/markdown.vim
-'4  1  0  ~/.vim/syntax/markdown.vim
-'5  97  0  ~/.vimrc
-'6  106  28  ~/.bashrc
-'7  1  0  ~/.vim/after/rspec.vim
-'8  1  0  ~/.vim/syntax/snippet.vim
-'9  49  0  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
+'0  1  33  ~/.rvm/gems/ruby-1.9.2-p0@defrails/gems/spork-0.8.4/lib/spork/test_framework/rspec.rb
+'1  12  0  ~/.rvm/gems/ruby-1.9.2-p0@defrails/gems/spork-0.8.4/lib/spork.rb
+'2  25  0  ~/.vim/syntax/rspec.vim
+'3  1  0  ~/.git/COMMIT_EDITMSG
+'4  31  0  ~/.git/COMMIT_EDITMSG
+'5  1  0  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
+'6  1  0  ~/zim.notes/Home.txt
+'7  8  17  ~/.vimrc
+'8  1  0  ~/.vim/ftdetect/markdown.vim
+'9  1  0  ~/.vim/syntax/markdown.vim
 
 # Jumplist (newest first):
+-'  1  33  ~/.rvm/gems/ruby-1.9.2-p0@defrails/gems/spork-0.8.4/lib/spork/test_framework/rspec.rb
+-'  12  0  ~/.rvm/gems/ruby-1.9.2-p0@defrails/gems/spork-0.8.4/lib/spork.rb
+-'  156  0  ~/.rvm/gems/ruby-1.9.2-p0@defrails/gems/spork-0.8.4/lib/spork.rb
+-'  1  0  ~/.rvm/gems/ruby-1.9.2-p0@defrails/gems/spork-0.8.4/lib/spork.rb
+-'  25  0  ~/.vim/syntax/rspec.vim
+-'  14  20  ~/.vim/syntax/rspec.vim
+-'  13  134  ~/.vim/syntax/rspec.vim
+-'  10  122  ~/.vim/syntax/rspec.vim
+-'  29  62  ~/.vim/syntax/rspec.vim
+-'  26  32  ~/.vim/syntax/rspec.vim
+-'  1  0  ~/.vim/syntax/rspec.vim
+-'  1  0  ~/.git/COMMIT_EDITMSG
+-'  31  0  ~/.git/COMMIT_EDITMSG
 -'  1  0  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
 -'  1  0  ~/rails_projects/twitter-like/.autotest
 -'  1  0  ~/zim.notes/Home.txt
@@ -593,7 +610,6 @@ $
 -'  1  0  ~/rails_projects/twitter-like/app/helpers/pages_helper.rb
 -'  1  0  ~/rails_projects/twitter-like/app/helpers/application_helper.rb
 -'  22  87  ~/.vim/syntax/rspec.vim
--'  1  0  ~/.vim/syntax/rspec.vim
 -'  12  0  ~/rails_projects/twitter-like/app/controllers/users_controller.rb
 -'  8  27  ~/rails_projects/twitter-like/app/controllers/users_controller.rb
 -'  1  0  ~/rails_projects/twitter-like/-
@@ -624,12 +640,69 @@ $
 -'  133  5  ~/rails_projects/twitter-like/spec/models/user_spec.rb
 -'  12  20  ~/rails_projects/twitter-like/spec/models/user_spec.rb
 -'  1  0  ~/rails_projects/twitter-like/app/helpers/pages_helper.rb
--'  22  87  ~/.vim/syntax/rspec.vim
--'  1  0  ~/.vim/syntax/rspec.vim
 -'  1  0  ~/rails_projects/twitter-like/-
 -'  1  0  ~/rails_projects/twitter-like/app/helpers/pages_helper.rb
+-'  1  0  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
+-'  1  0  ~/rails_projects/twitter-like/.autotest
+-'  1  0  ~/zim.notes/Home.txt
+-'  8  17  ~/.vimrc
+-'  1  0  ~/.vimrc
+-'  1  0  ~/.vim/ftdetect/markdown.vim
+-'  1  0  ~/.vim/syntax/markdown.vim
+-'  97  0  ~/.vimrc
+-'  95  1  ~/.vimrc
+-'  113  26  ~/.vimrc
+-'  106  28  ~/.bashrc
+-'  1  0  ~/.bashrc
+-'  1  0  ~/.vim/after/rspec.vim
+-'  1  0  ~/.vim/syntax/snippet.vim
+-'  49  0  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
+-'  22  3  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
+-'  1  0  ~/rails_projects/twitter-like/spec/factories.rb
+-'  1  0  ~/rails_projects/twitter-like/app/helpers/pages_helper.rb
+-'  1  0  ~/rails_projects/twitter-like/app/helpers/application_helper.rb
+-'  12  0  ~/rails_projects/twitter-like/app/controllers/users_controller.rb
+-'  8  27  ~/rails_projects/twitter-like/app/controllers/users_controller.rb
+-'  1  0  ~/rails_projects/twitter-like/-
+-'  1  0  ~/rails_projects/twitter-like/app/controllers/users_controller.rb
+-'  4  32  ~/rails_projects/twitter-like/app/views/users/show.html.erb
+-'  7  2  ~/rails_projects/twitter-like/config/routes.rb
+-'  25  0  ~/.vim/syntax/rspec.vim
+-'  14  20  ~/.vim/syntax/rspec.vim
+-'  13  134  ~/.vim/syntax/rspec.vim
+-'  10  122  ~/.vim/syntax/rspec.vim
+-'  29  62  ~/.vim/syntax/rspec.vim
+-'  26  32  ~/.vim/syntax/rspec.vim
+-'  1  0  ~/.vim/syntax/rspec.vim
+-'  1  0  ~/.git/COMMIT_EDITMSG
 
 # History of marks within files (newest to oldest):
+
+> ~/.rvm/gems/ruby-1.9.2-p0@defrails/gems/spork-0.8.4/lib/spork/test_framework/rspec.rb
+	"	1	33
+	^	1	35
+	.	1	33
+	+	1	33
+
+> ~/.rvm/gems/ruby-1.9.2-p0@defrails/gems/spork-0.8.4/lib/spork.rb
+	"	12	0
+
+> ~/.vim/syntax/rspec.vim
+	"	25	0
+	^	25	256
+	.	25	255
+	+	22	79
+	+	10	157
+	+	25	255
+
+> /usr/share/vim/vim72/doc/help.txt
+	"	1	0
+
+> /usr/share/vim/vim72/doc/usr_40.txt
+	"	41	0
+
+> ~/.git/COMMIT_EDITMSG
+	"	1	0
 
 > ~/rails_projects/twitter-like/spec/controllers/pages_controller_spec.rb
 	"	31	0
@@ -1102,21 +1175,8 @@ $
 > ~/rails_projects/twitter-like/app/helpers/pages_helper.rb
 	"	1	0
 
-> ~/.vim/syntax/rspec.vim
-	"	10	157
-	^	10	158
-	.	10	157
-	+	22	79
-	+	10	157
-
 > /usr/share/vim/vim72/doc/message.txt
 	"	311	7
-
-> /usr/share/vim/vim72/doc/help.txt
-	"	77	0
-
-> /usr/share/vim/vim72/doc/usr_40.txt
-	"	451	0
 
 > ~/rails_projects/twitter-like/config/application.rb
 	"	5	27
@@ -1849,17 +1909,3 @@ $
 
 > ~/rails_projects/depot2/public/javascripts/controls.js
 	"	1	0
-
-> ~/rails_projects/depot2/public/javascripts/application.js
-	"	1	0
-
-> ~/rails_projects/depot2/script/rails
-	"	1	0
-
-> ~/rails_projects/depot2/app/views/users/index.html.erb
-	"	13	27
-	^	13	74
-	.	13	73
-	+	13	0
-	+	21	36
-	+	13	73

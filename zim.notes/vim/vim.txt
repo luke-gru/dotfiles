@@ -173,7 +173,7 @@ C-w gf										<<- edits file under cursor in new tab
 //:Project (F12)//								<<- opens project window (F12 is my map)
 :\C											<<- set up project				(file filter = "*.rb *.html.erb *.js.rjs
 //:saveas ~/.projects/projname				//<<- save project
-//:r ~/.projects/projname					//<<- load project
+//:r ~/.projects/projname					//<<- load project (mapped to __proj__)
 
 
 _________
@@ -185,7 +185,7 @@ dst										<<- delete surrounding tag
 ysw"										<<- y to escape //sub.//
 //vmode://
 s"
-yds"										<<- the y (mnemonic is //yeah, so)// is to escape the delete command
+yds"										<<- the y (mnemonic is '//yeah, so...')// is to escape the delete command
 ycs'"
 **SnipMate plugin:**
 
@@ -197,5 +197,6 @@ ycs'"
 //user_30: //formatting, textwidth, formatoptions, comments
 //user_31: //gui stuff
 //user_32: //undo, forward in time, backwards in time
+//user_40: //mappings, making commands, autocommands, eventignore
 
 

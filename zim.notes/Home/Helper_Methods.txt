@@ -80,7 +80,7 @@ end
 				</dl>
 			</td>
 
-→ __pluralize__
+→ __pluralize__			(in **ActionView::Helpers::TextHelper**)
 <h1>Welcome</h1>
 
 It's <%= Time.now %>

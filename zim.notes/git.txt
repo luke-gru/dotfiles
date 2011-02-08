@@ -54,8 +54,9 @@ $git reset --hard									<<-  reset working directory to latest commit on branc
 $git checkout -- benchmarks.rb					<<- unstaged, modified file, revert back to HEAD 
 
 **branches**
-$git branch (-v) (--[no-]merged)					<<- lists branches (-v lists last commit for each branch too) (--[no]merged lists branches that have been merged
-											or are currently unmerged.
+$git branch (-v) (--[no-]merged)					<<- lists branches (-v lists last commit for each branch too) (--[no]merged lists branches that have been 														merged or are currently unmerged
+
+$git merge --no-commit --squash featureB		<<- on featureBv2 branch, merge featureB's muliple commits and squash them to one commit. Also, don't 														perform a merge commit just yet. Next commit will be merge commit.
 
 $git checkout  master           go					<<- returns to master branch 
 $git checkout -b [nameofbranch]				<<- goes to either existing branch, or new branch
@@ -79,12 +80,12 @@ $git rebase --onto master server client			<<- rebase client branch, which is bas
 git rebase [basebranch] [topicbranch]
 
 **cloning**
-__$git clone git@github.com:tpope/vim-fugitive.git__ (folder)	<<- clones repo to folder. Default folder = wd
+__$git clone git@github.com:tpope/vim-fugitive.git__		(vim-fugitive folder)	<<- clones repo to folder. Default folder = wd
 
 **log**
 $git log [branch]												<<- note that branches take their root's commits
 $git log HEAD..branch										<<- log of branch commits not on HEAD branch
-$git log [branchA] ^[branchB]								<<- log of branch commits not on master branch
+$git log [branchA] ^[branchB]								<<- log of branchA commits not on branchB
 $git log HEAD...branch										<<- log of branch commits and parallel HEAD commits
 $git log --author=Linus --oneline -5							<<- last 5 commits by author, oneline
 $git log --oneline --before={3.weeks.ago} --after={2010-04-18} --no-merges		<<- removes merge commits
