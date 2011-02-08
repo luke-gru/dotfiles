@@ -561,18 +561,19 @@ $
 	,
 
 # File marks:
-'0  8  17  ~/.vimrc
-'1  1  0  ~/.vim/ftdetect/markdown.vim
-'2  1  0  ~/.vim/syntax/markdown.vim
-'3  97  0  ~/.vimrc
-'4  106  28  ~/.bashrc
-'5  1  0  ~/.vim/after/rspec.vim
-'6  1  0  ~/.vim/syntax/snippet.vim
-'7  49  0  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
-'8  22  3  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
-'9  22  87  ~/.vim/syntax/rspec.vim
+'0  1  0  ~/zim.notes/Home.txt
+'1  8  17  ~/.vimrc
+'2  1  0  ~/.vim/ftdetect/markdown.vim
+'3  1  0  ~/.vim/syntax/markdown.vim
+'4  97  0  ~/.vimrc
+'5  106  28  ~/.bashrc
+'6  1  0  ~/.vim/after/rspec.vim
+'7  1  0  ~/.vim/syntax/snippet.vim
+'8  49  0  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
+'9  22  3  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
 
 # Jumplist (newest first):
+-'  1  0  ~/zim.notes/Home.txt
 -'  8  17  ~/.vimrc
 -'  1  0  ~/.vimrc
 -'  1  0  ~/.vim/ftdetect/markdown.vim
@@ -673,6 +674,9 @@ $
 -'  1  0  ~/.vim/projects/twitter-like
 
 # History of marks within files (newest to oldest):
+
+> ~/zim.notes/Home.txt
+	"	1	0
 
 > ~/.vimrc
 	"	8	17
@@ -1884,6 +1888,3 @@ $
 
 > /usr/share/vim/vim72/doc/usr_31.txt
 	"	18	24
-
-> /usr/share/vim/vim72/doc/usr_32.txt
-	"	16	25

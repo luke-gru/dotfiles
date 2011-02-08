@@ -1,0 +1,17 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-02-05T17:40:02.298995
+
+====== Rspec on the command-line ======
+**Command Line:**
+$//rails generate rspec install											//<<- tells rails to go to spec/ for generate commands and makes .rspec file in root 
+
+
+
+
+**Setup:**
+--																		<<- in config/application.rb to make generators generate rspec, not test-unit
+config.generators do |g|
+  g.test_framework :rspec
+end
+--

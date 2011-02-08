@@ -1,0 +1,52 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-12T18:06:01.837637
+
+====== Html  Partials ======
+HTML partials help keep ugly or repetitive code in a special place. It's idiomatic to add a //'shared'// directory in the '/app/views' directory to hold the partials.
+
+Partials always start with an underscore. By //default// they look in the same dir. as the view file that's rendering them but you can override this by adding a dir.
+
+**Example:**
+
+_error_messages.hmtl.erb
+
+to //render// partials in a file called 'new.html.erb', simply do:
+
+<%= __render__ 'shared/error_messages' %>                             <<-- automatically looks in __/app/views__ folder
+
+ 
+**Partials and Iterators:**
+//Example based on depot app://
+
+__Original cart view file without block partial:__
+
+<div class="cart-title">Your Cart</div>
+<table>
+	<% for item in @cart.items %>
+		<tr>
+			<td><%= item.quantity %>&times;</td>
+			<td><%=h item.title %></td>
+			<td class="item-price"><%= number_to_currency(item.price) %></td>
+		</tr>
+	<% end %> 
+etc...
+
+__Better cart view file with block partial:__
+//in cart_item.html.erb (depot)//
+<div class="cart-title">Your Cart</div>
+<table>
+	<%= __render__(__:partial__ => **"cart_item"**, __ :collection__ => @cart.items) %>                       <<-- The __variable__ for iterating over//@cart.items// is stored as the __SAME __																							__NAME__ as the partial file its rendering. In this case,** cart_item** is the variable in 																							the partial file to //refer// to //@cart.items //**do **|__cart_item__|.
+
+
+**Rendering an **__object__** via a local variable in another partial:**
+
+//So, in the index layout (depot) we could call this://
+
+<%= render(__:partial__ => "cart",  __:object__ => @cart) %>	then create a ___cart.html.erb__ file and we can refer to //@cart// via the variable //cart//. Of course the object 															  	@cart has to be available to the view (be set up in the same-named controller).
+
+*//Note that you can render partials inside partials.//
+
+
+
+

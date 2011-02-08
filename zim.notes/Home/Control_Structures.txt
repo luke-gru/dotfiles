@@ -1,0 +1,48 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-20T19:51:06.853231
+
+====== Control Structures ======
+
+[[Code Blocks]]
+[[Iterators]]
+[[Procs]]
+* [[Fibers]]
+→ if
+(elsif)*
+else
+end
+
+→ while				<<- LOOP. For detailed info. on loops, see Pickaxe p. 335-
+" "
+end
+//Example: Read from File.//
+__while__ line = gets
+puts line.downcase
+__end__
+//Example: Read from file starting with the match "third" and ending with the match "fifth"://
+file = File.open("ordinal")
+	while line = file.gets
+	puts(line) if line =~ /third/ __..__ line =~ /fifth/						=> third; fourth; fifth
+
+end
+
+
+→ __case__ (pickaxe p. 150) and __===__ expression
+
+**Statement Modifiers:**
+__if__ radiation > 3000
+puts "Danger, Will Robinson"
+__end__
+**Becomes:**
+puts "Danger, Will Robinson" __if__ radiation > 3000
+
+square = 4
+__while__ square < 1000
+square = square*square
+__end__
+**Becomes:**
+square = 4
+square *= __while__ square < 1000
+
+

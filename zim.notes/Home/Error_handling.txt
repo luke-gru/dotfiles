@@ -1,0 +1,39 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-01-10T14:07:19.738483
+
+====== Error handling ======
+* Note that //error_messages_for// is deprecated
+
+//Example in checkout.html.erb (Depot)//	
+<% form_for :order, :url => { :action => :save_order } do |form| %>
+	<% __if @order.errors.any?__ %>
+	 __<div id="errorExplanation">__
+
+		<h2><%= //pluralize(@order.errors.count//, "error") %> prohibited this order from going through:</h2>
+		<ul>
+		<% @order__.errors.full_messages.each do |msg|__ %>
+			 <li><%= __msg __%></li>
+
+		<% end %>
+		</ul>
+	  </div>
+     <% end %>
+
+Then non-error stuff relating to form
+
+
+**Debug info for Env = Development:**
+
+<body>
+    <div class="container">
+      .
+      .
+      .
+      <%= render 'layouts/footer' %>
+      **<%= debug(params) if Rails.env.development? %>**
+    </div>
+  </body>
+</html>
+
+

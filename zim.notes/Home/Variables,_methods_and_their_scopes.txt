@@ -1,0 +1,45 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-01-01T01:01:57.909921
+
+====== Variables, Constants, Methods, Blocks And Their Scopes ======
+SCOPE
+__@@class variables__ are //inherited// by children but //propagate upward// if first defined in a child: Example in Pickaxe p. 321
+
+__@instance variables__ are available within instance methods throughout a class body. Referencing
+an uninitialized instance variable returns nil. Each object (instance of a class) has a unique set
+of instance variables.
+
+__local variables__ are unique in that their scopes are //statically determined// by Ruby, but their existence is established dynamically.
+A local variable is created dynamically when it is first assigned a value during program execution. However, the **scope** of a local
+variable is statically determined to be: **the immediately enclosing block, method definition, class definition, module definition, **
+**or top-level program**.
+
+__method parameters__ are considered to be variables local to that method.
+
+**Blocks and their scopes:**
+__block parameters__ are assigned values when the block is invoked during execution.
+If a local variable is //first// assigned in a block, it is local to the block.
+
+→ If a block uses a variable that is previously defined in the scope containing the block’s definition,
+then the block will share that variable with the scope. There are two exceptions to this: block
+parameters are always local to the block. In addition, variables listed after a semicolon at the
+end of the block parameter list are also always local to the block.
+
+→ the bodies of **while**, **until**, and **for** __loops__ are //part of the scope that contains them//; previously
+existing locals can be used in the loop, and any new locals created will be available outside the
+bodies afterward. 
+
+PARALLEL ASSIGNMENT
+Pickaxe p. 331
+
+
+GLOBAL SCOPE
+**Constants and Global variables:**
+Pickaxe p. 319-28
+
+INSTANCE VARIABLES, CLASS AND SINGLETON METHODS, ATTRIBUTES AND SCOPE:
+Pickaxe p. 370-**375**
+
+
+

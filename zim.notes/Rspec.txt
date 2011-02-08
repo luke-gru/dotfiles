@@ -1,0 +1,16 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-10T16:28:16.413940
+
+====== Rspec ======
+**Ruby:**
+[[Ruby (not rails) Rspec]]
+
+**Rails:**
+[[Home:Rspec on the command-line|Rspec on the command-line]] and rspec setup
+
+[[Rspec Integration Tests]]
+
+[[Rspec Controller Tests]]
+
+[[Rspec-specific functions]]

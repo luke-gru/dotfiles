@@ -1,0 +1,121 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-28T15:47:16.593070
+
+====== Fibers, Continuations, threads, processes ======
+
+**Fibers are objects that are often used to generate sequences (more info. in Pickaxe p. 175).**
+//Multiples of two, non-multiples of three with fiber://
+twos = Fiber.new do
+	num = 2
+	loop do
+
+		Fiber.yield(num) unless num % 3 == 0
+		num += 2
+
+	end
+
+end
+
+10.times { print __twos.resume__, " " }
+produces:
+2 4 8 10 14 16 20 22 26 28
+
+ 
+//Counting words in file with fiber://
+
+words = Fiber.new do
+	File.foreach("testingfile") do |line|
+
+		line.scan(/\w+/) do |word|
+
+			__Fiber.yield__ word.downcase
+
+		end
+
+	end
+
+end
+
+counts = Hash.new(0)
+while word = __words.resume__												<<- invokes block
+	counts[word] += 1
+
+end
+
+__counts.keys.sort.each__ {|k| print "#{k}:#{counts[k]} "}
+=>
+and:1 is:3 line:3 on:1 one:1 so:1 this:3 three:1 two:1
+ 
+**Continuations: See Pickaxe p. 766**
+'require continuation'
+
+**Threads:**
+//Example 1: Create threads: downloads set of web pages in parallel//
+Pickaxe p. 177
+
+//Thread manipulation methods://
+Pickaxe p. 178
+
+//Per-thread variables: treat them as hashes!//
+Pickaxe p. 179
+
+//Errors, error-handling with threads://
+Pickaxe p. 179-181
+
+//Race conditions for multiple threads://
+**class Mutex**
+
+def inc(n)
+	n + 1
+
+end
+
+sum = 0
+__mutex = Mutex.new__
+
+threads = (1..10).map do
+	Thread.new do
+
+		100_000.times do
+
+			mutex__.lock__					<<- __mutex.synchronize do__ both locks and unlocks rendering the next-next line moot
+
+			sum = inc(sum)
+
+			mutex__.unlock__
+
+		end
+
+	end
+
+end
+
+threads.each(__&:__join)
+p sum
+=>																		
+1,000,000																<<- all 10 threads incremented 0-100,000
+
+//Mutex try-lock method: if the mutex is locked, trying to unlock it will yield true if it's not locked, and nil if it's still locked. //
+Pickaxe p. 183-4
+
+
+**Running multiple processes: **
+//Object.system runs the command in a sub-process//
+system("ls -l")
+=> true
+//Capture Stdout of process://
+`ls -l`																	<<= backticks
+
+//More advanced; Opening Processes and Independent Child Processes://
+Pickaxe p. 185-6 and 187 respectively
+
+
+
+
+
+
+
+
+
+ 

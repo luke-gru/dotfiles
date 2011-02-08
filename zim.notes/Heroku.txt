@@ -1,0 +1,23 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-11T23:56:37.425518
+
+====== Heroku ======
+//Application //__deployment __//suite for Ruby applications//
+//docs.heroku.com//
+$heroku console										<<- env = production
+
+$heroku create										<<- creates subdomain for app (run command in rails ~ dir.)
+$git push heroku (master)							<<- push local master branch to subdomain ("       ")
+$heroku open											<<- open app from default browser
+$heroku rename [nameofsite]						
+$heroku rake db:migrate							<<- migrates db migrations to heroku, //only the data model (schema), not the data itself//
+$heroku db:push										<<- requires the //taps //gem to push model data to heroku app 
+
+
+
+
+
+
+
+

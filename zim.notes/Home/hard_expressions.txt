@@ -1,0 +1,12 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-01-01T16:04:42.751853
+
+====== hard expressions ======
+
+*see [[Ternary Operator]]
+
+Pickaxe p. 334 for detailed info. on:
+**Case expressions**
+**If and Unless modifiers**
+**Ternary operators**

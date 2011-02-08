@@ -1,0 +1,56 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-10T17:03:41.013914
+
+====== Rspec Controller Tests ======
+when controllers are generated using $//rails generate controller (pages)//, automatically generates test file in spec/controllers/pages_controller_spec.rb 
+
+*can only //get// 'actions' in the specific controller
+
+-Example in twitter-like:
+
+require 'spec_helper'
+
+describe PagesController do
+	**render_views													**<<- needed in controller tests to test selectors
+
+  describe "GET 'home'" do
+    it "should be successful" do
+      get 'home'
+      **response.should be_success**
+    end
+
+    it "should have the right title" do
+      get 'home'
+      response.should have_selector("title",
+                                    :content => "Ruby on Rails Tutorial Twitter-Like | Home")
+    end
+  end
+
+  describe "GET 'contact'" do
+    it "should be successful" do
+      get 'contact'
+      response.should be_success
+    end
+
+    it "should have the right title" do
+      get 'contact'
+      response.should have_selector("title", 
+                                    :content => "Ruby on Rails Tutorial Twitter-Like | Contact")
+    end
+  end
+
+	describe "GET 'about'" do
+		it "should be successful" do
+			get 'about'
+			response.should be_success
+		end
+
+	    it "should have the right title" do
+	      get 'about'
+	      response.should have_selector("title", 
+	                            :content => "Ruby on Rails Tutorial Twitter-Like | About")
+	    end
+	end
+
+end

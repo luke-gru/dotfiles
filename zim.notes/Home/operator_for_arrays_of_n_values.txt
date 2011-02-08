@@ -1,0 +1,25 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-11T18:16:07.244845
+
+====== *operator for arrays of n values ======
+
+**Example in the rails console:**
+
+$ rails console
+>$ def foo(bar, baz)
+	>$  bar + baz
+	>$ end
+
+=> nil
+>$ foo(1, 2)
+=> 3
+>$ foo(*[1, 2])
+=> 3
+
+In this example, 		method(value1,value2)  		__==__		method(*[arrayvalue1, arrayvalue2])
+
+{if the respective values are the same}
+
+
+*we use this operator because "correct" Ruby syntax doesn't take an array as an argument to a method.

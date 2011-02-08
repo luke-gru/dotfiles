@@ -1,0 +1,58 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-10T20:06:36.475611
+
+====== Params ======
+__*Treat the params object like  a hash!__
+__*Use params, NOT @params__
+__* Note that the params hash is actually an instance of HashWithIndifferentAccess from Active Support, which acts like a hash that lets you use symbols and strings interchangeably as keys.__
+
+* The params object is important inside Rails applications. It holds all of the
+parameters passed in a //browser request (url)//. By convention, params[:id] holds the
+id, or the primary key, of the object to be used by an action.
+
+* You will probably want to access data sent in by the user or other parameters in your controller actions. There are two kinds of parameters possible in a web application. The first are parameters that are sent as part of the URL, called //query string parameters//. The query string is everything after “?” in the URL. The second type of parameter is usually referred to as POST data. This information usually comes from an HTML form which has been filled in by the user. It’s called POST data because it can only be sent as part of an HTTP POST request. Rails does not make any distinction between query string parameters and POST parameters, and both are available in the params hash in your controller:
+
+{:student=>{:firstname=>"luke", :lastname=>"gruber"}}
+
+params[:student][:firstname]				=> "luke"
+
+
+**Rails by convention uses the following path in it's URL path:**
+///:controller/:action/:id//
+
+* This makes it very easy to create links either dynamically or with static queries, and we have the params method which we can use to grab stuff from the URL query string. Here are some examples which can be pasted into a controller and then the results will be magically available in your view.
+
+* Place this in your controller which sets the id from the URL into the @message_from_params instance variable:
+																@message_from_params = params[:id]
+
+* Then place the @message_from_params instance variable in your view:
+
+<%= @message_from_params %>
+
+So with a url of /machines/index/1, the message from params would be: 1. 
+
+* Rails is clever enough to accept strings as well. So, /machines/index/1-Robots, we would get 1-Robots. 
+
+**Grabbing Query Strings:**
+
+* If we have a query string like this: /machines/index/robots?name=R2D2. We could then create an instance variable in our Machines Controller like this:
+
+@name = params[:name]
+
+Then place something like this in our view: Name: <%= @name %> and your web browser will return: "Name: R2D2".
+
+**Use params, NOT @params
+
+**Post requests, sending hashes to params:**
+//To send a hash you include the key name inside the brackets://
+
+ <form action="/clients" method="post">
+  <input type="text" name="client[name]" value="Acme" />
+  <input type="text" name="client[phone]" value="12345" />
+  <input type="text" name="client[address][postcode]" value="12345" />
+  <input type="text" name="client[address][city]" value="Carrot City" />
+</form>
+
+When this form is submitted, the value of params[:client] will be {"name" => “Acme”, “phone” => “12345”, “address” => {"postcode" => “12345”, “city” => “Carrot City”}}. Note the nested hash in params[:client][:address].
+

@@ -1,0 +1,39 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-12T17:03:13.413120
+
+====== Rails and Ruby gems ======
+
+**Useful gems in Rails:**
+
+When downloading a gem, __don't__ use sudo if using RVM (currently using RVM).
+
+rdoc																							<<- Pickaxe p. 275-88
+
+**Test**
+factory_girl , and factory_girl_rails for //rspec testing//
+rspec 2 for //testing//
+webrat for //testing//
+simplecov (works with rspec, lets us use '//lets//' instead of //before(:each) //for //testing//
+shoulda	(helps test/unit act more like rspec in a BDD style) for //testing//
+autotest-rails for //testing//
+ZenTest for //testing								//<<- requires //$sudo apt-get install libnotify-bin//, //~/.autotest_images///  dir. and //.autotest// rails file
+redgreen for //testing//
+webrat (for simulating browser) for //testing//
+
+**All**
+gravatar_image_tag //global (have the require in application.rb)//
+sqlite3 //global//
+hpricot (html parser) //global//
+nokogiri (advanced html parser) //global//
+
+**Development**
+rspec-rails (for rspec generators) 										<<- $//rails generate rspec:install// to mkdir /spec
+
+
+
+
+
+
+
+

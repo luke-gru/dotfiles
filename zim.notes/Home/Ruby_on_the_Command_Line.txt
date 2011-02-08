@@ -1,0 +1,61 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-20T20:29:57.856387
+
+====== Ruby on the Command Line ======
+
+**Command line arguments:**
+
+→ Run Ruby scripts with warnings on:
+Ruby __-w__ filename
+
+→ Where are my library files located?
+$ ruby -e 'puts $:'
+
+
+→ **Full list of command line options:**
+Pickaxe p. 225-6
+
+→ The __array ARGV__ contains //each// of the arguments passed to the running program.
+//Example: (file called cmd_line.rb)//
+1 puts "You gave #{ARGV.size} arguments"
+2 p ARGV
+
+$ruby cmd_line.rb ant bee cat dog
+=>You gave 4 arguments
+     ["ant", "bee", "cat", "dog"]
+
+→ ARGF is a special kind of__ I/O object__ that acts like all the contents of all the files whose names are passed on the command line (or standard input
+if you don’t pass any filenames)
+
+
+**IRB:**
+Pickaxe p. 213 for IRB subsessions and commands
+Pickaxe p. 272 for IRB in-session commands
+Pickaxe p. 266 for IRB command-line options
+Pickaxe p. 270 for IRB config options
+→ Use __load__ when in session, not require. Can load multiple times for source editing purposes.
+
+
+**RubyGems Commands:**
+$ gem query --details --remote --name-matches builder						<<- show me matches for regex /builder/ in central repository
+$ gem environment gemdir														<<- find rubygems main dir. Overridable using -d
+$ gem server																		<<- starts server on -p 8808. Overridable using -p.
+$ gem install builder --version '< 1'												<<- install builder gem with -v < 1
+$ gem search -r [nameofgem]													<<- lists all gems with that name in repository
+$ gem list [nameofgem] -d														<<- show gem details
+
+//including a gem into source://
+gem 'builder', "< 1.0"																<<- optional arguments, can have many
+require 'builder'
+
+//Create gemspec to get your lib to become a gem://
+Pickaxe p.247-50
+
+**Rake Build Tool:**
+Pickaxe p. 235-7
+
+
+
+
+

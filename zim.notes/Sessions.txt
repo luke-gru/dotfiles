@@ -1,0 +1,58 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-10T18:08:55.992843
+
+====== Sessions ======
+
+The [[cookies utility]] is important here.
+* __The session  object acts like a hash__
+* __Once the session has begun, it is available across requests until it is made nil__
+**Options for database storage for sessions:**
+//This stores sessions IN the database. NOT the cookie solution. confidential info. should NOT store here. //
+//Have to uncomment following line in config/environments/initializers/session_store.rb and then restart server//
+→ config.action_controller.session_store = :active_record_store
+
+
+**Sessions and Carts:**
+//in StoreController://
+def find_cart
+		unless session[:cart]													<<- session object treated like hash
+			session[:cart] = Cart.new
+		end
+		session[:cart]
+end
+
+def add_to_cart
+		product = Product.find(params[:id])
+		@cart = find_cart													<<- same as self.find_cart
+		@cart__.add_product__(product) #can use the add_product method because it is a Cart instantiation		<<- **add_product def in Cart model**
+end
+
+__Here, session[:cart] is a Cart.new instance, so Cart instance methods are available to @cart.__
+
+The method __add_to_cart__ is applied when the button is pressed.
+
+So, the button_to [[Home:Helper Methods|helper]] method in the view is like this:
+
+
+<%= button_to "Add to Cart", __:action => "add_to_cart"__, __:id => product__ %>				<<- product is the variable defined in the //add_to_cart// method
+
+
+//Meanwhile, in the views department, in app/views/store/add_to_cart.html.erb//
+
+<h2>Your Pragmatic Cart</h2>
+<ul>
+	<% @cart.items.each do |item| %>					
+		<li><%= item.title %> &times; <%= item.product %></li>			<<- **This is tricky**. @cart is the //session object// holding the cart. Items is an array 																					containing //CartItems//.new. So when we iterate over @cart w/ @cart.each we can 																				only invoke //CartItem// instance methods
+	<% end %>
+</ul>
+
+Now, how to [[make a smarter cart]].
+
+**How to empty a session (example in depot):**
+
+def empty_cart													<<- and then //button_to //__empty_cart__ in the //add_to_cart// view
+		session[:cart] = __nil__
+		flash[:notice] = "Your cart is currently empty"
+		redirect_to :action => 'index'
+end

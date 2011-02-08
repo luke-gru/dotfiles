@@ -1,0 +1,32 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-28T00:17:09.782445
+
+====== Talking to Networks ======
+
+**Scan webpage for image links with 'net/http':**
+require 'net/http'
+http = Net::HTTP.new('www.pragprog.com', 80)
+response = http.get('/titles/ruby3/programming-ruby-3')
+if response.message == "OK"
+
+	puts response.body.scan(/<img alt=".*?" src="(.*?)"/m).uniq[0,4]
+
+end
+=>
+//http://assets3.pragprog.com/images/logo.gif?1289791737 //
+//http://assets1.pragprog.com/images/login-button.gif?1289791737//
+//http://shared2.pragprog.com//images/covers/190x228/ruby3.jpg//
+//http://shared3.pragprog.com//images/covers/40x48/fr_rr.jpg//
+
+**Scan webpage for image links with 'open-uri':				**<<- open-uri lib handles redirects automatically
+require 'open-uri'
+open('//http://pragprog.com//') do |f|
+	puts f.read.scan(/<img alt=".*?" src="(.*?)"/m).uniq[0,4]
+
+end
+=>
+//http://assets3.pragprog.com/images/logo.gif?1289791737//
+//http://assets1.pragprog.com/images/login-button.gif?1289791737//
+///images/covers/140x168/trevan.jpg//
+//http://shared1.pragprog.com//images/covers/75x90/rcctr.jpg//

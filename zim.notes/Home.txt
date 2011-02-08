@@ -1,0 +1,19 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-10T18:12:56.197973
+
+====== Home ======
+
+[[home:Ruby_and_RoR|Ruby and RoR]]
+
+[[vim:vim|vim]]
+
+[[git]]
+
+[[Heroku]]
+
+[[linux:linux commands|linux commands]]
+
+
+
+

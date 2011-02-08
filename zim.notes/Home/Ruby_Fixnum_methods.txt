@@ -1,0 +1,66 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-13T16:53:36.436489
+
+====== Ruby Fixnum (and Bignum) methods ======
+
+**Basic *num info:**
+//0d = decimal (default)//
+//0x = hex//
+//0b = binary//
+//0 = octal//
+
+1.0e3 is of class Float
+
+**Rational and Complex numbers:**
+Rational(__3, 4__) * Rational(__2, 3__)  													=> (1/2)
+Rational(__"3/4"__) * Rational(__"2/3"__) 												=> (1/2)
+Complex(__1, 2__) * Complex(__3, 4__)  													=> (-5+10i)
+Complex(__"1+2i"__) * Complex(__"3+4i"__)												=> (-5+10i)
+
+require __'mathn'__ library for the most 'natural' representation of your number to return 
+
+
+
+
+→ __.times__ 
+**Example: **
+3.times do 
+"Ho "
+end
+
+→ __n.downto(m)__
+**Example:**
+10.downto(1) do |count|
+count
+end
+
+→ __m.upto(n)__
+
+→ __.abs__
+
+→ __m.step(n, 5)__									<<- (m..n) in increments of 5
+
+→ __.odd?__											<<- returns true if odd
+     __.even?__
+
+→ q, r = x__.divmod__(y)								<<- return array, q = floor(float(x)/float(y)) (//pseudocode//) and  x = q*y + r
+**Examples:**
+//Returns array consisting of quotient x/y and remainder x%y. Careful: remainders are rounded towards negative infinite.//
+11.divmod(3)			=> [3, 2]
+
+11.divmod(-3)			=> [-4, -1]
+11.divmod(3.5)		=> [3, 0.5]
+(-11).divmod(3.5)		=> [-4, 3.0]
+(11.5).divmod(3.5)	=> [3, 1.0]
+
+
+
+
+
+
+[[Iterators|Iterator]] methods work too:
+
+→ __.with_index__ { ... }
+
+→ 

@@ -1,0 +1,55 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-10T20:27:22.196816
+
+====== flash ======
+
+The flash (acts like a hash) is associated with the session. The flash data is stored in the session in order to make it available between requests.
+
+Use when //redirecting// page.
+
+Flash can take three keys.
+
+__flash[:notice]__
+
+__flash[:error]__
+
+__flash[:success]__
+
+//:error and :notice can be passed as an option to the redirect_to function.//
+
+**Note** that [[BlueprintCSS]] supports (styles) these natively.
+
+
+**Example in StoreController (depot)**
+def add_to_cart
+	product = Product.find(params[:id])
+	@cart = find_cart
+	@cart.add_product(product)
+
+__rescue__ **ActiveRecord::RecordNotFound										**<<- for sqlite3 anyway, check log if not
+
+	__logger.error__("Attempt to access invalid product #{params[:id]}" )
+	__flash[:notice]__ = "Invalid product"
+	__redirect_to__ :action => 'index'
+
+end
+
+//And make sure to change the views (preferably layout named after the Controller)//
+<div id="main">
+			<%__ if flash[:notice]__ -%>
+				<div id="notice"><%= __flash[:notice]__ %></div>
+			<% end -%>
+			
+			<%= yield :layout %>
+</div>
+
+**But what if there's > 1 flash[:notice] option on an html doc? REGEX**
+
+			<% if flash[:notice] __=~__ /invalid product/i -%>				<<- then set the notices in the controller
+				<div id="noticeBad"><%= flash[:notice] %> </div>		<<- and the div in CSS file
+			<% elsif flash[:notice] __=~__ /thank you/i %>
+				<div id="noticeGood"><%= flash[:notice] %> </div>
+			<% else %>
+			<% end -%>
+

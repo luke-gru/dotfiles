@@ -1,0 +1,34 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-11T17:00:04.905692
+
+====== SessionsHelper ======
+
+
+helpers are automatically included in rails views. Must include them to [[ApplicationController]] is you want them for the Controllers.
+
+In the sample_app, here's what the module is used for.
+
+module SessionsHelper
+  .
+  .
+  .
+  def **current_user**
+    @current_user__ ||=__ user_from_remember_token					__or, equals*__
+  end
+
+  private
+
+    def **user_from_remember_token**
+      User.authenticate_with_salt(*remember_token)
+    end
+
+    def **remember_token**
+      cookies.signed[:remember_token] || [nil, nil]
+    end
+end
+
+
+__*@current_user ||= user_from_remember_token__
+
+__*__This calls the user_from_remember_token method the **first time** current_user is called, but on subsequent invocations //returns// @current_user without calling __*__user_from_remember_token.

@@ -1,0 +1,75 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-10T16:59:06.754782
+
+====== form for ======
+**form_for** and **form_tag** (any block iteration in the view template) must be surrounded by <%**=**                 %>
+
+In embedded ruby, the [form_for] helper is great for embedding form info into html docs.
+
+<%= form_for( session *:ResourceNameSingular*, :url => sessions_path *AppropriateURL*) **do |f|** %>                   
+
+
+For example:
+
+ Code for the signin form, using the SessionsController without a model (cookies on sessions)
+
+app/views/sessions/new.html.erb  
+_________________________________________________________________
+<h1>Sign in</h1>
+
+__<%= form_for__(:session, :url => sessions_path) do |f| %>
+	<div class="field">
+
+		<%=** f.label** :email %><br />
+		<%= **f.text_field** :email %>
+
+	</div>
+	<div class="field">
+
+		<%= **f.label**  :password %><br />
+		<%= **f.password_field**  :password %>
+
+	</div>
+	<div class="actions">
+
+		<%= **f.submit** "Sign in" %>
+
+	</div>
+
+__<% end %>__
+
+<p>New user? <%= **link_to** "Sign up now!", **signup_path** %></p> 
+__________________________________________________________________
+
+			**turns the HTML to**
+
+
+<form action="__/sessions__" method="post">
+
+	<div class="field">
+
+		<**label for**="session_email">Email</label><br />
+		<**input id**="session_email" name="__session[email]__" size="30" type="text" />
+
+	</div>
+	<div class="field">
+
+		<**label for**="session_password">Password</label><br />
+		<**input id**="session_password" name="__session[password]__" size="30" type="password" />
+
+	</div>
+	<div class="actions">
+
+		<**input id**="session_submit" name="commit" type="**submit**" value="Sign in" />
+
+	</div>
+
+</form>
+
+** When constructing a form using form_for(@user), Rails uses POST if @user.new_record? is true and PUT if it is false. ******
+
+
+
+
+  

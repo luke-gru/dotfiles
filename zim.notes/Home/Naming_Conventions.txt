@@ -1,0 +1,42 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-13T16:34:15.962216
+
+====== Naming Conventions ======
+
+
+***Most Important* : Object-Relational Mapping (ORM)**
+
+* the __Model__ //Product// __CREATES__ the __table__ //products //__and__ the __class__ //Product (//in the app/models dir.)
+the __Controller__ //ProductsController //__is matched to__ the __table__ //products//
+* the __instances__ (objects) of class Product are the __row names__ of table //products//
+* the __attributes__ (get, set) of the __instances__ of class Product are the __columns__ in table products
+
+Class-level methods provide table-level operations.
+//Example://
+order = Order__.find__(1)																		     <<- find order with particular ID
+puts "Customer #{order.customer_id}, amount=#{order.amount}"
+
+Instance methods provide row-level operations.
+//Example://
+Order.find(:all, :conditions => "name='dave'" ).each do |order|							<<- __iterate__ over .find
+order.discount = 0.5
+order__.save__
+end
+
+**What Scaffolding creates:**
+__$rails generate scaffold [product]__ //title:string description:text image_url: string                <<- //Here, //title//, //description// and //image_url// are all columns (attributes) in the products table.
+
+
+**Also:**
+
+//http://foo.org/say/hello///
+
+This would use the Say Controller and invoke the method __hello__ with the view __hello.html.erb__ in the __app/views/say__ directory.
+
+
+
+
+
+
+

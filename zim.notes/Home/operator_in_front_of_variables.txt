@@ -1,0 +1,22 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-11T20:44:14.806928
+
+====== !operator in front of variables ======
+
+>$ user = 3
+>>3
+>$ user.nil?
+>>false
+>$ !user.nil?
+>>true
+
+**Useful for seeing if users are signed in:**
+
+def signed_in?
+	!current_user.nil?
+
+end
+
+username.signed_in? >> true if they are a current user
+

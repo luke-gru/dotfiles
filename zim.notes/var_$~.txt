@@ -1,0 +1,9 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-09T20:35:29.447840
+
+====== var $~ ======
+
+$~ is a Ruby variable that always stores the last [[matchdata]] object.
+
+

@@ -1,0 +1,37 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-11T17:58:46.850422
+
+====== Short-circuit evaluation ======
+
+Taking advantage of the assignment property that //a variable is assigned to the first true value// when it is NIL and when it's NOT NIL.
+
+**Pre-example:**
+
+
+  >$ @user
+  => nil
+  >$ @user = @user || "the user"
+  => "the user"
+  >$ @user = @user || "another user"
+  => "the user"
+
+Nil is obviously false in a boolean context. Therefore, the operator ||= is useful for short-circuiting an evaluation.
+
+**Example:**
+
+@user __=__ @user __|| __"the user"				__==__				__@user ||= "the user"__			
+
+
+
+
+
+*Useful for session and cookie work.
+*Example:
+
+*module SessionsHelper
+  .
+  .
+  .
+  def current_user
+    @current_user ||= user_from_remember_token

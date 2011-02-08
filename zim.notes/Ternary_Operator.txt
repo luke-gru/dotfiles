@@ -1,0 +1,34 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-11T18:45:32.995660
+
+====== Ternary Operator ======
+
+Puts an if-else statement on **one line**
+Has **three** parts.
+
+**Example 1) IF A, else B**
+
+if boolean? 
+    do_one_thing 
+  else 
+    do_something_else 
+  end 
+
+                  __==__
+
+boolean?  ? do_one_thing : do_something_else 
+
+
+**Example 2) IF var=x, else var=y**
+
+if boolean?
+    var = foo
+  else 
+    var = bar
+  end  
+
+         __==__
+
+var = boolean?  ? foo : bar
+

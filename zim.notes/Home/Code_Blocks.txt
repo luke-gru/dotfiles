@@ -1,0 +1,68 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-20T20:05:07.218815
+
+====== Code Blocks ======
+
+→ Chunks of code that are associated with methods and their parameters. Block start with __do__  and end with __end__ (use __{ }__ for single-line blocks).
+→ We can use code block to [[Iterators|iterate]] over arrays or hashes.
+→ A method can invoke an associated block one or more times using the Ruby //yield// statement.
+→ The scope of variables inside a block are ALWAYS local to that block (*ruby >= 1.9). Variable assigned outside the block that use the same name as variables inside the block (but you want as two different variables) MUST go after the ; sign in the (parameter; __list__)
+*For block expressions (begin...end), see Pickaxe p. 331
+→ A block is a closure; it remembers the context in which it was defined, and it uses that context
+whenever it is called. The context includes the value of self, the constants, the class variables,
+the local variables, and any captured block.
+
+
+**Basic example:**
+__def__ call_block
+puts "Start of method"
+__yield__
+__yield__
+puts "End of method"
+__end__
+
+__call_block__ (parameters would go here but there are none) __{__ puts "in the block" __}__
+=> 
+Start of method
+__in the block__
+__in the block__
+End of method
+
+**Another (with arguments to the call to yield and parameters in the block):**
+def who_says_what
+__yield("Dave", "hello")__
+__yield("Andy", "goodbye")__
+end
+who_says_what__ {|person, phrase|__ puts "__#{person}__ says __#{phrase}__"__}__
+=>
+__Dave__ says __hello__
+__Andy__ says __goodbye__
+
+
+
+**Blocks for Transactions (methods passing blocks as parameters):**
+
+class File
+	def self.open_and_process(*args)
+	f = File.open(*args)
+	yield f
+	f.close()
+	end
+
+end
+
+File.open_and_process("testfile", "r") do |file|
+	while line = file.gets
+	puts line
+	end
+
+end
+=>															<<- page 80 of Pickaxe
+This is line one
+This is line two
+This is line three
+And so on...
+
+
+

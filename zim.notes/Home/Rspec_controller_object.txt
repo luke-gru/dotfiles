@@ -1,0 +1,31 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-11T20:58:50.220357
+
+====== Rspec controller object ======
+
+Useful for things like simulating signup in a test ENV. 
+
+**Example (in sample_app, /spec/spec_helpers.rb :**
+___________________________________
+.
+.
+.
+Rspec.configure do |config|
+  .
+  .
+  .
+	def test_sign_in(user)
+
+		  controller.sign_in(user)
+
+	end
+
+end
+___________________________________
+
+
+*__sign_in__ is defined in sample_app in the module SessionsHelper.
+
+Note that this example also uses the [[rspec sign_in helper]] to simulate a sign-in in Rspec.
+

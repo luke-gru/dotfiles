@@ -1,0 +1,51 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-01-07T21:57:56.302832
+
+====== Table Associations and Intermodel Relations ======
+		__from checkout form__										__from cart__											__from manager__
+
+			ORDERS												LINE_ITEMS										PRODUCTS
+
+//id*  	name	address	email	pay_type//					//id	*product_id	order_id*	    qty	total_price		*id	name	desc	image_url	price//
+
+___________________________________________________________________________>
+
+														      <____________________________________________
+
+
+
+
+class Order < ActiveRecord::Base						<<- note that if this model's table is pointing to table B, the model //has_many :B//
+	 has_many //:line_//item**s**
+
+end
+
+class Product
+
+	 has_many //:line_item//**s**
+
+end
+
+class LineItem 
+
+	 belongs_to //:order//
+	 belongs_to //:product//
+
+end
+
+
+No line item can exist unless the corresponding order and product rows exist. There’s an easy way to remember where to put
+//belongs_to// declarations: if a table has //foreign keys//, the corresponding model should have a //belongs_to// for each.
+
+Because we added the belongs_to declaration to LineItem, we can now retrieve its Order and display the customer’s name:
+li = LineItem.find(...)
+puts "This line item was bought by #{__li.order.name__}"
+
+And because an Order is declared to have many line items, we can reference them //(as a collection)// from an order object:
+order = Order.find(...)
+puts "This order has #__{order.line_items.size__} line items"
+
+
+
+

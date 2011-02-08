@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-01-24T16:46:41.583374
+
+====== Opening a vim session ======
+
+$gvim 'grep -l frame_counter *.c'			<<- open vim, use unix grep, grep -list files with regex (here//, frame_counter)// and edit all of them
+$gvim --remote-silent [file]	(//map// gv)		<<- edit file(s) in current vim session
+$gvim -d, $vimdiff, $gvimdiff 				<<- diffmode
+$ls | vim -										<<- edit temp file with stdout to file, good for big output on command
+$vim -U NONE, ~/mycoolvimrc ...			<<- undo the vimrc, set to NONE or another one

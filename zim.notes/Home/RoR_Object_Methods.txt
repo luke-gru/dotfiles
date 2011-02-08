@@ -1,0 +1,33 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-11T17:31:15.838279
+
+====== RoR Object Methods ======
+
+**Object Methods:**
+
+→ .blank? is TRUE if there's only "   ".blank? (whitespace), if there's  "".blank(empty) or if the object is nil.blank?(nil)
+
+**Fixnum Methods:**
+
+→ //Time Helpers://
+	→ 	 >$ 1.year.from_now
+
+		=> Sun, 13 Mar 2011 03:38:55 UTC +00:00
+		 >$ 10.weeks.ago
+		 => Sat, 02 Jan 2010 03:39:14 UTC +00:00
+
+→ //Other helpers://
+	→    >$ 1.kilobyte                         * good for upload validations
+
+		=> 1024
+
+	          >$ 5.megabytes
+	          => 5242880
+
+	
+
+
+
+
+

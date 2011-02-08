@@ -1,0 +1,46 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-14T12:32:46.862573
+
+====== Routes.rb ======
+→ __get__ = show to browser
+//Example://
+__get__ "store/index"
+
+	
+→ __match__ reroutes URL to controller action
+//Example://
+ __match__ "/store", 						__:to__ => "store__#__index"                           <<- reroute
+
+ __match__ "/store/add_to_cart/__:id__", 	__:to__ => "store__#__add_to_cart"		<<- Here, //:id// is params[//:id //]
+
+
+**Resource routing:**
+
+__resources__ //:products //                                        <<-- __products__ is the name of the __controller__. This is the hookup to the controller so that it maps all HTTP verbs(actions) to 											controller methods (index, create, edit, etc...)
+
+
+**Specified resource actions:**
+
+	 __resources__ // :sessions, :only => [:new, :create, :destroy]//
+
+**Optional routes:**
+
+  match "info/who_bought/:id(.:format)",  :to => "info#who_bought"
+* anything in parens is optional
+
+**Root route ( **/** ):**
+
+root :to => "welcome#index"
+
+**Routing parameters: **
+see [[Home:Params|params]]
+
+The params hash will //always// contain the :controller and :action keys, but you should use the methods controller_name and action_name instead to access these values. Any other parameters defined by the routing, such as :id will also be available. As an example, consider a listing of clients where the list can show either active or inactive clients. We can add a route which captures the :status parameter in a “pretty” URL:
+
+ map.connect "/clients/:status",
+  :controller => "clients",
+  :action => "index",
+  :foo => "bar"
+In this case, when a user opens the URL /clients/active,// params[:status] will be set to “active”//. When this route is used, //params[:foo] will also be set to “bar” // just like it was passed in the query string. In the same way //params[:action] will contain “index”//.
+

@@ -1,0 +1,68 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-09T20:06:45.294364
+
+====== Ruby And RoR ======
+[[RVM]]
+[[Ruby on the Command Line]]
+
+**Ruby**
+
+[[Ruby Regular Expressions]]
+[[Symbols]]
+
+[[Short-circuit evaluation]]
+*[[operator for arrays of n values]]
+![[operator in front of variables]]
+[[hard expressions]]
+
+[[Ruby Methods]]
+[[Variables, methods and their scopes]]
+[[Control Structures]] (iterators, blocks, Procs)
+[[Built-in Classes]]
+[[Inheritance and Mixins]]
+[[object creation hooks]] (to add instance variables to all objects upon creation, etc... make objects born smarter/dumber)
+
+[[Testing Framework]]
+[[Exceptions, Catch and Throw]]
+[[Source Organization]]
+
+[[Input.Output]]
+[[Encoding, Transcoding]]
+[[Talking to Networks]]
+
+**Ruby on Rails**
+[[Rails command line functions]]
+[[rails gems]]
+[[Rspec            |Rspec]]
+
+[[Naming Conventions]] (ORM)
+[[REST actions]]
+**C**
+[[Basic]]
+[[Rails Methods]] (model valdidation, standalone and scaffold error handling)
+[[RoR Object Methods]] (RoR-specific, mainly)
+[[redirect_to and paths]]
+[[Filters]]
+[[keywords]]
+[[Logging admin users in]] (using forms not associated with a particular model)
+**V**
+[[.html.erb]] (layouts, content_tags, iterations, partials)
+[[routes.rb]] (routing, block routing, routing params )
+[[Helper Methods]]
+[[Error handling]]
+[[Names of folders and files]]
+[[Home:flash|flash]]
+[[AJAX]]
+[[JS]]<<-  (scriptaculous effects, hiding divs, etc)
+**M**
+[[ORM]]
+[[db]]
+[[Object Hooks]]
+[[Params]]
+[[Sessions]]
+[[Saving form content and related things (like carts) to database]]
+[[Hashed passwords and virtual attributes]]
+
+**T**
+[[Home:TestUnit|TestUnit]]

@@ -1,0 +1,25 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-27T18:51:41.137806
+
+====== Exceptions, Catch and Throw ======
+
+**Exceptions:**
+Exceptions let you package information about
+an error into an object. That exception object is then propagated back up the calling stack //auto-//
+//matically// until the runtime system finds code that explicitly declares that it knows how to handle
+that type of exception.
+
+**class Exception:**
+→ Info about an exception is encapsulated in an object of class __Exception__ or one of class Exception's children.
+→ When __raising__ an exception, you can use one of the built-in Exception classes (Pickaxe. p. 159), or make one of your own (make sure it's a subclass of StandardError or one of StandardError's children or it //won't //be caught by default).
+→ Every exception has associated with it a //message string// and a //stack backtrace.//
+
+//Pickaxe p. 160-164 for more info on exceptions, handling exceptions and raising exceptions//
+
+**Catch and Throw: **
+terminate process within bounds of catch an throw. Can hold values, too with the optional second param to __throw__. Pickaxe p. 165
+
+
+
+

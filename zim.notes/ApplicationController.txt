@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-11T17:01:44.937443
+
+====== ApplicationController ======
+
+Legend:      :: = !!
+
+
+Parent Controller to all generated controllers. Inherits from ActionController!!Base Protects from forgery, etc...
+
+
+

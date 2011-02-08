@@ -1,0 +1,37 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-11T22:27:03.469989
+
+====== redirect to and paths ======
+
+**Example (in sample_app, SessionsController) :**
+
+class SessionsController < ApplicationController
+  .
+  .
+  .
+	def destroy
+
+		sign_out*
+		__redirect_to root_path__
+
+	end
+
+end
+
+*need to define this method.
+__________________________________________________________________________________________
+
+**The redirect_to method can take the option hash **__:notice__ **as a shorthand for flash[:notice]**
+
+Example:
+
+def deny_access
+	__redirect_to__ signin_path, __:notice__ => "Please sign in to access this page."
+
+end
+
+**Redirect can also take actions (default current controller), controllers (default index), and actions and controllers:**
+     
+ format.html { redirect_to(:action => :index) }
+

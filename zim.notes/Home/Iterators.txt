@@ -1,0 +1,116 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-20T20:05:15.676928
+
+====== Iterators (iteration blocks) ======
+
+*scope rules: for local variables created in  __.each__ and __.loop__, methods, these variables are local to the blocks only. However if local variables of the same name exist before the iteration is called by Ruby, the variables will be passed to the block and then be available after. The same does NOT happen to                   
+|paramaters| of a block. To make sure the variables defined in a block are block-local ONLY, put them after a semi-colon. e.g. def method {|param; block var|.. 
+
+**Basic Example:**
+[ 'cat', 'dog', 'horse' ]__.each__ { |name| print name, " "  }  				=> cat dog horse
+- - - - - - - - - - 
+→ //for (syntactic sugar!)://
+
+**for** song **in** playlist
+	song.play
+**end**
+
+//is the same as://
+
+playlist.each do |song|
+	song.play
+end
+- - - - - - - - - - 
+
+[1, 3, 5, 7, 9]__.find __{|v| v*v > 30 } 										=> 7		(returns first value)
+
+["H", "A", "L"]__.collect__ {|x| x__.succ__ } 										=> ["I", "B", "M"]		( passes each value to the block, creates new array with new values)
+		       __.map__
+		
+
+[1,3,5,7]__.inject__(:+)														=> 16
+[1,3,5,7]__.inject__(:*) 													=> 105
+[1,3,5,7].inject(0) {|sum, element| sum+element}					 => 16					the (0) parameter means the first sum is (0) +firstvalue (1) = 1
+[1,3,5,7].inject(1) {|product, element| product*element} 			 => 105				the (1) parameter means the first product is (1) x firstvalue (1) = 1
+//no param = param is value of first element//
+[1,3,5,7]__.inject__(:nameofanymethod)	
+
+
+**Enumerators: (iterator-like objects)**
+//a = [ 1, 3, "cat" ]//
+//h = { dog: "canine", fox: "vulpine" }//
+enum_a = //a//.__to_enum	__												<<- __for_enum__  works too
+enum_h = //h//.__to_enum__
+enum_a.next															=> 1
+enum_h.next															=> [:dog, 'canine']		<<- notice __.next__ returns an **array** if the value is a hash key/value pair
+enum_a.next															=> 3
+enum_h.next															=> [:fox, 'vulpine']
+
+**internal iterator methods will also return an //enum //object if no block is called after the iterator method. 
+e.g. a = [1, 2, 3]; a_enum = a.each  									=> #<Enumerator: [1, 2, 3]:each> 
+a_enum.next; a_enum.next											=> 1 	=> 2
+____________________________________________________________________________________________________
+
+the __loop__ method invokes a block repeatedly. It stops when the **first** enumerator stops.
+//Example 1: with enumerators//
+short_enum = [1, 2, 3].to_enum
+long_enum = ('a'..'z').to_enum
+
+__loop do__
+	puts "#{short_enum.next} - #{long_enum.next}"
+
+end
+=> 
+1 - a
+2 - b
+3 - c
+
+**Simple** **looping with next and break keywords:**
+//Example 2:// //looping with //__next__// and //__break__ //keywords://
+i=0
+loop do
+	i += 1
+	__next__ if i < 3
+	print i, "  "
+	__break__ if i > 4
+
+end
+=>
+3 4 5
+____________________________________________________
+
+**Enumerator methods**
+enum_in_threes = (1..10).enum_for(__:each_slice__, 3)								=> __enum_for__ is useful in that it's the same as calling a = (1..10).to_enum ; 																					a.each_slice(3)	
+
+enum_in_threes__.to_a	__															=> [1, 2, 3], [4, 5, 6], [7, 8, 9], [10]
+OR enum_in_threes = (1..10)__.each_slice__(3); enum_in_threes.to_a				=> ditto
+
+
+**Grep:**
+//method grep: repeat when a certain match happens//
+File.open("ordinal").__grep__(/d$/) do |line|
+	puts line																			=> second; third
+end
+
+
+
+**Iterators and Derived Values (non-hash, non-array):**
+//iterate over lines in a file://
+f = __File.open__("testfile")
+f__.each__ do |line|
+	puts "The line is: #{line}"
+
+end
+f__.close__
+
+//Iterate over lines in a file with index starting at 1://
+f = File.open("testfile")
+f__.each_with_index__ do |line, index|
+
+	puts "Line #{index + 1} is: #{line}"										<<- index normally starts at 0, so to make it start at 1  do this
+
+end
+f.close
+
+

@@ -1,0 +1,31 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-20T21:02:59.384016
+
+====== attributes ======
+
+Attributes are //methods// that are exposed to the user to update and read information about an object's state. Within a class definition, attribute methods are //instance methods//.
+
+**Create attribute readers:**
+attr_reader //:price, :bookname//
+
+**Create attribute writers:**
+attr_writer //:etc//
+
+**Create attribute reader/writers:**
+attr_accessor //:name,// //:etc//
+
+Attributes can also update and read information about Classes. Simply add a singleton method to the class like this:
+
+class Test1
+	class << self
+
+		attr_accessor //:value//
+
+	end
+
+end
+
+Test1.value = 99
+Test1.value													=> 99
+

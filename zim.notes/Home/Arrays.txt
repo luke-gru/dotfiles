@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-20T19:30:26.478913
+
+====== Arrays ======
+
+**Creating arrays:**
+//Empty Array//
+array = __[]__
+array.empty?		=> true
+
+//Word array//
+wdarray = %w( ant elk bear) 		=> ["ant", "elk", "bear"]
+
+

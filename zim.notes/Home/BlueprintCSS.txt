@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-12T19:49:07.111777
+
+====== BlueprintCSS ======
+
+useful file for CSS blueprints in Rails.
+
+**currently used in:**
+→ sample_app
+

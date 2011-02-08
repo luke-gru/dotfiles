@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-01-06T23:29:42.617753
+
+====== Basic ======
+
+* Controller instance variables are accessible to the views.
+**http://localhost/store/index** = StoreController.new.index
+* views and controller actions share the same name. 
+//The views are in app/views///
+//The controllers are in app/controllers///
+
+* want one layout for the whole of the application? Put this in ApplicationController:
+
+layout "store"
+
+
+

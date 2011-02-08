@@ -1,0 +1,69 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-21T16:59:06.556135
+
+====== Inheritance, Modules and Mixins ======
+For detailed info on how modules are included, see Pickaxe p. 377-80
+
+ChildClass < ParentClass
+ChildClass = //subclass//, ParentClass = //superclass//
+ChildClass can //invoke// instance methods defined in ParentClass
+
+default class = Object
+
+**Modules:**
+1) provide namespace
+2) provide mixin functionality
+
+NameOfModule::NAMEOFCONSTANT
+module methods are called just like class methods:
+//Example: //y = Trig__.sin__(__Trig::PI/4__)
+
+**Mixins:**
+//If a module has instance methods, constants or class variables//, and is __include__d into another class, **all** instances of that class can call those instance methods.
+*If a class has multiple mixins, last one included is searched first. Also, Ruby looks for methods in your class, then in your mixins, then in the superclasses etc...
+
+class FooBar
+include ModuleName
+
+	def foo
+	...
+
+
+Module __Comparable__: gets you (<, <=, ==, >=, and >), as well as the method __between?.__ Have to def __<=>__ in class.
+
+
+
+ Module __Enumerator__: First write an iterator __each__. Gets you __map__, __include?__, and __find_all?__, __inject__ if Comparable mixed (<=>) you get __sort__,  __min__, __max__
+
+//p. 96 of Pickaxe for more info.//
+
+**Extend: (adds a module as superclass of a particular object's Class):**
+
+it is sometimes useful to add the instance methods to a// particular// object. You do this
+using Object__.extend__. Here’s an example:
+module Humor
+	def tickle
+
+		"#{self} says hee, hee!"
+
+	end
+
+end
+
+obj = "Grouchy"
+obj__.extend Humor__
+puts obj.tickle
+=>
+Grouchy says hee, hee!
+
+*There is an interesting trick with extend. If you use it within a class definition, the module’s
+methods become class methods* (see Pickaxe p. 379)
+
+**Metaprogramming and Class-level macros:**
+
+
+
+
+
+

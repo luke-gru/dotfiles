@@ -1,0 +1,40 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2010-12-12T16:23:15.165456
+
+====== Rspec-specific functions ======
+
+* [[Home:Rspec controller object|Rspec controller object]]
+**Functions:**
+
+__visit__ foo_path
+controller.do_foo
+__fill_in__ :foo, 		:with => foobar
+__click_button__
+
+**.reload(for reloading database info. to check if it changed/didn't change)**
+//Example://
+_________________________________________
+it "should change the user's attributes" do
+	@user__.reload__
+	@user.name.should  == @attr[:name]
+	@user.email.should == @attr[:email]
+
+end
+_________________________________________
+
+render_template('foo')
+
+response.should have_selector("title", :content => foobar)
+response.should have_selector("a", :content => foopath)						response.should have_selector("a" :href => foopath, :content => "linktoclick")
+response.should_not have_selector("foo", etc...)
+
+response.should be_sucesss
+response.should_not be_success
+**end**.response.should be_signed_in
+[for a method defined as **signed_in?**]
+
+
+__test_sign_in__(@user)     <<-- //Very useful//
+
+
