@@ -17,19 +17,19 @@
 $
 
 # Command Line History (newest to oldest):
-:w
 :qall
+:mks! ~/.vim/sessions/sessiontwitter-like
+:wall
+:w
+:Project ~/.vim/projects/twitter-like
+:bwipe
+:source ~/.vim/sessions/sessiontwitter-like
 :!git add %
 :set hlssearch?
 :q
 :h mapleader
-:source ~/.vim/sessions/sessiontwitter-like
-:Project ~/.vim/projects/twitter-like
-:bwipe
 :q!
 :h 142
-:mks! ~/.vim/sessions/sessiontwitter-like
-:wall
 ::w
 :5
 :A
@@ -479,20 +479,22 @@ $
 
 # Registers:
 "0	CHAR	0
-	'
+	,
 "1	LINE	0
 	
 "2	LINE	0
-	nmap <Leader>h :set hlsearch!<CR>
-"3	LINE	0
-	" Turn hlsearch on or off.
-"4	LINE	0
-	" Open quickfix window
-"5	LINE	0
-	"--/TAB MAPPINGS--
-"6	LINE	0
 	
+"3	LINE	0
+	nmap <Leader>h :set hlsearch!<CR>
+"4	LINE	0
+	" Turn hlsearch on or off.
+"5	LINE	0
+	" Open quickfix window
+"6	LINE	0
+	"--/TAB MAPPINGS--
 "7	LINE	0
+	
+"8	LINE	0
 	"--TAB MAPPINGS--
 	"CTRL-L, CTRL, R or tab previous, next
 	nnoremap <C-Left> :tabprevious<CR>
@@ -504,11 +506,9 @@ $
 	nnoremap <silent> <CR> za
 	
 	"--/TAB MAPPINGS--
-"8	LINE	0
+"9	LINE	0
 	inoremap <A-m> <ESC> 
 	inoremap <F1> <ESC>
-"9	LINE	0
-	
 "a@	CHAR	0
 	%{fugitive#statusline()}
 "b	CHAR	0
@@ -558,21 +558,23 @@ $
 	    <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
 	    <%= stylesheet_link_tag 'custom', :media => 'screen' %>
 ""-	CHAR	0
-	,
+	'new'
 
 # File marks:
-'0  1  0  ~/zim.notes/Home.txt
-'1  8  17  ~/.vimrc
-'2  1  0  ~/.vim/ftdetect/markdown.vim
-'3  1  0  ~/.vim/syntax/markdown.vim
-'4  97  0  ~/.vimrc
-'5  106  28  ~/.bashrc
-'6  1  0  ~/.vim/after/rspec.vim
-'7  1  0  ~/.vim/syntax/snippet.vim
-'8  49  0  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
-'9  22  3  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
+'0  1  0  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
+'1  1  0  ~/zim.notes/Home.txt
+'2  8  17  ~/.vimrc
+'3  1  0  ~/.vim/ftdetect/markdown.vim
+'4  1  0  ~/.vim/syntax/markdown.vim
+'5  97  0  ~/.vimrc
+'6  106  28  ~/.bashrc
+'7  1  0  ~/.vim/after/rspec.vim
+'8  1  0  ~/.vim/syntax/snippet.vim
+'9  49  0  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
 
 # Jumplist (newest first):
+-'  1  0  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
+-'  1  0  ~/rails_projects/twitter-like/.autotest
 -'  1  0  ~/zim.notes/Home.txt
 -'  8  17  ~/.vimrc
 -'  1  0  ~/.vimrc
@@ -586,8 +588,6 @@ $
 -'  1  0  ~/.vim/after/rspec.vim
 -'  1  0  ~/.vim/syntax/snippet.vim
 -'  49  0  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
--'  1  0  ~/.vim/projects/twitter-like
--'  1  0  ~/rails_projects/twitter-like/.autotest
 -'  22  3  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
 -'  1  0  ~/rails_projects/twitter-like/spec/factories.rb
 -'  1  0  ~/rails_projects/twitter-like/app/helpers/pages_helper.rb
@@ -598,7 +598,7 @@ $
 -'  8  27  ~/rails_projects/twitter-like/app/controllers/users_controller.rb
 -'  1  0  ~/rails_projects/twitter-like/-
 -'  1  0  ~/rails_projects/twitter-like/app/controllers/users_controller.rb
--'  1  32  ~/rails_projects/twitter-like/app/views/users/show.html.erb
+-'  4  32  ~/rails_projects/twitter-like/app/views/users/show.html.erb
 -'  7  2  ~/rails_projects/twitter-like/config/routes.rb
 -'  11  0  ~/rails_projects/twitter-like/app/controllers/users_controller.rb
 -'  1  0  ~/rails_projects/twitter-like/app/views/users/new.html.erb
@@ -627,53 +627,317 @@ $
 -'  22  87  ~/.vim/syntax/rspec.vim
 -'  1  0  ~/.vim/syntax/rspec.vim
 -'  1  0  ~/rails_projects/twitter-like/-
--'  49  0  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
--'  1  0  ~/.vim/projects/twitter-like
--'  1  0  ~/rails_projects/twitter-like/.autotest
--'  22  3  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
--'  1  0  ~/rails_projects/twitter-like/spec/factories.rb
 -'  1  0  ~/rails_projects/twitter-like/app/helpers/pages_helper.rb
--'  1  0  ~/rails_projects/twitter-like/app/helpers/application_helper.rb
--'  22  87  ~/.vim/syntax/rspec.vim
--'  1  0  ~/.vim/syntax/rspec.vim
--'  12  0  ~/rails_projects/twitter-like/app/controllers/users_controller.rb
--'  8  27  ~/rails_projects/twitter-like/app/controllers/users_controller.rb
--'  1  0  ~/rails_projects/twitter-like/-
--'  1  0  ~/rails_projects/twitter-like/app/controllers/users_controller.rb
--'  1  32  ~/rails_projects/twitter-like/app/views/users/show.html.erb
--'  7  2  ~/rails_projects/twitter-like/config/routes.rb
--'  11  0  ~/rails_projects/twitter-like/app/controllers/users_controller.rb
--'  1  0  ~/rails_projects/twitter-like/app/views/users/new.html.erb
--'  15  51  ~/rails_projects/twitter-like/app/views/layouts/application.html.erb
--'  9  0  ~/rails_projects/twitter-like/db/migrate/20110206022006_add_email_uniqueness_index.rb
--'  50  8  ~/rails_projects/twitter-like/spec/models/user_spec.rb
--'  59  0  ~/rails_projects/twitter-like/spec/models/user_spec.rb
--'  56  2  ~/rails_projects/twitter-like/app/models/user.rb
--'  8  0  ~/rails_projects/twitter-like/config/routes.rb
--'  1  0  ~/rails_projects/twitter-like/spec/models/user_spec.rb
--'  54  39  ~/rails_projects/twitter-like/spec/models/user_spec.rb
--'  13  0  ~/rails_projects/twitter-like/spec/models/user_spec.rb
--'  15  71  ~/rails_projects/twitter-like/app/models/user.rb
--'  20  36  ~/rails_projects/twitter-like/app/models/user.rb
--'  46  0  ~/rails_projects/twitter-like/spec/models/user_spec.rb
--'  17  2  ~/rails_projects/twitter-like/spec/models/user_spec.rb
--'  21  4  ~/rails_projects/twitter-like/spec/models/user_spec.rb
--'  27  19  ~/rails_projects/twitter-like/spec/models/user_spec.rb
--'  30  0  ~/rails_projects/twitter-like/spec/models/user_spec.rb
--'  26  18  ~/rails_projects/twitter-like/spec/models/user_spec.rb
--'  19  23  ~/rails_projects/twitter-like/app/models/user.rb
--'  24  0  ~/rails_projects/twitter-like/spec/models/user_spec.rb
--'  133  5  ~/rails_projects/twitter-like/spec/models/user_spec.rb
--'  12  20  ~/rails_projects/twitter-like/spec/models/user_spec.rb
--'  1  0  ~/rails_projects/twitter-like/app/helpers/pages_helper.rb
--'  22  87  ~/.vim/syntax/rspec.vim
--'  1  0  ~/.vim/syntax/rspec.vim
--'  1  0  ~/rails_projects/twitter-like/-
--'  1  0  ~/.vim/syntax/snippet.vim
--'  49  0  ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
--'  1  0  ~/.vim/projects/twitter-like
 
 # History of marks within files (newest to oldest):
+
+> ~/rails_projects/twitter-like/spec/controllers/pages_controller_spec.rb
+	"	31	0
+	^	41	92
+	.	41	91
+	+	43	3
+	+	5	0
+	+	18	0
+	+	14	44
+	+	16	0
+	+	12	12
+	+	17	4
+	+	16	0
+	+	29	6
+	+	42	6
+	+	41	91
+
+> ~/rails_projects/twitter-like/public/stylesheets/custom.css
+	"	141	0
+	^	141	0
+	.	140	1
+	+	43	1
+	+	6	17
+	+	55	1
+	+	79	1
+	+	94	1
+	+	101	31
+	+	100	0
+	+	102	1
+	+	116	1
+	+	140	1
+
+> ~/rails_projects/twitter-like/spec/integration/layout_links_spec.rb
+	"	33	0
+	.	31	0
+	+	1	21
+	+	6	7
+	+	3	24
+	+	17	61
+	+	21	12
+	+	22	60
+	+	39	2
+	+	30	60
+	+	32	0
+	+	32	63
+	+	38	0
+	+	34	60
+	+	38	2
+	+	36	62
+	+	37	3
+	+	38	0
+	+	31	4
+	+	31	0
+	+	31	0
+
+> ~/rails_projects/twitter-like/.autotest
+	"	1	0
+	.	4	0
+	+	1	0
+	+	4	0
+
+> ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
+	"	1	0
+	^	14	11
+	.	14	10
+	+	16	4
+	+	4	12
+	+	5	0
+	+	8	0
+	+	7	0
+	+	53	0
+	+	22	24
+	+	38	35
+	+	51	4
+	+	9	0
+	+	14	10
+
+> ~/rails_projects/twitter-like/spec/models/user_spec.rb
+	"	1	6
+	^	114	0
+	.	71	0
+	+	18	0
+	+	15	11
+	+	11	59
+	+	15	30
+	+	17	33
+	+	135	0
+	+	18	0
+	+	133	7
+	+	135	0
+	+	21	54
+	+	22	36
+	+	24	0
+	+	27	0
+	+	26	16
+	+	28	37
+	+	30	0
+	+	33	0
+	+	32	8
+	+	35	37
+	+	40	19
+	+	21	0
+	+	16	0
+	+	27	0
+	+	43	43
+	+	46	0
+	+	6	52
+	+	52	0
+	+	48	23
+	+	50	48
+	+	51	4
+	+	54	39
+	+	57	49
+	+	59	0
+	+	50	8
+	+	7	15
+	+	6	64
+	+	7	67
+	+	8	6
+	+	63	62
+	+	65	40
+	+	86	0
+	+	71	47
+	+	77	40
+	+	86	0
+	+	84	39
+	+	85	3
+	+	61	0
+	+	86	0
+	+	62	0
+	+	71	0
+	+	83	0
+	+	83	0
+	+	76	0
+	+	64	0
+	+	70	0
+	+	91	33
+	+	133	4
+	+	97	4
+	+	101	0
+	+	100	6
+	+	102	40
+	+	104	73
+	+	110	9
+	+	97	0
+	+	110	15
+	+	133	5
+	+	133	2
+	+	111	0
+	+	133	1
+	+	111	3
+	+	110	0
+	+	111	0
+	+	113	37
+	+	116	63
+	+	117	62
+	+	122	55
+	+	123	0
+	+	130	36
+	+	133	4
+	+	5	0
+	+	133	3
+	+	134	2
+	+	133	0
+	+	114	0
+	+	71	0
+
+> ~/rails_projects/twitter-like/db/migrate/20110206022006_add_email_uniqueness_index.rb
+	"	1	0
+	^	9	0
+	.	9	0
+	+	3	44
+	+	7	30
+	+	9	0
+
+> ~/rails_projects/twitter-like/app/views/users/show.html.erb
+	"	11	27
+	^	15	0
+	.	16	0
+	+	4	4
+	+	7	5
+	+	7	0
+	+	5	24
+	+	1	52
+	+	4	0
+	+	14	8
+	+	16	0
+
+> ~/rails_projects/twitter-like/db/migrate/20110206203259_add_password_to_users.rb
+	"	1	0
+
+> ~/rails_projects/twitter-like/db/migrate/20110206214822_add_salt_to_users.rb
+	"	1	0
+
+> ~/rails_projects/twitter-like/Gemfile
+	"	1	6
+	.	9	23
+	+	25	2
+	+	19	15
+	+	20	15
+	+	21	26
+	+	12	19
+	+	26	0
+	+	22	16
+	+	25	0
+	+	27	0
+	+	25	0
+	+	24	12
+	+	23	31
+	+	25	0
+	+	9	23
+
+> ~/rails_projects/twitter-like/spec/factories.rb
+	"	1	0
+	^	2	9
+	.	7	0
+	+	7	37
+	+	7	0
+	+	7	3
+	+	1	20
+	+	2	17
+	+	7	0
+	+	7	0
+	+	7	2
+	+	7	0
+	+	7	0
+	+	7	0
+	+	7	0
+	+	7	0
+	+	1	30
+	+	2	8
+	+	3	0
+	+	7	0
+
+> ~/.vim/projects/twitter-like
+	"	125	0
+	^	14	1
+	.	131	0
+	+	30	0
+	+	36	0
+	+	8	9
+	+	123	0
+	+	123	0
+	+	123	0
+	+	134	0
+	+	3	0
+	+	36	15
+	+	36	0
+	+	32	0
+	+	30	0
+	+	26	21
+	+	115	0
+	+	114	2
+	+	114	0
+	+	111	0
+	+	110	11
+	+	27	22
+	+	28	17
+	+	29	17
+	+	123	0
+	+	133	1
+	+	133	2
+	+	133	0
+	+	133	1
+	+	133	0
+	+	133	0
+	+	129	1
+	+	129	21
+	+	35	14
+	+	134	0
+	+	148	0
+	+	134	0
+	+	13	0
+	+	124	0
+	+	22	0
+	+	123	0
+	+	132	0
+	+	132	0
+	+	66	0
+	+	75	0
+	+	75	0
+	+	40	0
+	+	38	0
+	+	39	14
+	+	75	0
+	+	71	0
+	+	10	0
+	+	121	0
+	+	122	12
+	+	44	0
+	+	15	0
+	+	109	0
+	+	128	0
+	+	131	0
+	k	130	1
+
+> ~/rails_projects/twitter-like/app/helpers/users_helper.rb
+	"	7	0
+	^	7	0
+	.	7	0
+	+	3	23
+	+	2	23
+	+	5	65
+	+	4	54
+	+	7	0
+
+> ~/rails_projects/twitter-like/db/migrate/20110206001304_create_users.rb
+	"	1	0
 
 > ~/zim.notes/Home.txt
 	"	1	0
@@ -813,84 +1077,6 @@ $
 > ~/.vim/syntax/snippet.vim
 	"	1	0
 
-> ~/rails_projects/twitter-like/.autotest
-	"	1	0
-	.	4	0
-	+	1	0
-	+	4	0
-
-> ~/rails_projects/twitter-like/spec/controllers/users_controller_spec.rb
-	"	1	0
-	^	51	5
-	.	51	4
-	+	16	4
-	+	4	12
-	+	5	0
-	+	8	0
-	+	7	0
-	+	53	0
-	+	22	24
-	+	38	35
-	+	51	4
-
-> ~/.vim/projects/twitter-like
-	"	124	0
-	^	121	13
-	.	43	0
-	+	29	0
-	+	35	0
-	+	8	9
-	+	122	0
-	+	122	0
-	+	122	0
-	+	133	0
-	+	3	0
-	+	35	15
-	+	35	0
-	+	31	0
-	+	29	0
-	+	25	21
-	+	114	0
-	+	113	2
-	+	113	0
-	+	110	0
-	+	108	11
-	+	26	22
-	+	27	17
-	+	28	17
-	+	122	0
-	+	132	1
-	+	132	2
-	+	132	0
-	+	132	1
-	+	132	0
-	+	132	0
-	+	128	1
-	+	127	21
-	+	34	14
-	+	133	0
-	+	147	0
-	+	133	0
-	+	13	0
-	+	123	0
-	+	21	0
-	+	122	0
-	+	131	0
-	+	130	0
-	+	65	0
-	+	74	0
-	+	74	0
-	+	39	0
-	+	37	0
-	+	38	14
-	+	74	0
-	+	70	0
-	+	10	0
-	+	120	0
-	+	121	12
-	+	43	0
-	k	42	0
-
 > ~/rails_projects/twitter-like/app/helpers/application_helper.rb
 	"	1	0
 	^	4	23
@@ -913,28 +1099,6 @@ $
 	+	6	0
 	+	7	0
 
-> ~/rails_projects/twitter-like/spec/factories.rb
-	"	1	0
-	^	2	9
-	.	7	0
-	+	7	37
-	+	7	0
-	+	7	3
-	+	1	20
-	+	2	17
-	+	7	0
-	+	7	0
-	+	7	2
-	+	7	0
-	+	7	0
-	+	7	0
-	+	7	0
-	+	7	0
-	+	1	30
-	+	2	8
-	+	3	0
-	+	7	0
-
 > ~/rails_projects/twitter-like/app/helpers/pages_helper.rb
 	"	1	0
 
@@ -953,29 +1117,6 @@ $
 
 > /usr/share/vim/vim72/doc/usr_40.txt
 	"	451	0
-
-> ~/rails_projects/twitter-like/spec/integration/layout_links_spec.rb
-	"	1	4
-	.	31	0
-	+	1	21
-	+	6	7
-	+	3	24
-	+	17	61
-	+	21	12
-	+	22	60
-	+	39	2
-	+	30	60
-	+	32	0
-	+	32	63
-	+	38	0
-	+	34	60
-	+	38	2
-	+	36	62
-	+	37	3
-	+	38	0
-	+	31	4
-	+	31	0
-	+	31	0
 
 > ~/rails_projects/twitter-like/config/application.rb
 	"	5	27
@@ -1071,130 +1212,8 @@ $
 	+	36	0
 	+	34	23
 
-> ~/rails_projects/twitter-like/spec/models/user_spec.rb
-	"	134	0
-	^	114	0
-	.	114	0
-	+	18	0
-	+	15	11
-	+	11	59
-	+	15	30
-	+	17	33
-	+	135	0
-	+	18	0
-	+	133	7
-	+	135	0
-	+	21	54
-	+	22	36
-	+	24	0
-	+	27	0
-	+	26	16
-	+	28	37
-	+	30	0
-	+	33	0
-	+	32	8
-	+	35	37
-	+	40	19
-	+	21	0
-	+	16	0
-	+	27	0
-	+	43	43
-	+	46	0
-	+	6	52
-	+	52	0
-	+	48	23
-	+	50	48
-	+	51	4
-	+	54	39
-	+	57	49
-	+	59	0
-	+	50	8
-	+	7	15
-	+	6	64
-	+	7	67
-	+	8	6
-	+	63	62
-	+	65	40
-	+	86	0
-	+	71	47
-	+	77	40
-	+	86	0
-	+	84	39
-	+	85	3
-	+	61	0
-	+	86	0
-	+	62	0
-	+	71	0
-	+	83	0
-	+	83	0
-	+	76	0
-	+	64	0
-	+	70	0
-	+	91	33
-	+	133	4
-	+	97	4
-	+	101	0
-	+	100	6
-	+	102	40
-	+	104	73
-	+	110	9
-	+	97	0
-	+	110	15
-	+	133	5
-	+	133	2
-	+	111	0
-	+	133	1
-	+	111	3
-	+	110	0
-	+	111	0
-	+	113	37
-	+	116	63
-	+	117	62
-	+	122	55
-	+	123	0
-	+	130	36
-	+	133	4
-	+	5	0
-	+	133	3
-	+	134	2
-	+	133	0
-	+	114	0
-
-> ~/rails_projects/twitter-like/app/views/users/show.html.erb
-	"	2	35
-	^	2	36
-	.	2	35
-	+	1	4
-	+	4	5
-	+	4	0
-	+	2	35
-
 > ~/rails_projects/twitter-like/db/schema.rb
 	"	15	16
-
-> ~/rails_projects/twitter-like/db/migrate/20110206203259_add_password_to_users.rb
-	"	3	4
-
-> ~/rails_projects/twitter-like/db/migrate/20110206214822_add_salt_to_users.rb
-	"	1	0
-
-> ~/rails_projects/twitter-like/Gemfile
-	"	11	20
-	.	9	23
-	+	25	2
-	+	19	15
-	+	20	15
-	+	21	26
-	+	12	19
-	+	26	0
-	+	22	16
-	+	25	0
-	+	27	0
-	+	25	0
-	+	24	12
-	+	23	31
-	+	25	0
-	+	9	23
 
 > ~/rails_projects/twitter-like/spec/spec_helper.rb
 	"	16	0
@@ -1234,22 +1253,6 @@ $
 	+	1	0
 	+	8	0
 	+	6	28
-
-> ~/rails_projects/twitter-like/spec/controllers/pages_controller_spec.rb
-	"	31	0
-	^	41	92
-	.	41	91
-	+	43	3
-	+	5	0
-	+	18	0
-	+	14	44
-	+	16	0
-	+	12	12
-	+	17	4
-	+	16	0
-	+	29	6
-	+	42	6
-	+	41	91
 
 > ~/rails_projects/twitter-like/config/routes.rb
 	"	7	2
@@ -1316,14 +1319,6 @@ $
 	+	4	41
 	+	5	45
 
-> ~/rails_projects/twitter-like/db/migrate/20110206022006_add_email_uniqueness_index.rb
-	"	9	0
-	^	9	0
-	.	9	0
-	+	3	44
-	+	7	30
-	+	9	0
-
 > ~/rails_projects/twitter-like/app/views/users/new.html.erb
 	"	1	0
 
@@ -1379,20 +1374,6 @@ $
 	+	7	21
 	+	11	19
 	+	17	0
-
-> ~/rails_projects/twitter-like/public/stylesheets/custom.css
-	"	116	0
-	^	117	0
-	.	116	1
-	+	43	1
-	+	6	17
-	+	55	1
-	+	79	1
-	+	94	1
-	+	101	31
-	+	100	0
-	+	102	1
-	+	116	1
 
 > ~/rails_projects/twitter-like/app/views/pages/help.html.erb
 	"	1	0
@@ -1882,9 +1863,3 @@ $
 	+	13	0
 	+	21	36
 	+	13	73
-
-> /usr/share/vim/vim72/doc/usr_30.txt
-	"	19	22
-
-> /usr/share/vim/vim72/doc/usr_31.txt
-	"	18	24

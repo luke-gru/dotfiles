@@ -4,7 +4,7 @@ Creation-Date: 2010-12-11T23:45:32.086871
 
 ====== git VCS ======
 *HEAD = reference to last commit in current checked out branch
-$git config --global alias.co checkout											<<- make new git alias 
+$git config --global alias.co checkout									<<- make new git alias 
 $git config --global color.ui true
 
 **git commands:**
@@ -12,9 +12,9 @@ $git config --global color.ui true
 **1)Basic:**
 				    //aliases in .profile//
 
-$git remote add origin(alias) //git@github.com:<username>/<reponame>.git//
-$git remote add origin(alias) master
-$git remote rm [alias]
+$git remote add [alias] __git@github.com:<username>/<reponame>.git__
+$git remote add [alias] master(branch)			<<- add remote branch
+$git remote rm [alias]							<<- remove remote
 $git remote -v									<<- list push and fetch remote aliases
 $git remote rename [oldalias] [newalias]
 $git remote show [alias]							<<-tracked branches, branches to prune from local, new remote branches, local branch pushed etc...
@@ -27,15 +27,14 @@ $git commit -**a**m "message"						<<- commit to local repository ALL **tracked*
 $git commit -v									<<- puts diff of commit in editor, strips out when file saved
 $git commit --amend								<<- replace prev. commit with staging area
 $git status (-s[hort])				    gs			<<- clean, updated 
-$git push (origin master)
 $git push [alias] [branch](existing or new)
 
 **remove, rename**
 $git rm //filename (--cached) (-f)					//<<- remove file from git tracking and delete file from disk (//cached keeps it on disk) (-force is staged)//
 $git rm log/\*.log								<<- escape glob patterns, git does its own filename expansion along with shell
-$git mv //oldname newname						//<<- runs a git rm --cached, then mv, then git add //newname//
-$git checkout -- benchmarks.rb					<<- unstaged, modified file, revert back to HEAD 
+$git mv //oldname newname						//<<- runs a git rm --cached, then mv, then git add //newname// 
 
+**remotes**
 $git fetch [alias]									<<- fetches updates on remote's references and adds remote branches, if any, and remote commits
 $git fetch --all										<<- synch with all remotes
 $git merge [alias]/[branch]						<<- git maps branches for you automatically, adding the [alias] for remote branches that differ from other 															people's aliases. These are remote branches.
@@ -47,13 +46,12 @@ $git diff --cached	(--stat)							<<- line by line of staged changes relative to
 $git diff HEAD (--stat)							<<- line by line of all changes relative to last commit		//equiv. to insertions, deletions if commit now//
 $git diff (same as above)
 $git diff (--stat) sha1, branchB					<<- suppose sha1 on master and sha1 = merge base (common commit they diverged from), this shows the diff 														between the merge base of master and the tip of branchB, thus all the stuff that was changed in branchB
-$git diff master...branchB						<<- same as above (merge base of master with tip of branchB)
+$git diff master...branchB						<<- same as above (diff the merge base of master with the tip of branchB)
 
-**revert/reset**
-$git reset //filename//								<<- 
-$git reset HEAD //filename						//<<- reset to last commit
-$git revert <hash>								<<- revert to that commit
-$git revert HEAD									<<- revert to last commit
+**revert/reset** 
+$git reset HEAD //filename						//<<- reset to last commit version, discard changes
+$git reset --hard									<<-  reset working directory to latest commit on branch, discard all changes
+$git checkout -- benchmarks.rb					<<- unstaged, modified file, revert back to HEAD 
 
 **branches**
 $git branch (-v) (--[no-]merged)					<<- lists branches (-v lists last commit for each branch too) (--[no]merged lists branches that have been merged
@@ -67,6 +65,7 @@ $git checkout <hash>								<<- checkout this version of the project
 $git checkout (hash, HEAD) //filename//			<<- checkout a commit's version and replace ours with that version 
 $git checkout -b serverfix origin/serverfix		<<- make branch serverfix point to same commit that origin/serverfix does. origin/serverfix is a remote 														branch I want to base this work off. Since it points to same commit as remote branch, **auto-tracks remote**
 $git checkout --track origin/serverfix			<<- current branch tracks remote branch
+**push branches**
 $git push origin serverfix:awesomebranch		<<- push serverfix branch to remote, name it awesomebranch. Default no colon, remote same as local
 $git push origin :serverfix						<<- delete remote branch serverfix
 
@@ -79,7 +78,8 @@ $git merge [nameofbranch] 						<<- merges branch with branch you're on, or fast
 $git rebase --onto master server client			<<- rebase client branch, which is based off of commit on server branch, to master branch (don't have to be on 														client to do this)
 git rebase [basebranch] [topicbranch]
 
-//$git clone git@github.com:tpope/vim-fugitive.git (folder)	<<- clones repo to folder. Default folder = wd //
+**cloning**
+__$git clone git@github.com:tpope/vim-fugitive.git__ (folder)	<<- clones repo to folder. Default folder = wd
 
 **log**
 $git log [branch]												<<- note that branches take their root's commits

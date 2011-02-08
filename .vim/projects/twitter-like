@@ -14,6 +14,7 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
   helpers=helpers {
    application_helper.rb
    pages_helper.rb
+   users_helper.rb
   }
   mailers=mailers {
   }
@@ -105,7 +106,7 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
    rails.js
   }
   stylesheets=stylesheets {
-	 custom.css
+   custom.css
 	 blueprint=blueprint {
     ie.css
     print.css
@@ -124,7 +125,7 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
    users_controller_spec.rb
   }
 	integration=integration {
-		layout_links_spec.rb
+   layout_links_spec.rb
 	}
 	models=models {
    user_spec.rb
