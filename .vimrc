@@ -3,7 +3,10 @@ syntax on "syntax highlighting that is...
 filetype plugin on "all plugins are on by default
 filetype indent on 
 set ruler
+let mapleader=" "
 set tags=tags;
+" Tags, byebye JS 
+let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 "set formatoptions-=c "don't break comments according to textwidth option
 set hls "highlight search
 set statusline=
@@ -70,18 +73,8 @@ set cmdheight=3 "cmd line height.
 set path+=./**,~/rails_projects/depot2/** "project path, change when working on a diff.
 "project
 set laststatus=2 " All windows have status lines
-set helpheight=40 "minimum height for help wins, default=20
-"--TAB MAPPINGS--
-"CTRL-L, CTRL, R or tab previous, next
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
-"ALT-L, ALT-R for moving tabs left/right
-nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
-"fold mappings
-nnoremap <silent> <CR> za
-
-"--/TAB MAPPINGS--
+set helpheight=0 "minimum height for help wins, default=20, 0 is default split
+"win height
 let g:proj_flags='gimst' "default is imst, g toggles proj file w/ F12
 set noequalalways "all windows auto-same size when splitting or closing
 "set winminwidth=5
@@ -93,18 +86,48 @@ set splitbelow		"horiz. splits go below (good for splits)
 "n- and i-mode mappings
 nnoremap <C-y> "+y
 nnoremap <C-\> "+p
-vnoremap <C-y> "+y
+
+" Set the indent width to 2, 4, or 8
+nmap <Leader>2 :setlocal tabstop=2 shiftwidth=2<CR>
+nmap <Leader>4 :setlocal tabstop=4 shiftwidth=4<CR>
+nmap <Leader>8 :setlocal tabstop=8 shiftwidth=8<CR>
+
+" Fold current HTML tag.
+nnoremap <Leader>Ft Vatzf
+
+"--TAB MAPPINGS--
+"CTRL-L, CTRL, R or tab previous, next
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+"ALT-L, ALT-R for moving tabs left/right
+nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
+"--/TAB MAPPINGS--
+
+"fold mappings
+nnoremap <silent> <CR> za
+"/fold mappings
+
 noremap <silent> <F3> <ESC>:e ~/.vimrc<CR>
-inoremap <A-m> <ESC> 
-inoremap <F1> <ESC>
+" Open quickfix window
+nmap <Leader>q :cwindow<CR>
 nnoremap <F9> :set virtualedit=<CR>
 nnoremap <F11> :set virtualedit=all<CR>
+inoremap <A-m> <ESC> 
+inoremap <F1> <ESC>
+"/n- and i-mode mappings
+
 "c-mode mappings
 cnoremap <C-j> <S-left>
 cnoremap <C-k> <S-right>
 cnoremap <C-h> <left>
 cnoremap <C-l> <right>
 cnoremap <C-s> source ~/.vim/sessions/session
+"/c-mode mappings
+
+"v-mode mappings
+vnoremap <C-y> "+y
+"/v-mode mappings
 
 "startup info + sessions:
 set sessionoptions+=winpos
