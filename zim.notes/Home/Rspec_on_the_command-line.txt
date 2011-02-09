@@ -4,8 +4,8 @@ Creation-Date: 2011-02-05T17:40:02.298995
 
 ====== Rspec on the command-line ======
 **Command Line:**
-$//rails generate rspec install											//<<- tells rails to go to spec/ for generate commands and makes .rspec file in root 
-
+$//script/rails generate rspec:install											//<<- tells rails to go to spec/ for generate commands and makes .rspec file in root 
+																and skeleton files, spec_helper etc...
 
 
 
@@ -15,3 +15,5 @@ config.generators do |g|
   g.test_framework :rspec
 end
 --
+
+→ Make sure to put gem 'rspec-rails' in test and dev. group

@@ -8,45 +8,46 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +59 ~/.vimrc
+badd +6 ~/.vimrc
 badd +6 app/views/pages/home.html.erb
 badd +17 app/controllers/pages_controller.rb
 badd +31 spec/controllers/pages_controller_spec.rb
-badd +7 config/routes.rb
+badd +18 config/routes.rb
 badd +1 app/views/pages/about.html.erb
 badd +5 app/views/pages/contact.html.erb
-badd +15 app/views/layouts/application.html.erb
-badd +141 public/stylesheets/custom.css
+badd +14 app/views/layouts/application.html.erb
+badd +190 public/stylesheets/custom.css
 badd +4 app/views/layouts/_stylesheets.html.erb
 badd +11 app/views/layouts/_header.html.erb
 badd +5 app/views/layouts/_footer.html.erb
-badd +33 spec/integration/layout_links_spec.rb
+badd +22 spec/integration/layout_links_spec.rb
 badd +1 app/views/pages/help.html.erb
 badd +1 .autotest
-badd +5 config/application.rb
-badd +54 spec/controllers/users_controller_spec.rb
+badd +39 config/application.rb
+badd +106 spec/controllers/users_controller_spec.rb
 badd +1 app/helpers/application_helper.rb
-badd +9 app/controllers/users_controller.rb
+badd +1 app/controllers/users_controller.rb
 badd +46 app/models/user.rb
 badd +1 spec/models/user_spec.rb
 badd +1 db/migrate/20110206022006_add_email_uniqueness_index.rb
 badd +1 app/views/users/new.html.erb
-badd +11 app/views/users/show.html.erb
+badd +1 app/views/users/show.html.erb
 badd +15 db/schema.rb
 badd +1 db/migrate/20110206203259_add_password_to_users.rb
 badd +1 db/migrate/20110206214822_add_salt_to_users.rb
-badd +1 Gemfile
+badd +10 Gemfile
 badd +1 spec/factories.rb
-badd +16 spec/spec_helper.rb
+badd +21 spec/spec_helper.rb
 badd +1 config/environment.rb
 badd +1 config/environments/test.rb
 badd +1 config.ru
 badd +7 config/environments/development.rb
 badd +7 app/helpers/users_helper.rb
 badd +1 db/migrate/20110206001304_create_users.rb
+badd +37 spec/requests/users_spec.rb
 args .autotest
 winpos 0 24
-edit spec/controllers/users_controller_spec.rb
+edit config/application.rb
 set splitbelow splitright
 wincmd t
 set winheight=1 winwidth=1
@@ -60,11 +61,11 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 17) / 34)
+let s:l = 31 - ((12 * winheight(0) + 17) / 34)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+31
 normal! 0
 tabnext 1
 if exists('s:wipebuf')

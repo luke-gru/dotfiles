@@ -3,7 +3,7 @@ syntax on "syntax highlighting that is...
 filetype plugin on "all plugins are on by default
 filetype indent on 
 set ruler
-let mapleader=" "
+let mapleader="<Space>"
 set tags=tags;
 " Tags, byebye JS 
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"

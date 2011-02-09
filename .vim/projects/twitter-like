@@ -5,6 +5,8 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
  README.markdown
  Rakefile
  config.ru
+ tags
+ webrat.log
  app=app {
   controllers=controllers {
    application_controller.rb
@@ -124,13 +126,14 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
    pages_controller_spec.rb
    users_controller_spec.rb
   }
-	integration=integration {
-   layout_links_spec.rb
-	}
 	models=models {
    user_spec.rb
 	}
+	requests=requests {
+   layout_links_spec.rb
+   users_spec.rb
 	}
+}	
  tmp=tmp {
   cache=cache {
   }
