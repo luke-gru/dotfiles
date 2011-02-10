@@ -25,6 +25,10 @@ set statusline+=\ (%P)    "percent through file
 set showmode
 set showcmd
 set showmatch "matching brackets
+"Set to auto read when a file is changed from the outside
+set noautoread "when a file is changed outside of vim and it's in the buffer
+"list, don't auto-read it, please...vim...
+set lazyredraw "don't redraw screen when running macros
 set matchtime=3 " 3/10 of second paren matches
 set wildmenu " give me menu for tab completion
 set noerrorbells "no annoying little vi error noises!
@@ -54,9 +58,12 @@ set smartcase " but don't ignore them when I type a capital letter, to
 :iabbr attra attr_accessor
 :iabbr slt stylesheet_link_tag
 :iabbr attrr attr_reader
+:iabbr memail luke<DOT>gru<AT>gmail<DOT>com
 :cabbr proj Project ~/.vim/projects/
 :cabbr mks mks! ~/.vim/sessions/
 colorscheme mayansmoke "slate is nicest default one for sure...blue, yellow, grey...
+set viewdir=~/.vim/view "dir where mkview files are stored
+set directory=~/.backup// "dir for swap files
 set columns=100
 set lines=70
 set mousehide "Hide mouse until it's moved.
@@ -68,6 +75,7 @@ set cmdheight=3 "cmd line height.
 set path+=./**,~/rails_projects/depot2/** "project path, change when working on a diff.
 "project
 set laststatus=2 " All windows have status lines
+set shortmess+=mrwx	" To avoid the 'Hit ENTER to continue' prompt
 set helpheight=0 "minimum height for help wins, default=20, 0 is default split
 "win height
 let g:proj_flags='gimst' "default is imst, g toggles proj file w/ F12
@@ -81,7 +89,8 @@ set splitbelow		"horiz. splits go below (good for splits)
 "n- and i-mode mappings
 nnoremap <C-y> "+y
 nnoremap <C-\> "+p
-
+"oh vim...must I have to do this?
+nmap Y y$
 " Set the indent width to 2, 4, or 8
 nmap <Leader>2 :setlocal tabstop=2 shiftwidth=2<CR>
 nmap <Leader>4 :setlocal tabstop=4 shiftwidth=4<CR>
@@ -128,7 +137,22 @@ vnoremap <C-y> "+y
 set sessionoptions+=winpos
 set sessionoptions-=options
 set viminfo+=<100
-autocmd BufReadPost *.yml echo "'expandtab' option is set to" &expandtab
+
+if has("autocmd")
+	au FileType mail,gitcommit setl tw=72
+	au FileType mail,gitcommit echo "'textwidth' set to" &textwidth
+  au BufRead *.txt setl tw=78
+  " When editing a file, always jump to the last cursor position
+	au FileType cpp,c,pl,sh,php setl cindent ts=8 sw=8
+	au FileType python setl ts=4 sw=4 expandtab
+	au BufReadPost *.yml setl expandtab
+	au BufReadPost *.yml echo "'expandtab' option is set to" &expandtab
+	"last cursor position in buffer
+  au BufReadPost *
+  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+  \   exe "normal! g'\"" |
+  \ endif
+endif
 "++++++viminfo stuff that I don't use anymore++++++:
 "
 "autocmd User Rails      set noexpandtab "stop screwing with my noexpandtab!
