@@ -95,10 +95,10 @@ So we need a helper method that takes a //condition, a hash argument and a block
 
 //So now we can change the view in the store layout!//
 
-<% __hidden_div_if(@cart.items.empty?__//, //__:id => "cart"__//) do %>								<<- //Much better
+<% __hidden_div_if(@cart.items.empty?__, :id => "cart") **do**// %>								<<- //Much better
 		<%= render(:partial => "cart", :object => @cart) %>								
 
-<% end %>
+<% **end** %>
 
 **Degrading JS gracefully:**
 

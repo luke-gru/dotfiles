@@ -11,11 +11,13 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
   controllers=controllers {
    application_controller.rb
    pages_controller.rb
+   sessions_controller.rb
    users_controller.rb
   }
   helpers=helpers {
    application_helper.rb
    pages_helper.rb
+   sessions_helper.rb
    users_helper.rb
   }
   mailers=mailers {
@@ -39,6 +41,9 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
 	 users=users {
     new.html.erb
 		show.html.erb
+	}
+	sessions=sessions {
+    new.html.erb
 	}
   }
  }
@@ -124,6 +129,7 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
 	factories.rb
   controllers=controllers {
    pages_controller_spec.rb
+   sessions_controller_spec.rb
    users_controller_spec.rb
   }
 	models=models {

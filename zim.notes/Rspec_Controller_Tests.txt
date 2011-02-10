@@ -8,6 +8,7 @@ when controllers are generated using $//rails generate controller (pages)//, aut
 *can only //get// 'actions' in the specific controller
 
 __-Example in twitter-like:__
+//(pages_controller_spec)//
 
 require 'spec_helper'
 
@@ -56,7 +57,7 @@ describe PagesController do
 end
 
 __Example in twitter-like:__
-//(edited)//
+//(edited, users_controller_spec)//
 
 	describe "GET 'show'" do
 
@@ -73,6 +74,7 @@ __Example in twitter-like:__
 			get :show, :id => @user.id
 			**assigns(:user)**.should == @user						<<- like //Test::Unit// library
 		end
+
 		
 		it "should have a profile image" do
 			get :show, :id => @user
@@ -81,4 +83,20 @@ __Example in twitter-like:__
 								<<- img tag embedded in h1 tag with class of 'gravatar'
 												:class => 'gravatar')
 		end
+
+	end
+	
+	describe "GET 'new'"
+	
+
+		it "should have a name field" do
+
+			get **:new**
+
+			response.should have_selector__("input[name='user[name]'] [type='text']")__
+
+		end
+		
+		**the highlighted section above matches this:**
+		 __<input__ id="user_name" __name="user[name]"__ size="30" __type="text"__ />
 

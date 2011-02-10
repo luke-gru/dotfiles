@@ -3,7 +3,7 @@ syntax on "syntax highlighting that is...
 filetype plugin on "all plugins are on by default
 filetype indent on 
 set ruler
-let mapleader="<Space>"
+let mapleader=" "
 set tags=tags;
 " Tags, byebye JS 
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
@@ -46,19 +46,14 @@ set ignorecase " ignore the /i of regexes
 set smartcase " but don't ignore them when I type a capital letter, to
 "override it
 "my Rails abbreviations
-:abbr ie initialize
-:abbr vpo validates_presence_of
-:abbr vuo validates_uniqueness_of
-:abbr vno validates_numericality_of
-:abbr vfo validates_format_of
-:abbr vlo validates_length_of
-:abbr rto redirect_to
-:abbr vco validates_confirmation_of
-:abbr bto button_to
-:abbr jsit javascript_include_tag
-:abbr attra attr_accessor
-:abbr slt stylesheet_link_tag
-:abbr attrr attr_reader
+:iabbr ie initialize
+:iabbr rto redirect_to
+:iabbr bto button_to
+:iabbr jsit javascript_include_tag
+:iabbr attrac attr_accessible
+:iabbr attra attr_accessor
+:iabbr slt stylesheet_link_tag
+:iabbr attrr attr_reader
 :cabbr proj Project ~/.vim/projects/
 :cabbr mks mks! ~/.vim/sessions/
 colorscheme mayansmoke "slate is nicest default one for sure...blue, yellow, grey...
@@ -133,6 +128,7 @@ vnoremap <C-y> "+y
 set sessionoptions+=winpos
 set sessionoptions-=options
 set viminfo+=<100
+autocmd BufReadPost *.yml echo "'expandtab' option is set to" &expandtab
 "++++++viminfo stuff that I don't use anymore++++++:
 "
 "autocmd User Rails      set noexpandtab "stop screwing with my noexpandtab!

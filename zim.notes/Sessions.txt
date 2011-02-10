@@ -4,7 +4,7 @@ Creation-Date: 2010-12-10T18:08:55.992843
 
 ====== Sessions ======
 
-The [[cookies utility]] is important here.
+The cookies utility is important here.
 * __The session  object acts like a hash__
 * __Once the session has begun, it is available across requests until it is made nil__
 **Options for database storage for sessions:**
@@ -43,7 +43,7 @@ So, the button_to [[Home:Helper Methods|helper]] method in the view is like this
 <h2>Your Pragmatic Cart</h2>
 <ul>
 	<% @cart.items.each do |item| %>					
-		<li><%= item.title %> &times; <%= item.product %></li>			<<- **This is tricky**. @cart is the //session object// holding the cart. Items is an array 																					containing //CartItems//.new. So when we iterate over @cart w/ @cart.each we can 																				only invoke //CartItem// instance methods
+		<li><%= item.title %> &times; <%= item.product %></li>			<<- **This is tricky**. @cart is the //session object// holding the cart. Items is an array 																					containing //CartItems//.new. So when we iterate over @cart.items, we can 																					only invoke //CartItem// instance methods
 	<% end %>
 </ul>
 
@@ -56,3 +56,6 @@ def empty_cart													<<- and then //button_to //__empty_cart__ in the //ad
 		flash[:notice] = "Your cart is currently empty"
 		redirect_to :action => 'index'
 end
+
+
+**Cookie-based approach:**

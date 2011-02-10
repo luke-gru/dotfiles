@@ -52,4 +52,20 @@ end
 				<div id="noticeGood"><%= flash[:notice] %> </div>
 			<% else %>
 			<% end -%>
+			
+			**or iterate over the all the flashes, like this:**
 
+
+<% flash.each do |key, value| %>
+
+	<div class="flash <%= key %>"><%= value %></div>
+
+<% end %>
+
+**and same as above except using a content_tag helper:**
+
+        <% flash.each do |key, value| %>
+          <%= __content_tag__(:div, value, :class => "flash #{key}") %>				<<- content_tag(tag, within tag, tag option(hash)
+        <% end %>
+
+ 

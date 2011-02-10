@@ -89,8 +89,15 @@ We have <%= __pluralize__(@total_orders, 'order') %>.							<<- pluralize (numbe
 
 
 
-→ __content_tag__ see [[Home:JS|JS]]
-	wraps the output of a block in a tag
+→ __content_tag__ (see [[Home:JS|JS]] for hiding divs under a certain condition)
+//wraps the output of a block in a tag//
+
+<% flash.each **do** |key, value| %>
+
+	<%= __content_tag__(:div, value, :class => "flash #{key}") %>				<<- content_tag(tag, within tag, tag option(hash)
+
+<% **end** %>
+
 
 **Form Helpers: (generates HTTP POST request that (here) gets handled by the save_order action)**
 //Example in checkout view of store (depot)//

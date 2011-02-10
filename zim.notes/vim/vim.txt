@@ -198,5 +198,5 @@ ycs'"
 //user_31: //gui stuff
 //user_32: //undo, forward in time, backwards in time
 //user_40: //mappings, making commands, autocommands, eventignore
-
+//user_41: //built-in functions, how to script, basic VimL scripting language
 
