@@ -10,7 +10,7 @@ $heroku console										<<- env = production
 $heroku create										<<- creates subdomain for app (run command in rails ~ dir.)
 $git push heroku (master)							<<- push local master branch to subdomain ("       ")
 $heroku open											<<- open app from default browser
-$heroku rename [nameofsite]						
+$heroku rename [nameofsite]						<<- make sure to update the heroku [alias] for push and fetch local repository				
 $heroku rake db:migrate							<<- migrates db migrations to heroku, //only the data model (schema), not the data itself//
 $heroku db:push										<<- requires the //taps //gem to push model data to heroku app 
 

@@ -34,7 +34,7 @@ C-w b										<<- move to bottom window
 C-w x										<<- exchange windows with the next one
 C-w T										<<- move window to new tab when current tab contains > 1 window
 c2w										<<- change 2 words (delete 2 words and put me in insert mode)
-C- ^										<<- jump b/t two files
+C- 6										<<- last edited buffer
 gt, gf										<<- go to next tab, next file (in set path)
 '"											<<- when jumping, brings you to cursor pos. before jump
 R											<<- replaces text, swallowing it, put in //replace// mode
@@ -52,6 +52,7 @@ C-v											<<- v-block-mode (on axis point)
 p											<<- puts register somewhere (context-created)	ddp= line below cursor dwp = after cursor
 P											<<- puts opposite dir.
 shift-ins OR "+p							<<- puts from  real clipboard
+:[line]pu [x]								<<- puts the text [from register x] before [line] (default current line)
 "+y$ 										<<- yanks to real clipboard, cursor to end of line
 "*y											<<- yank to cs clipboard
 diw										<<- delete inner word (entire word, like dw but cursor not at pos. 0) //see text-objects//
@@ -75,7 +76,9 @@ after recording, can puts register with:
 //then change the edits//
 "ny											<<-  yank the new edits to the register (here, n)
 "AY										<<- append to register "aY
-
+_dd 										<<- black-hole register, don't put the result of this destructive operation into the "" register
+"-											<<- small delete register
+"0-9										<<- "0 contains most recent yank command (near **y **key), while "1 contains most recent change command (near c key)
 **Marks:**
 mt											<<- could use this for mark top
 mb										<<- could use this for mark bottom

@@ -1,12 +1,17 @@
 set nocompatible "not compatible with vi
-syntax on "syntax highlighting that is...
+syntax enable "syntax highlighting that is...
 filetype plugin on "all plugins are on by default
 filetype indent on 
 set ruler
 let mapleader=" "
-set tags=tags;
-" Tags, byebye JS 
-let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
+set tags=tags;,tags
+set textwidth=0 "default, overridden local to buffer for certain filetypes, see autocommands 
+set virtualedit=block "so useful, f11 virtualedit=all, f9 back to block
+set nojoinspaces "oh historical reasons... for SHAME
+
+	" Tags, byebye JS (don't use that plugin now)
+	"let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
+
 "set formatoptions-=c "don't break comments according to textwidth option
 set hls "highlight search
 set statusline=
@@ -31,6 +36,7 @@ set noautoread "when a file is changed outside of vim and it's in the buffer
 set lazyredraw "don't redraw screen when running macros
 set matchtime=3 " 3/10 of second paren matches
 set wildmenu " give me menu for tab completion
+set wildmode=list:full "default anyway, but only when wildmenu is set to 1
 set noerrorbells "no annoying little vi error noises!
 set scrolloff=3	"give me context of 3 lines when at top v bottom of buffer
 set nobackup
@@ -53,30 +59,30 @@ set smartcase " but don't ignore them when I type a capital letter, to
 :iabbr ie initialize
 :iabbr rto redirect_to
 :iabbr bto button_to
+:iabbr lto link_to
 :iabbr jsit javascript_include_tag
 :iabbr attrac attr_accessible
 :iabbr attra attr_accessor
-:iabbr slt stylesheet_link_tag
 :iabbr attrr attr_reader
+:iabbr attrw attr_writer
+:iabbr slt stylesheet_link_tag
 :iabbr memail luke<DOT>gru<AT>gmail<DOT>com
 :cabbr proj Project ~/.vim/projects/
 :cabbr mks mks! ~/.vim/sessions/
 colorscheme mayansmoke "slate is nicest default one for sure...blue, yellow, grey...
-set viewdir=~/.vim/view "dir where mkview files are stored
-set directory=~/.backup// "dir for swap files
-set columns=100
-set lines=70
+set viewdir=~/.vim/views "dir where mkview files are stored
+set directory=~/.backup// "dir for swap files, // ensures full path in swap name separated by %
 set mousehide "Hide mouse until it's moved.
 set mouse=a
 set history=350 "command-line history remembered.
 set bs=2 "backspace over everything in insert mode 
 " :let loaded_project = 1 uncomment to turn off project plugin
 set cmdheight=3 "cmd line height.
-set path+=./**,~/rails_projects/depot2/** "project path, change when working on a diff.
+set path+=./**,~/.vim/pathinclude "search path when using gf, find sfind etc...
 "project
 set laststatus=2 " All windows have status lines
 set shortmess+=mrwx	" To avoid the 'Hit ENTER to continue' prompt
-set helpheight=0 "minimum height for help wins, default=20, 0 is default split
+set helpheight=20 "minimum height for help wins, default=20, 0 is default split
 "win height
 let g:proj_flags='gimst' "default is imst, g toggles proj file w/ F12
 set noequalalways "all windows auto-same size when splitting or closing
@@ -89,15 +95,12 @@ set splitbelow		"horiz. splits go below (good for splits)
 "n- and i-mode mappings
 nnoremap <C-y> "+y
 nnoremap <C-\> "+p
-"oh vim...must I have to do this?
+"oh vim...must I have to do this? Really should be vim default.
 nmap Y y$
 " Set the indent width to 2, 4, or 8
 nmap <Leader>2 :setlocal tabstop=2 shiftwidth=2<CR>
 nmap <Leader>4 :setlocal tabstop=4 shiftwidth=4<CR>
 nmap <Leader>8 :setlocal tabstop=8 shiftwidth=8<CR>
-
-" Fold current HTML tag.
-nnoremap <Leader>Ft Vatzf
 
 "--TAB MAPPINGS--
 "CTRL-L, CTRL, R or tab previous, next
@@ -114,11 +117,39 @@ nnoremap <silent> <CR> za
 
 noremap <silent> <F3> <ESC>:e ~/.vimrc<CR>
 " Open quickfix window
-nmap <Leader>q :cwindow<CR>
-nnoremap <F9> :set virtualedit=<CR>
+nnoremap <F9> :set virtualedit=block<CR>
 nnoremap <F11> :set virtualedit=all<CR>
+
+"indenting, useful stuff..
+nnoremap < <<
+nnoremap > >>
+
+" hightlight text I just pasted, compliments gv well
+nnoremap <leader>v V`]
+
 inoremap <A-m> <ESC> 
 inoremap <F1> <ESC>
+
+"Locate and return character above current cursor position regardless of blank lines
+"taken directly from this vim-scripting tutorial:
+"http://www.ibm.com/developerworks/linux/library/l-vim-script-1/index.html
+function! LookUpwards()
+   "Locate current column and preceding line from which to copy...
+   let column_num      = virtcol('.')
+   let target_pattern  = '\%' . column_num . 'v.'
+   let target_line_num = search(target_pattern . '*\S', 'bnW')
+
+   "If target line found, return vertically copied character...
+
+   if !target_line_num
+      return ""
+   else
+      return matchstr(getline(target_line_num), target_pattern)
+   endif
+endfunction
+"Reimplement CTRL-Y within insert mode...
+imap <silent>  <C-Y>  <C-R><C-R>=LookUpwards()<CR>
+
 "/n- and i-mode mappings
 
 "c-mode mappings
@@ -127,6 +158,7 @@ cnoremap <C-k> <S-right>
 cnoremap <C-h> <left>
 cnoremap <C-l> <right>
 cnoremap <C-s> source ~/.vim/sessions/session
+cnoremap <C-l> call LoadFileTemplate(
 "/c-mode mappings
 
 "v-mode mappings
@@ -152,6 +184,28 @@ if has("autocmd")
   \ if line("'\"") > 0 && line ("'\"") <= line("$") |
   \   exe "normal! g'\"" |
   \ endif
+endif
+
+if has("gui_running")
+  " GUI is running or is about to start.
+  " Maximize gvim window. Only way that worked for me bug-free
+	au GUIEnter * set lines=80 columns=80
+	au GUIEnter * winpos 618 24 
+else
+  " This is console Vim.
+  if exists("+lines")
+    set lines=50
+  endif
+  if exists("+columns")
+    set columns=100
+  endif
+endif
+
+"Generate helptags for other OS
+if has('mac')
+	helptags ~/.vim/doc/
+elseif has('win32')
+	helptags ~/vimfiles/doc/
 endif
 "++++++viminfo stuff that I don't use anymore++++++:
 "

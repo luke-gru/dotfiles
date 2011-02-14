@@ -4,6 +4,7 @@ Creation-Date: 2010-12-10T16:53:46.603501
 
 ====== html.erb (layouts, content_tags and iterations) ======
 For other info. see [[Home:Helper Methods|Helper Methods]]
+[[Home:BlueprintCSS|BlueprintCSS]]
 
 <%=  ...  %>  This shows the content on the page by converting by //putsing //it into the page where the code is
 <% begin loop  -%> and <% end loop -%>This shows the content in the loop and takes away the trailing whitespace

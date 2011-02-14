@@ -46,6 +46,7 @@ Creation-Date: 2010-12-09T20:06:45.294364
 [[Filters]]
 [[keywords]]
 [[Logging admin users in]] (using forms not associated with a particular model)
+[[Home:friendly forwarding|friendly forwarding]]
 **V**
 [[.html.erb]] (layouts, content_tags, iterations, partials)
 [[routes.rb]] (routing, block routing, routing params )

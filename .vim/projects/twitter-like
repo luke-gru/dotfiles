@@ -41,9 +41,14 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
 	 users=users {
     new.html.erb
 		show.html.erb
+		edit.html.erb
+		index.html.erb
 	}
 	sessions=sessions {
     new.html.erb
+	}
+	shared=shared {
+    _error_messages.html.erb
 	}
   }
  }
@@ -86,6 +91,7 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
  }
  lib=lib {
   tasks=tasks {
+	 sample_data.rake
   }
  }
  log=log {
@@ -136,6 +142,7 @@ twitter-like=/home/luke/rails_projects/twitter-like CD=. filter=""*.rb *.html.er
    user_spec.rb
 	}
 	requests=requests {
+   friendly_forwardings_spec.rb
    layout_links_spec.rb
    users_spec.rb
 	}

@@ -2,10 +2,11 @@ Content-Type: text/x-zim-wiki
 Wiki-Format: zim 0.4
 Creation-Date: 2010-12-12T19:29:46.431096
 
-====== Filters ======
+====== Filters and access control ======
+
 __before_filter__ arranges particular //methods// to be called before //actions//. If it's //not// specified, it arranges the method to be called before //all //actions. Very useful for providing website security and admin ability. To override the filters simply put a method in the controller with the same name that does nothing.
 
-**Example where before_filter is specified to call authorize everywhere except in the 'login' action:**
+**Example where before_filter is specified to call authorize everywhere except in the 'login' action: (depot2)**
 
 **class** ApplicationController < ActionController::Base
 //before_filter// :authorize, :except => :login
@@ -27,5 +28,42 @@ end
 
 //In this example, to override the authorization to browse the store, put a blank //authorize //action in the StoreController//
 
-*Note that before_filter can also help code become more DRY
-	
+*Note that __before_filter__ can also help code become more DRY
+
+
+**And the before_filter to control access in Twitter-like**:
+
+class UsersController < ApplicationController
+  __before_filter__ :authenticate, :only => [:edit, :update]
+  __before_filter__ :correct_user, :only => [:edit, :update]
+  .
+  .
+  .
+  def edit
+    @title = "Edit user"
+  end
+  .
+  .
+  .
+  private
+
+    def authenticate
+      __deny_access__ unless signed_in?
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_path) unless __current_user?(@user)__
+    end
+end
+
+And then in the sessionshelper define deny_access and current_user? (sessionshelper is included in appcontroller):
+
+def current_user?(user)
+    user == current_user
+  end
+
+  def deny_access
+    redirect_to signin_path, **:notice** => "Please sign in to access this page."					<<- can pass **:notice **and** :error**
+  end
+

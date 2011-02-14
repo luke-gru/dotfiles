@@ -22,7 +22,7 @@ highlight link rspecMockMethods Function
 syntax keyword rspecKeywords should should_not should_not_receive should_receive
 highlight link rspecKeywords Constant
 
-syntax keyword rspecMatchers be change eql equal exist expect have have_at_least have_at_most have_exactly include match matcher raise_error raise_exception respond_to satisfy throw_symbol to to_not when wrap_expectation redirect_to assigns render_template
+syntax keyword rspecMatchers be change eql equal exist expect have have_at_least have_at_most have_exactly include match matcher raise_error raise_exception respond_to satisfy throw_symbol to to_not when wrap_expectation redirect_to assigns render_template visit click_button fill_in
 syntax match rspecMatchers /\<\(be\|have\)_\w\+\>/
 highlight link rspecMatchers Function
 

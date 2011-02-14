@@ -3,6 +3,7 @@ Wiki-Format: zim 0.4
 Creation-Date: 2010-12-12T20:14:48.758930
 
 ====== Rails command line functions ======
+//for rails rake tasks, see //http://www.tutorialspoint.com/ruby-on-rails/rails-and-rake.htm
 //Load env: 		$rails console (--sandbox) (env)//
 //Server:  //    		//$rails server --environment production//
 //Migrations: 	$rake db:migrate RAILS_ENV=production									//<<- create production database
@@ -36,10 +37,10 @@ __$rails generate integration_test__ name_of_integration_test
 
 **Adding a column to a database table:**
 __$rails generate migration add_price_to_product price:decimal__			<<-- still have the run //$rake db:migrate //to populate db. Adds //:price //as attribute(col.)
-check db/migrate/[bottommost(recent)migration] to apply more arguments			syntac is **add_attribute_to_model**
+check db/migrate/[bottom-most(recent)migration] to apply more arguments												syntax is **add_attribute_to_model**
 
 **Adding a table to the database:**
-__rake db:sessions(tablename):create__                                                          <<-- still have the run //$rake db:migrate// to populate
+__rake db:sessions:create__                                                          			<<-- Creates a sessions table for use with **CGI::Session::ActiveRecordStore **(still have the run 																	//$rake db:migrate// to populate)
 
 **Clearing sessions data from database: (internal 500 error)**
 __$rake db:sessions:clear__ then go hit back on the browser fr

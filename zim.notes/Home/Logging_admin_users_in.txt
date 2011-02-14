@@ -3,8 +3,8 @@ Wiki-Format: zim 0.4
 Creation-Date: 2011-01-10T20:48:47.673356
 
 ====== Logging Admin Users In ======
+**Example in Depot2**
 1) Generate a controller called **Admin **with actions 'login', 'logout' and 'index'
-
 2) Create a form_tag (non-model-associated form) with //params[:name]// and //params[:password]//
 
 <div class="depot-form">
@@ -43,6 +43,7 @@ class AdminController < ApplicationController
       end
     end
   end
+
 
 
 

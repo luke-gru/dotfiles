@@ -22,7 +22,7 @@ end
 *need to define this method.
 __________________________________________________________________________________________
 
-**The redirect_to method can take the option hash **__:notice__ **as a shorthand for flash[:notice]**
+**The redirect_to method can take the option hash **__:notice__ **as a shorthand for flash[:notice], and **__:error__ (currently not success)
 
 Example:
 

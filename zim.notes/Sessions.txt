@@ -59,3 +59,84 @@ end
 
 
 **Cookie-based approach:**
+(not including tests)
+
+1. Create a sessionscontroller with the **new, create and destroy **REST actions.
+
+2. 
+	  **resources :sessions**, __:only __=> [__:new, :create, :destroy__]
+	  match '/signin',  :to => 'sessions#new'
+	  match '/signout', :to => 'sessions#destroy'
+	
+	#then the sessions#create action will be handled at the sessions_path, because of the resource
+
+
+3. since there's no corresponding model to the controller, need to be more specific with __form_for__
+
+__form_for__**(:session, :url => **__sessions_path__**)**
+
+then make the labels and text_field, password_field and button for email and password
+
+4. authenticate user unless user.nil?
+
+5. remember that invalid signin won't create error messages, we have the flash.now and re-render 'new' action
+
+6. __include__ the SessionsHelper into ApplicationController and make a __sign_in__ method in the helper for the action __sign_in__ that is used in the create action of the sessionscontroller unless user.nil? == true
+
+def__ sign_in__(user)
+    cookies.permanent.signed[:remember_token] = [user.id, user.salt]				<<- permanent (20 yrs), signed (cannot see id in browser)
+    **self**.current_user = user
+  end
+
+7. 
+
+def __current_user__
+    @current_user ||= user_from_remember_token
+  end
+
+  private
+
+    def __user_from_remember_token__
+    ***  User.authenticate_with_salt(*****remember_token)	***				<<- * allows to take array elements passed to arguments
+    end
+
+    def **remember_token**
+      __cookies.signed[:remember_token]__ || __[nil, nil]__
+    end
+end
+
+and an attr_writer for current_user
+
+8. Define the *** User.authenticate_with_salt(id, salt) method
+
+def __self.authenticate_with_salt__(id, //cookie_salt//)
+    user = find_by_id(id)
+    ((user) && (user.salt == //cookie_salt//)) ? **user** : **nil**
+  end
+
+9. and then define the very useful __signed_in?__ method in the sessionscontroller as well:
+
+def signed_in?
+    !current_user.nil?
+  end
+
+10. Fine I'll add some test code... this great sessions_controller_spec code:
+
+it "should sign the user in" do
+  post :create, :session => @attr
+ ** controller**.current_user.should == @user
+  **controller**.should be_signed_in
+end
+
+11. the signout: 
+def __sign_out__
+    cookies.**delete**(:remember_token)
+    self.current_user = nil
+  end
+
+12. create signin upon signup
+
+13. make sure certain links and divs are not seen when not signed_in
+
+14. Time for some access control!
+

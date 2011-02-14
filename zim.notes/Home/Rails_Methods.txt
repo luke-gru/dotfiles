@@ -50,8 +50,8 @@ __validate__ //:price_must_be_at_least_a_cent//
 	**rescue ActiveRecord::RecordNotFound**
 	__logger.error__("Page does not exist.")
 	__flash[:notice]__ = "Welcome back!"
-	__redirect_to :action__ => 'index'										<<- __redirect_to__ method (default controller = current controller)
-	end
+	__redirect_to :action__ => 'index'										<<- __redirect_to__ method (default controller = current controller), can use **paths**,
+	end																		and can take __:notice => "message", and :error => "message", not :success though__
 
 **redirect_to with controller and action:**
   def authorize

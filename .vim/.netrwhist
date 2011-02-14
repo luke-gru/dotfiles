@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/luke/rails_projects/depot/app'
-let g:netrw_dirhist_2='/home/luke/rails_projects/depot/app/controllers'
-let g:netrw_dirhist_3='/home/luke/rails_projects/depot'
-let g:netrw_dirhist_4='/home/luke/rails_projects/depot/app'
-let g:netrw_dirhist_5='/home/luke/rails_projects/depot/app/controllers'
-let g:netrw_dirhist_6='/home/luke/rails_projects/depot'
-let g:netrw_dirhist_7='/home/luke/rails_projects'
-let g:netrw_dirhist_8='/home/luke'
-let g:netrw_dirhist_9='/home/luke/rails_projects/twitter-like/spec/models'
+let g:netrw_dirhist_cnt =0

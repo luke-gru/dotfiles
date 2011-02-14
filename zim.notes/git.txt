@@ -12,7 +12,7 @@ $git config --global color.ui true
 **1)Basic:**
 				    //aliases in .profile//
 
-$git remote add [alias] __git@github.com:<username>/<reponame>.git__
+$git remote add [alias] **git@github.com:<username>/<reponame>.git**
 $git remote add [alias] master(branch)			<<- add remote branch
 $git remote rm [alias]							<<- remove remote
 $git remote -v									<<- list push and fetch remote aliases
