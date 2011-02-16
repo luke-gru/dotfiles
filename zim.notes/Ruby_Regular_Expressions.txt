@@ -46,6 +46,7 @@ Regexp.new("...", "i") OR [[/.../]] OR %r{ ... }  OR regexp::new (constructor) o
 	[a-z]		any single character in the range a-z
 	[a-zA-Z]	any single character in the range a-z or A-Z
 	[a-z&&[^aeiou]] 			<<- this means a-z, but not a vowel. && intersects char. classes
+
 	
 	escape: - and ]
 
@@ -60,7 +61,7 @@ Regexp.new("...", "i") OR [[/.../]] OR %r{ ... }  OR regexp::new (constructor) o
 	{m}	m occurences of prev. regexp
 
 
-	\1-9       nth previous captured group **
+	\1-9       nth previous captured group **					in **gsub** it's '//x'
 	\A          beginning of a string
 	\b          backspace(0x08)(inside[]only)
 	\b          word boundary(outside[]only)
@@ -90,8 +91,10 @@ Regexp.new("...", "i") OR [[/.../]] OR %r{ ... }  OR regexp::new (constructor) o
 		name.downcase.gsub(/\b\w/) {|first| first.upcase }
 
 	end
+
 	
 	*Al//so, you can give gsub and sub a HASH! see Pickaxe p. 121//
+
 	
 	*→ puts "fred:smith".sub(/(\w+):(\w+)/, __'\2, \1'__)						=> smith, fred				<<- capture groups passed as second argument
 	*→ puts "nercpyitno".gsub(/(.)(.)/, __'\2\1'__)								=> encryption
@@ -99,6 +102,7 @@ Regexp.new("...", "i") OR [[/.../]] OR %r{ ... }  OR regexp::new (constructor) o
 
 
 	*encodings:	Pickaxe p. 115	
+
 	
 	** $1 is the global variable representing the first captured group (...) inside a regexp. Subsequent capturings: $2, etc...
 

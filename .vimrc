@@ -55,6 +55,7 @@ set incsearch "show search while typing, incrementally
 set ignorecase " ignore the /i of regexes
 set smartcase " but don't ignore them when I type a capital letter, to
 "override it
+
 "my Rails abbreviations
 :iabbr ie initialize
 :iabbr rto redirect_to
@@ -66,9 +67,11 @@ set smartcase " but don't ignore them when I type a capital letter, to
 :iabbr attrr attr_reader
 :iabbr attrw attr_writer
 :iabbr slt stylesheet_link_tag
-:iabbr memail luke<DOT>gru<AT>gmail<DOT>com
+"/my Rails abbreviations
+:iabbr mymail luke<DOT>gru<AT>gmail<DOT>com
 :cabbr proj Project ~/.vim/projects/
 :cabbr mks mks! ~/.vim/sessions/
+
 colorscheme mayansmoke "slate is nicest default one for sure...blue, yellow, grey...
 set viewdir=~/.vim/views "dir where mkview files are stored
 set directory=~/.backup// "dir for swap files, // ensures full path in swap name separated by %
@@ -171,14 +174,19 @@ set sessionoptions-=options
 set viminfo+=<100
 
 if has("autocmd")
+	"text and mail
 	au FileType mail,gitcommit setl tw=72
 	au FileType mail,gitcommit echo "'textwidth' set to" &textwidth
   au BufRead *.txt setl tw=78
-  " When editing a file, always jump to the last cursor position
+	"don't know if I like that for php, hopefully won't use php much anyway
 	au FileType cpp,c,pl,sh,php setl cindent ts=8 sw=8
 	au FileType python setl ts=4 sw=4 expandtab
 	au BufReadPost *.yml setl expandtab
 	au BufReadPost *.yml echo "'expandtab' option is set to" &expandtab
+	au BufReadPost *.make setl noexpandtab ts=8 sts=8 sw=8
+	au BufReadPost *.make echo "'expandtab' option is set to" &expandtab
+	"rss as xml
+	au BufReadPost *.rss set ft=xml
 	"last cursor position in buffer
   au BufReadPost *
   \ if line("'\"") > 0 && line ("'\"") <= line("$") |
@@ -207,8 +215,9 @@ if has('mac')
 elseif has('win32')
 	helptags ~/vimfiles/doc/
 endif
+
 "++++++viminfo stuff that I don't use anymore++++++:
-"
+
 "autocmd User Rails      set noexpandtab "stop screwing with my noexpandtab!
 "set viminfo='50,f1,<100,%5,nluke-gru "in order, save 50 file marks, global
 "marks, at most 100 lines/register, 5 last buffer files (when starting vim

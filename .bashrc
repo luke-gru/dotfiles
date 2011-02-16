@@ -83,7 +83,7 @@ alias l='ls -CF'
 
 #good ol gv, good in terminal and good in vim!
 alias gv='gvim --remote-silent'
-alias pills='~/Desktop/code/pills/take_pills.rb ~/Desktop/code/pills/pills.csv'
+alias pills="$HOME/Desktop/code/pills/ruminder.rb"
 
 # reload bash config
 alias reload='source ~/.bashrc'
