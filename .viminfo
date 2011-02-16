@@ -17,9 +17,9 @@
 $
 
 # Command Line History (newest to oldest):
+:w
 :h local-additions
 :helptags ~/.vim/doc
-:w
 :set ft?
 :e test.html
 :cd Desktop
@@ -656,26 +656,28 @@ $
 	"
 
 # File marks:
-'0  62  0  ~/.vim/doc/Tabular.txt
-'1  1  0  ~/Downloads/vimplugins/tabular/after/plugin/TabularMaps.vim
-'2  216  0  ~/.vimrc
-'3  1  0  ~/Desktop/test.html
-'4  104  10  ~/Desktop/code/pills/ruminder.rb
-'5  1  0  ~/.rumindertmp
-'6  31  0  ~/Desktop/code/pills/ruminder.rb
-'7  89  24  ~/Desktop/code/pills/ruminder.rb
-'8  87  2  ~/Desktop/code/pills/csv_interpreter_pills.rb
-'9  1  0  ~/Desktop/code/pills/.setup_file
+'0  6  0  ~/.vimrc
+'1  62  0  ~/.vim/doc/Tabular.txt
+'2  1  0  ~/Downloads/vimplugins/tabular/after/plugin/TabularMaps.vim
+'3  222  0  ~/.vimrc
+'4  1  0  ~/Desktop/test.html
+'5  104  10  ~/Desktop/code/pills/ruminder.rb
+'6  1  0  ~/.rumindertmp
+'7  31  0  ~/Desktop/code/pills/ruminder.rb
+'8  89  24  ~/Desktop/code/pills/ruminder.rb
+'9  87  2  ~/Desktop/code/pills/csv_interpreter_pills.rb
 
 # Jumplist (newest first):
+-'  6  0  ~/.vimrc
+-'  163  0  ~/.vimrc
+-'  7  0  ~/.vimrc
 -'  62  0  ~/.vim/doc/Tabular.txt
 -'  203  0  /usr/share/vim/vim72/doc/help.txt
 -'  1  0  /usr/share/vim/vim72/doc/help.txt
 -'  1  0  ~/Downloads/vimplugins/tabular/after/plugin/TabularMaps.vim
--'  216  0  ~/.vimrc
--'  191  1  ~/.vimrc
--'  130  0  ~/.vimrc
--'  1  0  ~/.vimrc
+-'  222  0  ~/.vimrc
+-'  197  1  ~/.vimrc
+-'  136  0  ~/.vimrc
 -'  1  0  ~/Desktop/test.html
 -'  104  10  ~/Desktop/code/pills/ruminder.rb
 -'  31  0  ~/Desktop/code/pills/ruminder.rb
@@ -764,11 +766,114 @@ $
 -'  1  0  ~/Desktop/code/pills/.setup_file
 -'  45  0  ~/Desktop/code/pills/csv_interpreter_pills.rb
 -'  49  2  ~/Desktop/code/pills/csv_interpreter_pills.rb
--'  40  5  ~/Desktop/code/pills/month_templates/feb_task.csv
--'  1  0  ~/Desktop/code/pills/month_templates/feb_task.csv
--'  11  1  ~/Desktop/code/pills/csv_interpreter_pills.rb
 
 # History of marks within files (newest to oldest):
+
+> ~/.vimrc
+	"	6	0
+	^	5	1
+	.	5	0
+	+	217	19
+	+	217	23
+	+	217	17
+	+	217	31
+	+	217	1
+	+	217	0
+	+	217	0
+	+	217	0
+	+	217	0
+	+	217	0
+	+	217	0
+	+	217	0
+	+	217	6
+	+	217	7
+	+	217	41
+	+	217	0
+	+	217	0
+	+	217	17
+	+	217	4
+	+	217	3
+	+	217	5
+	+	217	0
+	+	217	3
+	+	217	0
+	+	217	0
+	+	217	0
+	+	217	0
+	+	217	0
+	+	217	0
+	+	217	0
+	+	217	0
+	+	217	0
+	+	203	0
+	+	202	0
+	+	217	0
+	+	84	0
+	+	217	43
+	+	208	15
+	+	208	0
+	+	208	0
+	+	208	0
+	+	208	0
+	+	206	0
+	+	208	32
+	+	206	39
+	+	208	49
+	+	205	61
+	+	94	16
+	+	99	17
+	+	208	35
+	+	99	0
+	+	8	12
+	+	129	0
+	+	142	0
+	+	141	0
+	+	142	35
+	+	159	0
+	+	160	0
+	+	161	0
+	+	143	49
+	+	144	1
+	+	142	83
+	+	217	6
+	+	217	29
+	+	217	28
+	+	208	37
+	+	217	36
+	+	217	14
+	+	217	26
+	+	217	0
+	+	78	0
+	+	73	0
+	+	74	23
+	+	69	17
+	+	208	0
+	+	206	38
+	+	207	27
+	+	175	0
+	+	137	0
+	+	138	0
+	+	136	51
+	+	183	14
+	+	188	0
+	+	187	71
+	+	192	54
+	+	197	0
+	+	193	68
+	+	195	31
+	+	78	0
+	+	77	0
+	+	76	23
+	+	80	0
+	+	64	0
+	+	224	0
+	+	226	0
+	+	3	40
+	+	4	23
+	+	3	41
+	+	1	8
+	+	5	0
+	m	129	0
 
 > /usr/share/vim/vim72/doc/help.txt
 	"	203	0
@@ -778,112 +883,6 @@ $
 
 > ~/Downloads/vimplugins/tabular/after/plugin/TabularMaps.vim
 	"	1	0
-
-> ~/.vimrc
-	"	216	0
-	^	218	0
-	.	220	0
-	+	211	38
-	+	211	28
-	+	211	32
-	+	211	5
-	+	211	17
-	+	211	19
-	+	211	23
-	+	211	17
-	+	211	31
-	+	211	1
-	+	211	0
-	+	211	0
-	+	211	0
-	+	211	0
-	+	211	0
-	+	211	0
-	+	211	0
-	+	211	6
-	+	211	7
-	+	211	41
-	+	211	0
-	+	211	0
-	+	211	17
-	+	211	4
-	+	211	3
-	+	211	5
-	+	211	0
-	+	211	3
-	+	211	0
-	+	211	0
-	+	211	0
-	+	211	0
-	+	211	0
-	+	211	0
-	+	211	0
-	+	211	0
-	+	211	0
-	+	197	0
-	+	196	0
-	+	211	0
-	+	78	0
-	+	211	43
-	+	202	15
-	+	202	0
-	+	202	0
-	+	202	0
-	+	202	0
-	+	200	0
-	+	202	32
-	+	200	39
-	+	202	49
-	+	199	61
-	+	88	16
-	+	93	17
-	+	202	35
-	+	93	0
-	+	2	12
-	+	123	0
-	+	136	0
-	+	135	0
-	+	136	35
-	+	153	0
-	+	154	0
-	+	155	0
-	+	137	49
-	+	138	1
-	+	136	83
-	+	211	6
-	+	211	29
-	+	211	28
-	+	202	37
-	+	211	36
-	+	211	14
-	+	211	26
-	+	211	0
-	+	72	0
-	+	67	0
-	+	68	23
-	+	63	17
-	+	202	0
-	+	200	38
-	+	201	27
-	+	169	0
-	+	131	0
-	+	132	0
-	+	130	51
-	+	177	14
-	+	182	0
-	+	181	71
-	+	186	54
-	+	191	0
-	+	187	68
-	+	189	31
-	+	72	0
-	+	71	0
-	+	70	23
-	+	74	0
-	+	58	0
-	+	218	0
-	+	220	0
-	m	123	0
 
 > ~/.gitconfig
 	"	16	10

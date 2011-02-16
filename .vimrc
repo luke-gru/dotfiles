@@ -1,3 +1,9 @@
+"pathogen
+filetype off
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+"/pathogen
+
 set nocompatible "not compatible with vi
 syntax enable "syntax highlighting that is...
 filetype plugin on "all plugins are on by default
