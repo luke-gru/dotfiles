@@ -5,9 +5,36 @@ call pathogen#helptags()
 "/pathogen
 
 set nocompatible "not compatible with vi
-syntax enable "syntax highlighting that is...
-filetype plugin on "all plugins are on by default
-filetype indent on 
+syntax enable
+
+	if has("autocmd")
+		filetype plugin on "all plugins are on by default
+		filetype indent on 
+	endif
+
+"terminal colors
+"IMPORTANT: Uncomment one of the following lines to force
+"using 256 colors (or 88 colors) if your terminal supports it,
+"but does not automatically use 256 colors by default.
+set t_Co=256
+"set t_Co=88
+
+	if (&t_Co == 256 || &t_Co == 88) && !has('gui_running') &&
+		 \ filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim"))
+		" Use the guicolorscheme plugin to makes 256-color or 88-color
+		" terminal use GUI colors rather than cterm colors.
+		set expandtab
+		"runtime! plugin/guicolorscheme.vim
+		"GuiColorScheme blackboard
+		colorscheme desert
+	else
+		" For 8-color 16-color terminals or for gvim, just use the
+		" regular :colorscheme command.
+		colorscheme mayansmoke
+	endif
+"/terminal colors
+
+
 set ruler
 let mapleader=" "
 set tags=tags;,tags
@@ -15,8 +42,8 @@ set textwidth=0 "default, overridden local to buffer for certain filetypes, see 
 set virtualedit=block "so useful, f11 virtualedit=all, f9 back to block
 set nojoinspaces "oh historical reasons... for SHAME
 
-	" Tags, byebye JS (don't use that plugin now)
-	"let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
+" Tags, byebye JS (don't use that plugin now)
+"let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 "set formatoptions-=c "don't break comments according to textwidth option
 set hls "highlight search
@@ -36,13 +63,13 @@ set statusline+=\ (%P)    "percent through file
 set showmode
 set showcmd
 set showmatch "matching brackets
+set magic "see h pattern.txt
 "Set to auto read when a file is changed from the outside
 set noautoread "when a file is changed outside of vim and it's in the buffer
-"list, don't auto-read it, please...vim...
 set lazyredraw "don't redraw screen when running macros
 set matchtime=3 " 3/10 of second paren matches
 set wildmenu " give me menu for tab completion
-set wildmode=list:full "default anyway, but only when wildmenu is set to 1
+set wildmode=list:full "all I need
 set noerrorbells "no annoying little vi error noises!
 set scrolloff=3	"give me context of 3 lines when at top v bottom of buffer
 set nobackup
@@ -50,12 +77,11 @@ set tabstop=2 " This is how many columns each tab counts for
 set softtabstop=2 " This is how many columns each tab counts for in INSERT mode. If noexpandtab is set and tabstop=softtabstop, VIM always uses tabs.
 set noexpandtab "don't replace tabs with lines you crazy Vim
 set sw=2 "shiftwidth
-set nowrap "don't wrap text
+set nowrap "don't wrap text by default, tw=0
 set ai "auto indent
 set si "smart indent
 set cpoptions+=$ "compatibility with vi options, when using nmode c or C, show
 "last changed character with $ instead of its value
-autocmd! bufwritepost .vimrc source ~/.vimrc  
 set nu "line numbering 
 set incsearch "show search while typing, incrementally
 set ignorecase " ignore the /i of regexes
@@ -78,7 +104,6 @@ set smartcase " but don't ignore them when I type a capital letter, to
 :cabbr proj Project ~/.vim/projects/
 :cabbr mks mks! ~/.vim/sessions/
 
-colorscheme mayansmoke "slate is nicest default one for sure...blue, yellow, grey...
 set viewdir=~/.vim/views "dir where mkview files are stored
 set directory=~/.backup// "dir for swap files, // ensures full path in swap name separated by %
 set mousehide "Hide mouse until it's moved.
@@ -134,7 +159,7 @@ nnoremap < <<
 nnoremap > >>
 
 " hightlight text I just pasted, compliments gv well
-nnoremap <leader>v V`]
+nnoremap gV `[v`]
 
 inoremap <A-m> <ESC> 
 inoremap <F1> <ESC>
@@ -167,7 +192,7 @@ cnoremap <C-k> <S-right>
 cnoremap <C-h> <left>
 cnoremap <C-l> <right>
 cnoremap <C-s> source ~/.vim/sessions/session
-cnoremap <C-l> call LoadFileTemplate(
+cnoremap <C-t> call LoadFileTemplate(
 "/c-mode mappings
 
 "v-mode mappings
@@ -175,15 +200,32 @@ vnoremap <C-y> "+y
 "/v-mode mappings
 
 "startup info + sessions:
-set sessionoptions+=winpos
 set sessionoptions-=options
 set viminfo+=<100
 
+"colours
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+"/colours
+
+"working with wrapped text
+"softwrap
+command! -nargs=* Swrap setl wrap linebreak nolist showbreak=…
+"hard wrapping options in autocmds
+
 if has("autocmd")
+	"vimrc
+	autocmd! bufwritepost .vimrc source $MYVIMRC  
 	"text and mail
-	au FileType mail,gitcommit setl tw=72
+	au FileType mail,gitcommit setl tw=72 list formatoptions formatoptions+=an
 	au FileType mail,gitcommit echo "'textwidth' set to" &textwidth
-  au BufRead *.txt setl tw=78
+  au BufRead *.txt setl tw=78 formatoptions formatoptions+=an
 	"don't know if I like that for php, hopefully won't use php much anyway
 	au FileType cpp,c,pl,sh,php setl cindent ts=8 sw=8
 	au FileType python setl ts=4 sw=4 expandtab
