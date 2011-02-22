@@ -8,370 +8,85 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/colorsc
+~MSle0~/lis
 
 # Last Substitute Search Pattern:
 ~MSle0&ruminderpath
 
 # Last Substitute String:
-$rumindertmp
+$
 
 # Command Line History (newest to oldest):
-:q!
 :w
-:set expandtab?
-:echo &expandtab
-:echo filereadable("let")
-:echo filereadable("$HOME")
-:filereadable("$HOME")
-:echo &t_Co
-:echo &t_co
-:echo &term
-:wq
+:set list
+:retab
+:ww
 :q
+:h retab
 :new
-:h \@
-:\@
-:%s/ruminderpath/rumindertmp/g
-:%s/rumindertmp/ruminderpath/g
-:h
-:Project ~/.vim/projects/twitter-like
-:source ~/.vim/sessions/sessiontwitter-like
-:pwd
-:h local-additions
-:helptags ~/.vim/doc
-:set ft?
-:e test.html
-:cd Desktop
-:!cp $VIMRUNTIME/macros/matchit.txt ~/.vim/doc
-:!cp $VIMRUNTIME/macros/matchit.vim ~/.vim/plugin
-:h matchit
-:w test.html
-:e README.markdown
-:cd Desktop/code/pills/
-:argdo %s/'//g | update
-:wall
-:argdo %s/"/'/g | update
-:argdo %s/"/'/gc | update
-:e
-:7,8s/'/"/g
-:7,8s/:/ =>/g
-:7,8s/:/ =>
-:'<,'>II 2 0
-:'<,'>II 1 0
-:'<,'>II 0
-:'<,'>II
-:'<,'>I
-:helptags ~/.vim/docs
-:so ~/.vim/docs
-:qall!
-:h recording
-:w pills.csv
-:winpos
-:winp
-:h au
-:New
-:h 41
-:h vimruntime
-:nre
-:h 484
-:call LoadFileTemplate('template.html')
-:h syntax
-:h hls
-:h options
-:e 591
-:h equalalways
-:quickfix
-:h postbufwrite
-:h prebuf
-:h autocommands
-:call LoadFileTemplate("template.html")
-:h 488
-:e 488
-:<C-u>call LoadFileTemplate('template.html')
-:<C-U>call LoadFileTemplate(template.html)
-:<C-U>call LoadFileTemplate("template.html")
-:h 603
-:h catch
-:h filereadable
-:h a:arg
-:h e15
-:call LoadFileTemplate(template)
-:call LoadFileTemplate(template.html)
-:h 121
-:121
-:h $home
-:h 42
-:h path
-:h expand
-:h helptags
-:h directory
-:h browsedir
-:bwipe
-:ls
-:%bwipe
-:%bd
-:bd%
-:Project ~/.vim/projects/
-:g/.js\>/d
-:let tags
-:nojav
-:g/js\>/d
-:g/*.js\>/d
-:1,3d
-:h global
-:global
-:g/*\.js/d
-:g/*.js/d
-:b#
-:h tlist_ctags
-:let "/ = "pp"
-:let \"/ = "e"
-:let "/ = "e"
-:help Y
-:h n_Y
-:h file-searching
-:13
-:%s/\<luke\>/taylor/g
-:%s/l/y/g
-:Rfind controllers/users_controller_spec
-:%s/@user/object/g
-:Rfind controllers/users_controller
-:Rfind spec/controllers/users_controller_spec
-:qall
-:set ttyfast?
-:h 'directory'
-:h shortmess
-:h autoread
-:h ttyfast
-:h ttyfasdst
-:e =expand("%:p:h") . "/" 
-:mks! ~/.vim/sessions/sessiontwitter-like
-:set textwidth?
-:h 
-:e users.yml
-:!ls
-:vnew
-:cd fixtures
-:cd test
-:cd rails_projects/depot2/
-:echo &expandtab?
-:echo &ts
-:&ts
-:100
-:h specky
-:h <space>
-:h leader
-:!rspec %
-:b10
-:!rspec % -e "describe success"
-:autocmd
-:!git add %
-:set hlssearch?
-:h mapleader
-:h 142
-::w
-:5
-:A
-:R
-:Rfind spec/models/user_spec
-:Rfind models/user
-:Rfind spec/models/
-:Rfind spec/integration/layout_links_spec
-:Rcontroller
-:%s/long_name_user/user_long_name
-:%s/no_name_user/user_no_name
-:%s/no_email_user/user_no_email/g
-:Rfind app/helpers/application_helper
-:Rfind config/application
-:cd rails_projects/twitter-like/
-:h 212
-:#
-:w!
-:set modifiable
-:IndentGuidesToggle
-:h vim-indent-guides
-:e Gemfile
-:Gstatus
-:h fugitive
-:Gedit HEAD
-:cd twitter-like/
-:cd rails_projects/
-:so %
-:h vimball
-:so%
-:help
-:helptags vimball
-:set ft=ruby
-:Project ~/.projects/twitter-like
-:source ~/.vim/sessiontwitter-like
-:mks! ~/.vim/sessiontwitter-like
-:Project
-:saveas ~/.projects/twitter-like
-:h project
-: h user_manual40
-:B#
-:Rfind views/users/index.html.erb
-:mks! ~/.vim/sessiondepot2
-:source ~/.vim/sessiondepot2
-:Rfind controllers/users
-:Rfind test/fixtures/users.yml
-:Rfind controllers/admin_controller
-:Rfind views/users/edit.html.erb
-:Rfind views/users/_form.html.erb
-:Rfind views/admin/login.html.erb
-:Rfind models/order
-:Rfind models/product
-:Rfind controllers/products_controller
-:%s/@user/@user1
-:h <Leader>
-:set tags?
-:Project ~/.vimprojects
-:Project ~/.projects/railsdepot
-:Project ~/.projects/
-:source ~/.vim/plugin/autotag.vim
-:h source
-:so
-:%so
-:Rfind test/unit/order_test
-:Rfind test/unit/user_test
-:%s/\<@user\>/@useremptypass
-:Rfind controllers/store_controller
-:set foldmethod?
-:help ]m
-:set foldcolumn?
-:h surround
-:Rfind test/fixtures/orders
-:Rfind test/fixtures/users
-:Rfind test/integration/user_stories_test
-:Rfind test/fixtures/orders.yml
-:Rfind test/fixtures/products.yml
-:Rfind models/cart_item
-:Rfind controllers/line_items_controller
-:Rfind models/line_item
-:set noexpandtab?
-:134
-:%s/\<ruby_book\>/@ruby_book
-:%s/\<rails_book\>/@rails_book
-:%s/rails/@rails
-:Rfind models/cart
-:vn
-:'<,11
-:'<,'>:11
-:31
-:qw
-:35
-:%s/\<on\>//
-:%s/(\(.*\))/[\1]
-:%s/\((.*)\)/\1
-:15,29bd
-:l
-:1,13bd
-:1000
+:h cwin
+:cwin
 :h grep
-:h gre[
-:set gfn?
-:set gfn=
-:wa
-:mks! ~/.vim/session
-:qa
-:Rfind info_controller
-:Rfind products_controller
-:Rfind store_controller
-:Rfind users_controller
-:Rvi
-:args
-:tags
-:digra
-:digraphs
-:help objects
-:h object.txt
-:h objects.txt
-:lsd
-:b9
-:bb9
-:b13
-:b4
-:b6
-:lsl
-:2,25bd
-:b31
-:bd
-:ju
-:help motion.txt
-:ls!
-:b22
-:'<,'>192
-:b15
-:28
-:60
-:b 12
-:b2
-:b1
-:b14
-:ls 14
-:b12
-:bd!
-:<duv>
-:e ~/.vim/sessiondepot2
-:snew
-:help winfixwidth
-:b12 13
-:b7
-:b3
-:vsp
-:wqall!
-:help sessions
-:e file.txt
-:Ls
-:help windo
-:help viminfo
-:help t_help
-:help buffers
-:help buffesr
-:lsall
-:help :windo
-:help help.txt
-:help autocmd-buflocal
-:help vimrc
-:help help-tags
-:buffers
-:buffer
-:help lazyredraw
-:help quickfix
-:marks
-:wd
-:=
-:h netrw-p5
-:help cwin
-:b 2
-:jfds fjdlfj sfjdlfj ldfj kdflsj lfjdsl
-:help --remote-silent
-:wqall
-:set ve=all
-:set ve?
-:set ve=1
-:set ve
-:set scrolloff?
-:b
-:b #
-:help :arglocal
-:help :argslocal
-:help arglocal
-:ar
-:n
-:arga
-:args! *.rb
-:args *.rb
-:help 'cpoptions'
-:'<,'>x
-:set virtualedit?
-:set virtualedit>
+:q!
+:diffoff
+:h diff
+:diffstop
+:DiffOrig
+:w!
+:h vimdiff
+:set bg?
+:set bg=dark
+:cd Dropbox/
+:source ~/.vim/sessions/sessiontwitter-like
+:vnew
+:echo g:colors_name
+:h history
+:set guifont?
+:wq
+:h font
+:h guifont
+:h colorscheme
+:echo &colorscheme
+:colorscheme?
+:set colorscheme?
+:set font?
+:echo hostname()
+:h hostname
+:set guifont=Inconsolata \Medium\ 13
+:set guifont=
+:setl guifont?
+:qall!
+:h specialkey
 
 # Search String History (newest to oldest):
-?/colorsc
-?/mayansmoke
+? [ <tab>]*$
+?/lis
+?/list
+?/expandtab
+?/colors
+?/diff
+?/visual
+?/red
+?/h vimgrep
 ?/zz/
+?/ver
+?/has
+?/incsearch
+?/search
+?/tan4
+?/tan
+?/sfd
+?/todo
+?/font
+?/guifont
+?/colorsc
+?/bold
+?/n-mode
+?/nmode
+?/nmap
+?/showbreak
+?/leader
+?/mayansmoke
 ?/colorscheme
 ?/C-l
 ?/paste
@@ -384,193 +99,6 @@ $rumindertmp
 ? "
 ?/take_pills
 ?/take_pillss
-?/zzzzz/
-? :
-? \%1v\( \+\)
-?/\%2v
-?/alias pil
-?/alias
-?/vimruntime
-?/path
-?/syntax
-?/winmin
-?/winheight
-?/height
-?/3
-?/command
-?/zz
-?/lines
-?/try
-?/a:
-?/args
-?/\$home
-?/filereadable
-?/vimrun
-?/sessions
-?/vimruntimepath
-?/wildmenu
-?/helptags
-?/tags
-? .js\>
-?/cnorem
-? js\>
-? *.js
-? *.js\>
-? *\.js
-?/joinspaces
-?/vimrc
-?/d
-?/noerror
-? \<luke\>
-?/l
-? \%(\e\[[0-9;]*m\|\r$\)
-?/pro
-? @user
-?/zzzzzz/
-?/html
-?/virtualedit
-?/visualbell
-?/viewdir
-?/backupdir
-?/shortmess
-?/autoread
-?/session
-?/python
-?/noexpandtab
-?/abbr
-?/zzzzzzz
-? >
-?/auto
-?/zzzzzzz/
-?/let
-?/flash_success
-?/merge
-?/spec
-?/assigns
-?/helphe
-?/Factory
-?/zzzzzzzz/
-?/         /
-?//
-?/A
-?/commit
-? long_name_user
-? no_name_user
-? no_email_user
-?/%s/no_email_user/user_no_email/g
-?/zzzzz
-?/config.generators
-?/generators
-?/generate
-?/generator
-? \<li\>
-?/root
-?/yank
-? ^\s*$
-?/mks! ~/.vim/session
-?/mks
-?/cabbr
-?/\\c
-?/\c
-?/destro
-?/destroy
-?/aa/
-?/post
-?/0r ~/.vimprojects
-?/call autotag
-? \<@user\>
-? \<div\>
-?/ zzzzzzz/
-? \<djfdskfjdkfsjl\>
-?/test/
-? \<ruby_book\>
-? \<rails_book\>
-? rails
-?/%s/rails_book/@rails_book
-?/expandtab
-?/gggggg/
-? \<on\>
-? (\(.*\))
-? \((.*)\)
-?/caabr/
-?/map
-?/dest
-?/xx/
-?/depot-form
-?/notice
-?/ /
-?/menu
-?/laststatus
-?/laststatus67
-?/ls
-?/case
-?/zombie.
-?/mt
-?/matchtime
-?/ zz /
-? \<hello\>
-?/zzzzzzzzz/
-? ^\w
-?/TEXT
-?/ 	
-? \<When\>
-? \<Table\>
-?/''/
-? \<end\>
-? \<tr\>
-? \<Your\>
-? {
-? \Vdiv\%#
-? \<you\>
-? \<button_to\>
-? \Vstyle\%#
-? \Vhead\%#
-? \Vbody\%#
-? \Vhtml\%#
-?/ignore
-? old
-? thee
-?/errroor
-?/'errroor'
-?/erroor
-?/errriir
-?/filter
-?/file filter
-?/imst
-?/source
-?/rspec
-?/be
-?/be_success
-?/have_selector
-?/('li')
-?/li
-?/\%3v
-?/\%7v
-? this_day_numberwise_row
-?/zzz/
-? \<csv_rows_to_read\>
-? @csv_rows
-? \<Without\>
-? reader
-? CsvReader
-? path_storage
-? charlie
-? \<path_storage\>
-? $path_string
-? path_string
-? @bad_array
-? @appended_rows_ary
-? appended_rows_ary
-? \<bad_array\>
-? \<anspath\>
-? \$path_string
-?/vimAutoEvent
-?/comment
-?/vimLineComment
-? offset
-? count
-? \<offset\>
-?/filetype
 
 # Expression History (newest to oldest):
 
@@ -584,78 +112,29 @@ $rumindertmp
 
 # Registers:
 "0	CHAR	0
-	&
+	#CDC9C9
 ""1	LINE	0
-	if has("gui_running")
+	set lis
 "2	LINE	0
-	
+	set lis
 "3	LINE	0
-	endif
+	
 "4	LINE	0
-	   syntax reset
+	" Tags, byebye JS (don't use that plugin now)
 "5	LINE	0
-	if exists("syntax_on")
+	"let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 "6	LINE	0
-	
+	    au BufWritePre * 1,$s/[ <tab>]*$//
 "7	LINE	0
-	colorscheme mayansmoke "slate is nicest default one for sure...blue, yellow, grey...
+	2,09,0
 "8	LINE	0
-	
+	2,20,0
 "9	LINE	0
-		endif
+	hi DiffDelete   guifg=NONE              guibg=LightCoral        gui=NONE
 "a@	CHAR	0
-	j
-"b	LINE	0
-	require 'csv'
-	require_relative 'did_i'
-	
-	class CsvInterpreter
-		@@days_in_month = { 1 => 31, 2 => 29, 3 => 31, 4 => 30, 5 => 31, 6 => 30, 7 => 31, 8 => 31, 9 => 30, 10 => 31, 11 => 30, 12 => 31 }
-	
-		def initialize
-			@csv_rows_to_read = []
-		end
-	
-		def read_in_csv_data(csv_file_name)
-			CSV.foreach(csv_file_name, headers: true) do |row|
-				@csv_rows_to_read << DidI.new(row["Month"], row["Day"], row["Did_I_Forget"])
-			end
-		end
-	
-		def see_progress
-			range_indice = @@days_in_month[Time.now.month]
-			appended_rows_ary = @csv_rows_to_read.drop(range_indice)
-			count = 0 #going through the index
-			offset = 0 #accounts for non-doing days
-			bad_array = []
-			while appended_rows_ary[count] && appended_rows_ary[count] != appended_rows_ary[-1] 
-				if count == appended_rows_ary[count].day - 1 - offset && appended_rows_ary[count].pills = 0 #to see if they match and the && "etc" to
-					#make sure that it takes into account direct editing of the template file
-					print "y--"
-				else
-					print "n--"
-					offset = offset + 1
-					bad_array << appended_rows_ary[count].day
-				end
-				count = count + 1
-			end
-			#end of loop
-			if appended_rows_ary[-1].pills == 0 && appended_rows_ary[-1].day == Time.now.day
-				print "*y*"
-			elsif appended_rows_ary[-1].day != Time.now.day
-				print "n--(**)"
-				warning = "Don't forget to take your pills and call [alias] -t afterwards"
-				bad_array << appended_rows_ary[count].day
-			else
-				print "*n*" #just in case of a direct edit of the file with a '1'
-				bad_array << appended_rows_ary[count].day
-			end
-			print "\nmissed days = "
-			print "none" if bad_array.empty? #yay!
-			p bad_array unless bad_array.empty?
-			puts warning unless warning.nil?
-			puts
-		end
+	#7fbf58
+"b	CHAR	0
+	#c0d0e0
 "h	LINE	0
 	      <header>
 	        <%= image_tag("logo.png", :alt => "Sample App", :class => "round") %>
@@ -680,445 +159,405 @@ $rumindertmp
 	    <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
 	    <%= stylesheet_link_tag 'custom', :media => 'screen' %>
 "-	CHAR	0
-	"
+	=
 
 # File marks:
-'0  1  0  /tmp/irb_tempfile20110217-4326-57vuaz.rb
-'1  31  2  ~/.vimrc
-'2  1  0  /tmp/irb_tempfile20110217-4155-ttkes8.rb
-'3  14  0  ~/.vim/colors/blackboard.vim
-'4  1  0  ~/.vim/colors/blackboard.vim
-'5  1  0  /tmp/irb_tempfile20110217-4004-90civ2.rb
-'6  2  0  /tmp/irb_tempfile20110217-4004-90civ2.rb
-'7  28  0  ~/.vimrc
-'8  1  0  /tmp/irb_tempfile20110217-3962-la9cgs.rb
-'9  1  0  /tmp/irb_tempfile20110217-3908-heu967.rb
+'0  32  0  ~/.vimrc
+'1  39  0  ~/Desktop/code/pills/month_templates/feb_task.csv
+'2  51  3  ~/Desktop/code/pills/month_templates/feb_task.csv
+'3  285  0  ~/.vimrc
+'4  40  6  ~/Desktop/code/pills/month_templates/feb_task.csv
+'5  123  0  ~/.vimrc
+'6  89  1  ~/.vimrc
+'7  2  0  ~/.vim/colors/mayansmoke.vim
+'8  147  31  ~/.vim/colors/mayansmoke.vim
+'9  267  59  ~/.vim/colors/mayansmoke.vim
 
 # Jumplist (newest first):
--'  1  0  /tmp/irb_tempfile20110217-4326-57vuaz.rb
--'  31  2  ~/.vimrc
--'  10  0  ~/.vim/colors/blackboard.vim
--'  14  0  ~/.vim/colors/blackboard.vim
--'  1  0  /tmp/irb_tempfile20110217-4155-ttkes8.rb
--'  1  0  ~/.vim/colors/blackboard.vim
--'  1  0  /tmp/irb_tempfile20110217-4004-90civ2.rb
--'  2  0  /tmp/irb_tempfile20110217-4004-90civ2.rb
--'  28  0  ~/.vimrc
--'  1  0  ~/.vimrc
--'  1  0  /tmp/irb_tempfile20110217-3962-la9cgs.rb
--'  73  0  ~/.vimrc
--'  1  0  /tmp/irb_tempfile20110217-3908-heu967.rb
--'  47  0  ~/.vimrc
--'  1  0  /tmp/irb_tempfile20110217-3865-ebm5rd.rb
+-'  32  0  ~/.vimrc
+-'  284  0  ~/.vimrc
+-'  285  0  ~/.vimrc
+-'  45  22  ~/.vimrc
+-'  11  52  ~/.vimrc
+-'  20  0  ~/.vimrc
+-'  46  7  ~/.vimrc
+-'  84  0  ~/.vimrc
+-'  249  40  ~/.vimrc
+-'  213  0  ~/.vimrc
+-'  239  0  ~/.vimrc
+-'  52  0  ~/.vimrc
+-'  280  0  ~/.vimrc
+-'  87  7  ~/.vimrc
+-'  10  1  ~/.vimrc
+-'  85  0  ~/.vimrc
+-'  86  8  ~/.vimrc
 -'  44  0  ~/.vimrc
--'  24  1  ~/.vimrc
--'  79  23  ~/.vimrc
--'  1  0  /tmp/irb_tempfile20110217-3759-5cdgqi.rb
--'  38  19  ~/.vimrc
--'  56  0  ~/.vimrc
--'  82  12  ~/.vimrc
--'  1  0  /tmp/irb_tempfile20110217-3627-1q44d8r.rb
--'  1  0  /tmp/irb_tempfile20110217-3531-1c8wj7m.rb
--'  2  1  /tmp/irb_tempfile20110217-3531-1c8wj7m.rb
--'  1  0  /tmp/irb_tempfile20110217-3499-gnfueu.rb
--'  2  0  /tmp/irb_tempfile20110217-3462-1endfj4.rb
--'  1  0  /tmp/irb_tempfile20110217-3462-1endfj4.rb
--'  2  27  ~/.irbrc
--'  1  0  ~/.irbrc
--'  42  5  ~/Desktop/code/pills/month_templates/feb_task.csv
--'  44  0  ~/Desktop/code/pills/month_templates/feb_task.csv
--'  43  0  ~/Desktop/code/pills/month_templates/feb_task.csv
--'  302  30  ~/.vim/colors/mayansmoke.vim
--'  304  0  ~/.vim/colors/mayansmoke.vim
--'  309  0  ~/.vim/colors/mayansmoke.vim
--'  282  0  ~/.vim/colors/mayansmoke.vim
--'  295  1  ~/.vim/colors/mayansmoke.vim
--'  261  0  ~/.vim/colors/mayansmoke.vim
--'  1  0  ~/.vim/bundle/hexhighlight/plugin/hexHighlight.vim
--'  211  15  ~/.vimrc
--'  10  0  ~/.vimrc
--'  215  16  ~/.vimrc
--'  217  5  ~/.vimrc
--'  200  0  ~/.vimrc
--'  265  3  ~/.vimrc
--'  146  0  ~/.vimrc
--'  155  51  ~/.vimrc
--'  156  0  ~/.vimrc
--'  197  0  ~/.vimrc
--'  234  0  ~/.vimrc
--'  12  0  ~/.vim/README.markdown
--'  27  17  ~/.vim/README.markdown
--'  17  0  ~/.vim/README.markdown
--'  5  0  ~/.vim/README.markdown
--'  1  0  ~/.vim/bundle/tabular/.git/info/exclude
--'  1  0  ~/.vim/bundle/tabular/.git/description
--'  1  0  ~/.vim/bundle/tabular/.git/refs/remotes/origin/HEAD
--'  1  0  ~/.vim/.gitmodules
--'  116  0  ~/Desktop/code/pills/csv_interpreter_pills.rb
--'  45  0  ~/Desktop/code/pills/csv_interpreter_pills.rb
--'  1  0  ~/Desktop/code/pills/csv_interpreter_pills.rb
--'  3  0  ~/.vim/README.markdown
--'  13  0  ~/.vim/README.markdown
--'  33  0  ~/.vim/README.markdown
--'  1  0  ~/.vim/README.markdown
--'  24  4  ~/rails_projects/twitter-like/app/views/layouts/_header.html.erb
--'  1  0  ~/rails_projects/twitter-like/app/controllers/application_controller.rb
--'  1  0  ~/rails_projects/twitter-like/.autotest
--'  6  0  ~/.vimrc
--'  182  0  ~/.vimrc
--'  7  0  ~/.vimrc
--'  62  0  ~/.vim/doc/Tabular.txt
--'  203  0  /usr/share/vim/vim72/doc/help.txt
--'  1  0  /usr/share/vim/vim72/doc/help.txt
--'  1  0  ~/Downloads/vimplugins/tabular/after/plugin/TabularMaps.vim
--'  255  0  ~/.vimrc
--'  230  1  ~/.vimrc
--'  1  0  ~/Desktop/test.html
--'  104  10  ~/Desktop/code/pills/ruminder.rb
--'  31  0  ~/Desktop/code/pills/ruminder.rb
--'  1  0  ~/.rumindertmp
--'  89  1  ~/Desktop/code/pills/ruminder.rb
--'  86  1  ~/Desktop/code/pills/ruminder.rb
--'  1  0  ~/Desktop/code/pills/.setup_file
--'  39  5  ~/Desktop/code/pills/month_templates/feb_task.csv
--'  1  0  ~/Desktop/code/pills/month_templates/feb_task.csv
--'  8  2  ~/Desktop/code/pills/did_i.rb
--'  16  10  ~/.gitconfig
--'  1  0  ~/.gitconfig
--'  24  4  ~/rails_projects/twitter-like/app/views/layouts/_header.html.erb
--'  1  0  ~/rails_projects/twitter-like/app/controllers/application_controller.rb
--'  1  0  ~/rails_projects/twitter-like/.autotest
--'  62  0  ~/.vim/doc/Tabular.txt
--'  203  0  /usr/share/vim/vim72/doc/help.txt
--'  1  0  /usr/share/vim/vim72/doc/help.txt
--'  1  0  ~/Downloads/vimplugins/tabular/after/plugin/TabularMaps.vim
--'  1  0  ~/Desktop/test.html
--'  104  10  ~/Desktop/code/pills/ruminder.rb
+-'  221  0  ~/.vimrc
+-'  36  21  ~/.vimrc
+-'  283  0  ~/.vimrc
+-'  35  36  ~/.vimrc
+-'  12  0  ~/.vimrc
+-'  13  20  ~/.vimrc
+-'  22  56  ~/.vimrc
+-'  1  0  ~/.vimrc
+-'  65  0  ~/.vimrc
+-'  96  0  ~/.vimrc
+-'  232  0  ~/.vimrc
+-'  262  0  ~/.vimrc
+-'  240  46  ~/.vimrc
+-'  273  2  ~/.vimrc
+-'  272  0  ~/.vimrc
+-'  62  0  ~/.vimrc
+-'  39  0  ~/Desktop/code/pills/month_templates/feb_task.csv
+-'  51  0  ~/Desktop/code/pills/month_templates/feb_task.csv
+-'  40  0  ~/Desktop/code/pills/month_templates/feb_task.csv
+-'  32  0  ~/.vimrc
+-'  284  0  ~/.vimrc
+-'  285  0  ~/.vimrc
+-'  45  22  ~/.vimrc
+-'  11  52  ~/.vimrc
+-'  20  0  ~/.vimrc
+-'  46  7  ~/.vimrc
+-'  84  0  ~/.vimrc
+-'  249  40  ~/.vimrc
+-'  213  0  ~/.vimrc
+-'  239  0  ~/.vimrc
+-'  52  0  ~/.vimrc
+-'  280  0  ~/.vimrc
+-'  87  7  ~/.vimrc
+-'  10  1  ~/.vimrc
+-'  85  0  ~/.vimrc
+-'  86  8  ~/.vimrc
+-'  44  0  ~/.vimrc
+-'  221  0  ~/.vimrc
+-'  36  21  ~/.vimrc
+-'  283  0  ~/.vimrc
+-'  35  36  ~/.vimrc
+-'  12  0  ~/.vimrc
+-'  13  20  ~/.vimrc
+-'  22  56  ~/.vimrc
+-'  1  0  ~/.vimrc
+-'  65  0  ~/.vimrc
+-'  96  0  ~/.vimrc
+-'  232  0  ~/.vimrc
+-'  262  0  ~/.vimrc
+-'  240  46  ~/.vimrc
+-'  273  2  ~/.vimrc
+-'  272  0  ~/.vimrc
+-'  62  0  ~/.vimrc
+-'  39  0  ~/Desktop/code/pills/month_templates/feb_task.csv
+-'  51  0  ~/Desktop/code/pills/month_templates/feb_task.csv
+-'  40  0  ~/Desktop/code/pills/month_templates/feb_task.csv
 
 # History of marks within files (newest to oldest):
 
-> /tmp/irb_tempfile20110217-4326-57vuaz.rb
-	"	1	0
-	^	1	0
-	.	1	0
-	+	1	13
-	+	1	0
-
-> ~/.vim/colors/blackboard.vim
-	"	10	0
-	^	12	0
-	.	11	12
-	+	1	0
-	+	13	0
-	+	11	0
-	+	15	0
-	+	11	12
-
 > ~/.vimrc
-	"	31	2
-	^	25	0
-	.	25	0
-	+	106	0
-	+	101	0
-	+	102	23
-	+	97	17
-	+	252	0
-	+	250	38
-	+	251	27
-	+	202	0
-	+	164	0
-	+	165	0
-	+	163	51
-	+	227	14
-	+	232	0
-	+	231	71
-	+	236	54
-	+	241	0
-	+	237	68
-	+	239	31
-	+	106	0
-	+	105	0
-	+	104	23
-	+	108	0
-	+	92	0
-	+	268	0
-	+	270	0
-	+	3	40
-	+	4	23
-	+	3	41
-	+	1	8
-	+	5	0
-	+	74	33
-	+	67	16
-	+	205	0
-	+	164	17
-	+	163	52
-	+	197	12
-	+	208	20
-	+	209	0
-	+	217	8
-	+	222	0
-	+	208	1
-	+	217	0
-	+	217	12
-	+	217	39
-	+	217	0
-	+	219	26
-	+	221	18
-	+	228	69
-	+	230	60
-	+	228	43
-	+	230	61
-	+	220	8
-	+	223	0
-	+	222	33
-	+	87	0
-	+	225	6
-	+	226	44
-	+	11	4
-	+	9	0
-	+	10	0
-	+	11	0
-	+	13	0
-	+	13	0
-	+	15	5
-	+	13	0
-	+	14	0
-	+	9	12
-	+	39	5
-	+	9	0
-	+	39	6
-	+	39	19
-	+	9	12
-	+	39	0
+	"	32	0
+	^	45	23
+	.	1	0
+	+	285	16
+	+	285	19
+	+	285	47
+	+	285	0
+	+	285	0
+	+	285	27
+	+	285	29
+	+	285	0
+	+	285	18
+	+	285	0
+	+	285	0
+	+	285	52
+	+	285	36
+	+	285	5
+	+	285	0
+	+	285	0
+	+	285	26
+	+	285	60
+	+	285	0
+	+	285	0
+	+	285	0
+	+	285	0
+	+	285	0
+	+	285	61
+	+	285	32
+	+	285	0
+	+	285	0
+	+	285	0
+	+	285	0
+	+	285	15
+	+	285	0
+	+	285	0
+	+	1	0
 	+	38	0
-	+	36	0
-	+	37	0
-	+	18	0
-	+	30	26
-	+	34	23
-	+	17	16
-	+	24	5
-	+	24	0
-	+	24	0
-	+	24	0
-	+	24	0
-	+	22	0
-	+	23	0
-	+	24	0
-	+	8	0
-	+	24	0
-	+	21	0
-	+	29	25
-	+	109	0
-	+	26	36
-	+	28	14
-	+	26	77
-	+	29	10
-	+	26	0
-	+	26	0
-	+	25	0
-	m	156	0
-	t	176	0
-
-> /tmp/irb_tempfile20110217-4155-ttkes8.rb
-	"	1	0
-	^	1	0
-	.	1	0
+	+	35	36
+	+	36	21
+	+	37	5
+	+	38	0
+	+	44	0
+	+	43	0
+	+	96	11
+	+	97	0
+	+	97	0
+	+	97	0
+	+	97	0
+	+	97	0
+	+	97	71
+	+	97	30
+	+	98	11
+	+	285	0
+	+	97	0
+	+	285	0
+	+	286	0
+	+	285	0
+	+	284	0
+	+	98	0
+	+	148	43
+	+	38	23
+	+	82	37
+	+	80	64
+	+	10	0
+	+	86	7
+	+	86	0
+	+	35	36
+	+	13	21
+	+	22	65
 	+	1	0
-
-> /tmp/irb_tempfile20110217-4004-90civ2.rb
-	"	1	0
-	^	1	0
-	.	1	0
-	+	2	38
-	+	3	0
-	+	2	30
-	+	2	0
-	+	1	10
+	+	13	0
 	+	1	0
-
-> /tmp/irb_tempfile20110217-3962-la9cgs.rb
-	"	1	0
-	^	1	0
-	.	1	0
+	+	86	7
 	+	1	0
-
-> /tmp/irb_tempfile20110217-3908-heu967.rb
-	"	1	0
-	^	1	0
-	.	1	0
+	+	86	7
+	+	11	52
 	+	1	0
-
-> /tmp/irb_tempfile20110217-3865-ebm5rd.rb
-	"	1	0
-	^	1	0
-	.	1	0
-	+	1	11
+	+	86	7
+	+	86	0
 	+	1	0
-
-> /tmp/irb_tempfile20110217-3759-5cdgqi.rb
-	"	1	0
-
-> /tmp/irb_tempfile20110217-3665-oikaib.rb
-	"	1	0
-	^	1	0
-	.	1	0
+	+	86	0
+	+	10	0
 	+	1	0
-
-> /tmp/irb_tempfile20110217-3627-1q44d8r.rb
-	"	1	0
-	^	1	0
-	.	1	0
+	+	84	14
 	+	1	0
-
-> /tmp/irb_tempfile20110217-3531-1c8wj7m.rb
-	"	1	0
-	^	2	2
-	.	2	1
-	+	2	1
-
-> /tmp/irb_tempfile20110217-3499-gnfueu.rb
-	"	1	0
-	^	1	0
-	.	1	0
+	+	84	8
 	+	1	0
+	+	84	7
+	+	10	0
+	+	1	0
+	+	52	0
+	+	1	0
+	+	84	9
+	+	1	0
+	+	84	0
+	+	1	0
+	+	46	7
+	+	1	0
+	+	46	0
+	+	11	52
+	+	1	0
+	+	45	22
+	+	1	0
+	h	256	0
+	m	174	0
+	t	194	0
 
-> /tmp/irb_tempfile20110217-3462-1endfj4.rb
-	"	2	0
-	^	2	0
-	.	2	0
-	+	2	0
-
-> ~/.irbrc
-	"	2	27
-	^	2	28
-	.	3	0
-	+	3	0
+> /usr/share/vim/vim72/doc/change.txt
+	"	838	7
 
 > ~/Desktop/code/pills/month_templates/feb_task.csv
-	"	42	5
-	.	42	5
+	"	39	0
+	.	39	0
 	+	33	5
-	+	39	3
-	+	41	3
-	+	42	6
-	+	43	0
-	+	43	0
+	+	40	3
+	+	42	3
+	+	43	6
+	+	46	0
+	+	46	0
+	+	46	5
+	+	40	0
+	+	47	5
+	+	46	0
 	+	43	5
+	+	51	0
+	+	50	5
+	+	45	5
+	+	41	0
 	+	39	0
-	+	44	5
-	+	43	0
-	+	42	5
 
 > ~/Desktop/code/pills/csv_interpreter_pills.rb
-	"	68	22
-	^	73	20
-	.	73	19
-	+	1	0
-	+	1	18
-	+	1	0
-	+	1	12
-	+	1	0
-	+	1	16
-	+	1	2
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	12
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	8
-	+	1	21
-	+	1	8
-	+	1	18
-	+	1	35
-	+	1	5
-	+	1	14
-	+	1	13
-	+	1	15
-	+	1	0
-	+	1	0
-	+	1	3
-	+	1	3
-	+	1	0
-	+	1	3
-	+	1	0
-	+	1	0
-	+	1	71
-	+	1	0
-	+	42	0
-	+	101	0
-	+	100	0
-	+	101	0
-	+	107	20
-	+	110	17
-	+	21	4
-	+	86	21
-	+	93	19
-	+	110	19
-	+	116	0
-	+	122	19
-	+	124	20
-	+	126	20
-	+	122	18
-	+	92	16
-	+	96	0
-	+	95	27
-	+	75	52
-	+	69	0
-	+	70	0
-	+	86	0
-	+	89	27
-	+	75	58
+	"	113	26
+	^	113	27
+	.	113	26
 	+	78	0
-	+	75	0
-	+	75	50
-	+	75	21
-	+	76	0
-	+	78	6
-	+	75	58
-	+	71	77
-	+	68	47
-	+	71	79
-	+	75	0
-	+	65	40
-	+	66	0
+	+	79	0
+	+	72	0
+	+	68	65
+	+	71	67
+	+	61	11
+	+	63	0
+	+	61	29
+	+	72	15
+	+	64	31
+	+	76	27
+	+	64	31
+	+	72	15
+	+	72	93
+	+	72	13
+	+	61	7
+	+	68	60
+	+	71	63
+	+	72	0
+	+	81	0
 	+	80	0
-	+	68	55
-	+	71	8
-	+	74	0
-	+	77	6
-	+	75	0
-	+	74	16
-	+	68	47
-	+	72	13
-	+	75	0
-	+	72	13
-	+	74	20
-	+	77	22
-	+	74	60
-	+	75	60
-	+	74	33
-	+	74	73
-	+	77	15
-	+	74	60
-	+	61	0
-	+	64	0
-	+	62	41
-	+	72	26
-	+	74	72
-	+	77	0
-	+	68	0
-	+	77	0
-	+	74	21
-	+	67	15
-	+	73	19
+	+	81	0
+	+	76	18
+	+	80	94
+	+	72	97
+	+	75	41
+	+	76	18
+	+	75	47
+	+	90	68
+	+	90	43
+	+	90	46
+	+	90	10
+	+	90	70
+	+	90	20
+	+	90	26
+	+	108	0
+	+	90	4
+	+	108	2
+	+	90	6
+	+	108	0
+	+	108	0
+	+	90	0
+	+	108	4
+	+	94	30
+	+	98	0
+	+	108	0
+	+	97	0
+	+	108	0
+	+	98	0
+	+	97	0
+	+	98	0
+	+	100	0
+	+	93	125
+	+	101	44
+	+	106	23
+	+	109	0
+	+	106	32
+	+	108	0
+	+	108	0
+	+	108	0
+	+	109	0
+	+	110	0
+	+	111	0
+	+	116	0
+	+	91	4
+	+	90	11
+	+	93	0
+	+	92	0
+	+	95	0
+	+	107	0
+	+	64	31
+	+	68	152
+	+	71	77
+	+	71	119
+	+	68	154
+	+	64	71
+	+	90	0
+	+	108	57
+	+	111	58
+	+	112	17
+	+	111	59
+	+	90	33
+	+	138	0
+	+	138	0
+	+	144	55
+	+	146	61
+	+	147	49
+	+	141	19
+	+	138	34
+	+	141	36
+	+	138	0
+	+	140	0
+	+	138	14
+	+	144	56
+	+	146	62
+	+	147	49
+	+	139	36
+	+	145	7
+	+	147	0
+	+	113	26
 	k	59	0
 
+> ~/Desktop/code/pills/outline.txt
+	"	39	31
+	^	15	47
+	.	27	10
+	+	40	2
+	+	23	0
+	+	21	0
+	+	10	0
+	+	40	0
+	+	40	9
+	+	5	24
+	+	9	40
+	+	10	12
+	+	9	33
+	+	9	5
+	+	9	7
+	+	9	6
+	+	10	0
+	+	19	179
+	+	22	0
+	+	40	0
+	+	20	0
+	+	19	0
+	+	40	0
+	+	6	0
+	+	10	0
+	+	10	38
+	+	9	27
+	+	10	0
+	+	10	51
+	+	10	42
+	+	19	149
+	+	19	178
+	+	19	152
+	+	19	178
+	+	19	0
+	+	19	109
+	+	19	66
+	+	11	16
+	+	19	29
+	+	19	0
+	+	11	72
+	+	11	72
+	+	19	2
+	+	11	73
+	+	19	0
+	+	11	73
+	+	11	73
+	+	19	0
+	+	19	0
+	+	19	0
+	+	19	0
+	+	15	74
+	+	32	0
+	+	31	1
+	+	33	71
+	+	33	71
+	+	33	68
+	+	36	75
+	+	36	75
+	+	34	0
+	+	39	31
+	+	36	75
+	+	36	75
+	+	36	75
+	+	37	0
+	+	27	10
+
 > ~/Desktop/code/pills/ruminder.rb
-	"	110	0
+	"	88	0
 	.	90	0
 	+	1	0
 	+	1	8
@@ -1221,28 +660,391 @@ $rumindertmp
 	+	97	0
 	+	90	0
 
-> ~/.vim/colors/mayansmoke.vim
-	"	302	30
-	^	147	35
-	.	147	35
-	+	264	6
-	+	263	69
-	+	250	0
-	+	253	28
-	+	94	60
-	+	148	53
-	+	253	28
-	+	147	35
+> ~/.vim/colors/railscasts.vim
+	"	98	0
+	^	189	49
+	.	1	0
+	+	1	0
+	+	147	0
+	+	194	49
+	+	189	0
+	+	176	0
+	+	176	58
+	+	176	66
+	+	177	0
+	+	176	34
+	+	177	29
+	+	178	63
+	+	193	48
+	+	192	0
+	+	196	58
+	+	182	74
+	+	196	58
+	+	177	56
+	+	189	47
+	+	192	43
+	+	189	48
+	+	1	0
 
-> /usr/share/vim/vim72/doc/change.txt
-	"	1432	0
+> ~/.vim/colors/mayansmoke.vim
+	"	2	0
+	^	147	51
+	.	89	0
+	+	263	6
+	+	262	69
+	+	249	0
+	+	252	28
+	+	93	60
+	+	147	53
+	+	252	28
+	+	146	35
+	+	252	59
+	+	252	23
+	+	149	0
+	+	133	48
+	+	249	0
+	+	250	22
+	+	252	0
+	+	255	55
+	+	133	30
+	+	255	55
+	+	248	9
+	+	261	68
+	+	115	46
+	+	116	28
+	+	250	28
+	+	21	11
+	+	20	0
+	+	250	26
+	+	249	22
+	+	258	56
+	+	250	0
+	+	147	50
+	+	258	0
+	+	251	28
+	+	253	25
+	+	249	0
+	+	5	23
+	+	258	26
+	+	259	28
+	+	258	28
+	+	253	31
+	+	262	31
+	+	258	0
+	+	278	62
+	+	267	48
+	+	261	0
+	+	257	63
+	+	267	59
+	+	257	63
+	+	147	51
+	+	116	0
+	+	1	0
+	+	89	0
+
+> /usr/share/vim/vim72/doc/diff.txt
+	"	162	0
+
+> /usr/share/vim/vim72/doc/options.txt
+	"	3545	0
+	^	5854	58
+
+> /usr/share/vim/vim72/doc/quickfix.txt
+	"	466	3
+
+> ~/.vim/colors/peaksea.vim
+	"	1	0
+	^	290	1
+	.	142	21
+	+	87	0
+	+	47	35
+	+	135	20
+	+	133	27
+	+	132	24
+	+	131	23
+	+	87	38
+	+	69	26
+	+	134	23
+	+	144	21
+	+	143	21
+	+	142	21
+
+> ~/.vim/colors/xoria256.vim
+	"	2	0
+	^	59	87
+	.	58	86
+	+	58	86
+
+> ~/.vim/colors/sorcerer.vim
+	"	10	0
+	^	33	0
+	.	42	51
+	+	32	28
+	+	31	36
+	+	49	51
+	+	28	51
+	+	25	51
+	+	31	51
+	+	33	51
+	+	26	53
+	+	42	51
+
+> ~/.vim/colors/idlefingers.vim
+	"	5	0
+	^	11	0
+	.	1	0
+	+	1	0
+
+> ~/rails_projects/twitter-like/app/views/layouts/_header.html.erb
+	"	1	0
+	^	11	9
+	.	11	0
+	+	1	0
+	+	6	39
+	+	16	39
+	+	17	44
+	+	2	5
+	+	3	31
+	+	6	39
+	+	17	34
+	+	6	39
+	+	16	30
+	+	2	109
+	+	17	0
+	+	18	0
+	+	23	0
+	+	19	0
+	+	17	0
+	+	21	0
+	+	18	0
+	+	11	15
+	+	8	8
+	+	11	55
+	+	12	14
+	+	7	0
+	+	12	0
+	+	12	0
+	+	14	14
+	+	12	0
+	+	12	0
+	+	9	0
+	+	13	0
+	+	15	0
+	+	14	0
+	+	16	0
+	+	18	0
+	+	19	0
+	+	20	0
+	+	10	50
+	+	11	0
+
+> ~/rails_projects/twitter-like/.autotest
+	"	1	0
+	.	4	0
+	+	1	0
+	+	4	0
+
+> ~/.vim/colors/blackboard.vim
+	"	95	0
+	^	58	13
+	.	49	60
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	12
+	+	1	0
+	+	1	0
+	+	1	4
+	+	1	0
+	+	38	42
+	+	49	59
+	+	50	63
+	+	41	38
+	+	53	29
+	+	54	0
+	+	50	52
+	+	49	53
+	+	50	52
+	+	49	60
+
+> ~/.vim/colors/vibrantink.vim
+	"	1	0
+	.	1	0
+	+	1	0
+
+> ~/.vim/colors/liquidcarbon.vim
+	"	1	0
+	^	59	0
+	.	54	48
+	+	54	48
+
+> ~/.vim/colors/ir_black.vim
+	"	15	0
+	^	77	66
+	.	77	65
+	+	1	0
+	+	76	63
+	+	77	65
+
+> ~/.vim/colors/dante.vim
+	"	1	0
+	.	1	0
+	+	1	0
+
+> ~/.vim/colors/mac_classic.vim
+	"	1	0
+
+> ~/.vim/colors/pyte.vim
+	"	12	15
+	^	11	16
+	.	61	35
+	+	36	25
+	+	39	26
+	+	36	12
+	+	39	8
+	+	36	0
+	+	39	0
+	+	36	0
+	+	39	8
+	+	36	0
+	+	39	0
+	+	35	0
+	+	63	35
+	+	64	35
+	+	66	35
+	+	68	36
+	+	69	36
+	+	74	36
+	+	76	43
+	+	77	53
+	+	80	35
+	+	86	49
+	+	91	37
+	+	90	37
+	+	92	38
+	+	89	38
+	+	93	0
+	+	90	0
+	+	61	35
+
+> ~/.vim/colors/silent.vim
+	"	25	0
+
+> /usr/share/vim/vim72/doc/cmdline.txt
+	"	57	7
+
+> /tmp/irb_tempfile20110218-1637-c65v8x.rb
+	"	1	0
+	.	1	0
+	+	1	56
+	+	1	15
+	+	1	35
+	+	1	55
+	+	1	11
+	+	1	0
+
+> /usr/share/vim/vim72/doc/syntax.txt
+	"	2807	0
+
+> /usr/share/vim/vim72/doc/gui_x11.txt
+	"	79	4
+
+> /usr/share/vim/vim72/doc/eval.txt
+	"	3480	0
+
+> ~/.vim/colors/macclassic.vim
+	"	14	0
+	.	1	0
+	+	1	0
+
+> ~/.vim/plugin/guicolorscheme.vim
+	"	246	0
+
+> /tmp/irb_tempfile20110217-4326-57vuaz.rb
+	"	1	0
+	^	1	0
+	.	1	0
+	+	1	13
+	+	1	0
+
+> /tmp/irb_tempfile20110217-4155-ttkes8.rb
+	"	1	0
+	^	1	0
+	.	1	0
+	+	1	0
+
+> /tmp/irb_tempfile20110217-4004-90civ2.rb
+	"	1	0
+	^	1	0
+	.	1	0
+	+	2	38
+	+	3	0
+	+	2	30
+	+	2	0
+	+	1	10
+	+	1	0
+
+> /tmp/irb_tempfile20110217-3962-la9cgs.rb
+	"	1	0
+	^	1	0
+	.	1	0
+	+	1	0
+
+> /tmp/irb_tempfile20110217-3908-heu967.rb
+	"	1	0
+	^	1	0
+	.	1	0
+	+	1	0
+
+> /tmp/irb_tempfile20110217-3865-ebm5rd.rb
+	"	1	0
+	^	1	0
+	.	1	0
+	+	1	11
+	+	1	0
+
+> /tmp/irb_tempfile20110217-3759-5cdgqi.rb
+	"	1	0
+
+> /tmp/irb_tempfile20110217-3665-oikaib.rb
+	"	1	0
+	^	1	0
+	.	1	0
+	+	1	0
+
+> /tmp/irb_tempfile20110217-3627-1q44d8r.rb
+	"	1	0
+	^	1	0
+	.	1	0
+	+	1	0
+
+> /tmp/irb_tempfile20110217-3531-1c8wj7m.rb
+	"	1	0
+	^	2	2
+	.	2	1
+	+	2	1
+
+> /tmp/irb_tempfile20110217-3499-gnfueu.rb
+	"	1	0
+	^	1	0
+	.	1	0
+	+	1	0
+
+> /tmp/irb_tempfile20110217-3462-1endfj4.rb
+	"	2	0
+	^	2	0
+	.	2	0
+	+	2	0
+
+> ~/.irbrc
+	"	2	27
+	^	2	28
+	.	3	0
+	+	3	0
 
 > /usr/share/vim/vim72/doc/various.txt
 	"	107	0
-
-> /usr/share/vim/vim72/doc/options.txt
-	"	4356	0
-	^	5854	58
 
 > ~/.vim/bundle/hexhighlight/plugin/hexHighlight.vim
 	"	13	27
@@ -1309,55 +1111,6 @@ $rumindertmp
 
 > ~/.ruminderpath
 	"	1	0
-
-> ~/rails_projects/twitter-like/app/views/layouts/_header.html.erb
-	"	24	4
-	^	11	9
-	.	11	0
-	+	1	0
-	+	6	39
-	+	16	39
-	+	17	44
-	+	2	5
-	+	3	31
-	+	6	39
-	+	17	34
-	+	6	39
-	+	16	30
-	+	2	109
-	+	17	0
-	+	18	0
-	+	23	0
-	+	19	0
-	+	17	0
-	+	21	0
-	+	18	0
-	+	11	15
-	+	8	8
-	+	11	55
-	+	12	14
-	+	7	0
-	+	12	0
-	+	12	0
-	+	14	14
-	+	12	0
-	+	12	0
-	+	9	0
-	+	13	0
-	+	15	0
-	+	14	0
-	+	16	0
-	+	18	0
-	+	19	0
-	+	20	0
-	+	10	50
-	+	11	0
-
-> ~/rails_projects/twitter-like/.autotest
-	"	1	0
-	.	4	0
-	+	1	0
-	+	4	0
 
 > ~/rails_projects/twitter-like/app/controllers/application_controller.rb
 	"	1	0
@@ -2115,87 +1868,4 @@ $rumindertmp
 	"	1	0
 
 > ~/pills/book_in_stock.rb
-	"	1	0
-
-> ~/pills/stock_stats.rb
-	"	10	0
-
-> ~/pickaxe/project/take_pills.rb
-	"	1	0
-
-> ~/pickaxe/project/csv_reader.rb
-	"	1	0
-
-> ~/pickaxe/project/stock_stats.rb
-	"	1	0
-
-> ~/pickaxe/gserver_logger.rb
-	"	1	0
-
-> ~/pickaxe/project/csv_reader_pills.rb
-	"	27	0
-	^	27	0
-	.	27	0
-	+	11	62
-	+	28	0
-	+	2	23
-	+	11	29
-	+	28	0
-	+	20	34
-	+	27	0
-
-> ~/pickaxe/project/book_in_stock.rb
-	"	10	2
-
-> ~/pickaxe/project/pills.csv
-	"	2	2
-	^	2	3
-	.	2	2
-	+	1	3
-	+	2	2
-
-> ~/Desktop/data.csv
-	"	1	0
-
-> ~/Desktop/csv_reader.rb
-	"	1	0
-
-> ~/Desktop/pills.csv
-	"	2	4
-	.	1	0
-	+	2	16
-	+	2	0
-	+	1	0
-
-> ~/Desktop/take_pills.rb
-	"	1	0
-
-> ~/csv_reader_pills.rb
-	"	1	0
-
-> ~/Desktop/stock_stats.rb
-	"	1	0
-
-> ~/pickaxe/testingfile
-	"	1	0
-
-> ~/pickaxe/cmd_line.rb
-	"	1	0
-
-> ~/pickaxe/csv_reader.rb
-	"	1	0
-
-> ~/pickaxe/stock_stats.rb
-	"	1	0
-
-> ~/pickaxe/test_words_from_string.rb
-	"	1	0
-
-> ~/pickaxe/read_songdata_1.rb
-	"	1	0
-
-> ~/pickaxe/songdata
-	"	1	0
-
-> ~/pickaxe/output.txt
 	"	1	0
