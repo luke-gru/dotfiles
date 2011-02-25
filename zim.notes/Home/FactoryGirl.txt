@@ -1,0 +1,36 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-02-07T20:21:22.609121
+
+====== FactoryGirl ======
+
+*notice that this is for factory_girl_rails '1.0', which bundles with factory_girl ~'1.33'
+
+**Factory**//.define(:user) //**do**// |user|//
+//    user.name                     "Otis Gruber"//
+    user.email                    "__otis@otis.net__"
+//    user.password                 "cookie"//
+//    user.password_confirmation    "cookie"//
+**end**
+
+
+*And then in controller, do something like this:
+
+before(:each) do
+	@user = **Factory**//(:user)//
+end
+
+
+**Sequences (when some values have to be unique but you want many to test):**
+
+Factory.define :user do |user|
+  user.name                  "Michael Hartl"
+  user.email                 "**luke.gru@gmail.com**"
+  user.password              "foobar"
+  user.password_confirmation "foobar"
+end
+
+Factory.sequence __:email__ do |n|
+**  "person-#{n}@example.com"								**<<- unique email index in table
+end
+

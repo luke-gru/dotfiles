@@ -8,7 +8,7 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/lis
+~MSle0~/nnoremap
 
 # Last Substitute Search Pattern:
 ~MSle0&ruminderpath
@@ -18,53 +18,71 @@ $
 
 # Command Line History (newest to oldest):
 :w
-:set list
-:retab
-:ww
-:q
-:h retab
-:new
-:h cwin
-:cwin
-:h grep
-:q!
-:diffoff
-:h diff
-:diffstop
-:DiffOrig
-:w!
-:h vimdiff
-:set bg?
-:set bg=dark
-:cd Dropbox/
-:source ~/.vim/sessions/sessiontwitter-like
-:vnew
-:echo g:colors_name
-:h history
-:set guifont?
-:wq
-:h font
-:h guifont
-:h colorscheme
-:echo &colorscheme
-:colorscheme?
-:set colorscheme?
-:set font?
-:echo hostname()
-:h hostname
-:set guifont=Inconsolata \Medium\ 13
-:set guifont=
-:setl guifont?
+:h map
+:version
+:h local-additions
+:helptags ~/.vim/doc/
+:helptags ~/.vim/doc
+:helptags ~/.vim/bundle/gundo/doc/gundo.txt
+:pwd
+:helptags doc/gundo.txt
 :qall!
-:h specialkey
+:1,50bd!
+:Only
+:q!
+:ls
+:q
+:Project ~/.vim/projects/depot2
+:vnew
+:bwipe
+:source ~/.vim/sessions/sessiondepot2
+:mks! ~/.vim/sessions/sessiondepot2
+:wall
+:0r ~/.vim/projects/depot2
+:0r ~/.projects/railsdepot
+:1,51bd!
+:ls!
+:source ~/.vim/sessions/sessiontwitter-like
+:new
+:h linewise
+:y
+:h g
+:h gr
+:h gy
+:h yy
+:h Q
+:h R
+:h #
+:h !
+:echo g:rubycomplete_classes_in_global
+:echo g:rubycomplete_buffer_loading
+:b!#
 
 # Search String History (newest to oldest):
+?/nnoremap
+? s+$
+?/y
+?/nnoremap Y
+?/set
+??gR
+?/vnoremap
+?/inoremap
+?/imap
+?/term
+?/zz
+?/color
+?/za
+?/nmap
+?/nmap <CR>
+?/mouse
+?/preserve
+?/diff
+?/difforig
 ? [ <tab>]*$
 ?/lis
 ?/list
 ?/expandtab
 ?/colors
-?/diff
 ?/visual
 ?/red
 ?/h vimgrep
@@ -81,24 +99,6 @@ $
 ?/guifont
 ?/colorsc
 ?/bold
-?/n-mode
-?/nmode
-?/nmap
-?/showbreak
-?/leader
-?/mayansmoke
-?/colorscheme
-?/C-l
-?/paste
-?/last paste
-?/winpos
-? ruminderpath
-? rumindertmp
-? \<0\>
-? '
-? "
-?/take_pills
-?/take_pillss
 
 # Expression History (newest to oldest):
 
@@ -112,25 +112,30 @@ $
 
 # Registers:
 "0	CHAR	0
-	#CDC9C9
+	djfklsdjflsdjlsdjflsdjdslj
 ""1	LINE	0
-	set lis
-"2	LINE	0
-	set lis
-"3	LINE	0
 	
+"2	LINE	0
+	" stop hightlighting for hlsearch, turn back on w/ next search
+"3	LINE	0
+	nnoremap <F12> :GundoToggle<CR>
 "4	LINE	0
-	" Tags, byebye JS (don't use that plugin now)
-"5	LINE	0
-	"let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
-"6	LINE	0
-	    au BufWritePre * 1,$s/[ <tab>]*$//
-"7	LINE	0
-	2,09,0
-"8	LINE	0
-	2,20,0
-"9	LINE	0
-	hi DiffDelete   guifg=NONE              guibg=LightCoral        gui=NONE
+	
+"5	CHAR	0
+	 This is bad I don't want
+	This is bad I hate this 
+"6	CHAR	0
+	 This is bad I don't want
+	This is bad I hate 
+"7	CHAR	0
+	is bad I don't want
+	This is bad I hate this T
+"8	CHAR	0
+	 is bad I don't want
+	This is bad I hate this 
+"9	CHAR	0
+	s is bad I don't want
+	This is bad I hate this
 "a@	CHAR	0
 	#7fbf58
 "b	CHAR	0
@@ -159,644 +164,750 @@ $
 	    <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
 	    <%= stylesheet_link_tag 'custom', :media => 'screen' %>
 "-	CHAR	0
-	=
+	 
 
 # File marks:
-'0  32  0  ~/.vimrc
-'1  39  0  ~/Desktop/code/pills/month_templates/feb_task.csv
-'2  51  3  ~/Desktop/code/pills/month_templates/feb_task.csv
-'3  285  0  ~/.vimrc
-'4  40  6  ~/Desktop/code/pills/month_templates/feb_task.csv
-'5  123  0  ~/.vimrc
-'6  89  1  ~/.vimrc
-'7  2  0  ~/.vim/colors/mayansmoke.vim
-'8  147  31  ~/.vim/colors/mayansmoke.vim
-'9  267  59  ~/.vim/colors/mayansmoke.vim
+'0  1  0  ~/Desktop/code/pills/ruminder.rb
+'1  202  0  ~/.vimrc
+'2  1  0  ~/rails_projects/depot2/app/controllers/admin_controller.rb
+'3  2  0  ~/rails_projects/twitter-like/app/views/layouts/_header.html.erb
+'4  15  0  ~/.vimrc
+'5  10  0  ~/.vimrc
+'6  309  14  ~/.vimrc
+'7  1  0  /tmp/irb_tempfile20110224-1744-1qk7y7a.rb
+'8  116  67  ~/.bashrc
+'9  1  0  ~/.gnome2/Vim
 
 # Jumplist (newest first):
--'  32  0  ~/.vimrc
--'  284  0  ~/.vimrc
--'  285  0  ~/.vimrc
--'  45  22  ~/.vimrc
--'  11  52  ~/.vimrc
--'  20  0  ~/.vimrc
--'  46  7  ~/.vimrc
--'  84  0  ~/.vimrc
--'  249  40  ~/.vimrc
--'  213  0  ~/.vimrc
--'  239  0  ~/.vimrc
--'  52  0  ~/.vimrc
--'  280  0  ~/.vimrc
--'  87  7  ~/.vimrc
--'  10  1  ~/.vimrc
--'  85  0  ~/.vimrc
--'  86  8  ~/.vimrc
--'  44  0  ~/.vimrc
--'  221  0  ~/.vimrc
--'  36  21  ~/.vimrc
--'  283  0  ~/.vimrc
--'  35  36  ~/.vimrc
--'  12  0  ~/.vimrc
--'  13  20  ~/.vimrc
--'  22  56  ~/.vimrc
+-'  1  0  ~/Desktop/code/pills/ruminder.rb
+-'  43  0  ~/Desktop/code/pills/ruminder.rb
+-'  202  0  ~/.vimrc
+-'  45  0  ~/.vimrc
+-'  164  0  ~/.vimrc
 -'  1  0  ~/.vimrc
--'  65  0  ~/.vimrc
--'  96  0  ~/.vimrc
--'  232  0  ~/.vimrc
--'  262  0  ~/.vimrc
--'  240  46  ~/.vimrc
--'  273  2  ~/.vimrc
--'  272  0  ~/.vimrc
--'  62  0  ~/.vimrc
--'  39  0  ~/Desktop/code/pills/month_templates/feb_task.csv
--'  51  0  ~/Desktop/code/pills/month_templates/feb_task.csv
--'  40  0  ~/Desktop/code/pills/month_templates/feb_task.csv
--'  32  0  ~/.vimrc
--'  284  0  ~/.vimrc
--'  285  0  ~/.vimrc
--'  45  22  ~/.vimrc
--'  11  52  ~/.vimrc
--'  20  0  ~/.vimrc
--'  46  7  ~/.vimrc
--'  84  0  ~/.vimrc
--'  249  40  ~/.vimrc
+-'  1  5  ~/rails_projects/depot2/app/models/user.rb
+-'  7  0  ~/rails_projects/depot2/app/models/order.rb
+-'  18  4  ~/rails_projects/depot2/app/models/user.rb
+-'  2  0  ~/rails_projects/depot2/app/models/line_item.rb
+-'  21  0  ~/rails_projects/depot2/app/models/cart_item.rb
+-'  19  0  ~/rails_projects/depot2/app/models/cart.rb
+-'  1  0  ~/rails_projects/depot2/config/application.rb
+-'  30  0  ~/.vim/projects/depot2
+-'  43  2  ~/rails_projects/depot2/app/controllers/store_controller.rb
+-'  1  0  ~/rails_projects/depot2/app/controllers/admin_controller.rb
+-'  81  15  ~/rails_projects/depot2/test/integration/user_stories_test.rb
+-'  2  0  ~/rails_projects/twitter-like/app/views/layouts/_header.html.erb
+-'  1  0  ~/rails_projects/twitter-like/.autotest
+-'  15  0  ~/.vimrc
+-'  235  0  ~/.vimrc
+-'  168  12  ~/.vimrc
+-'  163  8  ~/.vimrc
+-'  161  3  ~/.vimrc
+-'  160  13  ~/.vimrc
+-'  150  2  ~/.vimrc
+-'  140  21  ~/.vimrc
+-'  137  27  ~/.vimrc
+-'  133  16  ~/.vimrc
+-'  132  30  ~/.vimrc
+-'  130  12  ~/.vimrc
+-'  129  12  ~/.vimrc
+-'  122  46  ~/.vimrc
+-'  94  46  ~/.vimrc
+-'  92  53  ~/.vimrc
+-'  89  30  ~/.vimrc
+-'  85  29  ~/.vimrc
+-'  81  136  ~/.vimrc
+-'  80  31  ~/.vimrc
+-'  77  25  ~/.vimrc
+-'  73  7  ~/.vimrc
+-'  65  27  ~/.vimrc
+-'  60  30  ~/.vimrc
+-'  59  33  ~/.vimrc
+-'  48  70  ~/.vimrc
+-'  24  45  ~/.vimrc
+-'  23  37  ~/.vimrc
+-'  12  9  ~/.vimrc
+-'  11  44  ~/.vimrc
+-'  10  2  ~/.vimrc
+-'  187  21  ~/.vimrc
+-'  188  0  ~/.vimrc
+-'  106  0  ~/.vimrc
+-'  136  1  ~/.vimrc
+-'  364  0  ~/.vimrc
+-'  384  0  ~/.vimrc
 -'  213  0  ~/.vimrc
--'  239  0  ~/.vimrc
--'  52  0  ~/.vimrc
--'  280  0  ~/.vimrc
--'  87  7  ~/.vimrc
--'  10  1  ~/.vimrc
--'  85  0  ~/.vimrc
--'  86  8  ~/.vimrc
--'  44  0  ~/.vimrc
--'  221  0  ~/.vimrc
--'  36  21  ~/.vimrc
--'  283  0  ~/.vimrc
--'  35  36  ~/.vimrc
--'  12  0  ~/.vimrc
--'  13  20  ~/.vimrc
--'  22  56  ~/.vimrc
--'  1  0  ~/.vimrc
--'  65  0  ~/.vimrc
--'  96  0  ~/.vimrc
--'  232  0  ~/.vimrc
--'  262  0  ~/.vimrc
--'  240  46  ~/.vimrc
--'  273  2  ~/.vimrc
--'  272  0  ~/.vimrc
--'  62  0  ~/.vimrc
--'  39  0  ~/Desktop/code/pills/month_templates/feb_task.csv
--'  51  0  ~/Desktop/code/pills/month_templates/feb_task.csv
--'  40  0  ~/Desktop/code/pills/month_templates/feb_task.csv
+-'  226  20  ~/.vimrc
+-'  369  0  ~/.vimrc
+-'  8  0  ~/rails_projects/happywinners/config/initializers/session_store.rb
+-'  13  0  ~/rails_projects/happywinners/app/models/client.rb
+-'  1  0  ~/rails_projects/happywinners/app/models/client.rb
+-'  2  0  ~/rails_projects/happywinners/app/models/client.rb
+-'  11  17  ~/rails_projects/happywinners/app/models/line_item.rb
+-'  1  0  ~/rails_projects/happywinners/app/models/line_item.rb
+-'  2  0  ~/rails_projects/happywinners/app/models/line_item.rb
+-'  9  0  ~/rails_projects/happywinners/db/migrate/20110225043533_create_line_items.rb
+-'  15  0  ~/rails_projects/happywinners/app/models/line_item.rb
+-'  459  0  ~/.vim/bundle/rails/doc/rails.txt
+-'  1  0  ~/.vim/bundle/rails/doc/rails.txt
+-'  1  6  ~/rails_projects/happywinners
+-'  8  0  ~/rails_projects/happywinners/app
+-'  1  0  ~/rails_projects/happywinners/app
+-'  8  0  ~/rails_projects/happywinners/app/models
+-'  1  0  ~/rails_projects/happywinners/app/models
+-'  39  0  ~/rails_projects/happywinners
+-'  6  0  ~/rails_projects/happywinners/config/initializers/session_store.rb
+-'  3  6  ~/rails_projects/happywinners/app/controllers/happy_winners_classes_controller.rb
+-'  165  0  ~/.vimrc
+-'  9  2  ~/rails_projects/happywinners/app/controllers/happy_winners_classes_controller.rb
+-'  16  13  ~/rails_projects/happywinners/public/stylesheets/custom.css
+-'  141  9  ~/rails_projects/happywinners/public/stylesheets/custom.css
+-'  67  0  ~/rails_projects/happywinners/public/stylesheets/custom.css
+-'  1  0  ~/rails_projects/happywinners/app/views/layouts/_header.html.erb
+-'  2  40  ~/rails_projects/happywinners/app/views/layouts/_header.html.erb
+-'  15  8  ~/rails_projects/happywinners/app/views/registrations/index.html.erb
+-'  27  0  ~/rails_projects/happywinners/app/views/registrations/index.html.erb
+-'  17  13  ~/rails_projects/happywinners/app/views/registrations/index.html.erb
+-'  1  0  ~/rails_projects/happywinners/app/views/registrations/index.html.erb
+-'  24  5  ~/rails_projects/happywinners/app/views/registrations/index.html.erb
+-'  1  0  ~/rails_projects/happywinners/app/views/happy_winners_classes/index.html.erb
+-'  75  15  ~/rails_projects/happywinners/public/stylesheets/classes.css
+-'  54  0  ~/rails_projects/happywinners/public/stylesheets/classes.css
+-'  63  2  ~/rails_projects/happywinners/public/stylesheets/classes.css
+-'  70  11  ~/rails_projects/happywinners/public/stylesheets/classes.css
+-'  67  0  ~/rails_projects/happywinners/public/stylesheets/classes.css
+-'  1  5  ~/rails_projects/depot2/app/models/user.rb
+-'  7  0  ~/rails_projects/depot2/app/models/order.rb
+-'  18  4  ~/rails_projects/depot2/app/models/user.rb
 
 # History of marks within files (newest to oldest):
 
-> ~/.vimrc
-	"	32	0
-	^	45	23
-	.	1	0
-	+	285	16
-	+	285	19
-	+	285	47
-	+	285	0
-	+	285	0
-	+	285	27
-	+	285	29
-	+	285	0
-	+	285	18
-	+	285	0
-	+	285	0
-	+	285	52
-	+	285	36
-	+	285	5
-	+	285	0
-	+	285	0
-	+	285	26
-	+	285	60
-	+	285	0
-	+	285	0
-	+	285	0
-	+	285	0
-	+	285	0
-	+	285	61
-	+	285	32
-	+	285	0
-	+	285	0
-	+	285	0
-	+	285	0
-	+	285	15
-	+	285	0
-	+	285	0
-	+	1	0
-	+	38	0
-	+	35	36
-	+	36	21
-	+	37	5
-	+	38	0
-	+	44	0
-	+	43	0
-	+	96	11
-	+	97	0
-	+	97	0
-	+	97	0
-	+	97	0
-	+	97	0
-	+	97	71
-	+	97	30
-	+	98	11
-	+	285	0
-	+	97	0
-	+	285	0
-	+	286	0
-	+	285	0
-	+	284	0
-	+	98	0
-	+	148	43
-	+	38	23
-	+	82	37
-	+	80	64
-	+	10	0
-	+	86	7
-	+	86	0
-	+	35	36
-	+	13	21
-	+	22	65
-	+	1	0
-	+	13	0
-	+	1	0
-	+	86	7
-	+	1	0
-	+	86	7
-	+	11	52
-	+	1	0
-	+	86	7
-	+	86	0
-	+	1	0
-	+	86	0
-	+	10	0
-	+	1	0
-	+	84	14
-	+	1	0
-	+	84	8
-	+	1	0
-	+	84	7
-	+	10	0
-	+	1	0
-	+	52	0
-	+	1	0
-	+	84	9
-	+	1	0
-	+	84	0
-	+	1	0
-	+	46	7
-	+	1	0
-	+	46	0
-	+	11	52
-	+	1	0
-	+	45	22
-	+	1	0
-	h	256	0
-	m	174	0
-	t	194	0
-
-> /usr/share/vim/vim72/doc/change.txt
-	"	838	7
-
-> ~/Desktop/code/pills/month_templates/feb_task.csv
-	"	39	0
-	.	39	0
-	+	33	5
-	+	40	3
-	+	42	3
-	+	43	6
-	+	46	0
-	+	46	0
-	+	46	5
-	+	40	0
-	+	47	5
-	+	46	0
-	+	43	5
-	+	51	0
-	+	50	5
-	+	45	5
-	+	41	0
-	+	39	0
-
-> ~/Desktop/code/pills/csv_interpreter_pills.rb
-	"	113	26
-	^	113	27
-	.	113	26
-	+	78	0
-	+	79	0
-	+	72	0
-	+	68	65
-	+	71	67
-	+	61	11
-	+	63	0
-	+	61	29
-	+	72	15
-	+	64	31
-	+	76	27
-	+	64	31
-	+	72	15
-	+	72	93
-	+	72	13
-	+	61	7
-	+	68	60
-	+	71	63
-	+	72	0
-	+	81	0
-	+	80	0
-	+	81	0
-	+	76	18
-	+	80	94
-	+	72	97
-	+	75	41
-	+	76	18
-	+	75	47
-	+	90	68
-	+	90	43
-	+	90	46
-	+	90	10
-	+	90	70
-	+	90	20
-	+	90	26
-	+	108	0
-	+	90	4
-	+	108	2
-	+	90	6
-	+	108	0
-	+	108	0
-	+	90	0
-	+	108	4
-	+	94	30
-	+	98	0
-	+	108	0
-	+	97	0
-	+	108	0
-	+	98	0
-	+	97	0
-	+	98	0
-	+	100	0
-	+	93	125
-	+	101	44
-	+	106	23
-	+	109	0
-	+	106	32
-	+	108	0
-	+	108	0
-	+	108	0
-	+	109	0
-	+	110	0
-	+	111	0
-	+	116	0
-	+	91	4
-	+	90	11
-	+	93	0
-	+	92	0
-	+	95	0
-	+	107	0
-	+	64	31
-	+	68	152
-	+	71	77
-	+	71	119
-	+	68	154
-	+	64	71
-	+	90	0
-	+	108	57
-	+	111	58
-	+	112	17
-	+	111	59
-	+	90	33
-	+	138	0
-	+	138	0
-	+	144	55
-	+	146	61
-	+	147	49
-	+	141	19
-	+	138	34
-	+	141	36
-	+	138	0
-	+	140	0
-	+	138	14
-	+	144	56
-	+	146	62
-	+	147	49
-	+	139	36
-	+	145	7
-	+	147	0
-	+	113	26
-	k	59	0
-
-> ~/Desktop/code/pills/outline.txt
-	"	39	31
-	^	15	47
-	.	27	10
-	+	40	2
-	+	23	0
-	+	21	0
-	+	10	0
-	+	40	0
-	+	40	9
-	+	5	24
-	+	9	40
-	+	10	12
-	+	9	33
-	+	9	5
-	+	9	7
-	+	9	6
-	+	10	0
-	+	19	179
-	+	22	0
-	+	40	0
-	+	20	0
-	+	19	0
-	+	40	0
-	+	6	0
-	+	10	0
-	+	10	38
-	+	9	27
-	+	10	0
-	+	10	51
-	+	10	42
-	+	19	149
-	+	19	178
-	+	19	152
-	+	19	178
-	+	19	0
-	+	19	109
-	+	19	66
-	+	11	16
-	+	19	29
-	+	19	0
-	+	11	72
-	+	11	72
-	+	19	2
-	+	11	73
-	+	19	0
-	+	11	73
-	+	11	73
-	+	19	0
-	+	19	0
-	+	19	0
-	+	19	0
-	+	15	74
-	+	32	0
-	+	31	1
-	+	33	71
-	+	33	71
-	+	33	68
-	+	36	75
-	+	36	75
-	+	34	0
-	+	39	31
-	+	36	75
-	+	36	75
-	+	36	75
-	+	37	0
-	+	27	10
-
 > ~/Desktop/code/pills/ruminder.rb
-	"	88	0
-	.	90	0
-	+	1	0
-	+	1	8
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	18
-	+	1	20
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	13
-	+	1	2
-	+	1	0
-	+	1	0
-	+	1	34
-	+	1	17
-	+	1	2
-	+	1	0
-	+	1	14
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	10
-	+	1	8
-	+	1	0
-	+	1	0
-	+	1	9
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	15
-	+	1	1
-	+	1	20
-	+	1	1
-	+	1	8
-	+	1	53
-	+	1	0
-	+	1	9
-	+	1	24
-	+	1	0
-	+	1	14
-	+	1	20
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	3
-	+	1	3
-	+	1	1
-	+	1	1
-	+	1	42
-	+	1	42
-	+	1	47
-	+	1	47
-	+	1	16
-	+	1	11
-	+	1	0
-	+	1	0
-	+	1	24
-	+	1	12
-	+	1	39
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	15
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	3
-	+	1	4
-	+	1	4
-	+	1	11
-	+	1	85
-	+	1	70
-	+	1	12
-	+	1	0
-	+	1	0
-	+	1	61
+	"	1	0
+	^	63	0
+	.	76	0
 	+	1	57
 	+	1	0
-	+	89	24
-	+	97	0
-	+	90	0
-
-> ~/.vim/colors/railscasts.vim
-	"	98	0
-	^	189	49
-	.	1	0
-	+	1	0
-	+	147	0
-	+	194	49
-	+	189	0
-	+	176	0
-	+	176	58
-	+	176	66
-	+	177	0
-	+	176	34
-	+	177	29
-	+	178	63
-	+	193	48
-	+	192	0
-	+	196	58
-	+	182	74
-	+	196	58
-	+	177	56
-	+	189	47
-	+	192	43
-	+	189	48
-	+	1	0
-
-> ~/.vim/colors/mayansmoke.vim
-	"	2	0
-	^	147	51
-	.	89	0
-	+	263	6
-	+	262	69
-	+	249	0
-	+	252	28
-	+	93	60
-	+	147	53
-	+	252	28
-	+	146	35
-	+	252	59
-	+	252	23
-	+	149	0
-	+	133	48
-	+	249	0
-	+	250	22
-	+	252	0
-	+	255	55
-	+	133	30
-	+	255	55
-	+	248	9
-	+	261	68
-	+	115	46
-	+	116	28
-	+	250	28
-	+	21	11
-	+	20	0
-	+	250	26
-	+	249	22
-	+	258	56
-	+	250	0
-	+	147	50
-	+	258	0
-	+	251	28
-	+	253	25
-	+	249	0
-	+	5	23
-	+	258	26
-	+	259	28
-	+	258	28
-	+	253	31
-	+	262	31
-	+	258	0
-	+	278	62
-	+	267	48
-	+	261	0
-	+	257	63
-	+	267	59
-	+	257	63
-	+	147	51
-	+	116	0
-	+	1	0
-	+	89	0
-
-> /usr/share/vim/vim72/doc/diff.txt
-	"	162	0
-
-> /usr/share/vim/vim72/doc/options.txt
-	"	3545	0
-	^	5854	58
-
-> /usr/share/vim/vim72/doc/quickfix.txt
-	"	466	3
-
-> ~/.vim/colors/peaksea.vim
-	"	1	0
-	^	290	1
-	.	142	21
+	+	101	24
+	+	109	0
+	+	102	0
+	+	7	0
+	+	88	0
+	+	88	0
+	+	86	0
+	+	72	53
+	+	75	14
+	+	73	16
+	+	75	13
+	+	82	0
+	+	82	0
+	+	82	35
+	+	82	0
+	+	82	63
+	+	82	3
+	+	82	0
+	+	82	0
+	+	83	4
+	+	73	18
+	+	85	2
+	+	88	0
+	+	84	0
+	+	88	0
+	+	88	0
 	+	87	0
-	+	47	35
-	+	135	20
-	+	133	27
-	+	132	24
-	+	131	23
-	+	87	38
-	+	69	26
-	+	134	23
-	+	144	21
-	+	143	21
-	+	142	21
+	+	82	29
+	+	82	7
+	+	82	0
+	+	82	61
+	+	82	6
+	+	82	26
+	+	82	7
+	+	82	0
+	+	82	0
+	+	87	21
+	+	87	0
+	+	82	11
+	+	65	9
+	+	87	0
+	+	87	0
+	+	87	2
+	+	119	24
+	+	83	11
+	+	65	0
+	+	87	11
+	+	84	25
+	+	83	4
+	+	82	4
+	+	87	15
+	+	87	20
+	+	87	8
+	+	89	22
+	+	91	61
+	+	93	23
+	+	84	28
+	+	89	22
+	+	84	16
+	+	87	5
+	+	89	2
+	+	89	0
+	+	90	23
+	+	93	62
+	+	90	62
+	+	95	7
+	+	87	8
+	+	87	16
+	+	84	6
+	+	82	0
+	+	82	4
+	+	87	0
+	+	82	0
+	+	82	0
+	+	83	0
+	+	84	0
+	+	87	0
+	+	119	0
+	+	72	8
+	+	83	81
+	+	87	0
+	+	87	0
+	+	87	2
+	+	82	15
+	+	87	0
+	+	64	0
+	+	64	0
+	+	64	0
+	+	119	17
+	+	64	47
+	+	76	0
+	+	82	0
+	+	83	0
+	+	64	0
+	+	63	0
+	+	119	0
+	+	95	0
+	+	76	0
 
-> ~/.vim/colors/xoria256.vim
-	"	2	0
-	^	59	87
-	.	58	86
-	+	58	86
+> ~/.vimrc
+	"	202	0
+	^	206	18
+	.	208	0
+	+	219	41
+	+	216	42
+	+	35	23
+	+	36	9
+	+	21	35
+	+	309	8
+	+	354	29
+	+	271	33
+	+	349	39
+	+	350	48
+	+	353	0
+	+	354	2
+	+	354	0
+	+	353	0
+	+	350	0
+	+	353	0
+	+	350	47
+	+	352	2
+	+	354	0
+	+	351	30
+	+	352	0
+	+	309	8
+	+	369	0
+	+	352	2
+	+	351	14
+	+	223	18
+	+	227	17
+	+	226	0
+	+	229	19
+	+	230	0
+	+	213	0
+	+	210	26
+	+	203	61
+	+	211	0
+	+	190	0
+	+	203	1
+	+	236	0
+	+	237	1
+	+	243	1
+	+	246	1
+	+	257	0
+	+	270	14
+	+	134	13
+	+	162	0
+	+	212	1
+	+	221	1
+	+	223	1
+	+	229	1
+	+	233	1
+	+	237	1
+	+	242	1
+	+	243	1
+	+	246	1
+	+	249	1
+	+	251	1
+	+	253	1
+	+	261	1
+	+	265	1
+	+	270	1
+	+	273	1
+	+	274	1
+	+	275	1
+	+	277	3
+	+	282	3
+	+	290	1
+	+	317	1
+	+	328	1
+	+	330	1
+	+	332	55
+	+	334	0
+	+	22	1
+	+	23	1
+	+	24	1
+	+	26	1
+	+	33	5
+	+	34	5
+	+	105	1
+	+	234	6
+	+	235	13
+	+	233	15
+	+	293	0
+	+	191	0
+	+	202	0
+	+	293	0
+	+	235	42
+	+	30	5
+	+	29	57
+	+	165	38
+	+	181	18
+	+	211	0
+	+	204	0
+	+	203	16
+	+	207	4
+	+	207	5
+	+	203	0
+	+	206	17
+	+	203	0
+	+	209	0
+	+	210	0
+	+	208	0
+	h	355	0
+	t	279	0
 
-> ~/.vim/colors/sorcerer.vim
-	"	10	0
-	^	33	0
-	.	42	51
-	+	32	28
-	+	31	36
-	+	49	51
-	+	28	51
-	+	25	51
-	+	31	51
-	+	33	51
-	+	26	53
-	+	42	51
+> /usr/share/vim/vim72/doc/help.txt
+	"	204	0
 
-> ~/.vim/colors/idlefingers.vim
-	"	5	0
-	^	11	0
+> ~/.vim/bundle/gundo/doc/gundo.txt
+	"	34	0
+
+> /usr/share/vim/vim72/doc/map.txt
+	"	496	0
+
+> ~/rails_projects/depot2/app/controllers/admin_controller.rb
+	"	1	0
+
+> ~/rails_projects/depot2/app/controllers/store_controller.rb
+	"	50	14
+	^	38	1
+	.	38	13
+	+	38	13
+
+> ~/.vim/projects/depot2
+	"	35	0
 	.	1	0
+	+	39	0
 	+	1	0
+	k	38	3
+
+> ~/rails_projects/depot2/config/application.rb
+	"	1	0
+
+> ~/rails_projects/depot2/config/environment.rb
+	"	1	0
+
+> ~/rails_projects/depot2/config/environments/development.rb
+	"	1	0
+
+> ~/rails_projects/depot2/config/environments/production.rb
+	"	1	0
+
+> ~/rails_projects/depot2/config/environments/test.rb
+	"	1	0
+
+> ~/rails_projects/depot2/config/initializers/session_store.rb
+	"	8	0
+
+> ~/rails_projects/depot2/app/controllers/products_controller.rb
+	"	1	0
+
+> ~/rails_projects/depot2/app/models/cart.rb
+	"	19	0
+	.	19	0
+	+	15	27
+	+	19	0
+
+> ~/rails_projects/depot2/app/models/cart_item.rb
+	"	21	0
+
+> ~/rails_projects/depot2/app/models/line_item.rb
+	"	2	0
+
+> ~/rails_projects/depot2/app/models/user.rb
+	"	1	5
+
+> ~/rails_projects/depot2/app/models/order.rb
+	"	7	0
+
+> ~/rails_projects/happywinners/app/controllers/application_controller.rb
+	"	2	2
+
+> ~/rails_projects/happywinners/app/controllers/happy_winners_classes_controller.rb
+	"	1	2
+	^	81	59
+	.	6	0
+	+	51	68
+	+	68	68
+	+	5	21
+	+	17	0
+	+	18	40
+	+	30	23
+	+	41	56
+	+	30	18
+	+	64	59
+	+	81	58
+	+	5	0
+	+	6	0
+
+> ~/rails_projects/happywinners/app/models/happy_winners_class.rb
+	"	18	0
+	^	13	0
+	.	7	45
+	+	23	0
+	+	4	55
+	+	4	80
+	+	4	55
+	+	10	66
+	+	10	109
+	+	9	40
+	+	5	0
+	+	9	32
+	+	9	0
+	+	10	42
+	+	10	41
+	+	21	81
+	+	22	4
+	+	2	0
+	+	9	23
+	+	10	0
+	+	17	2
+	+	7	56
+	+	8	0
+	+	3	27
+	+	4	27
+	+	9	27
+	+	14	27
+	+	15	27
+	+	12	58
+	+	13	0
+	+	7	45
+
+> ~/rails_projects/happywinners/app/views/happy_winners_classes/index.html.erb
+	"	1	0
+	^	8	23
+	.	8	22
+	+	2	18
+	+	30	17
+	+	19	0
+	+	19	18
+	+	19	0
+	+	19	0
+	+	19	0
+	+	19	0
+	+	19	0
+	+	19	42
+	+	19	38
+	+	19	0
+	+	6	0
+	+	5	28
+	+	8	0
+	+	6	0
+	+	14	34
+	+	5	15
+	+	14	14
+	+	15	68
+	+	18	0
+	+	6	0
+	+	19	0
+	+	18	28
+	+	19	0
+	+	20	0
+	+	21	0
+	+	23	0
+	+	22	0
+	+	23	0
+	+	24	0
+	+	25	0
+	+	1	20
+	+	26	5
+	+	28	0
+	+	27	0
+	+	30	0
+	+	5	34
+	+	21	38
+	+	20	65
+	+	19	35
+	+	6	55
+	+	11	0
+	+	14	0
+	+	9	0
+	+	10	0
+	+	9	26
+	+	7	0
+	+	5	4
+	+	8	22
+
+> ~/rails_projects/happywinners/app/views/layouts/application.html.erb
+	"	17	4
+	.	17	0
+	+	1	24
+	+	1	0
+	+	1	0
+	+	4	0
+	+	5	0
+	+	4	38
+	+	17	0
+	+	1	0
+	+	17	0
+
+> ~/rails_projects/happywinners/app/controllers/registrations_controller.rb
+	"	1	0
+	^	58	0
+	.	8	0
+	+	6	35
+	+	60	0
+	+	5	22
+	+	7	4
+	+	8	0
+	+	9	0
+	+	18	2
+	+	9	0
+	+	28	46
+	+	37	0
+	+	35	37
+	+	36	4
+	+	27	9
+	+	35	50
+	+	24	6
+	+	2	49
+	+	8	10
+	+	21	41
+	+	22	4
+	+	23	0
+	+	38	0
+	+	48	62
+	+	46	11
+	+	54	0
+	+	58	0
+	+	60	0
+	+	8	0
+
+> ~/rails_projects/happywinners/app/views/registrations/index.html.erb
+	"	15	8
+	^	17	59
+	.	27	0
+	+	27	23
+	+	27	12
+	+	27	0
+	+	27	25
+	+	27	18
+	+	27	0
+	+	27	0
+	+	27	28
+	+	27	27
+	+	27	0
+	+	27	0
+	+	27	0
+	+	27	34
+	+	27	30
+	+	27	16
+	+	27	9
+	+	27	12
+	+	27	16
+	+	27	16
+	+	27	48
+	+	27	41
+	+	27	44
+	+	27	41
+	+	27	48
+	+	27	44
+	+	27	0
+	+	27	17
+	+	27	0
+	+	27	0
+	+	27	0
+	+	27	23
+	+	27	0
+	+	27	0
+	+	27	0
+	+	27	0
+	+	1	0
+	+	1	0
+	+	27	0
+	+	2	0
+	+	27	0
+	+	5	0
+	+	6	0
+	+	15	34
+	+	20	0
+	+	2	0
+	+	16	18
+	+	27	0
+	+	27	0
+	+	27	0
+	+	16	41
+	+	27	0
+	+	17	56
+	+	18	0
+	+	17	59
+	+	27	0
+
+> ~/rails_projects/happywinners/app/views/layouts/_stylesheets.html.erb
+	"	10	0
+	^	9	31
+	.	9	30
+	+	1	0
+	+	10	38
+	+	6	56
+	+	8	31
+	+	9	30
+
+> ~/rails_projects/happywinners/public/stylesheets/classes.css
+	"	75	15
+	^	74	16
+	.	74	15
+	+	11	0
+	+	58	19
+	+	60	13
+	+	61	23
+	+	63	0
+	+	76	0
+	+	76	0
+	+	75	13
+	+	74	15
+
+> ~/rails_projects/happywinners/app/views/layouts/_header.html.erb
+	"	1	0
+	^	2	104
+	.	2	103
+	+	1	0
+	+	4	0
+	+	6	30
+	+	8	42
+	+	8	41
+	+	8	36
+	+	6	51
+	+	8	74
+	+	8	89
+	+	8	0
+	+	6	81
+	+	2	0
+	+	2	66
+	+	3	67
+	+	2	103
+
+> ~/rails_projects/happywinners/doc/README_FOR_APP
+	"	2	0
+
+> ~/rails_projects/happywinners/public/stylesheets/scaffold.css
+	"	26	0
+	.	16	0
+	+	16	0
+
+> ~/rails_projects/happywinners/public/stylesheets/custom.css
+	"	16	13
+	^	16	14
+	.	16	13
+	+	33	15
+	+	43	14
+	+	38	13
+	+	33	14
+	+	79	13
+	+	70	10
+	+	79	0
+	+	79	0
+	+	76	0
+	+	79	0
+	+	76	16
+	+	70	16
+	+	16	13
+
+> ~/rails_projects/happywinners/config/initializers/session_store.rb
+	"	8	0
+	^	3	1
+	.	8	66
+	+	8	0
+	+	3	1
+	+	8	0
+	+	3	0
+	+	8	66
+
+> ~/rails_projects/happywinners/app/models/cart.rb
+	"	11	15
+	^	10	62
+	.	5	0
+	+	1	9
+	+	3	0
+	+	19	0
+	+	2	0
+	+	29	0
+	+	5	15
+	+	9	0
+	+	5	0
+	+	10	0
+	+	5	0
+
+> ~/rails_projects/happywinners/app/models/cart_item.rb
+	"	19	19
+	^	15	20
+	.	15	19
+	+	1	0
+	+	15	19
+
+> ~/rails_projects/happywinners/app/models/line_item.rb
+	"	11	17
+	^	8	30
+	.	8	29
+	+	2	0
+	+	7	0
+	+	3	32
+	+	2	19
+	+	15	0
+	+	13	0
+	+	8	23
+	+	9	26
+	+	8	29
+
+> ~/.vim/bundle/rails/doc/rails.txt
+	"	459	0
+
+> ~/rails_projects/happywinners/db/migrate/20110225043533_create_line_items.rb
+	"	9	0
+
+> ~/rails_projects/happywinners/app/models/client.rb
+	"	13	0
+	^	3	48
+	.	14	0
+	+	2	0
+	+	4	0
+	+	3	55
+	+	4	0
+	+	5	0
+	+	14	0
+
+> ~/rails_projects/depot2/test/integration/user_stories_test.rb
+	"	81	15
 
 > ~/rails_projects/twitter-like/app/views/layouts/_header.html.erb
-	"	1	0
+	"	2	0
 	^	11	9
 	.	11	0
 	+	1	0
@@ -844,281 +955,130 @@ $
 	+	1	0
 	+	4	0
 
-> ~/.vim/colors/blackboard.vim
-	"	95	0
-	^	58	13
-	.	49	60
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	12
-	+	1	0
-	+	1	0
-	+	1	4
-	+	1	0
-	+	38	42
-	+	49	59
-	+	50	63
-	+	41	38
-	+	53	29
-	+	54	0
-	+	50	52
-	+	49	53
-	+	50	52
-	+	49	60
+> /usr/share/vim/vim72/doc/intro.txt
+	"	666	0
 
-> ~/.vim/colors/vibrantink.vim
-	"	1	0
-	.	1	0
-	+	1	0
+> /usr/share/vim/vim72/doc/index.txt
+	"	793	0
 
-> ~/.vim/colors/liquidcarbon.vim
-	"	1	0
-	^	59	0
-	.	54	48
-	+	54	48
+> /usr/share/vim/vim72/doc/change.txt
+	"	251	0
 
-> ~/.vim/colors/ir_black.vim
-	"	15	0
-	^	77	66
-	.	77	65
-	+	1	0
-	+	76	63
-	+	77	65
-
-> ~/.vim/colors/dante.vim
-	"	1	0
-	.	1	0
-	+	1	0
-
-> ~/.vim/colors/mac_classic.vim
-	"	1	0
-
-> ~/.vim/colors/pyte.vim
-	"	12	15
-	^	11	16
-	.	61	35
-	+	36	25
-	+	39	26
-	+	36	12
-	+	39	8
-	+	36	0
-	+	39	0
-	+	36	0
-	+	39	8
-	+	36	0
-	+	39	0
-	+	35	0
-	+	63	35
-	+	64	35
-	+	66	35
-	+	68	36
-	+	69	36
-	+	74	36
-	+	76	43
-	+	77	53
-	+	80	35
-	+	86	49
-	+	91	37
-	+	90	37
-	+	92	38
-	+	89	38
-	+	93	0
-	+	90	0
-	+	61	35
-
-> ~/.vim/colors/silent.vim
-	"	25	0
-
-> /usr/share/vim/vim72/doc/cmdline.txt
-	"	57	7
-
-> /tmp/irb_tempfile20110218-1637-c65v8x.rb
-	"	1	0
-	.	1	0
-	+	1	56
-	+	1	15
-	+	1	35
-	+	1	55
-	+	1	11
-	+	1	0
-
-> /usr/share/vim/vim72/doc/syntax.txt
-	"	2807	0
-
-> /usr/share/vim/vim72/doc/gui_x11.txt
-	"	79	4
-
-> /usr/share/vim/vim72/doc/eval.txt
-	"	3480	0
-
-> ~/.vim/colors/macclassic.vim
-	"	14	0
-	.	1	0
-	+	1	0
-
-> ~/.vim/plugin/guicolorscheme.vim
-	"	246	0
-
-> /tmp/irb_tempfile20110217-4326-57vuaz.rb
-	"	1	0
-	^	1	0
-	.	1	0
-	+	1	13
-	+	1	0
-
-> /tmp/irb_tempfile20110217-4155-ttkes8.rb
-	"	1	0
-	^	1	0
-	.	1	0
-	+	1	0
-
-> /tmp/irb_tempfile20110217-4004-90civ2.rb
-	"	1	0
-	^	1	0
-	.	1	0
-	+	2	38
-	+	3	0
-	+	2	30
-	+	2	0
-	+	1	10
-	+	1	0
-
-> /tmp/irb_tempfile20110217-3962-la9cgs.rb
-	"	1	0
-	^	1	0
-	.	1	0
-	+	1	0
-
-> /tmp/irb_tempfile20110217-3908-heu967.rb
-	"	1	0
-	^	1	0
-	.	1	0
-	+	1	0
-
-> /tmp/irb_tempfile20110217-3865-ebm5rd.rb
-	"	1	0
-	^	1	0
-	.	1	0
-	+	1	11
-	+	1	0
-
-> /tmp/irb_tempfile20110217-3759-5cdgqi.rb
-	"	1	0
-
-> /tmp/irb_tempfile20110217-3665-oikaib.rb
-	"	1	0
-	^	1	0
-	.	1	0
-	+	1	0
-
-> /tmp/irb_tempfile20110217-3627-1q44d8r.rb
-	"	1	0
-	^	1	0
-	.	1	0
-	+	1	0
-
-> /tmp/irb_tempfile20110217-3531-1c8wj7m.rb
-	"	1	0
-	^	2	2
-	.	2	1
-	+	2	1
-
-> /tmp/irb_tempfile20110217-3499-gnfueu.rb
-	"	1	0
-	^	1	0
-	.	1	0
-	+	1	0
-
-> /tmp/irb_tempfile20110217-3462-1endfj4.rb
-	"	2	0
-	^	2	0
-	.	2	0
-	+	2	0
-
-> ~/.irbrc
-	"	2	27
-	^	2	28
-	.	3	0
-	+	3	0
-
-> /usr/share/vim/vim72/doc/various.txt
-	"	107	0
-
-> ~/.vim/bundle/hexhighlight/plugin/hexHighlight.vim
-	"	13	27
-	^	9	13
-	.	9	13
-	+	9	13
+> /usr/share/vim/vim72/doc/motion.txt
+	"	171	1
 
 > /usr/share/vim/vim72/doc/pattern.txt
-	"	334	0
+	"	463	0
 
-> ~/.vim/README.markdown
-	"	12	0
-	^	9	0
-	.	9	0
-	+	33	4
-	+	8	1
-	+	10	1
-	+	33	0
-	+	6	25
-	+	8	0
-	+	6	5
+> ~/.bashrc
+	"	116	0
+	^	116	0
+	.	27	0
+	+	117	0
+	+	117	0
+	+	117	0
+	+	117	0
+	+	117	0
+	+	117	1
+	+	117	0
+	+	111	23
+	+	117	0
+	+	117	0
+	+	117	48
+	+	117	0
+	+	117	1
+	+	117	0
+	+	117	1
+	+	117	0
+	+	117	0
+	+	117	0
+	+	117	0
+	+	111	0
+	+	114	0
+	+	115	0
+	+	117	0
+	+	115	16
+	+	117	0
+	+	116	0
+	+	27	0
+
+> /tmp/irb_tempfile20110224-1744-1qk7y7a.rb
+	"	1	0
+	^	1	0
+
+> ~/.gnome2/Vim
+	"	1	0
+
+> ~/.xsession-errors
+	"	28	65
+
+> ~/.profile
+	"	31	0
+
+> /usr/bin/irb1.9.1
+	"	1	0
+
+> /usr/bin/irb
+	"	1	0
+
+> ~/.xsession
+	"	3	0
+	.	1	0
+	+	1	0
+
+> ~/.Xdefaults
+	"	2	0
+	.	3	0
+	+	2	29
 	+	3	1
-	+	8	0
-	+	7	1
-	+	6	51
-	+	13	4
-	+	4	0
-	+	5	1
-	+	8	30
-	+	10	0
-	+	10	1
-	+	12	0
-	+	10	27
-	+	13	5
-	+	17	39
-	+	11	34
-	+	21	29
-	+	33	1
-	+	24	2
-	+	17	47
-	+	11	34
-	+	24	37
-	+	33	0
-	+	25	0
-	+	26	17
-	+	33	0
-	+	32	4
-	+	27	30
-	+	29	0
-	+	23	0
-	+	9	0
+	+	3	0
 
-> ~/.vim/bundle/tabular/.git/info/exclude
+> ~/Desktop/code/pills/.gitignore
+	"	3	0
+	^	3	0
+	.	2	11
+	+	2	11
+
+> /tmp/irb_tempfile20110223-4754-1mssnnx.rb
+	"	1	7
+	^	1	8
+	.	1	8
+	+	1	8
+
+> /tmp/irb_tempfile20110223-4368-1at2d6c.rb
+	"	1	0
+	^	1	5
+	.	1	4
+	+	1	4
+
+> ~/Desktop/code/pills/wankerfile
 	"	1	0
 
-> ~/.vim/bundle/tabular/.git/description
+> ~/rails_projects/twitter-like/app/controllers/pages_controller.rb
+	"	11	4
+
+> ~/rails_projects/twitter-like/config/routes.rb
+	"	6	0
+
+> ~/rails_projects/twitter-like/app/views/layouts/application.html.erb
+	"	10	0
+
+> ~/rails_projects/twitter-like/app/views/layouts/_stylesheets.html.erb
+	"	6	0
+
+> ~/rails_projects/twitter-like/app/models/user.rb
+	"	14	0
+
+> ~/rails_projects/twitter-like/app/views/users/show.html.erb
 	"	1	0
 
-> ~/.vim/bundle/tabular/.git/refs/remotes/origin/HEAD
-	"	1	0
-
-> ~/.vim/.gitmodules
-	"	1	0
-
-> ~/.ruminderpath
-	"	1	0
-
-> ~/rails_projects/twitter-like/app/controllers/application_controller.rb
+> ~/rails_projects/twitter-like/Gemfile
 	"	1	0
 
 > ~/.vim/projects/twitter-like
-	"	32	0
+	"	60	0
 	^	94	18
-	.	94	17
+	.	12	0
 	+	34	0
 	+	40	0
 	+	10	9
@@ -1189,7 +1149,7 @@ $
 	+	140	0
 	+	140	0
 	+	140	0
-	+	12	0
+	+	16	0
 	+	49	1
 	+	49	0
 	+	49	0
@@ -1203,669 +1163,219 @@ $
 	+	145	0
 	+	45	15
 	+	94	17
-	k	144	1
+	+	12	0
+	k	11	2
 
-> /usr/share/vim/vim72/doc/help.txt
-	"	203	30
+> ~/rails_projects/depot2/app/models/product.rb
+	"	17	0
 
-> ~/.vim/doc/Tabular.txt
-	"	62	0
+> ~/rails_projects/depot2/app/views/layouts/application.html.erb
+	"	2	0
 
-> ~/Downloads/vimplugins/tabular/after/plugin/TabularMaps.vim
+> ~/rails_projects/depot2/app/views/layouts/store.html.erb
+	"	15	19
+
+> ~/rails_projects/depot2/app/views/store/index.html.erb
+	"	7	0
+
+> ~/rails_projects/depot2/app/views/products/_form.html.erb
+	"	9	6
+
+> ~/rails_projects/depot2/app/views/products/edit.html.erb
 	"	1	0
 
-> ~/.gitconfig
-	"	16	10
-	^	16	11
-	.	16	10
-	+	17	0
-	+	17	0
-	+	16	10
+> ~/rails_projects/depot2/app/views/products/index.html.erb
+	"	20	8
 
-> ~/Downloads/=
+> ~/rails_projects/depot2/app/views/products/show.html.erb
 	"	1	0
 
-> ~/Desktop/test.html
+> ~/rails_projects/depot2/app/views/products/new.html.erb
 	"	1	0
-	.	1	0
+
+> ~/rails_projects/happywinners/Gemfile
+	"	23	0
+	^	10	3
+	.	10	2
 	+	1	0
-
-> /usr/share/vim/vim72/doc/usr_05.txt
-	"	447	0
-
-> ~/.vim/doc/matchit.txt
-	"	326	0
-
-> ~/.rumindertmp
-	"	1	0
-
-> ~/Desktop/code/pills/.setup_file
-	"	1	0
-
-> ~/Desktop/code/pills/setup_file
-	"	1	0
-
-> ~/Desktop/code/pills/month_templates/feb_pills.csv
-	"	41	0
-	.	42	0
-	+	30	10
-	+	30	10
-	+	30	10
-	+	30	0
-	+	30	0
-	+	30	9
-	+	30	0
-	+	30	9
-	+	30	0
-	+	30	0
-	+	30	0
-	+	30	0
-	+	30	0
-	+	30	0
-	+	30	0
-	+	30	0
 	+	1	0
-	+	30	0
-	+	30	5
-	+	14	5
-	+	15	5
-	+	30	0
-	+	30	0
-	+	30	5
-	+	30	5
-	+	30	5
-	+	30	5
-	+	30	0
-	+	14	5
-	+	13	5
-	+	2	5
-	+	30	0
-	+	31	0
-	+	31	5
-	+	42	0
-	+	41	0
-	+	38	0
-	+	33	0
-	+	42	0
-
-> ~/Desktop/code/pills/month_templates/feb_pills.csv.orig
-	"	20	5
-
-> ~/Desktop/code/pills/did_i.rb
-	"	8	2
-	^	10	24
-	.	10	23
-	+	7	40
-	+	10	23
-
-> ~/Desktop/code/pills/csv_reader_pills.rb
-	"	60	2
-	^	4	20
-	.	4	19
-	+	21	0
-	+	21	0
-	+	17	0
-	+	17	0
-	+	17	0
-	+	17	0
-	+	17	0
-	+	21	0
-	+	21	0
 	+	5	0
-	+	17	0
-	+	17	7
-	+	17	7
-	+	17	5
-	+	17	3
-	+	17	0
-	+	18	0
-	+	17	0
-	+	17	41
-	+	17	0
-	+	17	0
-	+	17	4
-	+	61	0
-	+	17	0
-	+	17	0
-	+	17	0
-	+	17	16
-	+	17	0
-	+	61	0
-	+	17	0
-	+	18	0
-	+	60	2
-	+	17	0
-	+	19	6
-	+	22	0
-	+	22	0
-	+	19	0
-	+	19	0
-	+	19	25
+	+	10	2
+
+> ~/.vim/projects/happywinners
+	"	13	0
+	.	23	0
+	+	9	0
+	+	9	0
+	+	3	0
+	+	14	0
 	+	21	0
-	+	19	2
-	+	20	49
-	+	21	12
-	+	19	0
-	+	21	2
-	+	21	0
-	+	20	18
-	+	21	18
-	+	22	0
-	+	26	21
-	+	23	12
-	+	31	5
-	+	23	13
-	+	24	31
-	+	25	11
-	+	25	20
-	+	26	10
-	+	25	13
-	+	26	14
+	+	70	0
+	+	69	0
+	+	68	2
+	+	64	0
+	+	68	0
+	+	30	0
 	+	25	0
-	+	47	3
-	+	26	6
-	+	26	0
-	+	26	0
-	+	26	0
-	+	47	0
-	+	24	49
-	+	25	0
-	+	26	49
-	+	26	49
-	+	26	0
-	+	26	0
-	+	26	40
-	+	22	9
-	+	26	13
-	+	22	0
-	+	22	0
-	+	22	0
-	+	21	27
-	+	26	0
-	+	28	30
-	+	29	12
-	+	30	4
-	+	29	0
-	+	21	0
+	+	11	0
 	+	33	0
-	+	34	0
-	+	36	36
-	+	35	5
-	+	36	35
+	+	32	17
+	+	17	0
+	+	65	0
+	+	38	33
+	+	38	24
+	+	38	19
 	+	35	0
-	+	43	6
-	+	35	5
-	+	35	32
-	+	41	31
-	+	45	0
-	+	44	0
-	+	4	20
-	+	22	46
-	+	4	19
+	+	23	0
+	k	34	3
 
-> ~/Desktop/code/pills/README.markdown
-	"	14	0
-	^	40	28
-	.	40	27
-	+	3	4
-	+	1	40
-	+	3	88
-	+	3	12
-	+	4	67
-	+	4	9
-	+	4	60
-	+	4	73
-	+	5	121
-	+	5	60
-	+	7	68
-	+	6	0
-	+	8	0
-	+	19	18
-	+	43	0
-	+	27	68
-	+	30	60
-	+	11	0
-	+	17	0
-	+	11	19
-	+	15	0
-	+	14	6
-	+	18	0
-	+	9	0
+> ~/rails_projects/happywinners/tags
+	"	17	0
+	.	12	0
 	+	1	0
-	+	17	3
-	+	19	0
-	+	11	1
 	+	10	0
-	+	38	0
-	+	38	2
-	+	43	0
-	+	42	34
-	+	35	55
-	+	42	34
-	+	35	56
-	+	38	21
-	+	35	30
-	+	39	0
-	+	37	0
-	+	42	1
-	+	40	39
-	+	42	2
-	+	42	34
-	+	43	0
-	+	31	60
-	+	32	0
-	+	38	7
-	+	42	36
+	+	12	0
+
+> ~/rails_projects/happywinners/db/migrate/20110223214119_create_happy_winners_classes.rb
+	"	15	0
+	.	5	0
+	+	5	26
+	+	6	0
+	+	5	0
+
+> ~/rails_projects/happywinners/config/routes.rb
+	"	5	0
+	^	6	0
+	.	6	0
+	+	2	0
+	+	4	43
+	+	5	0
+	+	6	0
+
+> ~/rails_projects/happywinners/app/views/happy_winners_classes/_form.html.erb
+	"	23	0
+	^	28	0
+	.	28	0
+	+	41	24
+	+	19	0
+	+	18	0
+	+	23	0
 	+	34	0
-	+	11	19
-	+	42	32
-	+	38	50
-	+	36	18
-	+	40	27
-
-> ~/.bashrc
-	"	89	0
-	^	86	18
-	.	86	17
-	+	86	17
-
-> ~/Desktop/code/pills/month_templates/dec_pills.csv
-	"	1	0
-	.	1	0
-	+	1	0
-	+	2	0
-	+	3	0
-	+	4	0
-	+	5	0
-	+	6	0
-	+	7	0
-	+	8	0
-	+	9	0
-	+	10	0
-	+	11	0
-	+	12	0
-	+	13	0
-	+	14	0
-	+	15	0
-	+	1	0
-
-> ~/Desktop/code/pills/month_templates/apr_pills.csv
-	"	31	0
-	.	1	0
-	+	1	0
-
-> ~/Desktop/code/pills/month_templates/aug_pills.csv
-	"	1	0
-	.	1	0
-	+	1	0
-	+	2	0
-	+	3	0
-	+	4	0
-	+	5	0
-	+	6	0
-	+	7	0
-	+	8	0
-	+	9	0
-	+	10	0
-	+	11	0
-	+	12	0
-	+	13	0
-	+	14	0
-	+	15	0
-	+	16	0
-	+	17	0
-	+	18	0
-	+	19	0
-	+	20	0
-	+	21	0
-	+	22	0
-	+	23	0
-	+	24	0
-	+	25	0
-	+	26	0
-	+	27	0
-	+	28	0
-	+	29	0
-	+	30	0
-	+	31	0
-	+	32	0
-	+	1	0
-
-> ~/Desktop/code/pills/month_templates/jan_pills.csv
-	"	1	0
-	.	1	0
-	+	1	0
-
-> ~/Desktop/code/pills/month_templates/jul_pills.csv
-	"	1	0
-	.	1	0
-	+	1	0
-
-> ~/Desktop/code/pills/month_templates/jun_pills.csv
-	"	1	0
-	.	1	0
-	+	1	0
-
-> ~/Desktop/code/pills/month_templates/mar_pills.csv
-	"	1	0
-	.	1	0
-	+	1	0
-
-> ~/Desktop/code/pills/month_templates/may_pills.csv
-	"	1	0
-	.	1	0
-	+	1	0
-
-> ~/Desktop/code/pills/month_templates/nov_pills.csv
-	"	1	0
-	.	1	0
-	+	1	0
-
-> ~/Desktop/code/pills/month_templates/oct_pills.csv
-	"	1	0
-	.	1	0
-	+	1	0
-
-> ~/Desktop/code/pills/month_templates/sep_pills.csv
-	"	1	0
-	.	1	0
-	+	2	2
-	+	1	0
-
-> ~/Desktop/code/pills/month_templates/feb_pills.csvtmp
-	"	2	5
-	.	2	5
-	+	2	5
-
-> ~/Desktop/code/pills/take_pills.rb
-	"	16	7
-	^	16	8
-	.	16	7
-	+	23	68
-	+	23	68
-	+	23	3
-	+	22	0
-	+	23	0
-	+	25	3
-	+	12	0
-	+	23	0
-	+	25	0
-	+	2	0
-	+	1	22
-	+	2	0
-	+	1	18
-	+	2	0
-	+	7	69
-	+	8	67
-	+	7	10
-	+	10	41
-	+	25	14
-	+	7	0
-	+	10	37
-	+	11	20
-	+	12	0
-	+	21	0
-	+	13	0
-	+	21	24
-	+	14	45
-	+	17	0
-	+	20	0
-	+	17	7
-	+	14	73
-	+	15	24
-	+	17	75
-	+	21	31
-	+	25	0
-	+	17	12
-	+	7	0
-	+	17	106
-	+	19	2
-	+	15	71
-	+	16	7
-
-> ~/Desktop/code/pills/.gitignore
-	"	1	0
-	.	1	0
-	+	1	0
-
-> ~/Desktop/code/pills/pills.csv
-	"	1	0
-
-> ~/.vim/doc/visincr.txt
-	"	65	0
-
-> ~/Desktop/code/pills/month_templates/new file
-	"	1	0
-	.	31	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	2	2
-	+	31	0
-
-> ~/Desktop/code/pills/month_templates/pills.csv
-	"	26	10
-	^	32	8
-	.	32	7
-	+	2	2
-	+	33	0
-	+	30	0
-	+	31	0
-	+	32	0
-	+	32	7
-
-> ~/pills/pills.csv
-	"	29	0
-	^	16	8
-	.	29	6
-	+	2	3
-	+	1	12
-	+	2	0
-	+	1	19
-	+	2	6
-	+	3	0
-	+	2	1
-	+	3	1
-	+	4	1
-	+	5	1
-	+	6	1
-	+	7	1
-	+	8	1
-	+	9	1
-	+	10	1
-	+	11	1
-	+	12	1
-	+	13	1
-	+	3	0
-	+	1	14
-	+	6	6
-	+	2	4
-	+	3	0
-	+	15	10
-	+	16	8
-	+	17	8
-	+	18	8
-	+	19	8
-	+	20	8
-	+	21	8
-	+	22	8
-	+	23	8
-	+	24	8
-	+	25	8
-	+	26	8
-	+	27	8
-	+	28	8
-	+	29	8
-	+	16	6
-	+	29	6
-	+	17	6
-	+	18	6
-	+	19	6
-	+	20	6
-	+	21	6
-	+	22	6
-	+	23	6
-	+	24	6
-	+	25	6
-	+	26	6
-	+	27	6
-	+	28	6
-	+	29	6
-
-> ~/.bash_history
-	"	1	0
-
-> ~/pills/did_i.rb
-	"	10	2
-	^	10	36
-	.	10	35
-	+	13	2
-	+	3	31
-	+	10	41
-	+	11	13
-	+	7	36
-	+	11	5
-	+	11	0
-	+	7	40
-	+	11	0
-	+	9	0
-	+	4	18
-	+	10	7
-	+	3	20
-	+	5	20
-	+	8	15
-	+	7	22
-	+	8	20
-	+	9	16
-	+	10	35
-
-> ~/pills/csv_reader_pills.rb
-	"	18	58
-	^	19	108
-	.	19	107
-	+	30	0
-	+	30	3
-	+	17	21
-	+	12	19
-	+	11	51
-	+	12	11
-	+	7	11
-	+	17	15
-	+	12	28
-	+	12	68
-	+	17	2
-	+	12	0
-	+	15	0
-	+	16	0
-	+	30	0
-	+	17	26
-	+	21	0
-	+	17	45
-	+	17	10
-	+	17	32
-	+	21	2
-	+	17	14
-	+	21	2
-	+	17	46
-	+	21	2
-	+	17	5
-	+	17	14
-	+	17	0
-	+	17	55
-	+	17	66
-	+	21	14
-	+	17	21
-	+	21	17
-	+	17	28
-	+	21	73
-	+	29	2
-	+	21	0
-	+	28	0
-	+	30	0
-	+	30	0
-	+	22	20
-	+	17	0
-	+	28	3
-	+	31	0
-	+	30	0
-	+	21	18
-	+	22	18
-	+	22	0
-	+	26	5
-	+	27	4
-	+	21	0
-	+	22	8
-	+	21	53
-	+	25	0
-	+	22	37
-	+	25	0
-	+	21	115
-	+	21	0
-	+	29	0
-	+	21	55
-	+	21	98
-	+	21	26
-	+	21	102
-	+	21	2
-	+	17	0
+	+	39	0
+	+	43	0
+	+	20	27
 	+	21	56
-	+	17	25
-	+	21	28
-	+	23	30
-	+	26	53
-	+	21	62
-	+	21	64
-	+	23	54
+	+	34	0
+	+	34	0
+	+	33	0
+	+	34	23
+	+	34	28
+	+	21	60
+	+	4	91
+	+	34	0
+	+	24	0
+	+	30	0
+	+	28	0
+
+> ~/rails_projects/happywinners/app/views/happy_winners_classes/edit.html.erb
+	"	1	0
+	^	1	11
+	.	1	0
+	+	1	16
 	+	1	0
-	+	23	102
-	+	20	35
-	+	17	69
-	+	20	32
-	+	17	56
-	+	20	31
-	+	17	79
-	+	20	32
-	+	17	111
-	+	20	26
-	+	17	79
-	+	18	25
-	+	17	34
-	+	18	21
-	+	17	30
-	+	18	80
-	+	19	24
-	+	17	52
-	+	18	43
-	+	19	49
-	+	17	25
-	+	19	99
-	+	18	16
-	+	19	107
-	+	20	13
-	+	19	107
 
-> ~/pills/take_pills.rb
-	"	9	1
-	.	3	0
+> ~/rails_projects/happywinners/app/views/happy_winners_classes/new.html.erb
+	"	1	0
+	^	1	13
+	.	1	12
+	+	1	12
+
+> ~/rails_projects/happywinners/app/views/happy_winners_classes/show.html.erb
+	"	2	61
+	^	2	62
+	.	2	61
+	+	9	0
 	+	13	0
-	+	13	25
-	+	13	29
-	+	13	2
-	+	13	3
+	+	10	15
 	+	13	0
-	+	12	0
-	+	1	2
-	+	3	0
+	+	14	0
+	+	18	0
+	+	15	11
+	+	11	37
+	+	16	33
+	+	2	47
+	+	2	61
 
-> /usr/share/vim/vim72/doc/repeat.txt
-	"	101	0
+> ~/rails_projects/happywinners/db/migrate/20110223225819_add_description_to_happywinnersclass.rb
+	"	7	35
+	^	7	33
+	.	7	32
+	+	3	29
+	+	7	32
 
-> ~/pills/csv_reader.rb
-	"	18	4
+> ~/rails_projects/happywinners/db/migrate/20110223225907_add_teacher_to_happywinnersclass.rb
+	"	5	0
+	^	7	33
+	.	7	32
+	+	3	29
+	+	7	32
 
-> ~/pills/data.csv
+> ~/rails_projects/happywinners/app/views/layouts/happy_winners_classes.html.erb
+	"	14	6
+	^	5	30
+	.	5	29
+	+	1	0
+	+	1	0
+	+	5	29
+
+> ~/rails_projects/twitter-like/spec/requests/layout_links_spec.rb
+	"	69	0
+
+> ~/.vim/colors/blackboard.vim
+	"	32	31
+	^	32	32
+	.	32	31
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	12
+	+	1	0
+	+	1	0
+	+	1	4
+	+	1	0
+	+	38	42
+	+	49	59
+	+	50	63
+	+	41	38
+	+	53	29
+	+	54	0
+	+	50	52
+	+	49	53
+	+	50	52
+	+	49	60
+	+	32	31
+
+> ~/rails_projects/depot2/app/views/users/index.html.erb
+	"	13	49
+
+> ~/.vim/ctab.vim
+	"	278	4
+
+> ~/.vim/bundle/fugitive/doc/fugitive.txt
+	"	34	7
+
+> /usr/share/vim/vim72/doc/autocmd.txt
+	"	680	7
+
+> /usr/share/vim/vim72/doc/eval.txt
+	"	3480	0
+
+> /usr/share/vim/vim72/doc/version7.txt
+	"	732	3
+
+> /usr/share/vim/vim72/doc/vi_diff.txt
 	"	1	0
 
-> ~/pills/book_in_stock.rb
-	"	1	0
+> /usr/share/vim/vim72/doc/quickfix.txt
+	"	539	7
