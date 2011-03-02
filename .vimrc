@@ -333,6 +333,21 @@ command! -nargs=* Swrap setl wrap linebreak nolist showbreak=…
 
 
 if has("autocmd")
+
+  function! Refresh_firefox()
+    if &modified
+      write
+      silent !echo  'vimYo = content.window.pageYOffset;
+            \ vimXo = content.window.pageXOffset;
+            \ BrowserReload();
+            \ content.window.scrollTo(vimXo,vimYo);
+            \ repl.quit();'  |
+            \ nc localhost 4242 2>&1 > /dev/null
+    endif
+  endfunction
+
+  autocmd BufWriteCmd *.html*,*.css :call Refresh_firefox()
+
   "vimrc
   autocmd! bufwritepost .vimrc source $MYVIMRC
   "text and mail
