@@ -8,7 +8,7 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/chec
+~MSle0~/ping
 
 # Last Substitute Search Pattern:
 ~MSle0&ruminderpath
@@ -59,6 +59,7 @@ $
 :1,51bd!
 
 # Search String History (newest to oldest):
+?/ping
 ?/chec
 ?/nnoremap
 ? s+$
@@ -98,7 +99,6 @@ $
 ?/todo
 ?/font
 ?/guifont
-?/colorsc
 
 # Expression History (newest to oldest):
 
@@ -178,19 +178,21 @@ $
 	+
 
 # File marks:
-'0  4  5  ~/.gitignore
-'1  76  0  ~/rails_projects/happywinners/app/controllers/registrations_controller.rb
-'2  7  0  ~/rails_projects/happywinners/app/views/adminusers/show.html.erb
-'3  1  12  ~/rails_projects/depot2/app/models/user.rb
-'4  1  0  ~/rails_projects/happywinners/app/models/adminuser.rb
-'5  22  0  ~/rails_projects/depot2/app/controllers/line_items_controller.rb
-'6  7  2  ~/rails_projects/depot2/app/models/order.rb
-'7  14  2  ~/rails_projects/depot2/app/models/cart_item.rb
-'8  13  0  ~/rails_projects/depot2/app/models/line_item.rb
-'9  1  0  ~/rails_projects/depot2/app/models/cart_item.rb 
+'0  7  0  ~/.gitignore
+'1  1  77  ~/Desktop/webtechJAC/speedtest/speedtests-2011-03-02-chrome.csv
+'2  4  5  ~/.gitignore
+'3  76  0  ~/rails_projects/happywinners/app/controllers/registrations_controller.rb
+'4  7  0  ~/rails_projects/happywinners/app/views/adminusers/show.html.erb
+'5  1  12  ~/rails_projects/depot2/app/models/user.rb
+'6  1  0  ~/rails_projects/happywinners/app/models/adminuser.rb
+'7  22  0  ~/rails_projects/depot2/app/controllers/line_items_controller.rb
+'8  7  2  ~/rails_projects/depot2/app/models/order.rb
+'9  14  2  ~/rails_projects/depot2/app/models/cart_item.rb
 
 # Jumplist (newest first):
--'  4  5  ~/.gitignore
+-'  7  0  ~/.gitignore
+-'  4  0  ~/.gitignore
+-'  1  77  ~/Desktop/webtechJAC/speedtest/speedtests-2011-03-02-chrome.csv
 -'  1  0  ~/.gitignore
 -'  76  0  ~/rails_projects/happywinners/app/controllers/registrations_controller.rb
 -'  2  2  ~/rails_projects/happywinners/app/controllers/clients_controller.rb
@@ -240,14 +242,63 @@ $
 -'  8  0  ~/rails_projects/depot2/app/controllers/orders_controller.rb
 -'  22  15  ~/rails_projects/depot2/app/views/layouts/store.html.erb
 -'  1  0  ~/rails_projects/depot2/app/controllers/application_controller.rb
+-'  76  0  ~/rails_projects/happywinners/app/controllers/registrations_controller.rb
+-'  2  2  ~/rails_projects/happywinners/app/controllers/clients_controller.rb
+-'  1  0  ~/rails_projects/happywinners/app/controllers/admin_controller.rb
+-'  2  4  ~/rails_projects/happywinners/app/controllers/admin_controller.rb
+-'  44  2  ~/rails_projects/happywinners/app/controllers/adminusers_controller.rb
+-'  50  6  ~/rails_projects/happywinners/app/controllers/happy_winners_classes_controller.rb
+-'  87  0  ~/rails_projects/happywinners/app/controllers/registrations_controller.rb
+-'  30  2  ~/rails_projects/happywinners/app/models/client.rb
+-'  1  0  ~/rails_projects/happywinners/app/models/client.rb
+-'  33  0  ~/rails_projects/happywinners/app/models/client.rb
+-'  14  0  ~/.vimrc
+-'  7  0  ~/rails_projects/happywinners/app/views/adminusers/show.html.erb
+-'  1  0  ~/.vimrc
+-'  367  0  ~/.vimrc
+-'  327  6  ~/.vimrc
+-'  10  0  ~/rails_projects/happywinners
+-'  1  0  ~/rails_projects/happywinners
+-'  1  12  ~/rails_projects/depot2/app/models/user.rb
+-'  18  4  ~/rails_projects/depot2/app/controllers/admin_controller.rb
+-'  14  4  ~/rails_projects/depot2/app/controllers/application_controller.rb
+-'  13  0  ~/rails_projects/depot2/app/controllers/admin_controller.rb
+-'  8  0  ~/rails_projects/depot2/app/controllers/orders_controller.rb
+-'  22  15  ~/rails_projects/depot2/app/views/layouts/store.html.erb
+-'  1  0  ~/rails_projects/depot2/app/controllers/application_controller.rb
+-'  76  0  ~/rails_projects/happywinners/app/controllers/registrations_controller.rb
+-'  2  2  ~/rails_projects/happywinners/app/controllers/clients_controller.rb
+-'  1  0  ~/rails_projects/happywinners/app/controllers/admin_controller.rb
+-'  2  4  ~/rails_projects/happywinners/app/controllers/admin_controller.rb
+-'  44  2  ~/rails_projects/happywinners/app/controllers/adminusers_controller.rb
+-'  50  6  ~/rails_projects/happywinners/app/controllers/happy_winners_classes_controller.rb
+-'  87  0  ~/rails_projects/happywinners/app/controllers/registrations_controller.rb
+-'  30  2  ~/rails_projects/happywinners/app/models/client.rb
+-'  1  0  ~/rails_projects/happywinners/app/models/client.rb
+-'  33  0  ~/rails_projects/happywinners/app/models/client.rb
+-'  14  0  ~/.vimrc
+-'  7  0  ~/rails_projects/happywinners/app/views/adminusers/show.html.erb
+-'  1  0  ~/.vimrc
+-'  367  0  ~/.vimrc
+-'  327  6  ~/.vimrc
+-'  10  0  ~/rails_projects/happywinners
+-'  1  0  ~/rails_projects/happywinners
+-'  1  12  ~/rails_projects/depot2/app/models/user.rb
+-'  18  4  ~/rails_projects/depot2/app/controllers/admin_controller.rb
+-'  14  4  ~/rails_projects/depot2/app/controllers/application_controller.rb
+-'  13  0  ~/rails_projects/depot2/app/controllers/admin_controller.rb
 
 # History of marks within files (newest to oldest):
 
 > ~/.gitignore
-	"	4	5
-	^	4	6
-	.	4	5
+	"	7	0
+	^	7	0
+	.	6	5
 	+	4	5
+	+	6	5
+
+> ~/Desktop/webtechJAC/speedtest/speedtests-2011-03-02-chrome.csv
+	"	1	77
 
 > ~/.vimrc
 	"	14	0
@@ -1582,94 +1633,3 @@ $
 	.	4	0
 	+	1	0
 	+	4	0
-
-> ~/.vim/projects/twitter-like
-	"	36	0
-	^	94	18
-	.	12	0
-	+	34	0
-	+	40	0
-	+	10	9
-	+	140	0
-	+	140	0
-	+	140	0
-	+	153	0
-	+	10	0
-	+	40	15
-	+	40	0
-	+	36	0
-	+	34	0
-	+	30	21
-	+	131	0
-	+	130	2
-	+	130	0
-	+	127	0
-	+	126	11
-	+	31	22
-	+	32	17
-	+	33	17
-	+	140	0
-	+	152	1
-	+	152	2
-	+	152	0
-	+	152	1
-	+	152	0
-	+	152	0
-	+	143	1
-	+	143	21
-	+	39	14
-	+	153	0
-	+	167	0
-	+	153	0
-	+	16	0
-	+	141	0
-	+	26	0
-	+	140	0
-	+	151	0
-	+	151	0
-	+	81	0
-	+	90	0
-	+	90	0
-	+	46	0
-	+	42	0
-	+	43	14
-	+	90	0
-	+	86	0
-	+	16	0
-	+	140	0
-	+	140	12
-	+	59	0
-	+	22	0
-	+	125	0
-	+	142	0
-	+	150	0
-	+	55	2
-	+	55	0
-	+	54	24
-	+	10	0
-	+	3	0
-	+	141	0
-	+	149	0
-	+	141	0
-	+	148	1
-	+	148	0
-	+	148	0
-	+	140	0
-	+	140	0
-	+	140	0
-	+	16	0
-	+	49	1
-	+	49	0
-	+	49	0
-	+	18	0
-	+	49	0
-	+	137	0
-	+	44	14
-	+	52	0
-	+	51	0
-	+	48	0
-	+	145	0
-	+	45	15
-	+	94	17
-	+	12	0
-	k	11	2
