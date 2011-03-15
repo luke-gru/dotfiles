@@ -8,60 +8,67 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/confi
+~MSle0~/register
 
 # Last Substitute Search Pattern:
-~MSle0&ruminderpath
+~MSle0&register
 
 # Last Substitute String:
 $
 
 # Command Line History (newest to oldest):
-:qall!
-:bdall
-:mks! ~/.vim/sessions/sessionhappywinners
-:bw
 :wall
+:bw
 :w
+:'<,'>s/register//g
 :b#
+:set virtualedit?
 :q
-:vnew
-:bd!
-:b
-:set ft?
-:set ft=ruby
-:syntax on
-:set ft=
-:set syntax on
-:set ft=rails
-:ls
+:%s/current_class/current_item
 :Project ~/.vim/projects/happywinners
 :source ~/.vim/sessions/sessionhappywinners
+:cd rails_projects/happywinners/
 :qall
-:ls!
-:h rails
-:bp
-:h project
-:h local-additions
+:mks! ~/.vim/sessions/sessiondepot2
 :Project ~/.vim/projects/depot2
 :source ~/.vim/sessions/sessiondepot2
+:cd rails_projects/depot2/
+:qall!
+:q!
+:0r ~/.vim/projects/depot2
 :proj
-:pwd
-:!LS
+:cd depot2/
+:cd rails_projects/
+:write
+:e index.html
+:e about.html
+:cd Desktop/gitdemo/
 :new
-:Project ~/.vim/projects/twitter-like
-:source ~/.vim/sessions/sessiontwitter-like
-:h BufWriteCmd
-:h map
-:version
-:helptags ~/.vim/doc/
-:helptags ~/.vim/doc
-:helptags ~/.vim/bundle/gundo/doc/gundo.txt
+:ls
+:e! 99bottles.rb
+:e 99bottles.rb
+:!ls
+:%s/i/g/g
+:e something.html
+:e something.pdf
+:something.pdf
+:e experiments2.html
+:e experiments.html
+:cd Desktop/web15-git/
+:saveas chapter_3_notes.txt
+:cd Desktop/
 
 # Search String History (newest to oldest):
+? register
+?/root
+?/save
+? current_class
+? i
+?/shortmess
+? \<this\>
+?/autoread
 ?/confi
 ?/index
-?/save
 ?/ping
 ?/chec
 ?/nnoremap
@@ -92,18 +99,14 @@ $
 ?/red
 ?/h vimgrep
 ?/zz/
-?/ver
-?/has
-?/incsearch
-?/search
-?/tan4
-?/tan
-?/sfd
 
 # Expression History (newest to oldest):
 
 # Input Line History (newest to oldest):
 @[{y(es)},n(o),a(ll),q(uit)] y
+@div id="about"
+@div
+@h1
 @sessions
 @li
 @<li
@@ -115,7 +118,17 @@ $
 # Input Line History (newest to oldest):
 
 # Registers:
-"0	LINE	0
+""0	LINE	0
+	
+"1	LINE	0
+	
+"2	LINE	0
+	
+"3	LINE	0
+	  get "info/unpaid_registrations"
+"4	LINE	0
+	
+"5	LINE	0
 	" ============================================================================
 	" Netrw Directory Listing                                        (netrw v136)
 	"   /home/luke/rails_projects/happywinners/db/migrate
@@ -129,32 +142,27 @@ $
 	20110223225907_add_teacher_to_happywinnersclass.rb
 	20110225043533_create_line_items.rb
 	20110225044942_create_clients.rb
-	20110225045237_add_sessions_table.rb
 	20110226015334_add_password_to_client.rb
 	20110226023212_change_class_to_class_id.rb
-	20110226024044_drop_table_carts.rb
 	20110226024539_add_and_change_columns_to_line_items.rb
 	20110226025948_change_class_price_to_decimal.rb
 	20110226203842_create_adminusers.rb
-	20110306154348_drop_sessions_table.rb
-""1	LINE	0
-	
-"2	LINE	0
-	end
-"3	LINE	0
-	
-"4	LINE	0
-	  protected
-"5	LINE	0
-	
+	20110306154727_add_sessions_table.rb
+	20110312215200_add_constraints_to_line_items.rb
+	20110312221947_remove_column_class_id_in_line_items.rb
+	20110312222524_add_happywinnersclassid_back_to_line_items.rb
+	20110313014503_add_teacher_email_to_happywinnersclasses.rb
+	20110313022432_add_paid_boolean_to_line_items.rb
+	20110314000722_change_paid_for_in_line_items.rb
+	20110314015235_shouldnt_have_deleted_migrations.rb
 "6	LINE	0
-	    end
+	
 "7	LINE	0
-	    if session[:adminuser_id].class == String
+	
 "8	LINE	0
-	    end
+	
 "9	LINE	0
-	    if request.post?
+	
 "a@	CHAR	0
 	#7fbf58
 "b	CHAR	0
@@ -183,143 +191,30 @@ $
 	    <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
 	    <%= stylesheet_link_tag 'custom', :media => 'screen' %>
 "-	CHAR	0
-	 
+	/
 
 # File marks:
-'0  25  17  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
-'1  7  0  ~/.gitignore
-'2  1  77  ~/Desktop/webtechJAC/speedtest/speedtests-2011-03-02-chrome.csv
-'3  4  5  ~/.gitignore
-'4  76  0  ~/rails_projects/happywinners/app/controllers/registrations_controller.rb
-'5  7  0  ~/rails_projects/happywinners/app/views/adminusers/show.html.erb
-'6  1  12  ~/rails_projects/depot2/app/models/user.rb
-'7  1  0  ~/rails_projects/happywinners/app/models/adminuser.rb
-'8  22  0  ~/rails_projects/depot2/app/controllers/line_items_controller.rb
-'9  7  2  ~/rails_projects/depot2/app/models/order.rb
+'0  18  59  ~/rails_projects/happywinners/app/models/client.rb
+'1  10  0  ~/rails_projects/depot2/app/views/store/add_to_cart.js.rjs
+'2  7  0  ~/rails_projects/depot2/app/models/order.rb
+'3  1  0  ~/rails_projects/depot2/app/controllers/admin_controller.rb
+'4  1  27  ~/Desktop/gitdemo/index.html
+'5  178  15  ~/.vimrc
+'6  3  0  ~/Desktop/gitmarch10.txt
+'7  1  8  ~/Dropbox/march8-9.txt
+'8  1  66  ~/Desktop/web15-git/about.html
+'9  1  4  ~/Desktop/web15-git/index.php
 
 # Jumplist (newest first):
--'  25  17  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  17  66  ~/rails_projects/happywinners/config/routes.rb
--'  12  8  ~/rails_projects/happywinners/app/views/layouts/_header.html.erb
--'  1  10  ~/rails_projects/happywinners/app/views/sessions/index.html.erb
--'  18  21  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  1  0  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  46  2  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  22  2  ~/rails_projects/happywinners/app/controllers/application_controller.rb
--'  28  0  ~/rails_projects/happywinners/app/controllers/registrations_controller.rb
--'  91  2  ~/rails_projects/happywinners/app/controllers/registrations_controller.rb
--'  43  0  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  17  8  ~/rails_projects/happywinners/app/views/sessions/login.html.erb
--'  1  0  ~/rails_projects/happywinners/app/views/sessions/logout.html.erb
--'  1  0  ~/rails_projects/happywinners/app/controllers/registrations_controller.rb
--'  3  52  ~/rails_projects/happywinners/app/controllers/application_controller.rb
--'  2  35  ~/rails_projects/happywinners/app/controllers/admin_controller.rb
--'  33  6  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  6  80  ~/rails_projects/happywinners/app/views/layouts/_header.html.erb
--'  16  2  ~/rails_projects/happywinners/config/routes.rb
--'  17  13  ~/rails_projects/happywinners/app/controllers/admin_controller.rb
--'  1  0  ~/rails_projects/happywinners/app/controllers/adminusers_controller.rb
--'  94  2  ~/rails_projects/happywinners/app/controllers/registrations_controller.rb
--'  20  4  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  7  8  ~/rails_projects/happywinners/app/views/layouts/_header.html.erb
--'  10  6  ~/rails_projects/happywinners/app/controllers/admin_controller.rb
--'  90  4  ~/rails_projects/happywinners/app/controllers/adminusers_controller.rb
--'  1  0  ~/rails_projects/happywinners/config/initializers/backtrace_silencers.rb
--'  1  0  ~/rails_projects/happywinners/config/initializers/inflections.rb
--'  1  0  ~/rails_projects/happywinners/config/initializers/mime_types.rb
--'  8  0  ~/rails_projects/happywinners/config/initializers/session_store.rb
--'  32  6  ~/rails_projects/happywinners/app/views/layouts/application.html.erb
--'  1  0  ~/rails_projects/happywinners/app/views/layouts/_stylesheets.html.erb
--'  16  0  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  39  2  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  11  24  ~/rails_projects/happywinners/app/views/layouts/_header.html.erb
--'  32  31  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  19  76  ~/rails_projects/happywinners/app/views/layouts/_header.html.erb
--'  13  8  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  6  24  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  10  32  ~/rails_projects/happywinners/app/views/layouts/_header.html.erb
--'  11  9  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  19  19  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  22  0  ~/rails_projects/happywinners/app/controllers/admin_controller.rb
--'  15  0  ~/rails_projects/happywinners/app/views/sessions/login.html.erb
--'  1  0  ~/rails_projects/happywinners/app/views/admin/login.html.erb
--'  3  0  ~/rails_projects/happywinners/app/views/admin/index.html.erb
--'  1  4  ~/rails_projects/happywinners/app/models/client.rb
--'  28  0  ~/rails_projects/happywinners/app/models/adminuser.rb
--'  21  44  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  12  8  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  21  0  ~/rails_projects/happywinners/app/controllers/admin_controller.rb
--'  1  0  ~/rails_projects/happywinners/app/views/clients/login.html.erb
--'  25  17  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  17  66  ~/rails_projects/happywinners/config/routes.rb
--'  12  8  ~/rails_projects/happywinners/app/views/layouts/_header.html.erb
--'  1  10  ~/rails_projects/happywinners/app/views/sessions/index.html.erb
--'  18  21  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  1  0  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  46  2  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  22  2  ~/rails_projects/happywinners/app/controllers/application_controller.rb
--'  28  0  ~/rails_projects/happywinners/app/controllers/registrations_controller.rb
--'  91  2  ~/rails_projects/happywinners/app/controllers/registrations_controller.rb
--'  43  0  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  17  8  ~/rails_projects/happywinners/app/views/sessions/login.html.erb
--'  1  0  ~/rails_projects/happywinners/app/views/sessions/logout.html.erb
--'  1  0  ~/rails_projects/happywinners/app/controllers/registrations_controller.rb
--'  3  52  ~/rails_projects/happywinners/app/controllers/application_controller.rb
--'  2  35  ~/rails_projects/happywinners/app/controllers/admin_controller.rb
--'  33  6  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  6  80  ~/rails_projects/happywinners/app/views/layouts/_header.html.erb
--'  16  2  ~/rails_projects/happywinners/config/routes.rb
--'  17  13  ~/rails_projects/happywinners/app/controllers/admin_controller.rb
--'  1  0  ~/rails_projects/happywinners/app/controllers/adminusers_controller.rb
--'  94  2  ~/rails_projects/happywinners/app/controllers/registrations_controller.rb
--'  20  4  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  7  8  ~/rails_projects/happywinners/app/views/layouts/_header.html.erb
--'  10  6  ~/rails_projects/happywinners/app/controllers/admin_controller.rb
--'  90  4  ~/rails_projects/happywinners/app/controllers/adminusers_controller.rb
--'  1  0  ~/rails_projects/happywinners/config/initializers/backtrace_silencers.rb
--'  1  0  ~/rails_projects/happywinners/config/initializers/inflections.rb
--'  1  0  ~/rails_projects/happywinners/config/initializers/mime_types.rb
--'  8  0  ~/rails_projects/happywinners/config/initializers/session_store.rb
--'  32  6  ~/rails_projects/happywinners/app/views/layouts/application.html.erb
--'  1  0  ~/rails_projects/happywinners/app/views/layouts/_stylesheets.html.erb
--'  16  0  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  39  2  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  11  24  ~/rails_projects/happywinners/app/views/layouts/_header.html.erb
--'  32  31  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  19  76  ~/rails_projects/happywinners/app/views/layouts/_header.html.erb
--'  13  8  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  6  24  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  10  32  ~/rails_projects/happywinners/app/views/layouts/_header.html.erb
--'  11  9  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  19  19  ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
--'  22  0  ~/rails_projects/happywinners/app/controllers/admin_controller.rb
--'  15  0  ~/rails_projects/happywinners/app/views/sessions/login.html.erb
--'  1  0  ~/rails_projects/happywinners/app/views/admin/login.html.erb
--'  3  0  ~/rails_projects/happywinners/app/views/admin/index.html.erb
+-'  18  59  ~/rails_projects/happywinners/app/models/client.rb
+-'  1  0  ~/rails_projects/happywinners/app/controllers/info_controller.rb
+-'  1  0  ~/rails_projects/happywinners/app/views/info/pay_form.html.erb
 
 # History of marks within files (newest to oldest):
 
-> ~/rails_projects/happywinners/app/controllers/application_controller.rb
-	"	22	2
-	^	22	3
-	.	22	2
-	+	4	12
-	+	11	57
-	+	14	0
-	+	8	24
-	+	3	35
-	+	19	0
-	+	20	4
-	+	3	33
-	+	8	22
-	+	15	23
-	+	4	0
-	+	18	42
-	+	22	2
-
 > ~/rails_projects/happywinners/app/controllers/happy_winners_classes_controller.rb
-	"	50	6
-	^	52	56
+	"	68	6
+	^	61	7
 	.	52	55
 	+	52	68
 	+	69	68
@@ -342,90 +237,109 @@ $
 	+	51	57
 	+	52	55
 
+> ~/rails_projects/happywinners/app/models/happy_winners_class.rb
+	"	14	0
+	.	22	0
+	+	3	0
+	+	20	43
+	+	3	0
+	+	20	11
+	+	20	53
+	+	20	9
+	+	22	0
+	+	21	21
+	+	20	11
+	+	21	11
+	+	20	21
+	+	21	43
+	+	8	43
+	+	21	19
+	+	20	0
+	+	20	0
+	+	15	37
+	+	16	0
+	+	17	0
+	+	15	50
+	+	17	0
+	+	15	46
+	+	22	0
+
 > ~/rails_projects/happywinners/config/routes.rb
-	"	17	66
-	^	17	67
-	.	17	66
+	"	21	27
+	^	17	44
+	.	2	0
 	+	2	0
-	+	4	43
-	+	4	0
-	+	4	0
-	+	4	70
-	+	4	69
-	+	4	67
-	+	4	58
-	+	4	77
-	+	4	0
-	+	4	0
-	+	4	36
-	+	4	18
-	+	4	64
-	+	4	0
-	+	4	38
-	+	4	0
-	+	4	0
-	+	4	42
-	+	18	0
-	+	12	34
-	+	15	64
-	+	16	65
-	+	4	0
-	+	13	63
-	+	4	0
-	+	4	0
-	+	5	0
-	+	4	0
+	+	2	43
+	+	2	0
+	+	2	0
+	+	2	70
+	+	2	69
+	+	2	67
+	+	2	58
+	+	2	77
+	+	2	0
+	+	2	0
+	+	2	36
+	+	2	18
+	+	2	64
+	+	2	0
+	+	2	38
+	+	2	0
+	+	2	0
+	+	2	42
+	+	17	0
+	+	10	34
+	+	13	64
+	+	14	65
+	+	2	0
+	+	11	63
+	+	2	0
+	+	2	0
+	+	3	0
+	+	2	0
+	+	10	9
+	+	11	9
 	+	12	9
 	+	13	9
 	+	14	9
-	+	15	9
-	+	16	9
-	+	7	0
-	+	12	44
-	+	16	66
-	+	15	15
-	+	16	15
-	+	15	16
-	+	16	65
-	+	15	58
-	+	16	58
-	+	15	17
-	+	16	25
-	+	17	66
-
-> ~/rails_projects/happywinners/app/views/layouts/application.html.erb
-	"	32	6
-	.	26	0
-	+	1	24
-	+	1	0
-	+	1	0
-	+	4	0
 	+	5	0
-	+	4	38
-	+	30	0
-	+	1	0
-	+	30	0
-	+	15	0
-	+	15	13
-	+	15	25
-	+	15	0
-	+	4	0
-	+	15	0
-	+	28	0
-	+	29	0
-	+	16	0
-	+	26	0
-	+	26	0
-	+	26	0
-	+	26	27
-	+	26	60
-	+	26	69
-	+	26	0
+	+	10	44
+	+	14	66
+	+	13	15
+	+	14	15
+	+	13	16
+	+	14	65
+	+	13	58
+	+	14	58
+	+	13	17
+	+	14	25
+	+	15	3
+	+	16	69
+	+	19	63
+	+	20	44
+	+	6	7
+	+	7	10
+	+	8	10
+	+	9	10
+	+	10	10
+	+	11	10
+	+	17	10
+	+	18	10
+	+	8	0
+	+	18	0
+	+	2	0
+
+> ~/rails_projects/happywinners/app/views/happy_winners_classes/index.html.erb
+	"	8	17
+	^	17	18
+	.	17	17
+	+	9	0
+	+	17	17
 
 > ~/rails_projects/happywinners/app/controllers/registrations_controller.rb
-	"	28	0
-	^	91	81
-	.	91	80
+	"	85	2
+	^	29	17
+	.	29	16
 	+	6	35
 	+	95	0
 	+	5	22
@@ -512,155 +426,207 @@ $
 	+	76	76
 	+	66	61
 	+	91	80
+	+	29	16
 
-> ~/rails_projects/happywinners/app/views/layouts/_stylesheets.html.erb
-	"	1	0
+> ~/rails_projects/happywinners/app/views/registrations/index.html.erb
+	"	19	0
 
 > ~/rails_projects/happywinners/app/views/layouts/_header.html.erb
-	"	12	8
-	^	12	95
-	.	12	94
-	+	1	0
-	+	4	0
-	+	16	30
-	+	25	42
-	+	25	41
-	+	25	36
-	+	16	51
-	+	25	74
-	+	25	89
+	"	27	8
+	^	4	59
+	.	21	0
 	+	25	0
-	+	16	81
+	+	15	81
 	+	2	0
 	+	2	66
-	+	3	67
+	+	2	67
 	+	2	103
+	+	17	0
 	+	18	0
+	+	19	10
+	+	19	92
 	+	19	0
-	+	20	10
-	+	20	92
-	+	20	0
 	+	22	10
-	+	20	0
-	+	20	81
-	+	21	77
 	+	19	0
+	+	19	81
+	+	20	77
+	+	18	0
 	+	22	0
 	+	25	0
-	+	15	39
-	+	17	12
-	+	16	0
-	+	15	37
-	+	7	84
-	+	8	0
-	+	9	0
-	+	8	14
-	+	11	78
-	+	14	0
-	+	6	42
-	+	10	38
-	+	11	29
-	+	7	29
-	+	6	44
-	+	10	40
-	+	11	29
-	+	7	29
-	+	11	79
-	+	6	21
-	+	10	41
-	+	11	59
-	+	7	58
+	+	14	39
+	+	16	12
+	+	15	0
+	+	14	37
+	+	5	84
+	+	6	0
+	+	7	0
+	+	6	14
+	+	9	78
+	+	13	0
+	+	4	42
+	+	8	38
+	+	9	29
+	+	5	29
+	+	4	44
+	+	8	40
+	+	9	29
+	+	5	29
+	+	9	79
+	+	4	21
+	+	8	41
+	+	9	59
+	+	5	58
 	+	2	5
-	+	3	0
+	+	2	0
 	+	2	5
 	+	2	102
-	+	6	0
-	+	10	27
-	+	7	12
-	+	11	12
-	+	6	31
-	+	10	36
-	+	6	14
-	+	10	10
-	+	6	61
-	+	10	57
-	+	7	79
-	+	11	100
-	+	11	0
-	+	6	39
-	+	10	31
-	+	6	35
-	+	10	32
-	+	6	36
-	+	10	32
-	+	6	53
-	+	10	49
-	+	15	49
-	+	10	40
-	+	6	44
-	+	19	35
-	+	15	39
-	+	10	35
-	+	6	42
-	+	10	36
-	+	15	41
-	+	19	37
-	+	6	79
-	+	10	75
-	+	15	80
-	+	19	76
-	+	11	79
-	+	7	34
-	+	19	75
-	+	15	79
-	+	6	109
-	+	6	0
-	+	6	80
-	+	11	80
-	+	12	94
-
-> ~/rails_projects/happywinners/config/initializers/session_store.rb
-	"	8	0
-	^	3	1
-	.	8	66
-	+	8	0
-	+	3	1
-	+	8	0
-	+	3	0
-	+	8	66
-
-> ~/rails_projects/happywinners/app/helpers/registrations_helper.rb
-	"	5	6
-	^	9	0
-	.	9	0
-	+	2	0
-	+	3	0
+	+	4	0
+	+	8	27
+	+	5	12
+	+	9	12
+	+	4	31
+	+	8	36
+	+	4	14
+	+	8	10
+	+	4	61
+	+	8	57
+	+	5	79
+	+	9	100
 	+	9	0
+	+	4	39
+	+	8	31
+	+	4	35
+	+	8	32
+	+	4	36
+	+	8	32
+	+	4	53
+	+	8	49
+	+	14	49
+	+	8	40
+	+	4	44
+	+	18	35
+	+	14	39
+	+	8	35
+	+	4	42
+	+	8	36
+	+	14	41
+	+	18	37
+	+	4	79
+	+	8	75
+	+	14	80
+	+	18	76
+	+	9	79
+	+	5	34
+	+	18	75
+	+	14	79
+	+	4	109
+	+	4	0
+	+	4	80
+	+	9	80
+	+	11	94
+	+	2	102
+	+	2	0
+	+	10	39
+	+	20	74
+	+	4	33
+	+	8	29
+	+	4	58
+	+	14	38
+	+	18	35
+	+	20	0
+	+	21	0
 
-> ~/rails_projects/happywinners/app/helpers/happy_winners_classes_helper.rb
+> ~/rails_projects/happywinners/app/models/cart.rb
+	"	31	4
+	^	17	18
+	.	17	17
+	+	10	0
+	+	16	12
+	+	18	0
+	+	13	0
+	+	16	0
+	+	17	17
+
+> ~/rails_projects/happywinners/app/models/cart_item.rb
+	"	28	1
+	.	28	0
+	+	7	19
+	+	10	24
+	+	3	30
+	+	4	37
+	+	10	0
+	+	28	0
+	+	4	18
+	+	28	0
+
+> ~/rails_projects/happywinners/app/models/line_item.rb
+	"	16	0
+	.	16	0
+	+	6	0
+	+	3	32
+	+	9	42
+	+	11	0
+	+	9	44
+	+	10	0
+	+	9	56
+	+	6	0
+	+	6	48
+	+	6	50
+	+	12	49
+	+	4	0
+	+	12	45
+	+	13	17
+	+	6	0
+	+	12	47
+	+	5	52
+	+	12	45
+	+	16	0
+	+	16	37
+	+	16	41
+	+	16	0
+	+	16	6
+	+	16	20
+	+	16	8
+	+	16	4
+	+	16	24
+	+	16	11
+	+	16	38
+	+	16	0
+
+> ~/rails_projects/happywinners/db/migrate/20110225043533_create_line_items.rb
+	"	15	2
+
+> ~/rails_projects/happywinners/app/views/registrations/_cart.html.erb
+	"	9	0
+
+> ~/rails_projects/happywinners/app/views/registrations/_cart_item.html.erb
+	"	12	0
+
+> ~/rails_projects/happywinners/app/views/registrations/add_to_cart.js.rjs
+	"	6	17
+	^	6	18
+	.	6	17
+	+	9	0
+	+	10	23
+	+	6	17
+
+> ~/rails_projects/happywinners/db/migrate/20110226015334_add_password_to_client.rb
 	"	1	0
 
-> ~/rails_projects/happywinners/app/helpers/application_helper.rb
-	"	10	0
-	^	5	57
-	.	5	56
-	+	3	0
-	+	10	0
-	+	10	0
-	+	3	0
-	+	2	0
-	+	10	0
-	+	3	41
-	+	5	45
-	+	7	0
-	+	10	29
-	+	6	6
-	+	4	13
-	+	10	0
-	+	5	56
+> ~/rails_projects/happywinners/db/migrate/20110226023212_change_class_to_class_id.rb
+	"	1	0
+
+> ~/rails_projects/happywinners/db/migrate/20110226024539_add_and_change_columns_to_line_items.rb
+	"	15	0
+	.	15	0
+	+	16	0
+	+	15	0
+
+> ~/rails_projects/happywinners/db/migrate/20110226025948_change_class_price_to_decimal.rb
+	"	3	4
 
 > ~/rails_projects/happywinners/app/controllers/admin_controller.rb
-	"	2	35
+	"	18	4
 	^	2	36
 	.	2	35
 	+	5	1
@@ -682,180 +648,66 @@ $
 	+	32	2
 	+	2	35
 
-> ~/rails_projects/happywinners/app/models/adminuser.rb
-	"	28	0
-	^	16	39
-	.	16	38
-	+	2	0
-	+	56	0
-	+	45	25
-	+	47	34
-	+	41	35
-	+	27	12
-	+	41	32
-	+	45	22
-	+	47	31
-	+	16	38
+> ~/rails_projects/happywinners/db/migrate/20110226203842_create_adminusers.rb
+	"	1	0
 
 > ~/rails_projects/happywinners/app/controllers/adminusers_controller.rb
-	"	1	0
-	^	18	22
-	.	18	21
-	+	6	54
-	+	52	80
-	+	53	50
-	+	70	74
-	+	71	50
-	+	88	29
-	+	90	2
-	+	87	0
-	+	84	8
-	+	87	0
-	+	89	6
-	+	85	70
-	+	88	0
-	+	85	0
-	+	90	0
-	+	91	48
-	+	95	0
-	+	5	28
-	+	18	47
-	+	29	26
-	+	41	48
-	+	52	0
-	+	47	26
-	+	66	50
-	+	5	14
-	+	18	21
-
-> ~/rails_projects/happywinners/app/views/admin/index.html.erb
-	"	3	0
-	^	3	32
-	.	3	31
-	+	1	0
-	+	1	0
-	+	5	44
-	+	6	36
-	+	3	25
-	+	5	58
-	+	6	54
-	+	6	0
-	+	6	0
-	+	6	80
-	+	5	65
-	+	3	31
-
-> ~/rails_projects/happywinners/app/views/admin/login.html.erb
-	"	1	0
-	.	1	0
-	+	1	0
-
-> ~/rails_projects/happywinners/app/views/admin/logout.html.erb
-	"	2	0
+	"	29	0
 
 > ~/rails_projects/happywinners/app/models/client.rb
-	"	1	4
-	.	37	0
+	"	18	59
+	^	18	71
+	.	18	70
 	+	2	0
-	+	7	0
+	+	9	0
 	+	3	55
-	+	7	0
-	+	7	0
-	+	15	0
-	+	8	15
+	+	9	0
+	+	9	0
+	+	21	0
+	+	10	15
 	+	3	11
 	+	6	0
 	+	3	27
 	+	4	47
 	+	5	36
-	+	7	86
+	+	9	86
 	+	5	38
-	+	7	0
-	+	13	0
-	+	32	0
-	+	31	0
-	+	32	0
-	+	33	0
-	+	34	0
+	+	9	0
+	+	15	0
+	+	38	0
 	+	37	0
-	+	35	0
-	+	10	0
+	+	38	0
 	+	39	0
-	+	39	0
-	+	37	0
-
-> ~/rails_projects/happywinners/app/controllers/clients_controller.rb
-	"	1	4
-	^	3	18
-	.	18	13
-	+	3	0
-	+	3	0
-	+	5	0
-	+	6	22
-	+	7	25
-	+	8	54
-	+	12	38
-	+	18	29
-	+	20	32
-	+	23	0
-	+	5	0
-	+	25	0
-	+	2	0
-	+	6	6
-	+	7	9
-	+	8	38
-	+	10	66
-	+	20	62
-	+	14	5
-	+	4	19
-	+	14	0
-	+	15	4
-	+	6	59
-	+	10	67
-	+	20	65
-	+	9	70
-	+	17	0
-	+	8	36
-	+	18	33
-	+	20	64
-	+	17	18
-	+	3	10
+	+	40	0
+	+	43	0
+	+	41	0
+	+	12	0
+	+	45	0
+	+	45	0
+	+	43	0
+	+	8	43
+	+	8	0
+	+	8	0
+	+	8	0
+	+	7	57
+	+	17	25
+	+	19	75
+	+	20	0
+	+	17	16
+	+	19	0
+	+	18	122
 	+	17	11
-	+	8	17
-	+	18	13
-
-> ~/rails_projects/happywinners/app/views/clients/login.html.erb
-	"	1	0
-	.	1	0
-	+	1	0
-	+	1	115
-	+	1	164
-	+	1	214
-	+	16	0
-	+	1	0
-
-> ~/rails_projects/happywinners/app/views/clients/login_client.html.erb
-	"	1	0
-
-> ~/rails_projects/happywinners/app/views/clients/logout_client.html.erb
-	"	1	22
-	^	1	23
-	.	1	22
-	+	1	22
+	+	18	89
+	+	43	0
+	+	18	70
 
 > ~/rails_projects/happywinners/config/environment.rb
 	"	1	0
 
-> ~/rails_projects/happywinners/app/views/clients/logout.html.erb
-	"	1	10
-	^	1	11
-	.	1	10
-	+	1	10
-
 > ~/rails_projects/happywinners/app/controllers/sessions_controller.rb
-	"	25	17
-	^	25	18
-	.	25	17
+	"	43	4
+	^	38	21
+	.	38	20
 	+	1	23
 	+	8	25
 	+	21	19
@@ -872,8 +724,8 @@ $
 	+	21	6
 	+	21	17
 	+	21	32
-	+	32	28
-	+	39	4
+	+	38	28
+	+	45	4
 	+	21	0
 	+	19	19
 	+	6	6
@@ -882,87 +734,417 @@ $
 	+	8	30
 	+	9	44
 	+	8	29
-	+	32	24
+	+	38	24
 	+	8	52
-	+	32	44
-	+	39	6
-	+	34	44
+	+	38	44
+	+	45	6
+	+	40	44
 	+	19	0
 	+	21	0
-	+	32	0
-	+	39	0
-	+	27	0
+	+	38	0
+	+	45	0
+	+	33	0
 	+	19	0
 	+	18	21
 	+	20	6
-	+	31	28
-	+	37	46
-	+	38	6
-	+	44	2
-	+	43	0
-	+	43	0
-	+	43	0
-	+	41	10
-	+	46	2
+	+	37	28
+	+	43	46
+	+	44	6
+	+	50	2
+	+	49	0
+	+	49	0
+	+	49	0
+	+	47	10
+	+	52	2
 	+	19	0
-	+	42	0
-	+	25	17
-
-> ~/rails_projects/happywinners/app/views/sessions/login.html.erb
-	"	17	8
-	^	17	58
-	.	17	57
-	+	1	0
-	+	1	0
-	+	17	57
-
-> ~/rails_projects/happywinners/app/views/sessions/logout.html.erb
-	"	1	0
-	^	1	11
-	.	1	10
-	+	1	10
-
-> /usr/share/vim/vim72/doc/pi_netrw.txt
-	"	972	46
-
-> ~/rails_projects/happywinners/db/migrate/20110306154348_drop_sessions_table.rb
-	"	10	2
-	^	3	24
-	.	7	0
-	+	3	23
-	+	7	0
-
-> ~/rails_projects/happywinners/config/initializers/mime_types.rb
-	"	1	0
-
-> ~/rails_projects/happywinners/config/initializers/inflections.rb
-	"	1	0
-
-> ~/rails_projects/happywinners/config/initializers/backtrace_silencers.rb
-	"	1	0
+	+	48	0
+	+	25	4
+	+	10	43
+	+	25	33
+	+	26	12
+	+	25	14
+	+	26	29
+	+	25	4
+	+	24	0
+	+	27	0
+	+	32	4
+	+	31	22
+	+	8	22
+	+	24	55
+	+	37	21
+	+	38	20
 
 > ~/rails_projects/happywinners/app/views/sessions/index.html.erb
-	"	1	10
-	^	1	11
-	.	1	10
-	+	1	10
+	"	1	0
+	^	16	103
+	.	16	102
+	+	24	9
+	+	24	40
+	+	24	9
+	+	24	35
+	+	24	13
+	+	24	19
+	+	24	19
+	+	24	24
+	+	24	18
+	+	24	15
+	+	24	15
+	+	24	15
+	+	24	16
+	+	24	30
+	+	24	16
+	+	24	14
+	+	24	14
+	+	24	0
+	+	24	0
+	+	24	0
+	+	24	0
+	+	24	36
+	+	24	36
+	+	24	36
+	+	24	0
+	+	24	29
+	+	24	24
+	+	24	14
+	+	24	12
+	+	24	0
+	+	24	0
+	+	24	0
+	+	24	0
+	+	1	9
+	+	24	16
+	+	24	36
+	+	24	25
+	+	24	32
+	+	24	8
+	+	24	8
+	+	24	8
+	+	24	8
+	+	24	41
+	+	24	27
+	+	24	0
+	+	24	34
+	+	24	31
+	+	24	33
+	+	24	19
+	+	24	30
+	+	1	19
+	+	24	29
+	+	24	0
+	+	1	0
+	+	1	0
+	+	18	0
+	+	3	0
+	+	1	0
+	+	2	0
+	+	18	0
+	+	19	0
+	+	19	0
+	+	2	0
+	+	17	15
+	+	18	0
+	+	19	0
+	+	24	0
+	+	16	20
+	+	14	20
+	+	16	20
+	+	6	76
+	+	17	0
+	+	16	102
 
-> ~/.gitignore
-	"	7	0
-	^	7	0
-	.	6	5
-	+	4	5
-	+	6	5
+> ~/rails_projects/happywinners/db/migrate/20110312215200_add_constraints_to_line_items.rb
+	"	5	2
 
-> ~/Desktop/webtechJAC/speedtest/speedtests-2011-03-02-chrome.csv
-	"	1	77
+> ~/rails_projects/happywinners/db/migrate/20110225044942_create_clients.rb
+	"	1	0
+
+> ~/rails_projects/happywinners/db/migrate/20110312221947_remove_column_class_id_in_line_items.rb
+	"	9	0
+	^	3	40
+	.	7	0
+	+	3	26
+	+	8	0
+	+	3	39
+	+	8	0
+	+	7	0
+
+> ~/rails_projects/happywinners/db/migrate/20110312222524_add_happywinnersclassid_back_to_line_items.rb
+	"	9	0
+	^	3	51
+	.	3	63
+	+	4	0
+	+	4	0
+	+	3	88
+	+	4	0
+	+	3	50
+	+	8	0
+	+	7	0
+	+	3	63
+
+> ~/rails_projects/happywinners/db/migrate/20110313014503_add_teacher_email_to_happywinnersclasses.rb
+	"	9	0
+	^	3	62
+	.	7	0
+	+	3	62
+	+	7	0
+
+> ~/rails_projects/happywinners/db/migrate/20110313022432_add_paid_boolean_to_line_items.rb
+	"	3	4
+	^	3	47
+	.	3	47
+	+	3	62
+	+	7	0
+	+	3	47
+
+> ~/rails_projects/happywinners/app/controllers/info_controller.rb
+	"	1	0
+	^	11	42
+	.	11	41
+	+	4	14
+	+	2	0
+	+	3	11
+	+	4	21
+	+	6	0
+	+	5	35
+	+	8	18
+	+	16	0
+	+	10	16
+	+	10	19
+	+	10	30
+	+	10	28
+	+	13	56
+	+	12	37
+	+	10	25
+	+	9	19
+	+	14	6
+	+	10	4
+	+	10	0
+	+	10	19
+	+	10	41
+	+	11	24
+	+	13	71
+	+	11	41
+
+> ~/rails_projects/happywinners/app/views/info/unpaid.html.erb
+	"	38	16
+	^	24	24
+	.	24	23
+	+	49	0
+	+	11	31
+	+	29	115
+	+	40	0
+	+	14	47
+	+	29	65
+	+	14	28
+	+	11	15
+	+	13	29
+	+	12	0
+	+	14	0
+	+	14	0
+	+	19	0
+	+	19	0
+	+	14	0
+	+	24	0
+	+	19	0
+	+	43	0
+	+	19	0
+	+	11	0
+	+	17	46
+	+	19	6
+	+	29	85
+	+	24	12
+	+	44	0
+	+	43	0
+	+	42	0
+	+	19	45
+	+	17	44
+	+	19	0
+	+	16	0
+	+	19	0
+	+	27	33
+	+	10	0
+	+	16	50
+	+	16	37
+	+	17	15
+	+	17	15
+	+	11	0
+	+	43	0
+	+	44	0
+	+	44	0
+	+	46	0
+	+	45	0
+	+	41	13
+	+	42	0
+	+	41	0
+	+	42	0
+	+	43	0
+	+	44	0
+	+	29	65
+	+	41	0
+	+	29	59
+	+	29	47
+	+	29	61
+	+	29	70
+	+	29	85
+	+	29	95
+	+	30	0
+	+	44	0
+	+	16	40
+	+	15	24
+	+	17	14
+	+	17	39
+	+	5	38
+	+	17	0
+	+	10	0
+	+	10	0
+	+	40	0
+	+	37	0
+	+	28	0
+	+	39	0
+	+	29	0
+	+	10	0
+	+	10	0
+	+	10	0
+	+	6	0
+	+	5	42
+	+	8	0
+	+	10	0
+	+	10	0
+	+	6	0
+	+	6	0
+	+	9	0
+	+	5	0
+	+	7	0
+	+	5	0
+	+	17	56
+	+	18	20
+	+	17	110
+	+	17	0
+	+	34	0
+	+	34	104
+	+	33	12
+	+	33	0
+	+	34	0
+	+	35	0
+	+	21	44
+	+	22	24
+	+	24	23
+
+> ~/rails_projects/happywinners/app/views/info/pay_form.html.erb
+	"	1	0
+
+> /usr/share/vim/vim72/doc/help.txt
+	"	1	0
+
+> ~/rails_projects/happywinners/db/migrate/20110314000722_change_paid_for_in_line_items.rb
+	"	3	4
+	^	3	69
+	.	3	68
+	+	3	64
+	+	6	14
+	+	7	0
+	+	9	0
+	+	3	68
+
+> ~/rails_projects/happywinners/db/migrate/20110306154727_add_sessions_table.rb
+	"	1	0
+
+> ~/rails_projects/happywinners/db/migrate/20110314015235_shouldnt_have_deleted_migrations.rb
+	"	3	40
+	.	7	0
+	+	3	58
+	+	8	0
+	+	7	0
+
+> ~/rails_projects/happywinners/config/application.rb
+	"	1	0
+
+> ~/rails_projects/happywinners/config/environments/development.rb
+	"	21	0
+
+> ~/rails_projects/happywinners/config/environments/production.rb
+	"	1	0
+
+> ~/rails_projects/happywinners/config/database.yml
+	"	1	0
+
+> ~/rails_projects/happywinners/config/boot.rb
+	"	1	0
+
+> ~/rails_projects/happywinners/db/schema.rb
+	"	10	0
+
+> ~/rails_projects/depot2/app/controllers/admin_controller.rb
+	"	1	0
+	.	1	0
+	+	1	0
+
+> ~/rails_projects/depot2/db/migrate/20110124233346_create_line_items.rb
+	"	6	6
+
+> ~/rails_projects/depot2/db/migrate/20110118165007_create_products.rb
+	"	1	0
+
+> ~/rails_projects/depot2/db/migrate/20110118171343_add_price_to_product.rb
+	"	1	0
+
+> ~/rails_projects/depot2/db/migrate/20110118183429_add_test_data.rb
+	"	1	0
+
+> ~/rails_projects/depot2/db/migrate/20110119161109_add_sessions_table.rb
+	"	1	0
+
+> ~/rails_projects/depot2/db/migrate/20110124232546_create_orders.rb
+	"	1	0
+
+> ~/rails_projects/depot2/db/migrate/20110126012231_create_users.rb
+	"	1	0
+
+> ~/rails_projects/depot2/app/models/cart.rb
+	"	1	0
+
+> ~/rails_projects/depot2/app/models/line_item.rb
+	"	3	0
+
+> ~/rails_projects/depot2/app/models/order.rb
+	"	7	2
+
+> ~/rails_projects/depot2/app/models/product.rb
+	"	21	0
+	.	9	0
+	+	9	0
+
+> ~/rails_projects/depot2/app/controllers/info_controller.rb
+	"	1	0
+
+> ~/rails_projects/depot2/app/views/info/who_bought.html.erb
+	"	1	0
+
+> ~/rails_projects/depot2/app/views/info/who_bought.xml.builder
+	"	5	0
+
+> ~/rails_projects/depot2/app/views/info/who_bought.atom.builder
+	"	1	0
+
+> ~/rails_projects/depot2/app/views/store/add_to_cart.js.rjs
+	"	10	0
+
+> ~/rails_projects/depot2/app/views/store/checkout.html.erb
+	"	1	0
+
+> ~/rails_projects/depot2/app/views/store/empty_cart.js.rjs
+	"	1	0
+
+> ~/rails_projects/twitter-like/app/views/layouts/_header.html.erb
+	"	2	2
+
+> ~/rails_projects/twitter-like/.autotest
+	"	1	0
 
 > ~/.vimrc
-	"	14	0
-	^	349	35
-	.	349	35
-	+	364	39
-	+	365	48
+	"	226	2
+	^	178	16
+	.	178	15
 	+	368	0
 	+	369	2
 	+	369	0
@@ -1061,752 +1243,279 @@ $
 	+	348	0
 	+	350	0
 	+	349	35
+	+	72	4
+	+	178	15
 	h	370	0
 	t	279	0
 
-> ~/rails_projects/happywinners/app/views/registrations/checkout.html.erb
-	"	5	0
-	^	44	64
-	.	44	63
-	+	1	0
-	+	3	19
-	+	4	14
-	+	7	62
-	+	10	13
-	+	28	37
-	+	29	41
-	+	28	50
-	+	29	24
-	+	33	0
-	+	29	58
-	+	48	0
-	+	3	0
-	+	49	26
-	+	18	9
-	+	29	57
-	+	24	0
-	+	32	10
-	+	33	0
-	+	36	11
-	+	45	69
-	+	46	0
-	+	44	56
-	+	39	44
-	+	44	63
-
-> ~/rails_projects/happywinners/db/migrate/20110226015334_add_password_to_client.rb
-	"	1	4
-
-> ~/rails_projects/happywinners/app/views/adminusers/show.html.erb
-	"	7	0
-	^	5	0
-	.	5	0
-	+	1	3
-	+	4	3
-	+	5	0
-
-> ~/rails_projects/happywinners/app/models/cart.rb
-	"	38	2
-	^	25	25
-	.	25	24
-	+	1	9
-	+	3	0
-	+	29	0
-	+	2	0
-	+	39	0
-	+	5	15
-	+	9	0
-	+	5	0
-	+	10	0
-	+	5	0
-	+	10	48
-	+	31	46
-	+	9	23
-	+	10	57
-	+	14	38
-	+	3	0
-	+	10	0
-	+	9	0
-	+	1	0
-	+	15	0
-	+	1	4
-	+	14	6
-	+	10	4
-	+	11	7
-	+	12	6
-	+	17	4
-	+	10	54
-	+	14	30
-	+	10	4
-	+	12	6
-	+	11	7
-	+	14	6
-	+	17	4
-	+	31	44
-	+	10	45
-	+	28	4
-	+	22	20
-	+	25	24
-
-> /usr/share/vim/vim72/doc/help.txt
-	"	206	7
-
-> ~/.vim/bundle/project/doc/project.txt
-	"	684	1
-
-> ~/.vim/bundle/rails/doc/rails.txt
-	"	1	0
-
-> ~/rails_projects/depot2/app/controllers/admin_controller.rb
-	"	1	0
-
-> /usr/share/vim/vim72/doc/ft_ada.txt
-	"	430	24
-
-> ~/Desktop/code/pills/csv_interpreter_pills.rb
-	"	91	0
-	.	94	56
-	+	5	0
-	+	66	0
-	+	94	56
-
-> ~/Desktop/code/pills/ruminder.rb
-	"	83	0
-	^	63	0
-	.	76	0
-	+	1	57
-	+	1	0
-	+	101	24
-	+	109	0
-	+	102	0
-	+	7	0
-	+	88	0
-	+	88	0
-	+	86	0
-	+	72	53
-	+	75	14
-	+	73	16
-	+	75	13
-	+	82	0
-	+	82	0
-	+	82	35
-	+	82	0
-	+	82	63
-	+	82	3
-	+	82	0
-	+	82	0
-	+	83	4
-	+	73	18
-	+	85	2
-	+	88	0
-	+	84	0
-	+	88	0
-	+	88	0
-	+	87	0
-	+	82	29
-	+	82	7
-	+	82	0
-	+	82	61
-	+	82	6
-	+	82	26
-	+	82	7
-	+	82	0
-	+	82	0
-	+	87	21
-	+	87	0
-	+	82	11
-	+	65	9
-	+	87	0
-	+	87	0
-	+	87	2
-	+	119	24
-	+	83	11
-	+	65	0
-	+	87	11
-	+	84	25
-	+	83	4
-	+	82	4
-	+	87	15
-	+	87	20
-	+	87	8
-	+	89	22
-	+	91	61
-	+	93	23
-	+	84	28
-	+	89	22
-	+	84	16
-	+	87	5
-	+	89	2
-	+	89	0
-	+	90	23
-	+	93	62
-	+	90	62
-	+	95	7
-	+	87	8
-	+	87	16
-	+	84	6
-	+	82	0
-	+	82	4
-	+	87	0
-	+	82	0
-	+	82	0
-	+	83	0
-	+	84	0
-	+	87	0
-	+	119	0
-	+	72	8
-	+	83	81
-	+	87	0
-	+	87	0
-	+	87	2
-	+	82	15
-	+	87	0
-	+	64	0
-	+	64	0
-	+	64	0
-	+	119	17
-	+	64	47
-	+	76	0
-	+	82	0
-	+	83	0
-	+	64	0
-	+	63	0
-	+	119	0
-	+	95	0
-	+	76	0
-
-> ~/Desktop/code/pills/month_templates/feb_task.csv
-	"	54	5
-	^	54	6
-	.	54	5
-	+	56	0
-	+	54	5
-
-> ~/.vim/projects/depot2
-	"	35	0
-	^	33	3
-	.	1	0
-	+	38	0
-	+	1	0
-	+	31	26
-	+	34	0
-	+	34	0
-	+	31	16
-	+	32	16
-	+	106	0
-	+	1	0
-	k	105	2
-
-> ~/rails_projects/depot2/app/controllers/users_controller.rb
-	"	1	4
-
-> ~/rails_projects/depot2/app/models/user.rb
-	"	1	12
-
-> ~/rails_projects/depot2/db/migrate/20110126012231_create_users.rb
-	"	15	2
-
-> ~/rails_projects/depot2/app/views/admin/index.html.erb
-	"	5	23
-
-> ~/rails_projects/depot2/app/views/admin/login.html.erb
-	"	21	5
-
-> ~/rails_projects/depot2/app/views/admin/logout.html.erb
-	"	2	17
-
-> ~/rails_projects/depot2/app/views/users/index.html.erb
-	"	12	0
-
-> ~/rails_projects/depot2/app/views/users/edit.html.erb
-	"	6	18
-
-> ~/rails_projects/depot2/app/views/users/_form.html.erb
-	"	29	24
-
-> ~/rails_projects/depot2/app/views/users/new.html.erb
-	"	1	0
-
-> ~/rails_projects/depot2/app/views/users/show.html.erb
-	"	8	22
-
-> ~/rails_projects/depot2/app/controllers/application_controller.rb
-	"	14	4
-
-> ~/rails_projects/depot2/app/views/layouts/store.html.erb
-	"	22	15
-
-> ~/rails_projects/depot2/app/controllers/orders_controller.rb
-	"	8	0
-
-> ~/rails_projects/happywinners/app/models/happy_winners_class.rb
-	"	12	0
-	^	13	0
-	.	12	52
-	+	23	0
-	+	4	55
-	+	4	80
-	+	4	55
-	+	10	66
-	+	10	109
-	+	9	40
-	+	5	0
-	+	9	32
-	+	9	0
-	+	10	42
-	+	10	41
-	+	21	81
-	+	22	4
-	+	2	0
-	+	9	23
-	+	10	0
-	+	17	2
-	+	7	56
-	+	8	0
-	+	3	27
-	+	4	27
-	+	9	27
-	+	14	27
-	+	15	27
-	+	12	58
-	+	13	0
-	+	7	45
-	+	12	52
+> ~/rails_projects/happywinners/app/controllers/application_controller.rb
+	"	18	46
+	^	16	47
+	.	16	46
+	+	4	12
+	+	11	57
+	+	14	0
+	+	8	24
+	+	3	35
+	+	19	0
+	+	20	4
+	+	3	33
+	+	8	22
+	+	15	23
+	+	4	0
+	+	18	42
+	+	22	2
+	+	16	46
 
 > ~/rails_projects/happywinners/app/views/happy_winners_classes/_form.html.erb
-	"	1	0
+	"	27	0
+	^	41	35
+	.	41	34
+	+	33	0
+	+	30	4
+	+	13	0
+	+	30	4
+	+	41	34
 
 > ~/rails_projects/happywinners/app/views/happy_winners_classes/edit.html.erb
-	"	1	0
+	"	5	0
 
-> ~/rails_projects/happywinners/app/views/happy_winners_classes/index.html.erb
-	"	15	22
-	^	9	35
-	.	9	34
-	+	2	18
-	+	30	17
-	+	19	0
-	+	19	18
-	+	19	0
-	+	19	0
-	+	19	0
-	+	19	0
-	+	19	0
-	+	19	42
-	+	19	38
-	+	19	0
-	+	6	0
-	+	5	28
-	+	8	0
-	+	6	0
-	+	14	34
-	+	5	15
-	+	14	14
-	+	15	68
-	+	18	0
-	+	6	0
-	+	19	0
-	+	18	28
-	+	19	0
-	+	20	0
-	+	21	0
-	+	23	0
-	+	22	0
-	+	23	0
-	+	24	0
-	+	25	0
-	+	1	20
-	+	26	5
-	+	28	0
-	+	27	0
-	+	30	0
-	+	5	34
-	+	21	38
-	+	20	65
-	+	19	35
-	+	6	55
-	+	11	0
-	+	14	0
-	+	9	0
-	+	10	0
-	+	9	26
-	+	7	0
-	+	5	4
-	+	8	22
-	+	2	11
-	+	9	34
+> ~/rails_projects/happywinners/app/views/happy_winners_classes/new.html.erb
+	"	1	0
 
 > ~/rails_projects/happywinners/app/views/happy_winners_classes/show.html.erb
-	"	24	0
-	^	2	57
-	.	2	63
-	+	2	63
-
-> ~/rails_projects/happywinners/app/views/registrations/index.html.erb
-	"	20	0
-	^	16	45
-	.	16	44
-	+	28	23
-	+	28	12
-	+	28	0
-	+	28	25
-	+	28	18
-	+	28	0
-	+	28	0
-	+	28	28
-	+	28	27
-	+	28	0
-	+	28	0
-	+	28	0
-	+	28	34
-	+	28	30
-	+	28	16
-	+	28	9
-	+	28	12
-	+	28	16
-	+	28	16
-	+	28	48
-	+	28	41
-	+	28	44
-	+	28	41
-	+	28	48
-	+	28	44
-	+	28	0
-	+	28	17
-	+	28	0
-	+	28	0
-	+	28	0
-	+	28	23
-	+	28	0
-	+	28	0
-	+	28	0
-	+	28	0
-	+	1	0
-	+	1	0
-	+	28	0
-	+	2	0
-	+	28	0
-	+	5	0
-	+	6	0
-	+	15	34
-	+	21	0
-	+	2	0
-	+	16	18
-	+	28	0
-	+	28	0
-	+	28	0
-	+	16	41
-	+	28	0
-	+	17	56
-	+	18	0
-	+	17	59
-	+	28	0
-	+	20	125
-	+	5	16
-	+	9	19
-	+	14	25
-	+	15	25
-	+	5	0
-	+	20	90
-	+	2	0
-	+	9	38
-	+	16	44
-
-> ~/rails_projects/happywinners/app/models/cart_item.rb
-	"	12	2
-	^	9	20
-	.	9	19
-	+	1	0
-	+	21	19
-	+	3	21
-	+	6	21
-	+	7	17
-	+	21	9
-	+	25	9
-	+	20	0
-	+	6	18
-	+	7	14
-	+	18	4
-	+	4	18
-	+	9	19
-
-> ~/rails_projects/happywinners/app/views/registrations/_cart.html.erb
-	"	21	0
-	^	21	20
-	.	21	19
-	+	1	44
-	+	18	0
-	+	4	64
-	+	19	0
-	+	17	18
-	+	20	0
-	+	25	0
-	+	25	16
-	+	18	24
-	+	25	17
-	+	25	52
-	+	25	0
-	+	18	109
-	+	25	67
-	+	21	0
-	+	24	0
-	+	22	13
-	+	18	15
-	+	22	52
-	+	18	101
-	+	25	0
-	+	13	0
-	+	16	0
-	+	22	53
-	+	18	111
-	+	14	69
-	+	2	9
-	+	21	19
-
-> ~/rails_projects/happywinners/app/views/registrations/_cart_item.html.erb
-	"	14	10
-	^	14	11
-	.	8	0
-	+	1	0
-	+	3	0
-	+	5	0
-	+	4	0
-	+	8	0
-	+	12	0
-	+	9	25
-	+	3	0
-	+	9	11
-	+	1	31
-	+	8	52
-	+	8	23
-	+	12	0
-	+	16	0
-	+	8	0
-	+	9	0
-	+	12	0
-	+	12	0
-	+	15	0
-	+	12	88
-	+	12	118
-	+	12	25
-	+	12	159
-	+	9	39
-	+	11	31
-	+	13	10
-	+	12	0
-	+	11	0
-	+	7	39
-	+	14	10
-	+	8	0
-
-> ~/rails_projects/happywinners/app/views/registrations/add_to_cart.js.rjs
 	"	1	0
-	^	3	61
-	.	3	60
+	^	20	21
+	.	20	20
+	+	19	0
+	+	23	0
+	+	20	19
+	+	21	39
+	+	10	16
+	+	15	12
+	+	20	20
+
+> ~/rails_projects/happywinners/app/views/layouts/application.html.erb
+	"	33	0
+	^	15	0
+	.	9	0
+	+	1	24
 	+	1	0
-	+	7	33
-	+	8	0
-	+	3	60
+	+	1	0
+	+	4	0
+	+	5	0
+	+	4	38
+	+	37	0
+	+	1	0
+	+	37	0
+	+	22	0
+	+	22	13
+	+	22	25
+	+	22	0
+	+	4	0
+	+	22	0
+	+	35	0
+	+	36	0
+	+	23	0
+	+	33	0
+	+	33	0
+	+	33	0
+	+	33	27
+	+	33	60
+	+	33	69
+	+	33	0
+	+	18	26
+	+	19	0
+	+	20	5
+	+	19	0
+	+	9	20
+	+	9	0
+	+	9	0
+	+	9	0
+	+	9	0
+	+	9	109
+	+	16	0
+	+	9	0
+	+	9	0
+	+	14	0
+	+	9	0
+	+	11	0
+	+	13	0
+	+	15	0
+	+	9	0
+
+> ~/rails_projects/happywinners/app/views/layouts/_stylesheets.html.erb
+	"	1	0
+
+> ~/rails_projects/happywinners/public/stylesheets/classes.css
+	"	271	0
+	^	86	0
+	.	86	0
+	+	73	0
+	+	63	1
+	+	57	38
+	+	59	1
+	+	54	0
+	+	62	20
+	+	58	20
+	+	73	0
+	+	73	0
+	+	58	18
+	+	62	0
+	+	73	0
+	+	73	0
+	+	62	18
+	+	57	25
+	+	61	26
+	+	58	18
+	+	86	0
+
+> ~/rails_projects/happywinners/public/stylesheets/scaffold.css
+	"	22	0
+
+> ~/rails_projects/happywinners/public/stylesheets/custom.css
+	"	1	0
+	.	11	19
+	+	17	12
+	+	33	0
+	+	32	0
+	+	31	18
+	+	69	0
+	+	71	0
+	+	15	0
+	+	10	15
+	+	12	0
+	+	11	18
+	+	12	0
+	+	11	19
 
 > ~/rails_projects/happywinners/app/views/registrations/empty_cart.js.rjs
 	"	1	0
-	.	1	0
-	+	1	0
-
-> ~/rails_projects/happywinners/app/views/registrations/remove_from_cart.js.rjs
-	"	5	0
-	^	5	45
-	.	5	44
-	+	1	0
-	+	4	0
-	+	5	44
-
-> ~/rails_projects/happywinners/db/migrate/20110226203842_create_adminusers.rb
-	"	9	6
-	^	6	20
-	.	6	19
-	+	4	20
-	+	6	19
-
-> ~/rails_projects/happywinners/app/views/adminusers/index.html.erb
-	"	8	11
-	^	1	18
-	.	1	10
-	+	10	33
-	+	5	0
-	+	20	22
-	+	13	85
-	+	1	17
-	+	13	71
-	+	1	10
-
-> ~/rails_projects/happywinners/app/views/adminusers/edit.html.erb
-	"	1	17
-	^	1	18
-	.	1	17
-	+	1	17
-
-> ~/rails_projects/happywinners/app/views/adminusers/_form.html.erb
-	"	26	13
-	^	14	0
-	.	14	0
-	+	1	23
-	+	15	0
-	+	16	0
-	+	2	0
-	+	16	25
-	+	29	0
-	+	32	0
-	+	34	0
-	+	33	0
-	+	14	0
-
-> ~/rails_projects/happywinners/app/views/adminusers/new.html.erb
-	"	1	13
-	^	1	14
-	.	1	13
-	+	1	13
-
-> ~/rails_projects/happywinners/Gemfile
-	"	18	0
-
-> ~/.vim/projects/happywinners
-	"	8	0
-	.	23	0
-	+	9	0
-	+	9	0
-	+	3	0
-	+	14	0
-	+	21	0
-	+	70	0
-	+	69	0
-	+	68	2
-	+	64	0
-	+	68	0
-	+	30	0
-	+	25	0
-	+	11	0
-	+	33	0
-	+	32	17
-	+	17	0
-	+	65	0
-	+	38	33
-	+	38	24
-	+	38	19
-	+	35	0
-	+	23	0
-	k	34	3
-
-> ~/rails_projects/depot2/app/models/line_item.rb
-	"	13	0
-
-> ~/rails_projects/depot2/app/models/cart_item.rb
-	"	7	2
-	^	15	20
-	.	15	0
-	+	15	0
-
-> ~/rails_projects/depot2/app/models/cart.rb
-	"	13	7
-	.	19	0
-	+	15	27
-	+	19	0
-
-> ~/rails_projects/depot2/app/views/store/_cart_item.html.erb
-	"	9	0
-
-> ~/rails_projects/depot2/app/views/store/_cart.html.erb
-	"	9	0
-
-> ~/rails_projects/depot2/app/views/store/checkout.html.erb
-	"	7	51
-
-> ~/rails_projects/depot2/app/controllers/line_items_controller.rb
-	"	22	0
-
-> ~/rails_projects/happywinners/db/migrate/20110223214119_create_happy_winners_classes.rb
-	"	15	0
-	.	5	0
-	+	5	26
-	+	6	0
-	+	5	0
-
-> ~/rails_projects/happywinners/db/migrate/20110223225819_add_description_to_happywinnersclass.rb
-	"	7	4
-	^	7	33
-	.	7	32
-	+	3	29
-	+	7	32
-
-> ~/rails_projects/happywinners/db/migrate/20110223225907_add_teacher_to_happywinnersclass.rb
-	"	5	0
-	^	7	33
-	.	7	32
-	+	3	29
-	+	7	32
-
-> ~/rails_projects/happywinners/app/models/line_item.rb
-	"	8	4
-	^	8	31
-	.	8	30
-	+	2	0
-	+	7	0
-	+	3	32
-	+	2	19
-	+	15	0
-	+	13	0
-	+	8	23
-	+	9	26
-	+	8	30
-
-> ~/rails_projects/happywinners/db/migrate/20110225043533_create_line_items.rb
-	"	9	4
-
-> ~/rails_projects/happywinners/db/migrate/20110226023212_change_class_to_class_id.rb
-	"	10	2
-	^	7	29
-	.	7	28
-	+	4	0
-	+	3	44
-	+	7	44
-	+	8	0
-	+	9	0
-	+	3	28
-	+	7	28
 
 > ~/rails_projects/happywinners/db/migrate/20110226024044_drop_table_carts.rb
-	"	7	22
-	^	7	23
-	.	7	22
-	+	3	20
-	+	7	22
-
-> ~/rails_projects/happywinners/db/migrate/20110226024539_add_and_change_columns_to_line_items.rb
-	"	8	0
-	^	6	69
-	.	3	50
-	+	3	161
-	+	4	80
-	+	3	128
-	+	4	163
-	+	6	68
-	+	10	0
-	+	3	50
-
-> ~/rails_projects/happywinners/db/migrate/20110226025948_change_class_price_to_decimal.rb
-	"	7	32
-	^	7	33
-	.	7	32
-	+	3	88
-	+	7	0
-	+	3	32
-	+	7	32
-
-> ~/rails_projects/happywinners/app/controllers/line_items_controller.rb
 	"	1	0
-	.	1	0
-	+	1	0
-	+	1	0
 
-> ~/rails_projects/depot2/app/models/order.rb
-	"	7	2
+> ~/rails_projects/happywinners/app/views/registrations/remove_from_cart.js.rjs
+	"	1	0
+
+> ~/rails_projects/happywinners/app/views/sessions/login.html.erb
+	"	20	0
+	^	20	17
+	.	20	16
+	+	1	0
+	+	1	0
+	+	16	57
+	+	4	27
+	+	4	36
+	+	4	35
+	+	20	16
+
+> ~/.vim/bundle/rails/doc/rails.txt
+	"	670	0
+
+> ~/rails_projects/happywinners/db/migrate/20110313013704_add_teacher_email_to_classes.rb
+	"	7	0
+	^	3	81
+	.	7	0
+	+	3	80
+	+	7	0
+
+> ~/rails_projects/happywinners/db/migrate/20110313014338_change_last_screwup.rb
+	"	6	14
+	.	7	0
+	+	3	0
+	+	3	0
+	+	7	0
+
+> ~/rails_projects/happywinners/app/views/sessions/settings.html.erb
+	"	1	10
+	^	1	12
+	.	1	4
+	+	1	4
+
+> ~/rails_projects/happywinners/app/views/info/unpaid_registrations.html.erb
+	"	1	8
+	^	1	6
+	.	1	5
+	+	1	5
+
+> ~/rails_projects/depot2/app/controllers/line_items_controller.rb
+	"	1	0
+
+> ~/rails_projects/depot2/app/models/user.rb
+	"	1	0
+
+> ~/rails_projects/depot2/app/models/cart_item.rb
+	"	1	0
+
+> ~/rails_projects/happywinners/app/views/sessions/logout.html.erb
+	"	1	0
+	^	1	11
+	.	1	10
+	+	1	10
+
+> ~/.vim/projects/happywinners
+	"	65	0
+
+> ~/Desktop/gitdemo/index.html
+	"	1	27
+	^	2	28
+	.	2	27
+	+	1	33
+	+	2	27
+
+> ~/Desktop/gitdemo/about.html
+	"	1	33
+	^	1	34
+	.	1	33
+	+	1	33
+
+> ~/99bottles.rb
+	"	10	0
+
+> ~/Desktop/gitmarch10.txt
+	"	3	0
+	^	14	0
+
+> ~/angryboss.rb
+	"	1	0
+
+> ~/deafgrandma.rb
+	"	1	0
+
+> ~/Desktop/github.txt
+	"	16	24
+	.	3	0
+	+	1	0
+	+	3	0
+	+	3	0
+
+> ~/Dropbox/march8-9.txt
+	"	1	8
+	^	1	9
+	.	1	8
+	+	3	15
+	+	5	0
+	+	13	0
+	+	13	0
+	+	13	73
+	+	1	8
+
+> ~/Desktop/web15-git/about.html
+	"	1	66
+	.	2	0
+	+	1	49
+	+	1	27
+	+	1	0
+	+	1	27
+	+	1	0
+	+	4	0
+	+	1	44
+	+	1	67
+	+	2	0
+
+> ~/Desktop/web15-git/experiments.html
+	"	3	0
+	.	1	0
+	+	4	0
+	+	1	0

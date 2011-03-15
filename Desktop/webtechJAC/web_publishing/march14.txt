@@ -1,0 +1,79 @@
+www.mochima.com/jac/webpub 
+course website (every day's homework and all class work) client-side
+
+programming => javascript server-side programming => scripting languages
+servers: postgresql, mysql, access, sqlserver AJAX, javascript to access from
+the server both client- and server-side
+
+
+<tag name (element name), *attributes> </name>
+<self-closing tag />
+attributes, name="value"
+
+Structural tags:
+<DOCTYPE version + strict/transitional >
+
+<head>
+  <meta name="author" content="luke gru" />
+  <meta name="Content-Type" content="text/html;charset=iso-8859-1" />
+  <script type(src)="text/javascript">
+
+    blablabla
+  </script>
+  <style type="text/css">
+    blablabla
+  </style>
+</head>
+
+<body>
+  
+Text elements:
+<h1-6>...</h1-6>
+<p>text<br />
+more text</p>
+
+after 2 spaces, &nbsp;      > character
+    &lt;, &gr;, &quot;  > entities wiki: List_of_XML_and_HTML_character_entity_references
+
+semi-deprecated: <h1 align="center">Heading 1</h1>
+
+Formatting tags:
+deprecated: physical formatting tags in html
+Logical formatting tags: <strong> (bold def), <em> (ital def)
+<blockquote>
+
+Images: 
+<img src="www.fjdkfs" alt="not rendering" *longdes="location.txt" />
+
+Paths (relative and absolute)
+"/images/logo.jpg" => absolute paths
+
+www
+|
+|__|images|
+|
+|__|products|
+| |
+| |__prod1.html
+|
+|___index.html
+|
+|
+
+w/ respect to the .html files
+
+<img src="images/logo.gif" /> in index.html   => relative
+
+in products: img src="../images/logo.gif" />  => relative
+
+Hyperlinks:
+
+<a href="/products/prod1.html">Click here!</a>
+
+Basic CSS
+
+Project 1: make website with all the elements learned in class
+http://validator.w3.org/
+
+
+

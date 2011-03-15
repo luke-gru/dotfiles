@@ -69,7 +69,7 @@ set showcmd
 set showmatch "matching brackets
 set magic "see h pattern.txt
 "Set to auto read when a file is changed from the outside
-set noautoread "when a file is changed outside of vim and it's in the buffer
+set autoread "when a file is changed outside of vim and it's in the buffer
 set lazyredraw "don't redraw screen when running macros
 set matchtime=3 " 3/10 of second paren matches
 set wildmenu " give me menu for tab completion
@@ -175,7 +175,7 @@ set cmdheight=3 "cmd line height.
 set path+=./**,~/.vim/pathinclude "search path when using gf, find sfind etc...
 "project
 set laststatus=2 " All windows have status lines
-set shortmess+=mrwx " To avoid the 'Hit ENTER to continue' promp
+set shortmess=at " To avoid the 'Hit ENTER to continue' promp
 set helpheight=20 "minimum height for help wins, default=20, 0 is default spli
 "win height
 let g:proj_flags='imst' "default is imst, g toggles proj file w/ F12
