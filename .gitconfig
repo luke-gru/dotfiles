@@ -1,11 +1,11 @@
 [user]
-	name = Luke Gru
-	mail = luke.gru@gmail.com
+  name = Luke Gru
+  mail = luke.gru@gmail.com
 [core]
-	editor = gvim
-	excludesfile = /home/luke/.gitignore
+  editor = gvim
+  excludesfile = /home/luke/.gitignore
 
-	[alias]
+  [alias]
   co = checkout
   ci = commit
   st = status
@@ -13,6 +13,7 @@
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   type = cat-file -t
   dump = cat-file -p
-	cl = clone
+  cl = clone
+  saveass = reflog show HEAD@{now} -10
 [color]
-	ui = true
+  ui = true
