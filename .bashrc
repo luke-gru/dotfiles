@@ -113,4 +113,4 @@ export EDITOR=/usr/bin/vim
 source ~/.git-completion.bash
 #export PATH=/path/to/dir:$PATH          <<-- Format for adding to PATH in .bashrc
 export TERM=xterm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
