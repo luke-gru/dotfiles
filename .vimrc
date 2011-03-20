@@ -14,8 +14,14 @@ syntax enable
 
   if hostname() == 'luke-Pavilion-dv4000-PX311UA-ABL'
     set guifont=Inconsolata\ Medium\ 12
-  else
-    set guifont=Monospace\ 10
+  elseif has("mac")
+    set guifont=Monaco:h12
+  elseif has("win32")
+    set guifont=Consolas:h11,Courier\ New:h10
+  elseif has("unix")
+    if &guifont == ""
+      set guifont=bitstream\ vera\ sans\ mono\ 10
+    endif
   endif
 
 "terminal colors. test `tput colors`
@@ -78,7 +84,7 @@ set noerrorbells "no annoying little vi error noises!
 set scrolloff=3 "give me context of 3 lines when at top v bottom of buffer
 set nobackup
 set tabstop=2 " This is how many columns each literal tab indents
-set softtabstop=2 " This is how many columns each tab counts for in INSERT mode. If noexpandtab is set and tabstop=softtabstop, VIM always uses tabs.
+set softtabstop=2 " This is how many columns each tab key hit counts for in INSERT mode. If noexpandtab is set and tabstop=softtabstop, VIM always uses tabs.
 set expandtab "replace tab characters with spaces
 set sw=2 "shiftwidth
 set listchars=tab:>−,trail:−
@@ -90,9 +96,16 @@ set cpoptions+=$ "compatibility with vi options, when using nmode c or C, show
 "last changed character with $ instead of its value
 set nu "line numbering
 set incsearch "show search while typing, incrementally
-set ignorecase " ignore the /i of regexes
+set ignorecase " ignore the case of regexes
 set smartcase " but don't ignore them when I type a capital letter, to
 "override i
+if exists("+spelllang")
+  set spelllang=en_us
+endif
+set pastetoggle=<F8>
+
+
+
 
 "diff stuff
 set diffopt+=vertical,context:4
@@ -141,7 +154,7 @@ command! -nargs=* Only call CloseHiddenBuffers()
 "/wipe all hidden buffers
 
 "edit file in same dir. as current buffer mappings
-map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>ee :e <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
@@ -218,6 +231,9 @@ nnoremap <Leader>cb :colorscheme blackboard<CR>
 nnoremap <Leader>cx :colorscheme xoria256<CR>
 nnoremap <Leader>ci :colorscheme ir_black<CR>
 nnoremap <Leader>cp :colorscheme peaksea<CR>
+command! -bar Starwars :let &background = (&background=="light"?"dark":"light")
+command! -bar -nargs=0 Bigger :let &guifont = substitute(&guifont,'\d\+$','\=submatch(0)+1','')
+command! -bar -nargs=0 Smaller :let &guifont = substitute(&guifont,'\d\+$','\=submatch(0)-1','')
 " /colorschemes and font types
 
 " rails-vim mappings
@@ -331,11 +347,10 @@ command! -nargs=* Swrap setl wrap linebreak nolist showbreak=…
 
 " (hard wrapping options in autocmds below for filetypes)
 
-
 if has("autocmd")
 
   function! Refresh_firefox()
-    if &modified
+    if &modified && has("gui_running")
       write
       silent !echo  'vimYo = content.window.pageYOffset;
             \ vimXo = content.window.pageXOffset;
@@ -345,6 +360,18 @@ if has("autocmd")
             \ nc localhost 4242 2>&1 > /dev/null
     endif
   endfunction
+
+  command! -nargs=1 Repl silent !echo
+        \ "repl.home();
+        \ content.location.href = '<args>';
+        \ repl.enter(content);
+        \ repl.quit();" |
+        \ nc localhost 4242
+
+  nmap <leader>mh :Repl http://
+  "mnemonic is Http
+  nmap <silent> <leader>ml :Repl file:///%:p<CR>
+  "mnemonic is Local
 
   autocmd BufWriteCmd *.html*,*.css :call Refresh_firefox()
 
@@ -358,20 +385,30 @@ if has("autocmd")
   au FileType mail,gitcommit echo "'textwidth' set to" &textwidth
   au BufRead *.txt setl tw=78 formatoptions formatoptions+=an formatprg=par\ -w78
   "don't know if I like that for php, hopefully won't use php much anyway
-  au FileType cpp,c,pl,sh,php setl cindent ts=8 sw=8
+  au FileType cpp,c,cs,java setl ai et sta sw=4 sts=4 cin
+  au FileType php,vb setl ai et sta sw=4 sts=4
+  au FileType xml,xsd,xslt setl ai et sw=2 sts=2 ts=2
   au FileType python setl ts=4 sw=4 expandtab
   au FileType ruby set omnifunc=rubycomplete#Complete |
         \ let g:rubycomplete_rails = 1 |
         \ let g:rubycomplete_buffer_loading = 1
   " line below not working for some reason
   " au Filetype ruby let g:rubycomplete_classes_in_global = 1
+  au FileType css silent! setl omnifunc=csscomplete#CompleteCSS
+  au FileType perl silent! compiler perl
+  au FileType javascript setl ai et sta sw=2 sts=2 ts=2 cin isk+=$
 
+  au BufReadPost *.snippets setl expandtab
+  au BufReadPost *.snippets echo "'expandtab' option is set to" &expandtab
   au BufReadPost *.yml setl expandtab
-  au BufReadPost *.yml echo "'expandtab' option is set to" &expand
+  au BufReadPost *.yml echo "'expandtab' option is set to" &expandtab
   au BufReadPost *.make setl noexpandtab ts=8 sts=8 sw=8
-  au BufReadPost *.make echo "'expandtab' option is set to" &expand
+  au BufReadPost *.make echo "'expandtab' option is set to" &expandtab
   "rss as xml
   au BufReadPost *.rss set ft=xml
+
+  au GUIEnter * set title icon guioptions-=T
+  au GUIEnter * if has("diff") && &diff | set columns=165 | endif
   "last cursor position in buffer
   au BufReadPost *
   \ if line("'\"") > 0 && line ("'\"") <= line("$") |
@@ -383,7 +420,7 @@ endif
 
 if has("gui_running")
   " GUI is running or is about to start.
-  " set gvim window size and set gvim fon
+  " set gvim window size and set gvim pos
   au GUIEnter * set lines=80 columns=80
   au GUIEnter * winpos 618 24
 else

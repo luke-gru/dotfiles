@@ -1,0 +1,53 @@
+body {
+  font-family: verdana, sans-serif;
+}
+
+#first {
+  color: #003399;
+  text-indent: 50px;
+}
+
+blockquote, a {
+  color: green;
+}
+
+a {
+  text-decoration: none
+}
+
+a:hover {
+  color: #000000;
+}
+
+blockquote {
+  font-size: smaller;
+}
+
+pre {
+  font-size: larger;
+}
+
+li {
+  text-indent: 5px;
+}
+
+#space {
+  padding-top: 20px;
+}
+
+a.ruby  {
+  color: #CC0000;
+
+}
+
+a:hover.ruby {
+  color:#000000;
+}
+
+div.box {
+  width:310px;
+  padding:10px;
+  border:2px dotted black;
+  margin-left:15em;
+}
+
