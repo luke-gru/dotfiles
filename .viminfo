@@ -8,7 +8,7 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/localhost
+~MSle0~/\<a
 
 # Last Substitute Search Pattern:
 ~MSle0&register
@@ -17,62 +17,75 @@
 $
 
 # Command Line History (newest to oldest):
-:Repl http://www.ebay.com
 :w
-:Repl http://www.heroku.com
-:Repl http://www.google.com
-:Repl www.ebay.com
-:call Repl('http://www.google.ca')
-:Repl http:/www.google.com
-:call Repl(http://www.google.com)
-:call Repl('http://www.google.com')
-:call ReplOnQuestion()
-:call Repl("http://www.google.com")
+:b#
+:e /home/luke/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+:e ~/.vim/colors/blackboard.vim
+:e /home/luke/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+:e Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+:ls!
+:ls
+:b8
+:b6
+:b9
+:e css/custom.css
 :q
-:!echo 'repl.home(); content.location.href = 'http:/www.google.com'; repl.enter(content); repl.quit();' | nc localhost 4242
+:e index.html
+:cd Desktop/webtechJAC/web_publishing/project1_4pages/
+:pwd
+:bw
+:e /home/luke/Desktop/webtechJAC/web_publishing/site2march15/index.html
+:e /home/luke/Desktop/webtechJAC/web_publishing/site3browsersmarch15/index.html
+:sp /home/luke/Desktop/webtechJAC/web_publishing/site2march15/index.html
+:!ls
 :q!
-:q1
-:!nc localhost 4242
-:call Repl('www.google.com')
-:call Repl(www.google.com)
-:call Repl('google.com')
-:call Repl(google.com)
-:Repl(google.com)
-:r ! echo 'document.title;' | nc localhost 4242
-:r ! echo 'document.title = 'REPL;' | nc localhost 4242
-:r ! echo 'repl.whereAmI();' | nc localhost 4242
-:r ! echo 'repl.whereAmI();' | nc localhost 4242 | grep welcome
-:r ! grep welcome | echo 'repl.whereAmI();' | nc localhost 4242
-:4325
-<! # & * < = > @ AddTabularPattern AddTabularPipeline Bigger DiffOrig DoMatchParen Explore GLVS GetLatestVimScripts GetScripts GuiColorScheme GundoToggle Hexplore I IA ID IDMY II IIO IIPOW IIR IIX IM IMDY IO IPOW IR IX IYMD MatchDebug MkVimball NetUserPass NetrwClean NetrwSettings Nexplore Next NoMatchParen Nread Nsource Nwrite Only Pexplore Print Project RI RID RIDMY RII RIIPOW RIM RIMDY RIPOW RIYMD Rails RmVimball Sexplore Smaller Starwars Swrap TOhtml Tabularize Texplore UseVimball Vexplore VimballList Vimuntar W3cValidate W3cValidateDT X abbreviate abclear aboveleft all amenu anoremenu append argadd argdelete argdo argedit argglobal arglocal args argument ascii augroup aunmenu autocmd bNext badd ball bdelete behave belowright bfirst blast bmodified bnext botright bprevious break breakadd breakdel breaklist brewind browse bufdo buffer buffers bunload bwipeout cNext cNfile cabbrev cabclear caddbuffer caddexpr caddfile call catch cbuffer cc cclose cd center cexpr cfile cfirst cgetbuffer cgetexpr cgetfile change changes chdir checkpath checktime clast clist close cmap cmapclear cmenu cnewer cnext cnfile cnoreabbrev cnoremap cnoremenu colder colorscheme comclear command compiler confirm continue copen copy cpfile cprevious cquit crewind cscope cstag cunabbrev cunmap cunmenu cwindow debug debuggreedy delcommand delete delfunction delmarks diffget diffoff diffpatch diffput diffsplit diffthis diffupdate digraphs display djump dlist doautoall doautocmd drop dsearch dsplit earlier echo echoerr echohl echomsg echon edit else elseif emenu endfor endfunction endif endtry endwhile enew ex execute exit exusage file files filetype finally find finish first fixdel fold foldclose folddoclosed folddoopen foldopen for function global goto grep grepadd gui gvim hardcopy help helpfind helpgrep helptags hide highlight history iabbrev iabclear if ijump ilist imap imapclear imenu inoreabbrev inoremap inoremenu insert intro isearch isplit iunabbrev iunmap iunmenu join jumps k keepalt keepjumps keepmarks lNext lNfile laddbuffer laddexpr laddfile language last later lbuffer lcd lchdir lclose lcscope left leftabove let lexpr lfile lfirst lgetbuffer lgetexpr lgetfile lgrep lgrepadd lhelpgrep list ll llast llist lmake lmap lmapclear lnewer lnext lnfile lnoremap loadkeymap loadview lockmarks lockvar lolder lopen lpfile lprevious lrewind ls ltag lunmap lvimgrep lvimgrepadd lwindow make map mapclear mark marks match menu menutranslate messages mkexrc mksession mkspell mkview mkvimrc mode move mzfile mzscheme nbkey new next nmap nmapclear nmenu nnoremap nnoremenu noautocmd nohlsearch noreabbrev noremap noremenu normal number nunmap nunmenu oldfiles omap omapclear omenu only onoremap onoremenu open options ounmap ounmenu pclose pedit perl perldo pop popup ppop preserve previous print profdel profile promptfind promptrepl psearch ptNext ptag ptfirst ptjump ptlast ptnext ptprevious ptrewind ptselect put pwd pyfile python qall quit quitall read recover redir redo redraw redrawstatus registers resize retab return rewind right rightbelow ruby rubydo rubyfile runtime rviminfo sNext sall sandbox sargument saveas sbNext sball sbfirst sblast sbmodified sbnext sbprevious sbrewind sbuffer scriptencoding scriptnames scscope set setfiletype setglobal setlocal sfind sfirst shell sign silent simalt slast sleep smagic smap smapclear smenu snext sniff snomagic snoremap snoremenu sort source spelldump spellgood spellinfo spellrepall spellundo spellwrong split sprevious srewind stag startgreplace startinsert startreplace stjump stop stopinsert stselect substitute sunhide sunmap sunmenu suspend sview swapname syncbind syntax t tNext tab tabNext tabclose tabdo tabedit tabfind tabfirst tablast tabmove tabnew tabnext tabonly tabprevious tabrewind tabs tag tags tcl tcldo tclfile tearoff tfirst throw tjump tlast tmenu tnext topleft tprevious trewind try tselect tunmenu unabbreviate undo undojoin undolist unhide unlet unlockvar unmap unmenu unsilent update verbose version vertical vglobal view vimgrep vimgrepadd visual viusage vmap vmapclear vmenu vnew vnoremap vnoremenu vsplit vunmap vunmenu wNext wall while wincmd windo winpos winsize wnext wprevious wq wqall write wsverb wviminfo xall xit xmap xmapclear xmenu xnoremap xnoremenu xunmap xunmenu yank z ~r ! echo 'repl.whereAmI();' | nc localhost 4242
-:echo 'repl.whereAmI();' | nc localhost 4242
-:echo repl
-:echo 'repl'
-:call Repl()
-:!echo 'repl.whereAmI();' | nc localhost 4242
-:!echo repl.whereAmI(); | nc localhost 4242
-:!echo repl.whereAmI(); | nc localhost 4242 | new
-:normal(gg)
-:!echo nc localhost 4242
-:call Repl
-:Repl
-:!nc localhost 4242 < repl.whereAmI()
-:repl.whereAmI() | !nc localhost 4242
+:Repl http://www.google.ca
+:Repl http://thehappywinner.heroku.com
+:Repl http://www.ebay.ca
+:Repl http://www.google.com
+:e /home/luke/Desktop/webtechJAC/web_publishing/site1march14/index.html
+:Repl http://www.ruby-lang.org
+:e Desktop/webtechJAC/web_publishing/site2march15/index.html
+:Repl file:///%:p
+:Repl file:///%:p:h/test.html
+:Repl file:///@%
+:Repl file:///%
+:Repl file///:%
+:e Desktop/test.html
+:Repl http://%
+:Repl http://www.vim.org
+:Repl http://www.heroku.com
+:new
+:Repl www.ebay.com
 
 # Search String History (newest to oldest):
+?/\<a
+?/content
+?/yellow
+?/red
+?/header
+?/block
+? \Vnbsp\%#
+?/footer
+? \Vlink\%#
+? \Vmeta\%#
+? \Vxhtml\%#
+? \Vbody\%#
+? \Vhead\%#
+? \Vdoctype\%#
+?/silent
+?/ee
+?/<leader>m
 ?/localhost
 ?/repl
 ?/function
 ?/font
 ?/star
-? \Vlink\%#
 ? \Vdiv\%#
 ? \Vc)\%#
 ? \Vdate\%#
 ? \Vddate\%#
 ? \Vr\%#
-? \Vnbsp\%#
-? \Vdoctype\%#
 ? \<stylesheets\>
 ?/happy
 ?/happywinners
@@ -86,20 +99,6 @@ $
 ?/.box
 ? s+$
 ? register
-?/root
-?/save
-? current_class
-? i
-?/shortmess
-? \<this\>
-?/autoread
-?/confi
-?/index
-?/ping
-?/chec
-?/nnoremap
-?/y
-?/nnoremap Y
 
 # Expression History (newest to oldest):
 
@@ -122,87 +121,24 @@ $
 # Registers:
 "0	CHAR	0
 	}
-"1	LINE	0
-	          \ exe 'var url = ' . myurl .
+""1	LINE	0
+	  background-color: black;
 "2	LINE	0
-	          \ 'var newurl = http://ww
+	
 "3	LINE	0
-	    let newurl = a:url
+	  height: 100%;
 "4	LINE	0
-	          \ 'var newurl = ' . a:url .
+	
 "5	LINE	0
-	  function! ReplOnQuestion()
-	    let lines = call Repl()
-	    if lines == 'Welcome'
-	      let repl = 'on'
-	    else
-	      let repl = 'off'
-	    endif
-	  endfunction
-	
+	  margin-right: 600px;
 "6	LINE	0
-	        
-	      
-	     
-	    
-	   
-	  
-	 
+	
 "7	LINE	0
-	      if strlen(match)
+	
 "8	LINE	0
-	    let match = matchstr(lines, '^\s*trigger.*/i')
+	  text-align: center;
 "9	LINE	0
-	!echo 'repl.whereAmI();' | nc localhost 4242
 	
-	Welcome to MozRepl.
-	
-	 - If you get stuck at the "...>" prompt, enter a semicolon (;) at the beginning of the line to force evaluation.
-	 - If you get errors after every character you type, see http://github.com/bard/mozrepl/wikis/troubleshooting (short version: stop using Microsoft telnet, use netcat or putty instead)
-	
-	Current working context: chrome://browser/content/browser.xul
-	Current input mode: syntax
-	
-	repl> [object ChromeWindow] - Document title: "Linux.com :: Vim tips: Working with external commands-Mozilla Firefox"
-	
-	Welcome to MozRepl.
-	
-	 - If you get stuck at the "...>" prompt, enter a semicolon (;) at the beginning of the line to force evaluation.
-	 - If you get errors after every character you type, see http://github.com/bard/mozrepl/wikis/troubleshooting (short version: stop using Microsoft telnet, use netcat or putty instead)
-	
-	Current working context: chrome://browser/content/browser.xul
-	Current input mode: syntax
-	
-	repl> [object ChromeWindow] - Document title: "Linux.com :: Vim tips: Working with external commands-Mozilla Firefox"
-	
-	Welcome to MozRepl.
-	
-	 - If you get stuck at the "...>" prompt, enter a semicolon (;) at the beginning of the line to force evaluation.
-	 - If you get errors after every character you type, see http://github.com/bard/mozrepl/wikis/troubleshooting (short version: stop using Microsoft telnet, use netcat or putty instead)
-	
-	Current working context: chrome://browser/content/browser.xul
-	Current input mode: syntax
-	
-	repl> [object ChromeWindow] - Document title: "Linux.com :: Vim tips: Working with external commands-Mozilla Firefox"
-	
-	
-	
-	Welcome to MozRepl.
-	
-	 - If you get stuck at the "...>" prompt, enter a semicolon (;) at the beginning of the line to force evaluation.
-	 - If you get errors after every character you type, see http://github.com/bard/mozrepl/wikis/troubleshooting (short version: stop using Microsoft telnet, use netcat or putty instead)
-	
-	Current working context: chrome://browser/content/browser.xul
-	Current input mode: syntax
-	
-	repl> [object ChromeWindow] - Document title: "Linux.com :: Vim tips: Working with external commands-Mozilla Firefox"
-	
-	Welcome to MozRepl.
-	
-	 - If you get stuck at the "...>" prompt, enter a semicolon (;) at the beginning of the line to force evaluation.
-	 - If you get errors after every character you type, see http://github.com/bard/mozrepl/wikis/troubleshooting (short version: stop using Microsoft telnet, use netcat or putty instead)
-	
-	Current working context: chrome://browser/content/browser.xul
 "a@	CHAR	0
 	#7fbf58
 "b	CHAR	0
@@ -234,33 +170,395 @@ $
 	    <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
 	    <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
 	    <%= stylesheet_link_tag 'custom', :media => 'screen' %>
-""-	CHAR	0
-	"
+"-	CHAR	0
+	orange
 
 # File marks:
-'0  375  29  ~/.vimrc
-'1  417  43  ~/.vimrc
-'2  5  0  ~/Desktop/test.html
-'3  407  0  ~/.vimrc
-'4  31  0  ~/rails_projects/volunteer/config/environments/production.rb
-'5  4  65  ~/rails_projects/volunteer/db/migrate/20110318005952_change_paid_for_in_line_items.rb
-'6  12  0  ~/rails_projects/volunteer/db/migrate/20110318005010_add_and_change_columns_to_line_items.rb
-'7  1  0  ~/rails_projects/volunteer/Gemfile
-'8  1  0  ~/rails_projects/volunteer/app/controllers/application_controller.rb
-'9  2  2  ~/rails_projects/volunteer/db/migrate/20110318005952_change_paid_for_in_line_items.rb
+'0  89  2  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+'1  1  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+'6  31  0  ~/rails_projects/volunteer/config/environments/production.rb
+'7  4  65  ~/rails_projects/volunteer/db/migrate/20110318005952_change_paid_for_in_line_items.rb
+'8  12  0  ~/rails_projects/volunteer/db/migrate/20110318005010_add_and_change_columns_to_line_items.rb
+'9  1  0  ~/rails_projects/volunteer/Gemfile
 
 # Jumplist (newest first):
--'  375  29  ~/.vimrc
--'  379  24  ~/.vimrc
--'  368  46  ~/.vimrc
--'  367  13  ~/.vimrc
--'  371  45  ~/.vimrc
--'  370  24  ~/.vimrc
--'  365  9  ~/.vimrc
--'  366  10  ~/.vimrc
--'  369  7  ~/.vimrc
+-'  89  2  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  95  4  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  2  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  2  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  47  4  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  1  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  60  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  59  6  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  1  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  70  19  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  10  9  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  69  10  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  33  24  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  42  5  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  47  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  114  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  3  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  51  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  11  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  63  2  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  34  77  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  6  11  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  52  10  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  68  7  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  30  63  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  32  19  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  64  2  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  22  0  ~/.vim/colors/blackboard.vim
+-'  29  38  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  60  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  35  4  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  53  21  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  30  15  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  104  14  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  32  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  18  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  36  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  37  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  99  18  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  101  11  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  57  27  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  1  0  ~/.vim/colors/blackboard.vim
+-'  96  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  86  11  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  101  2  ~/.vim/colors/blackboard.vim
+-'  82  16  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  32  25  ~/.vim/colors/blackboard.vim
+-'  38  27  ~/.vim/colors/blackboard.vim
+-'  44  14  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  41  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  23  91  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  27  27  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  35  20  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  23  10  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  17  14  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  28  30  ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+-'  11  0  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  9  26  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  33  0  ~/.vim/colors/blackboard.vim
+-'  20  2  ~/.vim/colors/blackboard.vim
+-'  8  20  ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+-'  28  2  ~/.vim/colors/blackboard.vim
 
 # History of marks within files (newest to oldest):
+
+> ~/Desktop/webtechJAC/web_publishing/project1_4pages/index.html
+	"	2	0
+	^	61	0
+	.	61	0
+	+	25	0
+	+	62	0
+	+	24	77
+	+	42	40
+	+	38	22
+	+	41	76
+	+	38	28
+	+	44	16
+	+	43	21
+	+	42	74
+	+	47	101
+	+	48	97
+	+	49	103
+	+	50	59
+	+	60	0
+	+	62	0
+	+	15	0
+	+	19	14
+	+	14	61
+	+	15	0
+	+	16	0
+	+	17	0
+	+	19	0
+	+	20	0
+	+	63	0
+	+	62	0
+	+	60	0
+	+	58	0
+	+	51	0
+	+	18	0
+	+	20	0
+	+	52	73
+	+	54	72
+	+	51	0
+	+	55	0
+	+	51	0
+	+	6	0
+	+	8	0
+	+	7	44
+	+	14	34
+	+	15	32
+	+	16	30
+	+	17	33
+	+	38	25
+	+	27	29
+	+	28	30
+	+	27	36
+	+	25	8
+	+	27	27
+	+	23	30
+	+	24	89
+	+	24	0
+	+	59	116
+	+	60	0
+	+	59	149
+	+	57	27
+	+	59	104
+	+	29	53
+	+	37	0
+	+	29	57
+	+	30	27
+	+	29	74
+	+	30	55
+	+	35	0
+	+	30	16
+	+	29	38
+	+	32	48
+	+	33	10
+	+	31	63
+	+	33	38
+	+	35	0
+	+	30	63
+	+	33	23
+	+	31	49
+	+	33	48
+	+	34	34
+	+	34	34
+	+	34	34
+	+	30	29
+	+	34	73
+	+	33	41
+	+	35	0
+	+	34	77
+	+	5	41
+	+	4	69
+	+	7	94
+	+	8	0
+	+	11	0
+	+	9	0
+	+	32	48
+	+	33	0
+	+	59	77
+	+	31	52
+	+	33	24
+	+	35	0
+	+	36	0
+	+	26	0
+	+	12	0
+	+	56	0
+	+	61	0
+
+> ~/Desktop/webtechJAC/web_publishing/project1_4pages/css/custom.css
+	"	89	2
+	^	70	20
+	.	89	0
+	+	47	0
+	+	41	17
+	+	46	0
+	+	44	14
+	+	74	17
+	+	75	1
+	+	78	14
+	+	42	13
+	+	42	21
+	+	42	16
+	+	42	0
+	+	79	1
+	+	84	0
+	+	81	5
+	+	82	16
+	+	87	0
+	+	86	10
+	+	82	9
+	+	86	8
+	+	82	9
+	+	83	0
+	+	82	16
+	+	86	15
+	+	90	0
+	+	89	24
+	+	89	10
+	+	90	0
+	+	92	17
+	+	93	0
+	+	96	1
+	+	101	25
+	+	115	0
+	+	103	21
+	+	104	8
+	+	101	19
+	+	104	0
+	+	115	2
+	+	5	0
+	+	5	0
+	+	5	0
+	+	3	0
+	+	5	0
+	+	4	0
+	+	104	14
+	+	100	0
+	+	104	0
+	+	101	11
+	+	115	0
+	+	106	0
+	+	110	0
+	+	108	22
+	+	110	0
+	+	114	0
+	+	106	20
+	+	99	18
+	+	37	0
+	+	33	0
+	+	32	0
+	+	31	0
+	+	106	0
+	+	105	15
+	+	30	19
+	+	105	16
+	+	30	15
+	+	56	0
+	+	50	15
+	+	54	22
+	+	55	15
+	+	53	21
+	+	56	0
+	+	57	0
+	+	58	9
+	+	61	0
+	+	58	11
+	+	60	0
+	+	62	0
+	+	75	0
+	+	66	0
+	+	67	0
+	+	59	14
+	+	64	11
+	+	71	1
+	+	69	11
+	+	68	7
+	+	53	0
+	+	52	9
+	+	51	19
+	+	52	10
+	+	2	0
+	+	16	14
+	+	24	14
+	+	104	11
+	+	49	54
+	+	10	0
+	+	68	10
+	+	69	14
+	+	68	10
+	+	69	15
+	+	70	19
+	+	89	0
+
+> ~/.vim/colors/blackboard.vim
+	"	22	0
+
+> /usr/share/vim/vim72/doc/help.txt
+	"	1	1
+
+> ~/Desktop/webtechJAC/web_publishing/site2march15/index.html
+	"	2	0
+	^	46	183
+	.	34	145
+	+	34	46
+	+	35	0
+	+	33	0
+	+	35	0
+	+	34	51
+	+	35	0
+	+	38	75
+	+	34	46
+	+	40	0
+	+	38	80
+	+	39	0
+	+	41	11
+	+	37	10
+	+	41	13
+	+	48	0
+	+	42	15
+	+	38	37
+	+	42	51
+	+	43	0
+	+	45	13
+	+	46	76
+	+	47	0
+	+	51	87
+	+	54	0
+	+	51	135
+	+	14	7
+	+	14	13
+	+	49	70
+	+	51	135
+	+	14	13
+	+	35	0
+	+	57	0
+	+	54	0
+	+	54	0
+	+	57	0
+	+	39	0
+	+	39	0
+	+	57	0
+	+	35	0
+	+	34	46
+	+	35	0
+	+	34	47
+	+	35	0
+	+	38	84
+	+	39	0
+	+	51	149
+	+	52	0
+	+	53	0
+	+	39	0
+	+	54	0
+	+	40	0
+	+	46	244
+	+	42	260
+	+	45	0
+	+	44	19
+	+	36	19
+	+	40	19
+	+	46	10
+	+	49	19
+	+	34	145
+	+	38	189
+	+	38	0
+	+	42	159
+	+	46	168
+	+	42	69
+	+	46	95
+	+	38	100
+	+	52	25
+	+	38	184
+	+	58	20
+	+	14	24
+	+	14	23
+	+	14	0
+	+	14	21
+	+	46	145
+	+	42	215
+	+	52	157
+	+	46	231
+	+	42	241
+	+	13	0
+	+	14	0
+	+	14	0
+	+	15	0
+	+	3	0
+	+	2	0
+	+	46	0
+	+	46	0
+	+	46	200
+	+	46	0
+	+	46	181
+	+	46	0
+	+	34	145
 
 > ~/.vimrc
 	"	375	29
@@ -371,9 +669,6 @@ $
 
 > ~/.dmrc
 	"	1	0
-
-> /usr/share/vim/vim72/doc/help.txt
-	"	213	1
 
 > ~/.vim/bundle/zencoding/doc/zencoding.txt
 	"	270	0
@@ -1392,103 +1687,6 @@ $
 	+	1	27
 	+	3	0
 
-> ~/Desktop/webtechJAC/web_publishing/site2march15/index.html
-	"	1	0
-	^	46	183
-	.	34	145
-	+	34	46
-	+	35	0
-	+	33	0
-	+	35	0
-	+	34	51
-	+	35	0
-	+	38	75
-	+	34	46
-	+	40	0
-	+	38	80
-	+	39	0
-	+	41	11
-	+	37	10
-	+	41	13
-	+	48	0
-	+	42	15
-	+	38	37
-	+	42	51
-	+	43	0
-	+	45	13
-	+	46	76
-	+	47	0
-	+	51	87
-	+	54	0
-	+	51	135
-	+	14	7
-	+	14	13
-	+	49	70
-	+	51	135
-	+	14	13
-	+	35	0
-	+	57	0
-	+	54	0
-	+	54	0
-	+	57	0
-	+	39	0
-	+	39	0
-	+	57	0
-	+	35	0
-	+	34	46
-	+	35	0
-	+	34	47
-	+	35	0
-	+	38	84
-	+	39	0
-	+	51	149
-	+	52	0
-	+	53	0
-	+	39	0
-	+	54	0
-	+	40	0
-	+	46	244
-	+	42	260
-	+	45	0
-	+	44	19
-	+	36	19
-	+	40	19
-	+	46	10
-	+	49	19
-	+	34	145
-	+	38	189
-	+	38	0
-	+	42	159
-	+	46	168
-	+	42	69
-	+	46	95
-	+	38	100
-	+	52	25
-	+	38	184
-	+	58	20
-	+	14	24
-	+	14	23
-	+	14	0
-	+	14	21
-	+	46	145
-	+	42	215
-	+	52	157
-	+	46	231
-	+	42	241
-	+	13	0
-	+	14	0
-	+	14	0
-	+	15	0
-	+	3	0
-	+	2	0
-	+	46	0
-	+	46	0
-	+	46	200
-	+	46	0
-	+	46	181
-	+	46	0
-	+	34	145
-
 > ~/Desktop/webtechJAC/web_publishing/site2march15/css/custom.css
 	"	1	0
 	^	47	9
@@ -1534,26 +1732,3 @@ $
 	+	13	0
 	+	16	0
 	+	17	17
-
-> ~/rails_projects/happywinners/app/models/cart_item.rb
-	"	28	0
-	.	28	0
-	+	7	19
-	+	10	24
-	+	3	30
-	+	4	37
-	+	10	0
-	+	28	0
-	+	4	18
-	+	28	0
-
-> ~/rails_projects/happywinners/app/models/adminuser.rb
-	"	1	0
-
-> ~/.gitconfig
-	"	19	10
-	^	17	12
-	.	17	12
-	+	2	0
-	+	9	0
-	+	17	12

@@ -349,6 +349,7 @@ command! -nargs=* Swrap setl wrap linebreak nolist showbreak=…
 
 if has("autocmd")
 
+  "mozrepl stuff
   function! Refresh_firefox()
     if &modified && has("gui_running")
       write
@@ -372,8 +373,10 @@ if has("autocmd")
   "mnemonic is Http
   nmap <silent> <leader>ml :Repl file:///%:p<CR>
   "mnemonic is Local
+  nmap <silent> <leader>ms :Repl http://localhost/
 
   autocmd BufWriteCmd *.html*,*.css :call Refresh_firefox()
+  "/mozrepl stuff
 
   "vimrc
   autocmd! bufwritepost .vimrc source $MYVIMRC
