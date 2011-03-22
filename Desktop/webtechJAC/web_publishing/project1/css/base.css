@@ -8,6 +8,7 @@ body {
   font-style: normal;
   background-color: #001022;
   color: red;
+  line-height: normal;
 }
 
 div#left-grid {
@@ -28,13 +29,16 @@ div#right-grid {
 
 div#menubar {
   margin-left: 10px;
+  margin-top: 15px;
 }
 
+div#menubar a:hover {
+  padding-left: 0.5em;
+ 
+}
 
 div#header {
-  margin-left: 200px;
-  margin-right: 200px;
-  
+  margin-right: 200px; 
 
 }
 
@@ -45,14 +49,43 @@ span#headerette {
 
 }
 
+span#fun {
+  color: #66CE3C;
+}
+
+span#red {
+  color: red;
+}
+
 div#code-block {
   font-family: Monaco, Courier, Inconsolata, monospace;
   padding-top: 10px;
-  margin-left: 200px;
+  margin-right: 450px;
+  margin-bottom: 70px;
+  margin-top: 18px;
+  float:left;
   width: 350px;
   border: 2px dotted;
   border-color: purple;
   padding: 10px;
+}
+
+div#code-block-faq {
+  font-family: Monaco, Courier, Inconsolata, monospace;
+  padding-top: 10px;
+  margin-right: 400px;
+  margin-bottom: 50px;
+  margin-top: 15px;
+  float:left;
+  width: 400px;
+  border: 2px dotted;
+  border-color: purple;
+  padding: 10px;
+}
+
+div#logo {
+  float:left;
+  margin-right: 10px; 
 }
 
 span.input {
@@ -82,22 +115,73 @@ a:link {
   color: #0AFFCC;
 
 }
+
 a:visited {
   color: #0AFFCC;
 }
+
+a:focus {
+  color: #D8FA3C;
+}
+
 a:hover {
   color: #FFFFFF;
 }
+
 a:active {
   color: #FFFFFF;
 }
 
 div#content {
+  height: auto;
+  margin-right: 200px;
+  
+}
+
+span.title {
+  text-decoration: underline;
 }
 
 div#spacing {
   padding-bottom: 45px;
 }
+
+p.meetups {
+  margin-left: 150px;
+  color: white;
+}
+
+h3.meetups {
+  margin-left: 150px;
+}
+
+h3#faq4 {
+  padding-left: 150px;
+}
+
+p#second {
+  padding-left: 150px;
+}
+
+p#padding {
+  padding-left: 150px;
+}
+
+ul {
+  color: white;
+  margin-left: 125px;
+  padding: none;
+}
+
+form {
+  color: white;
+}
+
+div#submit {
+  padding-left: 150px;
+  padding-top: 10px;
+}
+
 div#footer {
   font-size: 13px;
   margin-bottom: 10px;
