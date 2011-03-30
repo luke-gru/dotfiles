@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+<head>
+<title>Lab exercises - CSS Fluid Layout</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="author" content="luke" />
+<meta name="description" content="woops, made a fluid layout first. Thought I may as well upload it." />
+
+<style type="text/css">
+/* original css properties */
+
+body, p, td
+{
+    font-size: 12px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    color: #ff9900;
+    background-color: #000000;
+}
+
+
+h1
+{
+    font-size: 20px;
+    color: #ffcc00;
+}
+
+h2
+{
+    font-size: 16px;
+    color: #ff9933;
+}
+
+a
+{
+    color : #ffcc00;
+}
+
+
+a:hover
+{
+    color: #ffcc00;
+    background-color: gray;
+}
+
+/* my css properties */
+
+div#header { 
+        width: 675px; 
+        margin-top: 30px;
+
+}
+
+#header h1 { text-align: center; 
+
+}
+
+
+#header img {
+  width:60px;
+  height:60px;
+  vertical-align: middle;
+  margin-left:20px;
+}
+  
+#navandowl {
+  width:150px;
+  float: left;
+  height:105px;
+  padding: 5px;
+  
+  }
+
+#navandowl p {
+  margin-top: 45px;
+}
+
+#navandowl img {
+  margin-top: 100%;
+}
+
+#content {
+  width: 485px;
+  float: left;
+  margin-left: 45px;
+  margin-top: 30px;
+  
+}
+
+</style>
+
+</head>
+
+<body>
+<div id="header">
+      <h1>Layout with Styles <img src="blueflower.gif" alt="blue flower"  /></h1>
+</div>
+      
+ <div id="navandowl">
+      <p>
+      <a href="http://www.oreillynet.com/javascript/">O'Reilly Web DevCenter</a><br />
+
+      <a href="http://www.quirksmode.org/">Quirksmode</a><br />
+      <a href="http://hotwired.lycos.com/webmonkey/authoring/stylesheets/">WebMonkey's 
+        CSS </a> <br />
+      <a href="http://devedge.netscape.com/central/css/">DevEdge CSS Central</a><br />
+      <a href="http://www.w3.org/Style/CSS/">W3C CSS Homepage</a><br />
+        &nbsp;&nbsp; </p>
+  <img src="foxthing.gif" alt="owl" width="73" height="133" />
+    </div>
+    
+    <div id="content">
+      <h2>What is CSS layout? </h2>
+      <p> CSS layout uses style sheets to define the placement of elements on 
+        a web page. Typically CSS layout replaces tables, which are currently 
+        the most popular method of placing page elements. There is a common misconception 
+        that CSS layout techniques are incapable of producing complex page layouts. 
+        While it is true that tables generally provide more flexibility, I will 
+        show you that complex layouts are quite possible with CSS. To get a quick 
+        look at the nuts and bolts of CSS layouts, take a look at the markup of 
+        a 3 column liquid page layout with a header, first done with tables, then 
+        with CSS. </p>
+      <h2>Benefits of CSS layout </h2>
+      <p> CSS allows you to separate the structure and presentation of documents. 
+        The separation of structure and presentation (often incorrectly referred 
+        to as the separation of style and content) is a principle that governs 
+        (or should govern) all markup languages, such as HTML. HTML is intended 
+        to structurally organize the content of a document so that it's clear 
+        what the conceptual relationship is between various portions of a document. 
+        The markup language is NOT intended to define the display of the document, 
+        although display and structure are often tightly connected. As web developers 
+        we have been trained to see an tag as a way to make something bold and 
+        large, not as a way of marking it as a section header...</p>
+      <p>Note: this text is part of an article in O'Reilly Network's Web DevCenter. 
+        <a href="http://www.oreillynet.com/pub/a/javascript/synd/2002/03/01/css_layout.html">Click 
+        here to read the full article</a></p>
+  </div>
+      
+
+</body>
+</html>

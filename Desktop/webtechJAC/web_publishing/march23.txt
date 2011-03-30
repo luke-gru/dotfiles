@@ -1,0 +1,34 @@
+centering: Use a container!
+a) text-align center on container
+b) give container a width, specify margins { margin: 0 auto; } (0 margin for the x, auto for the y)
+c) no width, just give margins on left & right
+
+CSS positioning properties:
+position: { 
+absolute; (to the parent element) with top, bottom, left, right
+fixed; with respect to the window, elements stay where they are!
+relative; relative to the element's position without css properties, and takes up the actual space of where it was without the positioning properties
+
+
+top (more stable axis):
+left (more stable axis):
+bottom:
+right:
+
+z-index: stacking precedence: higher = on top (default is the order of the elements in the HTML code, last = on top)
+
+when positioning: it's positioning the content!
+
+fixed position elements are taken out of the 'static' layer and if nothing goes over it with a higher z-index then it remains on top
+
+vertical align: top; middle; bottom;
+display: inline; block; none (noshow)
+visibility: hidden; visible (default)
+clear: which side of the element should not have content around it
+left; right; both;
+
+max-height
+min-height
+max-width
+min-width
+

@@ -14,11 +14,15 @@ syntax enable
 
   if hostname() == 'luke-Pavilion-dv4000-PX311UA-ABL'
     set guifont=Inconsolata\ Medium\ 12
+    set swapsync=fsync
+    set dictionary=usr/dict/words
   elseif has("mac")
     set guifont=Monaco:h12
   elseif has("win32")
     set guifont=Consolas:h11,Courier\ New:h10
   elseif has("unix")
+    set dictionary=usr/dict/words
+    set swapsync=fsync
     if &guifont == ""
       set guifont=bitstream\ vera\ sans\ mono\ 10
     endif
@@ -87,6 +91,7 @@ set tabstop=2 " This is how many columns each literal tab indents
 set softtabstop=2 " This is how many columns each tab key hit counts for in INSERT mode. If noexpandtab is set and tabstop=softtabstop, VIM always uses tabs.
 set expandtab "replace tab characters with spaces
 set sw=2 "shiftwidth
+set shiftround "when indenting with >>, <<, do to nearest sw
 set listchars=tab:>−,trail:−
 set nowrap "don't wrap text by default, tw=0
 set formatprg=par "use par to format paragraphs. Default tw is 72
@@ -185,7 +190,8 @@ set history=40 "command-line history remembered. default = 20
 set bs=2 "backspace over everything in insert mode
 " :let loaded_project = 1 uncomment to turn off project plugin
 set cmdheight=3 "cmd line height.
-set path+=./**,~/.vim/pathinclude "search path when using gf, find sfind etc...
+"the include path for current file, and the find command and its variants
+set path+=.,,./**,~/.vim/pathinclude "search path when using gf, find sfind etc...
 "project
 set laststatus=2 " All windows have status lines
 set shortmess=at " To avoid the 'Hit ENTER to continue' promp
@@ -281,10 +287,17 @@ nnoremap > >>
 " hightlight text I just pasted, compliments gv well
 nnoremap gV `[v`]
 
+"ESCaping
 inoremap <A-m> <ESC>
 inoremap <F1> <ESC>
+
 " omnicompletion
 inoremap <silent> <C-o> <C-x><C-o>
+
+"finding filenames
+
+"jumps
+nnoremap <C-b> <C-o>
 
 " Locate and return character above current cursor position regardless of blank lines
 " taken directly from this vim-scripting tutorial:
@@ -307,7 +320,7 @@ endfunction
 imap <silent>  <C-Y>  <C-R><C-R>=LookUpwards()<CR>
 
 
-nmap <leader>- :call Preserve("%s/\s\+$//e")<CR>
+nmap <leader>- :call Preserve("%s/\s*$//e")<CR>                
 nmap <leader>= :call Preserve("normal gg=G")<CR>
 "/n- and i-mode mappings
 
@@ -384,7 +397,7 @@ if has("autocmd")
   au FileType mail,gitcommit setl tw=72 list formatoptions formatoptions+=an
   "-q option for par handles nested quotations in plaintext mail
   au FileType mail setl formatprg=par\ -q
-  au FileType qf unmap <buffer> <CR>
+  " au FileType qf silent unmap <buffer> <CR>
   au FileType mail,gitcommit echo "'textwidth' set to" &textwidth
   au BufRead *.txt setl tw=78 formatoptions formatoptions+=an formatprg=par\ -w78
   "don't know if I like that for php, hopefully won't use php much anyway
@@ -397,7 +410,6 @@ if has("autocmd")
         \ let g:rubycomplete_buffer_loading = 1
   " line below not working for some reason
   " au Filetype ruby let g:rubycomplete_classes_in_global = 1
-  au FileType css silent! setl omnifunc=csscomplete#CompleteCSS
   au FileType perl silent! compiler perl
   au FileType javascript setl ai et sta sw=2 sts=2 ts=2 cin isk+=$
 

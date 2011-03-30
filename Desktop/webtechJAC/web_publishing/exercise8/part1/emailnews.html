@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="luke-gru" />
+    <title>Exercise 8 | Email News Service</title>
+    <style type="text/css" media="screen">
+      body {
+        font: 14px Verdana, sans-serif;
+        background-color:black;
+      }
+
+      #container {
+        width:60%;
+        min-height:550px;
+        max-height:700px;
+        margin:0 auto;
+        background-color:white;
+        color:black;
+        padding:15px;
+        -moz-border-radius:25px;
+        border-radius:25px;
+        position:relative;
+        background-color:#CCC;
+        color:black;
+      }
+
+      input {
+        background-color: #DDD;
+      }
+
+      .input {
+        margin-left:5%;
+      }
+
+      .text_field {
+        position:absolute;
+        left:20%;
+      }
+
+      h1#heading {
+        margin-left:40%;
+
+      }
+
+      .labelcss {
+        margin-left:5%;
+      }
+
+
+      .checkbox {
+      position:absolute;
+      left:33%;
+      }
+
+      .radio {
+      position:absolute;
+      left:44%;
+      }
+
+      .submit {
+      margin-top:5%;
+      }
+
+      p {
+      font-weight:bold;
+      }
+
+      fieldset {
+      -moz-border-radius:25px;
+      border-radius:25px;
+      background-color:white;
+      color:black;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div id="container">
+
+      <h1 id="heading">InfoNews</h1>
+
+      <form action="emailnews_submit.php" method="post" accept-charset="utf-8">
+        <fieldset>
+          <h2>Subscribe Below</h2>
+
+          <div class="input">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" class="text_field" tabindex="1" value="" accesskey="n" /> <br /><br />
+
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" class="text_field" tabindex="2" value="" accesskey="e" /> <br />
+          </div>
+
+          <p>What kinds of InfoNews services do you want to receive?</p>
+
+          <div class="marks">
+            <label for="technology" class="labelcss">Technology and Gadgets</label>
+            <input type="checkbox" name="tech" id="technology" class="checkbox" tabindex="3" accesskey="t" /> <br />
+
+            <label for="tv_and_film" class="labelcss">TV and Film</label>
+            <input type="checkbox" name="tv_film" id="tv_and_film" class="checkbox" tabindex="4" accesskey="f" /> <br />
+
+            <label for="events_and_world_news" class="labelcss">Events and World News</label>
+            <input type="checkbox" name="world_news" id="events_and_world_news" class="checkbox" tabindex="5" accesskey="n" /> <br />
+
+            <label for="business_and_finance" class="labelcss">Business and Finance</label>
+            <input type="checkbox" name="business" id="business_and_finance" class="checkbox" tabindex="6" accesskey="b" /> <br />
+
+            <p>How did you hear about InfoNews?</p>
+
+            <label for="social_media" class="labelcss">Through social media</label>
+            <input type="radio" name="heard" value="social" id="social_media" class="radio" /> <br />
+
+            <label for="friend" class="labelcss">Through a friend</label>
+            <input type="radio" name="heard" value="friend" id="friend" class="radio"/> <br />
+
+            <label for="online_advertisement" class="labelcss">Through an Online advertisement</label>
+            <input type="radio" name="heard" value="ol_ad" id="online_advertisement" class="radio" /> <br />
+
+            <label for="real_world_advertisement" class="labelcss">Through a non-Online advertisement</label>
+            <input type="radio" name="heard" value="rw_ad" id="real_world_advertisement" class="radio" /> <br />
+
+            <label for="other" class="labelcss">Other</label>
+            <input type="radio" name="heard" value="other" id="other" class="radio" /> <br />
+          </div>
+
+
+
+          <div class="buttons">
+            <input type="submit" value="Subscribe &rarr;" class="submit" />
+            <input type="reset" value="Clear &larr;" class="reset" />
+          </div>
+
+
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>

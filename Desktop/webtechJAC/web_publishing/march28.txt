@@ -1,0 +1,26 @@
+Site planning:
+
+-What and who is it for?
+-budget (time and $)
+
+Design
+Information design (content)
+Navigation design (structure) => linear (2 follows 1, 3 follows 2)
+            => hierarchical (tree structure for lots of info)
+            => metaphorical navigation (images, graphics)
+graphic design
+spoke-and-hub (central home)
+full-web          => sort of mix of all
+
+netcraft: stats for resolutions and such
+
+webhosts 1&1
+
+sketch of one main page
+
+
+
+
+
+
+

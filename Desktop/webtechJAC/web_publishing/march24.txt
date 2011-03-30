@@ -1,0 +1,48 @@
+tables
+
+colgroup  => class, id, width
+<col width="10%" /> (column 1)
+<col width="20%" /> (column 2)
+<col /> (column 3)
+</colgroup>
+
+attributes for colgroup: align || valign || class || id
+     attributes for col: class || id     || width || span
+
+colgroup is useless if not grouping columns together
+can just do <col width="10%" span="3" /> in HTML
+
+span for col tag says the actual SPAN of the width property, say 10% and span=3 makes 3 rows on the column with 10% width EACH! (important)
+
+
+multiple colgroups are useful, and you can apply classes too to do that. Column references sum, even when starting a new colgroup!
+
+TAGS
+
+table summary, width, height (no overflow on tables, they will expand), border (around table) {inline and other 2 types of CSS are actually different from one another) have to inset the td and outset the table border}
+border-spacing spaces the borders, cell-spacing spaces the cells, cell-padding pads the cells (padding in tds)
+
+
+caption align="bottom">caption blah</caption>
+thead (optional) th inside tr(s) (can also be used in the body tr(s)) they are bold-weighted and centered
+tfoot (optional) td 
+tbody (optional)
+td colspan, remove right one(s)
+aligning content in tds
+rowspan on the top element, remove bottom one
+cell-spacing is an attr. of the table itself (in table summary), along with border and width)
+cell-padding pads the td element, only in the table summary
+
+CSS on tables:
+
+Quirky things::
+borders will not appear in the tr elements themselves, or the columns. Apply on the td only
+
+
+
+*************
+display:block;
+cannot display;inline a block element
+
+
+Exercise 5 in class: create table with content, navbar, ads, content
