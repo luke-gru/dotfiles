@@ -118,6 +118,10 @@ export IRCRC="$HOME/.ircrc"
 
 #aliases
 alias lampp='sudo /opt/lampp/lampp'
+
+#for use after ack list search:
+alias vimp='vim $(!! -l)'
+
 alias pills="$HOME/Desktop/code/ruminder/ruminder.rb"
 #rvm
 alias gemset='rvm gemset name'
@@ -145,3 +149,4 @@ PS1="(\$(~/.rvm/bin/rvm-prompt v g))$PS1"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
+export LESS=-RFX

@@ -6,6 +6,8 @@ Creation-Date: 2011-04-23T18:49:59.387026
 
 [[linux:awk:awk|awk]]
 
+[[linux:ack|ack]]
+
 grep
 
 sed
