@@ -3,7 +3,7 @@
 # for examples
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+[ -z "$PS1" ]
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -83,7 +83,7 @@ alias l='ls -CF'
 
 #good ol gv, good in terminal and good in vim!
 alias gv='gvim --remote-silent'
-alias pills="$HOME/Desktop/code/pills/ruminder.rb"
+alias pills="$HOME/Desktop/code/ruminder/ruminder.rb"
 
 # reload bash config
 alias reload='source ~/.bashrc'
@@ -108,9 +108,40 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export PATH=/usr/lib/ruby:$PATH
 export EDITOR=/usr/bin/vim
 source ~/.git-completion.bash
-#export PATH=/path/to/dir:$PATH          <<-- Format for adding to PATH in .bashrc
+# export PATH=/path/to/dir:$PATH          <<-- Format for adding to PATH in .bashrc
 export TERM=xterm
+export IRCNICK=luke-gru
+export IRCNAME=lukeDOTgruATgmail
+export IRCRC="$HOME/.ircrc"
+
+#aliases
+alias lampp='sudo /opt/lampp/lampp'
+alias pills="$HOME/Desktop/code/ruminder/ruminder.rb"
+#rvm
+alias gemset='rvm gemset name'
+alias gemsets='rvm gemset list'
+alias gems='gem list'
+alias rubies='rvm list'
+#git
+alias gcl='git config --list'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gci='git commit'
+alias gdiff='git diff | gvim --remote-silent'
+alias g='git'
+alias gst='git status'
+alias gpom='git push origin master'
+alias gp='git push'
+alias gpu='git pull'
+
+#more aliases in .gitconfig
+#/aliases
+
+#rvm prompt
+PS1="(\$(~/.rvm/bin/rvm-prompt v g))$PS1"
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+

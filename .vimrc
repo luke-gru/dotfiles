@@ -12,7 +12,8 @@ syntax enable
     filetype indent on
   endif
 
-  if hostname() == 'luke-Pavilion-dv4000-PX311UA-ABL'
+  if hostname() == 'luke-Pavilion-dv4000-PX311UA-ABL' ||
+        \ hostname() == 'luke-k52F'
     set guifont=Inconsolata\ Medium\ 12
     set swapsync=fsync
     set dictionary=usr/dict/words
@@ -152,10 +153,10 @@ function! CloseHiddenBuffers()
       exe 'bw ' . b
     endif
   endfor
-  echon "Deleted " . l:tally . " buffers"
+  echon "Found " . l:tally . " hidden buffers"
 endfun
 
-command! -nargs=* Only call CloseHiddenBuffers()
+command! -nargs=* Seek call CloseHiddenBuffers()
 "/wipe all hidden buffers
 
 "edit file in same dir. as current buffer mappings
@@ -184,6 +185,9 @@ map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 set viewdir=~/.vim/views "dir where mkview files are stored
 set directory=~/.backup// "dir for swap files, // ensures full path in swap name separated by %
+if ! len(glob("~/.backup/"))
+  echomsg "Backup directory ~/.backup doesn't exist!"
+endif
 set mousehide "Hide mouse until it's moved.
 set mouse=a
 set history=40 "command-line history remembered. default = 20
@@ -197,7 +201,11 @@ set laststatus=2 " All windows have status lines
 set shortmess=at " To avoid the 'Hit ENTER to continue' promp
 set helpheight=20 "minimum height for help wins, default=20, 0 is default spli
 "win height
-let g:proj_flags='imst' "default is imst, g toggles proj file w/ F12
+let g:proj_flags='gimst' "default is imst, g toggles proj file w/ F12
+let g:proj_run1='silent !gvim %f'
+let g:proj_run4='!git add %f'
+let g:proj_run5='!git add .'
+
 set noequalalways "all windows auto-same size when splitting or closing
 "set winminwidth=5
 set winfixwidth   "splits resize width of current win. only (good for vsplits)
@@ -388,7 +396,7 @@ if has("autocmd")
   "mnemonic is Local
   nmap <silent> <leader>ms :Repl http://localhost/
 
-  autocmd BufWriteCmd *.html*,*.css :call Refresh_firefox()
+  autocmd BufWriteCmd *.html,*.css,*.html.erb :call Refresh_firefox()
   "/mozrepl stuff
 
   "vimrc

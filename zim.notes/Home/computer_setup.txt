@@ -1,0 +1,54 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-04-21T18:44:25.010049
+
+====== Computer Setup ======
+
+**Software:**
+
+//Web Development://
+-git (remember to ssh keygen)
+-rvm => ruby
+-vim
+-chromium
+	-xmarks (username: luke.gru@gmail.com, pass hint: high pass)
+	-adblock plus 
+
+	-imgur the world
+	-unsubscribe for gmail
+	-depersonalize for search security
+	-freshstart cross-browser session management
+
+-firefox
+	-xmarks (username: //luke-gru//, pass hint: linuxpass)
+	-mozrepl
+	-
+
+-screen ruler
+-xampp
+-filezilla
+-sqlite database browser
+
+//Media://
+-VLC
+-rhythmbox
+
+//Notes/Sync://
+-zim desktop wiki
+-dropbox
+
+//System://
+-Gnome partition editor (gparted)
+-fonts: ttf-inconsolata
+-alarm clock
+
+//Chat://
+-ircii
+
+//Utilities://
+-awk (could be under gawk for GNU-awk)
+-par
+
+//SSH Tunneling/Port-Forwarding Services://
+-showoff-io (gem)
+-localtunnel (gem)

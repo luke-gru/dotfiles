@@ -1,0 +1,48 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-04-23T19:26:49.944946
+
+====== bash ======
+
+$!letters [search through hist. and execute first found command]
+!! [last command]
+!# (bang-she?) [repeats content of current command line]
+!?ate [regexp, execute first found command]
+!?ate? '+%Y' [?regexp? with args]
+^%Y^%m^ [repeat last command, but sub. %Y with %m]
+
+history: 
+history [show full history]
+history 10 [last 10 commands]
+history -p !d [just SHOW me what this would execute (or verify)
+!1101 [execute history line 1101]
+history -d 1101 [delete history line 1101]
+history -c [clears all history]
+
+'histverify' option lets you edit the command when it's retrieved
+
+dirs [saves a list of dirs in a single session]
+dirs +1 moves to the right, -1 moves to the left
+
+pushd /home [pushes /home dir into the dir list and changes to it]
+pushd -n dir [doesn't change to it]
+pushd +N [moves the Nth dir from the right to the top of the list]
+pushd -N [move sthe Nth dir from the left to the top of the list]
+
+popd [pops first dir in dirs and moves to next]
+popd -n [don't move to next]
+popd +N [delete Nth from the right]
+popd -N [delete Nth from the left]
+
+ls --classify [show type of file]
+
+printf [page 51 of Linux Scripting with Bash]
+
+HELP
+help -s printf [gives help summary]
+
+mkdir -p [parents, mkdir and dir's parents that don't yet exist]
+mkdir -m [octal mode]
+
+bind and unbind [page 60- of Linux Scripting with Bash]
+and add macros with bind [page 63 of ""]

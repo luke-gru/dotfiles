@@ -14,7 +14,13 @@ Creation-Date: 2010-12-10T18:12:56.197973
 
 [[git]]
 
-[[linux:linux commands|linux commands]]
+[[linux:commands and utilities|linux commands and utilities]]
+
+[[linux:Shell scripting|Shell scripting]]
+
+[[Home:computer setup|computer setup]]
+
+[[Home:Sites and Usernames|Sites and Usernames]]
 
 
 

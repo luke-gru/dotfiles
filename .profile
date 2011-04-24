@@ -23,11 +23,6 @@ fi
   
 #added Nov. 27, 2010 
 #added following on Dec. 15, 2010
-PATH="$PATH:/usr/lib/ruby/1.9.1"
-PATH="/usr/lib/ruby/gems:$PATH"
-PATH="$PATH:/usr/lib/ruby/1.9.1/i686-linux"
-PATH="$PATH:/usr/lib/ruby/1.9.1/tk"
-PATH="$PATH:/usr/lib/ruby/1.9.1/tkextlib"
 	
 alias gs='git status '
 alias ga='git add '
@@ -37,8 +32,6 @@ alias gd='git diff'
 alias go='git checkout '
 alias gk='gitk --all&'
 alias gx='gitx --all'
-
-export PATH
 
 # sample PATH below from linuxforums.org
 #PATH=$PATH:$HOME/bin
