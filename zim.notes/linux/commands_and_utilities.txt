@@ -16,3 +16,5 @@ wget
 
 printf
 
+
+Creating sym links: ln -s {origin} {new destination}
