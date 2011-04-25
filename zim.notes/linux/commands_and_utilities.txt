@@ -4,13 +4,15 @@ Creation-Date: 2011-04-23T18:49:59.387026
 
 ====== commands and utilities ======
 
+__Utilities:__
+
 [[linux:awk:awk|awk]]
 
 [[linux:ack|ack]]
 
 grep
 
-sed
+[[linux:sed|sed]]
 
 curl
 
@@ -18,5 +20,9 @@ wget
 
 printf
 
+__Commands__**:**
 
+**Links**
 Creating sym links: ln -s {origin} {new destination}
+
+

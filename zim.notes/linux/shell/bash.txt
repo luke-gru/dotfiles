@@ -4,6 +4,7 @@ Creation-Date: 2011-04-23T19:26:49.944946
 
 ====== bash ======
 
+http://www.gnu.org/software/bash/manual/bashref.html#SEC29
 $!letters [search through hist. and execute first found command]
 !! [last command]
 !# (bang-she?) [repeats content of current command line]

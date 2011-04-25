@@ -182,6 +182,8 @@ map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 :iabbr mymail luke<DOT>gru<AT>gmail<DOT>com
 :cabbr proj Project ~/.vim/projects/
 :cabbr mks mks! ~/.vim/sessions/session
+:cabbr Ls ls
+:cabbr LS ls
 
 set viewdir=~/.vim/views "dir where mkview files are stored
 set directory=~/.backup// "dir for swap files, // ensures full path in swap name separated by %
@@ -335,10 +337,10 @@ nmap <leader>= :call Preserve("normal gg=G")<CR>
 "c-mode mappings
 cnoremap <C-j> <S-left>
 cnoremap <C-k> <S-right>
-cnoremap <C-h> <left>
-cnoremap <C-l> <right>
+cnoremap <C-b> <left>
+cnoremap <C-f> <right>
+cnoremap <C-a> <C-b>
 cnoremap <C-s> source ~/.vim/sessions/session
-cnoremap <C-t> call LoadFileTemplate(
 "/c-mode mappings
 
 "v-mode mappings
