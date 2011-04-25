@@ -55,6 +55,7 @@ set background=dark
 set ruler
 set list "show me listchars
 let mapleader=" "
+set winaltkeys=no
 set tags=tags;,tags
 set textwidth=0 "default, overridden local to buffer for certain filetypes, see autocommands
 set virtualedit=block "so useful, f11 virtualedit=all, f9 back to block
@@ -165,6 +166,10 @@ map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 "/edit mappings
+
+"fast cd
+map <leader>cd :cd <C-R>=expand("%:p:h") <CR>
+
 
 "my Rails abbreviations
 :iabbr ie initialize
@@ -288,6 +293,7 @@ noremap <silent> <F3> <ESC>:e $MYVIMRC<CR>
 
 nnoremap <F9> :set virtualedit=block<CR>
 nnoremap <F11> :set virtualedit=all<CR>
+nnoremap <F10> <nop>
 nnoremap <leader>l :set list!<CR>
 
 " indenting, useful stuff..
