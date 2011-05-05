@@ -12,8 +12,8 @@ syntax enable
     filetype indent on
   endif
 
-  if hostname() == 'luke-Pavilion-dv4000-PX311UA-ABL' ||
-        \ hostname() == 'luke-k52F'
+  if hostname() == "luke-Pavilion-dv4000-PX311UA-ABL" ||
+        \ hostname() == "luke-K52F"
     set guifont=Inconsolata\ Medium\ 12
     set swapsync=fsync
     set dictionary=usr/dict/words

@@ -22,13 +22,12 @@ Creation-Date: 2011-04-21T18:44:25.010049
 -firefox
 	-xmarks (username: //luke-gru//, pass hint: linuxpass)
 	-mozrepl
-	-
 
 -screen ruler
 -xampp
 -filezilla
 -sqlite database browser
--exuberant ctags
+-exuberant-ctags
 
 //Media://
 -VLC

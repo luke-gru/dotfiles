@@ -4,7 +4,7 @@ Creation-Date: 2010-12-20T19:20:41.147318
 
 ====== vim ======
 *[[vim: Opening a vim session|Opening a vim session]]
-My VIM plugins: //vim.rails, vim.project, vim.snipmate, vim.surround, autotags (need exuberant ctags), fugitive, vimball//
+My VIM plugins: //vim.rails, vim.project, vim.snipmate, vim.surround, autotags (need exuberant ctags), fugitive, pathogen,//
 
 --Vim, Gvim resource and command list--
 
@@ -31,7 +31,9 @@ C-w _										<<- make current window as high as possible
 C-w (hjkl)[HJKL]							<<- (move to window left, below, up, right)  [move this window to fullest HJKL]
 C-w t										<<- move to top window
 C-w b										<<- move to bottom window
-C-w x										<<- exchange windows with the next one
+C-w p										<<- move to previous window
+(N)C-w x									<<- exchange windows with the next one (or Nth one), or if no next (or Nth) then previous
+C-w r										<<- rotate window right or down, C-w R rotates left or up
 C-w T										<<- move window to new tab when current tab contains > 1 window
 c2w										<<- change 2 words (delete 2 words and put me in insert mode)
 C- 6										<<- last edited buffer
@@ -93,9 +95,9 @@ now, ranges can be specified as 't, 'b	<<- note that ' gives you only row, first
 //:file filename								//<<- rename file, no write
 //:read filename							//<<- puts file text one line below cursor
 ://0r !ls	//									<<- first line of file, print output of terminal 'ls' in current working dir.
-//:new										//<<- open new horiz. [noname] window
-//:split										//
-//:vnew										//<<- open new vert.   [noname] window
+//:new ++opt (file)							//<<- open new horiz. [noname] window
+//:split (file)									<<- //open current or (file) in split. Don't perform autocommands WinEnter, WinLeave, BufEnter, BufLeave
+//:vnew ++opt (file)							//<<- open new vert.   [noname] window
 //:vsplit									//
 //:tabnew//
 :3tag										<<- jump forwards 3 tags
@@ -112,9 +114,15 @@ now, ranges can be specified as 't, 'b	<<- note that ' gives you only row, first
 //:argdo										<<- //operate on every file in argslist
 //:digraphs									//<<- list digraphs //i_C-k xx// will insert a digraph 
 :.,/here print								<<- print current line to 'here' match
-:C-f										<<- switch to command-line window
-:args `grep –l ‘frame_counter’ *.c`		<<- add all files that contain 'regexp' (frame_counter) and have a filename match of '*.c' to the argslist
-: grep -w sometext *.c					<<- w flag for whole word
+://C-f	//										<<- switch to command-line window
+://args `grep –l ‘frame_counter’ *.c`	//	<<- add all files that contain 'regexp' (frame_counter) and have a filename match of '*.c' to the argslist
+:// grep -w sometext *.c	//					<<- w flag for whole word
+
+//:windo [command] | [command] | ...		//<<- execute command in all windows. If get error, stop at that window and put cursor there.
+								               acts only with current tab. Cannot be a cmd that changes the order of or adds to the windows
+
+//:bufdo [command] | [command] ...	       //<<- execute command in all buffers
+
 
 **Global Commands:**
 //:g //
@@ -141,7 +149,7 @@ mt :'t+1,.g/^/m 't							<<- mt first line, move cursor to last line, this comma
 *q: opens cmd-line history for execution of commands
 *history and history /: up, down, match, completion works here
 <C-h/C-l>									<<- one char back, forward
-<C-j>, <C-k>								<<- one word back, forward
+<C-j>, <C-k>								<<- one word back, forward (mapped, actually is <shift-left>, <shift-right>
 <C-w>										<<- delete word 
 <C-u> 										<<- restart command
 <insert>									<<- overstrike mode
