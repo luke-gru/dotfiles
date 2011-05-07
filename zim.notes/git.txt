@@ -3,6 +3,8 @@ Wiki-Format: zim 0.4
 Creation-Date: 2010-12-11T23:45:32.086871
 
 ====== git VCS ======
+HELP: man git-log || git help log
+
 *HEAD = reference to last commit in current checked out branch
 $git config --global alias.co checkout									<<- make new git alias 
 $git config --global color.ui true
@@ -53,11 +55,11 @@ git for-each-ref --format='%(committerdate)%09%(refname)' \
 
 
 **Getting some SHA1s**
-$git ls-remote <URL>													<<- check sha1 of branch on the remote repo
+$git ls-remote <URL> (or alias)										<<- check sha1 of branch on the remote repo
 $git --git-dir=/path/to/repo/.git rev-parse origin/branch_X		<<- check sha1 of //local //branch_x from anywhere on filesystem
 $git --git-dir=/path/to/repo/.git rev-parse --verify HEAD			<<- check sha1 of //local //HEAD from anywhere on filesystem
 //Note: references to remote branch heads are stored in //__ .git/refs/remotes/origin/branch_X__
-
+$git ls-files --stage													<<- names and SHA1s of what is in the .git/index dir.
 
 
 
@@ -126,6 +128,9 @@ git rebase [basebranch] [topicbranch]
 **cloning**
 __$git clone git@github.com:tpope/vim-fugitive.git__		(vim-fugitive folder)	<<- clones repo to folder. Default folder = wd
 
+**blame**
+$git blame -L n,m <file>
+
 **log**
 $git log [branch]												<<- note that branches take their root's commits
 $git log HEAD..branch										<<- log of branch commits not on HEAD branch
@@ -138,12 +143,35 @@ $git log --grep="p4 depo" --format="%h %an %s" --author="Hausmann" **--all-match
 $git log -S[userformat_find_requirements]				<<- look through diff of each commit for string
 $git show [sha]												<<- shows patch of commit (diff)
 $git log -p														<<- put patch after each commit, very verbose
+$git log -p file													<<- show all patches for file, doesn't follow renames
+$git log --follow -p file										<<- follows renames
 $git log --stat													<<- less verbose -p, just # of insertions, deletions, files changed (the diffstat)
+
+//find commit by string: //
+$git log --pretty=oneline -S'string'
 
 **reflog**
 $git reflog													<<- show the reference log
 //note: {0} means 0 positions ago (now). {2} means 2 positions ago//
 $git reflog show (branch)									<<- show reflog for this branch, rather than all (default is HEAD, so all)
+
+**format-patch**
+//First, make sure to //$git diff --check// before committing //
+$git format-patch -M --output-directory /tmp/mypatches 4e3aa87..469cb84		<<- specify two commits, parent and HEAD for HEAD commit (difference b/t parent and 																							HEAD for the patch)
+//what changes are in the patch?//
+$git apply --stat patchname.patch
+
+//check to see if patch introduces errors://
+$git apply --check fix_empty_poster.patch
+
+//applying a patch with signoff://
+$git am --signoff < patchname.patch 
+
+//make a patch without committing://
+$git diff > result.patch 
+
+//if a few commits are made in a new branch, to patch them into one commit://
+$git format-patch master --stdout > fix_whatever.patch							<<- against master
 
 
 **log formatting**

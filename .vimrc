@@ -72,6 +72,11 @@ set statusline+=%r      "read only flag
 set statusline+=%y      "filetype
 set statusline+=%m      "modified flag
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+if exists("g:loaded_syntastic_plugin")
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+endif
 set statusline+=%=      "left/right separator
 set statusline+=x=%c,     "x=cursor column
 set statusline+=y=%l/%L   "y=cursor line/total lines
@@ -199,6 +204,7 @@ set mousehide "Hide mouse until it's moved.
 set mouse=a
 set history=40 "command-line history remembered. default = 20
 set bs=2 "backspace over everything in insert mode
+
 " :let loaded_project = 1 uncomment to turn off project plugin
 set cmdheight=3 "cmd line height.
 "the include path for current file, and the find command and its variants
@@ -208,10 +214,15 @@ set laststatus=2 " All windows have status lines
 set shortmess=at " To avoid the 'Hit ENTER to continue' promp
 set helpheight=20 "minimum height for help wins, default=20, 0 is default spli
 "win height
+
+"plugin stuff
+let g:syntastic_auto_loc_list=1
+let g:syntastic_disable_file_types = ['php']
 let g:proj_flags='gimst' "default is imst, g toggles proj file w/ F12
 let g:proj_run1='silent !gvim %f'
 let g:proj_run4='!git add %f'
 let g:proj_run5='!git add .'
+"/plugin stuff
 
 set noequalalways "all windows auto-same size when splitting or closing
 "set winminwidth=5
@@ -265,6 +276,13 @@ nnoremap <leader>rmi :Rinvert<CR>
 nnoremap <leader>rep :Rextract<CR>
 " /rails-vim mappings
 
+" syntastic mappings
+nnoremap <leader>se :SyntasticEnable<CR>
+nnoremap <leader>sd :SyntasticDisable<CR>
+cnoremap <leader>se SyntasticEnable 
+cnoremap <leader>sd SyntasticDisable 
+" /syntastic mappings
+
 nnoremap <C-y> "+y
 nnoremap <C-\> "+p
 " yanking remaps
@@ -290,6 +308,7 @@ nmap <silent> <CR> za
 " /fold mappings
 
 noremap <silent> <F3> <ESC>:e $MYVIMRC<CR>
+nnoremap <leader>; o<ESC>
 
 nnoremap <F9> :set virtualedit=block<CR>
 nnoremap <F11> :set virtualedit=all<CR>

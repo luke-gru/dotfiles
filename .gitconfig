@@ -2,7 +2,7 @@
   name = Luke Gru
   mail = luke.gru@gmail.com
 [core]
-  editor = gvim
+	editor = vim
   excludesfile = /home/luke/.gitignore
 
   [alias]
