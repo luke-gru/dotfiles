@@ -150,7 +150,4 @@ PS1="(\$(~/.rvm/bin/rvm-prompt v g))$PS1"
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
 export LESS=-RFX
-alias dog="$HOME/Desktop/code/ruminder/ruminder.rb"
-alias walking="$HOME/Desktop/code/ruminder/ruminder.rb"
-alias walking="$HOME/Desktop/code/ruminder/ruminder.rb"
-alias walking="$HOME/Desktop/code/ruminder/ruminder.rb"
+alias gruber="/home/luke/Desktop/code/gruber.rb"

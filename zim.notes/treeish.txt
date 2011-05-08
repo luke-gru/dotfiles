@@ -1,0 +1,37 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-05-07T18:24:20.030440
+
+====== treeishes ======
+ways to refer to sha1s 
+
+**If your master branch is on the 980e3 commit and you've pushed it to origin and have tagged it 'v1.0', then all of the following are equivalent:**
+980e3ccdaac54a0d4de358f3fe5d718027d96aae
+
+origin/master
+refs/remotes/origin/master
+
+master
+refs/heads/master
+
+v1.0
+refs/tags/v1.0
+
+**Ordinal Spec**
+master@{5}							<<- Nth previous value of master HEAD ref
+
+**Carrot Parent and Tilde Spec**
+//the same//
+master^^ == master~2
+
+**Tree Pointer**
+master^{tree}
+
+**Blob Spec**
+master:/path/to/file
+
+**Range (of commits)**
+7b593b5..51bea1				<<- excludes first, includes second
+
+7b593b.. 						<<- includes all commits since  (same as above)
+

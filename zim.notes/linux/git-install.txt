@@ -1,0 +1,22 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-05-07T20:18:03.914718
+
+====== git-install ======
+pre: $sudo apt-get build-dep git-core git-doc expat
+
+1. $./configure
+
+2. 	$ make prefix=/usr all ;# as yourself
+       $ make prefix=/usr install install-doc ;# as root			<<- better option
+
+3.   $sudo make install install-doc
+
+
+//Note: Ubuntu does have git maintainers: see //https://launchpad.net/~git-core/+archive/ppa
+**if this is up-to-date, then:**
+$sudo add-apt-repository ppa:git-core/ppa
+$sudo apt-get update
+$sudo apt-get git-core git-doc gitk
+
+
