@@ -41,6 +41,7 @@ Creation-Date: 2011-04-21T18:44:25.010049
 -Gnome partition editor (gparted)
 -fonts: ttf-inconsolata
 -alarm clock
+-dropbox
 
 //Chat://
 -ircii

@@ -2,7 +2,7 @@ Content-Type: text/x-zim-wiki
 Wiki-Format: zim 0.4
 Creation-Date: 2011-04-24T12:41:29.169005
 
-====== ack  ======
+====== ack ======
 
 **_   /|**
 **\'o.O'**
@@ -23,7 +23,7 @@ Ack uses Perl regexes!
 **context searching: **ack -C 1 return 											<<- 1 line before and after the matching line, for context
 
 
-**Perl regular expressions: **
+**Perl regular expressions: (man perlre if perl-doc package is installed)**
 
 ^				<<- BOS
 $				<<- EOS
@@ -44,7 +44,8 @@ $				<<- EOS
 \xf0  			<<- match hex char ( in this case f0 hexidecimal)
 
 //Repetition://
-*				<<- 0 or more times
+* <<- 0 or more times
+
 + 				<<- 1 or more times
 ?      			<<- 1 or 0 times
 {n}    			<<- exactly n times

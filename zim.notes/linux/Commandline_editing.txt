@@ -1,0 +1,24 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-05-11T23:05:04.902607
+
+====== Commandline editing ======
+
+<C-d>		 	=> delete char under cursor
+<C-a>, <C-e>	=> beg, end of cmdline
+<C-f>			=> 1 char forward
+<C-b>			=> 1 char backward
+<Alt-f>			=> word forward
+<Alt-b>		=> word backward
+<C-u>			=> delete to beg. of line
+<C-k> 			=> delete to end of line
+<C-t>			=> switch char w/ left
+<A-t> 			=> switch word w/ left
+<A-u>			=> uppercase the word
+<A-l>			=> lowercase the word
+<A-c>			=> capitalize the word
+<C-v>			=> insert special char
+<C-w>			=> cut previous word
+<A-d>			=> cut next word
+<C-y> 			=> paste most recent cut
+<A-y>			=> rotate back to prev. cut text, paste it

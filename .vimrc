@@ -222,6 +222,7 @@ let g:proj_flags='gimst' "default is imst, g toggles proj file w/ F12
 let g:proj_run1='silent !gvim %f'
 let g:proj_run4='!git add %f'
 let g:proj_run5='!git add .'
+let g:bufExplorerSplitRight=1
 "/plugin stuff
 
 set noequalalways "all windows auto-same size when splitting or closing

@@ -4,13 +4,15 @@ Creation-Date: 2011-04-23T18:49:59.387026
 
 ====== commands and utilities ======
 
+see [[linux:Commandline editing|Commandline editing]]
+
 __Utilities:__
 
 [[linux:awk:awk|awk]]
 
 [[linux:ack|ack]]
 
-grep
+[[linux:grep|grep]]
 
 [[linux:sed|sed]]
 
@@ -22,7 +24,33 @@ printf
 
 __Commands__**:**
 
-**Links**
-Creating sym links: ln -s {origin} {new destination}
+**Manuals and help:**
+$help					=> see shell builtin commands
+
+**Links:**
+Creating sym links:  $ln -s {origin} {new destination}
+
+**useful process commands:**
+$ps ax[u] (BSD $PS_FORMAT) => show all processes (x lifts the BSD 'must have  TTY' restriction)
+$ps x							  => show my processes
+$ps u 							  => show my TTY processes, show username also
+$top							  => interactive, updated list of top processes
+
+in file permissions, an **s **in the user/group **x** area (set UID or set GID program) means that it can be run by anyone, but the process is run under the UID of the user, group, or both.
+
+**ENV variables & aliases:**
+$declare						  => show env variables ($env gets short version)
+$alias							  => show aliases
+
+**history:**
+see [[linux:shell:bash|bash]]
+
+**back- and foreground processes:**
+-end command with ' &', process run as bg
+$jobs 		=> see bg processes
+$fg %1	=> return process 1 (in jobs) to fg
+
+**Expanding commands:**
+
 
 

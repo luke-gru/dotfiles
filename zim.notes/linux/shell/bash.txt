@@ -12,15 +12,30 @@ $!letters [search through hist. and execute first found command]
 !?ate? '+%Y' [?regexp? with args]
 ^%Y^%m^ [repeat last command, but sub. %Y with %m]
 
-history: 
+**history: **
 history [show full history]
 history 10 [last 10 commands]
 history -p !d [just SHOW me what this would execute (or verify)
 !1101 [execute history line 1101]
+!?string?	[run most recent command containing string]
 history -d 1101 [delete history line 1101]
 history -c [clears all history]
 
+fc 100	[cmdline opens in text editor for editing, exit, cmd runs]
+fc 100 105	[range of commands, editor opens, commands execute sequentially]
+
+
 'histverify' option lets you edit the command when it's retrieved
+
+**history keystrokes:**
+<C-r>				=> reverse incr. search
+<C-s>				=> forward inc. search
+<A-p>				=> reverse search
+<A-n>				=> forward search
+
+
+
+**dirs, push and pop:**
 
 dirs [saves a list of dirs in a single session]
 dirs +1 moves to the right, -1 moves to the left
