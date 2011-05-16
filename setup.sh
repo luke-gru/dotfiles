@@ -2,7 +2,7 @@
 
 if [ -e $HOME/.autotest ]
 then
-  rm $HOME/.autotest
+  rm -rf $HOME/.autotest
 fi
 
 if [ -e $HOME/.vimrc ]
@@ -72,17 +72,17 @@ fi
 
 if [ -d $HOME/.autotest_images ]
 then
-  rm $HOME/.autotest_images
+  rm -rf $HOME/.autotest_images
 fi
 
 if [ -d $HOME/.netscape ]
 then
-  rm $HOME/.netscape
+  rm  -rf $HOME/.netscape
 fi
 
 if [ -d $HOME/.backup ]
 then
-  rm $HOME/.backup
+  rm -rf $HOME/.backup
 fi
 
 echo "What directory is 'dotfiles' in? *don't put a trailing '/'"

@@ -5,4 +5,5 @@ home=Home
 icon=
 document_root=
 slow_fs=False
+endofline=unix
 
