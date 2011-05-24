@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-05-16T21:27:56.759466
+
+====== compile/configure options ======
+
+**./configure** --with-features=huge --enable-gui=gnome2 --enable-perlinterp --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.6/config (must contain config.c file)--enable-rubyinterp --enable-cscope --enable-tclinterp --disable-darwin
+
+__python2-3-dev__ package needed (debian package) for python3 support
+__python2-3 __package also
+
+Note that gundo.vim only works with python 2.4 to 2.7, not 3
+

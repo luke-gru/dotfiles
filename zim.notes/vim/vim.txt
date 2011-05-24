@@ -3,6 +3,7 @@ Wiki-Format: zim 0.4
 Creation-Date: 2010-12-20T19:20:41.147318
 
 ====== vim ======
+*[[vim:compile options|compile options]]
 *[[vim: Opening a vim session|Opening a vim session]]
 My VIM plugins: //vim.rails, vim.project, vim.snipmate, vim.surround, autotags (need exuberant ctags), fugitive, pathogen,//
 

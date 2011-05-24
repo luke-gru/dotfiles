@@ -7,28 +7,28 @@ call pathogen#helptags()
 set nocompatible "not compatible with vi
 syntax enable
 
-  if has("autocmd")
-    filetype plugin on "all plugins are on by default
-    filetype indent on
-  endif
+if has("autocmd")
+  filetype plugin on "all plugins are on by default
+  filetype indent on
+endif
 
-  if hostname() == "luke-Pavilion-dv4000-PX311UA-ABL" ||
-        \ hostname() == "luke-K52F" ||
-        \ hostname() == "ubuntu"
-    set guifont=Inconsolata\ Medium\ 12
-    set swapsync=fsync
-    set dictionary=usr/dict/words
-  elseif has("mac")
-    set guifont=Monaco:h12
-  elseif has("win32")
-    set guifont=Consolas:h11,Courier\ New:h10
-  elseif has("unix")
-    set dictionary=usr/dict/words
-    set swapsync=fsync
-    if &guifont == ""
-      set guifont=bitstream\ vera\ sans\ mono\ 10
-    endif
+if hostname() == "luke-Pavilion-dv4000-PX311UA-ABL" ||
+      \ hostname() == "luke-K52F" ||
+      \ hostname() == "ubuntu"
+  set guifont=Inconsolata\ Medium\ 12
+  set swapsync=fsync
+  set dictionary=usr/dict/words
+elseif has("mac")
+  set guifont=Monaco:h12
+elseif has("win32")
+  set guifont=Consolas:h11,Courier\ New:h10
+elseif has("unix")
+  set dictionary=usr/dict/words
+  set swapsync=fsync
+  if &guifont == ""
+    set guifont=bitstream\ vera\ sans\ mono\ 10
   endif
+endif
 
 "terminal colors. test `tput colors`
 " IMPORTANT: Uncomment one of the following lines to force
@@ -38,24 +38,25 @@ set t_Co=256
 " set t_Co=88
 set background=dark
 
-  if (&t_Co == 256 || &t_Co == 88) && !has('gui_running')
-    " \ filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim"))
-    " Use the guicolorscheme plugin to makes 256-color or 88-color
-    " terminal use GUI colors rather than cterm colors.
-    " runtime! plugin/guicolorscheme.vim
-    " GuiColorScheme XXX
-    colorscheme xoria256
-  elseif &diff
-    colorscheme peaksea
-  else
-    colorscheme blackboard
-  endif
+if (&t_Co == 256 || &t_Co == 88) && !has('gui_running')
+  " \ filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim"))
+  " Use the guicolorscheme plugin to makes 256-color or 88-color
+  " terminal use GUI colors rather than cterm colors.
+  " runtime! plugin/guicolorscheme.vim
+  " GuiColorScheme XXX
+  colorscheme xoria256
+elseif &diff
+  colorscheme peaksea
+else
+  colorscheme blackboard
+endif
 "/terminal colors
 
 
 set ruler
 set list "show me listchars
 let mapleader=" "
+set report=0 "always report when changing lines
 set winaltkeys=no
 set tags=tags;,tags
 set textwidth=0 "default, overridden local to buffer for certain filetypes, see autocommands
@@ -73,14 +74,14 @@ set statusline+=%r      "read only flag
 set statusline+=%y      "filetype
 set statusline+=%m      "modified flag
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
-if exists("g:loaded_syntastic_plugin")
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
-endif
+"if exists("g:loaded_syntastic_plugin")
+"  set statusline+=%#warningmsg#
+"  set statusline+=%{SyntasticStatuslineFlag()}
+"  set statusline+=%*
+"endif
 set statusline+=%=      "left/right separator
-set statusline+=x=%c,     "x=cursor column
-set statusline+=y=%l/%L   "y=cursor line/total lines
+set statusline+=c=%c,     "x=cursor column
+set statusline+=l=%l/%L   "y=cursor line/total lines
 set statusline+=\ (%P)    "percent through file
 set showmode
 set showcmd
@@ -117,15 +118,32 @@ if exists("+spelllang")
 endif
 set pastetoggle=<F8>
 
-
-
+funct! WrapKeys()
+  if &wrap == 1
+    nnoremap j gj
+    nnoremap k gk
+    vnoremap j gj
+    vnoremap k gk
+    nnoremap <Down> gj
+    nnoremap <Up> gk
+    vnoremap <Down> gj
+    vnoremap <Up> gk
+    echo "wrap keys on"
+  elseif &wrap == 0
+    nnoremap j j
+    nnoremap k k
+    vnoremap j j
+    vnoremap k k
+    echo "wrap keys off"
+  endif
+endfunction
 
 "diff stuff
 set diffopt+=vertical,context:4
 
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-  \ | wincmd p | diffthis
+        \ | wincmd p | diffthis
 endif
 
 " diff mappings
@@ -190,14 +208,22 @@ map <leader>cd :cd <C-R>=expand("%:p:h") <CR>
 :iabbr slt stylesheet_link_tag
 "/my Rails abbreviations
 
-:iabbr mymail luke<DOT>gru<AT>gmail<DOT>com
+:iabbr myemail luke<DOT>gru<AT>gmail<DOT>com
 :cabbr proj Project ~/.vim/projects/
 :cabbr mks mks! ~/.vim/sessions/session
 :cabbr Ls ls
 :cabbr LS ls
+:cabbr B# b#
 
 set viewdir=~/.vim/views "dir where mkview files are stored
 set directory=~/.backup// "dir for swap files, // ensures full path in swap name separated by %
+if version >= 730
+  set undofile
+  if has("unix") || has("mac")
+    set undodir=/tmp
+  end
+end
+
 if ! len(glob("~/.backup/"))
   echomsg "Backup directory ~/.backup doesn't exist!"
 endif
@@ -224,6 +250,11 @@ let g:proj_run1='silent !gvim %f'
 let g:proj_run4='!git add %f'
 let g:proj_run5='!git add .'
 let g:bufExplorerSplitRight=1
+if version >= 730
+  nnoremap <F5> :GundoToggle<CR>
+else
+  nmap <F5> <Nop>
+endif
 "/plugin stuff
 
 set noequalalways "all windows auto-same size when splitting or closing
@@ -232,8 +263,6 @@ set winfixwidth   "splits resize width of current win. only (good for vsplits)
 set splitright    "verti. splits go right (good for vsplits)
 "set winfixheight  "splits resize height of current win. only
 set splitbelow    "horiz. splits go below (good for splits)
-
-"n- and i-mode mappings
 
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
@@ -247,11 +276,7 @@ function! Preserve(command)
   call cursor(l, c)
 endfunction 
 
-if version >= 730
-  nnoremap <F12> :GundoToggle<CR>
-else
-  nmap <F12> <Nop>
-endif
+"n- and i-mode mappings
 
 " stop hightlighting for hlsearch, turn back on w/ next search
 nnoremap <leader>n :noh<CR>
@@ -288,8 +313,8 @@ cnoremap <leader>sd SyntasticDisable
 nnoremap <C-y> "+y
 nnoremap <C-\> "+p
 " yanking remaps
-nmap gy y$
-nnoremap Y :call Preserve("normal 0y$")<CR>
+nnoremap Y y$
+nnoremap gy :call Preserve("normal 0y$")<CR>
 
 " Set the indent width to 2, 4, or 8
 nmap <Leader>2 :setlocal tabstop=2 shiftwidth=2<CR>
@@ -393,6 +418,7 @@ endfunc
 "working with wrapped text
 " softwrap
 command! -nargs=* Swrap setl wrap linebreak nolist showbreak=…
+command! -nargs=0 WK call WrapKeys()
 " ellipsis = unicode 2026
 
 " (hard wrapping options in autocmds below for filetypes)
@@ -425,13 +451,13 @@ if has("autocmd")
   "mnemonic is Local
   nmap <silent> <leader>ms :Repl http://localhost/
 
-  autocmd BufWriteCmd *.html,*.css,*.html.erb :call Refresh_firefox()
+  autocmd BufWriteCmd *.html*,*.css* :call Refresh_firefox()
   "/mozrepl stuff
 
   "vimrc
   autocmd! bufwritepost .vimrc source $MYVIMRC
   "text and mail
-  au FileType mail,gitcommit setl tw=72 list formatoptions formatoptions+=an
+  au FileType mail,gitcommit setl tw=68 list formatoptions formatoptions+=an
   "-q option for par handles nested quotations in plaintext mail
   au FileType mail setl formatprg=par\ -q
   " au FileType qf silent unmap <buffer> <CR>
@@ -463,9 +489,9 @@ if has("autocmd")
   au GUIEnter * if has("diff") && &diff | set columns=165 | endif
   "last cursor position in buffer
   au BufReadPost *
-  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-  \   exe "normal! g'\"" |
-  \ endif
+        \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+        \   exe "normal! g'\"" |
+        \ endif
 
 endif
 
@@ -485,4 +511,3 @@ else
   endif
 endif
 
-"autocmd User Rails

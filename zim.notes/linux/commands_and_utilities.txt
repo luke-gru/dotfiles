@@ -50,7 +50,9 @@ see [[linux:shell:bash|bash]]
 $jobs 		=> see bg processes
 $fg %1	=> return process 1 (in jobs) to fg
 
-**Expanding commands:**
+**Tarball Extraction:**
+tar -xvzf game.tar.gz
+tar -xvjf game.tar.bz2
 
 
 

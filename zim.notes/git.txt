@@ -12,14 +12,13 @@ $git config --global color.ui true
 **git commands:**
 
 **1)Basic:**
-				    //aliases in .profile//
 
 $git remote add [alias] **git@github.com:<username>/<reponame>.git**
 $git remote add [alias] master(branch)			<<- add remote branch
 $git remote rm [alias]							<<- remove remote
 $git remote -v									<<- list push and fetch remote aliases
 $git remote rename [oldalias] [newalias]
-$git remote show [alias]							<<-tracked branches, branches to prune from local, new remote branches, local branch pushed etc...
+$git remote show [alias]							<<- show tracked branches, branches to prune from local, new remote branches, local branch pushed etc...
 
 
 $git init											<<- initialize directory to work with git
@@ -28,7 +27,7 @@ $git commit -m "description of commit"	ci	<<- commit to the local repository wit
 $git commit -**a**m "message"						<<- commit to local repository ALL **tracked** files and changes, not necesssary to //git add //changes
 $git commit -v									<<- puts diff of commit in editor, strips out when file saved
 $git commit --amend								<<- replace prev. commit with staging area
-$git status (-s[hort])				    gs			<<- clean, updated 
+$git status (-s[hort])(-b[ranch])		gs		      	<<- clean, updated 
 $git push [alias] [branch](existing or new)
 $git commit --amend								<<- amend last commit, presumably forgot to add or rm a file from index, or commit with the -a flag
 
@@ -52,8 +51,6 @@ $git remote -v update							<<- update refs for remote of current branch and see
 git for-each-ref --format='%(committerdate)%09%(refname)' \
   --sort=-committerdate refs/remotes/
 
-
-
 **Getting some SHA1s**
 $git ls-remote <URL> (or alias)										<<- check sha1 of branch on the remote repo
 $git --git-dir=/path/to/repo/.git rev-parse origin/branch_X		<<- check sha1 of //local //branch_x from anywhere on filesystem
@@ -72,8 +69,6 @@ In this scenario, you will have to delete and recreate the branch.
 git push origin :alpha-0.3.0
 git push origin cc4b63bebb6:refs/heads/alpha-0.3.0
 
-
-
 **diff**
 $git diff (--stat)									<<- line by line of unstaged changes relative to last commit      (stat) = short summary, status
 $git diff --cached	(--stat)							<<- line by line of staged changes relative to last commit
@@ -81,6 +76,7 @@ $git diff HEAD (--stat)							<<- line by line of all changes relative to last c
 $git diff (same as above)
 $git diff (--stat) sha1, branchB					<<- suppose sha1 on master and sha1 = merge base (common commit they diverged from), this shows the diff 														between the merge base of master and the tip of branchB, thus all the stuff that was changed in branchB
 $git diff master...branchB						<<- same as above (diff the merge base of master with the tip of branchB)
+$git diff --word-diff								<<- inline diff instead of whole lines
 
 **revert/reset** 
 $git reset HEAD //filename						//<<- reset to last commit version, discard changes (default reset is --mixed)

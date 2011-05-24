@@ -130,16 +130,11 @@ alias gems='gem list'
 alias rubies='rvm list'
 #git
 alias gcl='git config --list'
-alias gb='git branch'
-alias gba='git branch -a'
-alias gci='git commit'
 alias gdiff='git diff | gvim --remote-silent'
 alias g='git'
-alias gst='git status'
-alias gpom='git push origin master'
-alias gp='git push'
-alias gpu='git pull'
-
+alias alwaysrebase='git config branch.autosetuprebase always'
+alias localrebase='git config branch.autosetuprebase local'
+alias neverrebase='git config branch.autosetuprebase never'
 #more aliases in .gitconfig
 #/aliases
 
@@ -151,3 +146,4 @@ PS1="(\$(~/.rvm/bin/rvm-prompt v g))$PS1"
 
 export LESS=-RFX
 alias gruber="/home/luke/Desktop/code/gruber.rb"
+alias pills="$HOME/Desktop/code/ruminder/ruminder.rb"

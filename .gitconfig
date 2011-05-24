@@ -1,21 +1,45 @@
 [user]
-  name = Luke Gru
-  mail = luke.gru@gmail.com
+	name = Luke Gruber
+	email = luke.gru@gmail.com
 [core]
-	editor = vim
-  excludesfile = /home/luke/.gitignore
-
-  [alias]
-  co = checkout
-  ci = commit
-  st = status
-  br = branch
-  bra = branch -a
-  remotes = remote -v show
-  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  type = cat-file -t
-  dump = cat-file -p
-  cl = clone
-  saveass = reflog show HEAD@{now} -10
+  	editor = vim
+	sharedRepository = 640
+[alias]
+	co = checkout
+	ci = commit
+	st = status -sb
+	br = branch
+	bra = branch -a
+	ds = diff --stat
+	dcs = diff --cached --stat
+	remotes = remote -v show
+  	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  	type = cat-file -t
+  	dump = cat-file -p
+	cl = clone
+	saveass = reflog show HEAD@{now} -10
 [color]
-  ui = true
+	ui = true
+[branch]
+	autosetupmerge = true
+	autosetuprebase = never
+[merge]
+	summary = true
+	stat = true
+[mergetool]
+	keepBackup = true
+[notes]
+	rewrite = true
+[apply]
+	whitespace = warn
+[format]
+	pretty = oneline
+[push]
+	default = tracking
+[github]
+	user = luke-gru
+[grep]
+	extendedRegexp = true
+	lineNumber = true
+[instaweb]
+	httpd = webrick
