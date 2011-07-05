@@ -12,13 +12,14 @@ a = ["cat", "bat", "dog", "crow", "ant", "elk"]
 a[-3..-1]= nil
 => a = ["cat", "bat", "dog", nil, nil, nil]
 
-You can also index arrays using [start__,__ count] format.
+You can also index arrays using [start__,__ count] format. If using start, count with assigning one value, the value is assigned to the first number and the rest
+of the array indices are gone
 
 Complete list on __page 64,65__ of the __Pickaxe__ book.
 
 
 
-__.length__
+__.length, .count__, also takes a block to see how many return true for the block
 //Example://
 array = []
 array[0]= "me"

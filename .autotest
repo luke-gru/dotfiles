@@ -1,7 +1,12 @@
 #!/bin/ruby
-require 'test/unit/ui/console/testrunner'
-require 'redgreen'
-require 'autotest/timestamp'
+begin
+  require 'test/unit/ui/console/testrunner'
+  require 'redgreen'
+  require 'autotest/timestamp'
+rescue
+  require 'rubygems'
+  retry
+end
 
 module Autotest::GnomeNotify
   def self.notify title, msg, img

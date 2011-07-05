@@ -1,0 +1,30 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-07-03T21:12:25.432195
+
+====== Metaprogramming ======
+
+**Modules and mixins - caveat**
+Note that Module static methods are useless when included or extended in a class, as only their instance methods are accessible from classes that include them.
+
+**Anonymous singleton classes vs class objects**
+
+class << Test
+self here is Test's anonymous singleton class, so defining a method here like below would not work
+
+end
+
+class Test
+	def self.hello
+
+		puts "hello"
+
+	end
+
+end
+
+Test.hello
+
+**Hook methods**
+
+Module.included(host_class)

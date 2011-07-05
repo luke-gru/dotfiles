@@ -4,7 +4,7 @@ Creation-Date: 2010-12-13T18:14:34.990958
 
 ====== Ruby String Methods ======
 
-**Create String: String.new, %Q{..} = "", %{..} = "", %q{..}   = '', here documents (Pickaxe, p. 104)**
+**Create String: String.new, %Q{..} = "", %{..} = "", %q{..}   = '' , here documents (Pickaxe, p. 104)**
 //For double-quoted string substitution methods, see Pickaxe p. 312//
 
 __.dup__ creates a new object with the same contents

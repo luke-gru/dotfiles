@@ -9,13 +9,11 @@ Creation-Date: 2010-12-09T20:06:45.294364
 **Ruby**
 
 [[Ruby Regular Expressions]]
-[[Symbols]]
 
 [[Short-circuit evaluation]]
 *[[operator for arrays of n values]]
-![[operator in front of variables]]
-[[hard expressions]]
 
+[[Gotchas, Tips and Tricks]]
 [[Ruby Methods]]
 [[Variables, methods and their scopes]]
 [[Control Structures]] (iterators, blocks, Procs)
@@ -30,6 +28,8 @@ Creation-Date: 2010-12-09T20:06:45.294364
 [[Input.Output]]
 [[Encoding, Transcoding]]
 [[Talking to Networks]]
+
+[[Ruby:Metaprogramming|Metaprogramming]]
 
 **Ruby on Rails**
 [[Rails command line functions]]

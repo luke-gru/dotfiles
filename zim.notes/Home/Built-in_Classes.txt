@@ -35,8 +35,8 @@ __.superclass__															=> name of superclass
 __def class NameOfClass__
 __SomeClass = Class.new__															  <<- make sure the assignment is a constant. Then, can def with class SomeClass.
 
-def MyStruct(*keys)																  <<- this is showing what the class Struct is like. Here, MyStruct //is// a class!!
-	__Class.new do__																	<<- __creates class inside method. Method is now class.__
+def MyStruct(*keys)																  <<- this is showing what the class Struct is like. Struct returns a class!
+	__Class.new do__																	<<- __creates class inside method.__
 
 		attr_accessor *keys
 
@@ -153,7 +153,7 @@ Example: Song = Struct.new(//:title, :name, :length)//
 
 *Pickaxe p. 385
 
-Person = __Struct.new__(:name, :address, :likes)											<<- Here, Person behaves like a class!
+Person = __Struct.new__(:name, :address, :likes)											<<- Here, Person is a class!
 class Person
 	def to_s
 
@@ -202,11 +202,11 @@ Math.sin(Math::PI/6.0)												=> 0.49999999999999994
 
 **Built-in Libraries:**
 
-//OptionParser//
+optparse
 test/unit
-
-
-
+csv
+uri
+net/http
 
 **Access module constants, classes and modules inside modules:**
 → //modules and classes are treated like constants//

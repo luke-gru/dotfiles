@@ -15,7 +15,9 @@ endif
 if hostname() == "luke-Pavilion-dv4000-PX311UA-ABL" ||
       \ hostname() == "luke-K52F" ||
       \ hostname() == "ubuntu"
+  "set guifont=Mensch\ Regular\ 13
   set guifont=Inconsolata\ Medium\ 12
+  "set guifont=Monaco\ 12
   set swapsync=fsync
   set dictionary=usr/dict/words
 elseif has("mac")
@@ -48,6 +50,7 @@ if (&t_Co == 256 || &t_Co == 88) && !has('gui_running')
 elseif &diff
   colorscheme peaksea
 else
+  "colorscheme xoria256
   colorscheme blackboard
 endif
 "/terminal colors
@@ -80,6 +83,7 @@ set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 "  set statusline+=%*
 "endif
 set statusline+=%=      "left/right separator
+set statusline+=%{exists('*CapsLockStatusline')?CapsLockStatusline():''}
 set statusline+=c=%c,     "x=cursor column
 set statusline+=l=%l/%L   "y=cursor line/total lines
 set statusline+=\ (%P)    "percent through file
@@ -103,7 +107,9 @@ set sw=2 "shiftwidth
 set shiftround "when indenting with >>, <<, do to nearest sw
 set listchars=tab:>−,trail:−
 set nowrap "don't wrap text by default, tw=0
-set formatprg=par "use par to format paragraphs. Default tw is 72
+if filereadable("/usr/bin/par")
+  set formatprg=par "use par to format paragraphs. Default tw is 72
+endif
 set ai "auto indent
 set si "smart indent
 set cpoptions+=$ "compatibility with vi options, when using nmode c or C, show
@@ -215,18 +221,26 @@ map <leader>cd :cd <C-R>=expand("%:p:h") <CR>
 :cabbr LS ls
 :cabbr B# b#
 
-set viewdir=~/.vim/views "dir where mkview files are stored
-set directory=~/.backup// "dir for swap files, // ensures full path in swap name separated by %
+if isdirectory(glob("~/.vim/views"))
+  set viewdir=~/.vim/views "dir where mkview files are stored
+else
+  set viewdir=/tmp
+endif
+
+if isdirectory(glob("~/.backup"))
+  set directory=~/.backup  "dir for swap files, // ensures full path in swap name separated by %
+else
+  set directory=/tmp
+  echoerr "Backup directory ~/.backup doesn't exist!"
+endif
+
 if version >= 730
   set undofile
-  if has("unix") || has("mac")
+  if has("unix") || if has("mac")
     set undodir=/tmp
-  end
-end
-
-if ! len(glob("~/.backup/"))
-  echomsg "Backup directory ~/.backup doesn't exist!"
+  endif
 endif
+
 set mousehide "Hide mouse until it's moved.
 set mouse=a
 set history=40 "command-line history remembered. default = 20
@@ -249,6 +263,8 @@ let g:proj_flags='gimst' "default is imst, g toggles proj file w/ F12
 let g:proj_run1='silent !gvim %f'
 let g:proj_run4='!git add %f'
 let g:proj_run5='!git add .'
+nmap <leader>sd :SyntasticDisable<CR>
+nmap <leader>se :SyntasticEnable<CR>
 let g:bufExplorerSplitRight=1
 if version >= 730
   nnoremap <F5> :GundoToggle<CR>
@@ -345,6 +361,8 @@ nnoremap <leader>l :set list!<CR>
 " indenting, useful stuff..
 nnoremap < <<
 nnoremap > >>
+vnoremap < <gv
+vnoremap > >gv
 
 " hightlight text I just pasted, compliments gv well
 nnoremap gV `[v`]
@@ -420,8 +438,37 @@ endfunc
 command! -nargs=* Swrap setl wrap linebreak nolist showbreak=…
 command! -nargs=0 WK call WrapKeys()
 " ellipsis = unicode 2026
-
 " (hard wrapping options in autocmds below for filetypes)
+
+
+"encoding (set)
+"http://vim.wikia.com/wiki/Working_with_Unicode
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  "setglobal bomb
+  set fileencodings=ucs-bom,utf-8,latin1
+endif
+"/encoding (set)
+
+
+"command for displaying certain gylphs, only for fonts that have the chars
+command! -range -nargs=0 Underline       call s:CombineSelection(<line1>, <line2>, '0332')
+command! -range -nargs=0 DoubleUnderline call s:CombineSelection(<line1>, <line2>, '0333')
+command! -range -nargs=0 Strikethrough   call s:CombineSelection(<line1>, <line2>, '0336')
+
+function! s:CombineSelection(line1, line2, cp)
+  execute 'let char = "\u'.a:cp.'"'
+  execute a:line1.','.a:line2.'s/\%V[^[:cntrl:]]/&'.char.'/ge'
+endfunction
+"/glyph commands
+
+"view markup in browser (linux)
+nnoremap <leader>pm :w!<CR>:!markdown % > %.html && sensible-browser file://%:p.html<CR><CR>
+
 
 if has("autocmd")
 

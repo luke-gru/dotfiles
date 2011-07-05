@@ -128,6 +128,7 @@ alias gemset='rvm gemset name'
 alias gemsets='rvm gemset list'
 alias gems='gem list'
 alias rubies='rvm list'
+alias fix='rvm use 1.9.2@def'
 #git
 alias gcl='git config --list'
 alias gdiff='git diff | gvim --remote-silent'
@@ -140,10 +141,14 @@ alias neverrebase='git config branch.autosetuprebase never'
 
 #rvm prompt
 PS1="(\$(~/.rvm/bin/rvm-prompt v g))$PS1"
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+[[ -s "/home/luke/.rvm/scripts/rvm" ]] && source "/home/luke/.rvm/scripts/rvm"
 
 export LESS=-RFX
 alias gruber="/home/luke/Desktop/code/gruber.rb"
 alias pills="$HOME/Desktop/code/ruminder/ruminder.rb"
+
+if [ -e $HOME/allmine ]
+then
+  source "$HOME/allmine"
+fi

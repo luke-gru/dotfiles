@@ -1,0 +1,40 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-06-28T18:52:35.274896
+
+====== Gotchas, Tips and Tricks ======
+
+**Instance variables vs local variables:**
+
+if @a					<<- won't return undefined local variable or method even if @a is undefined
+	puts "hi"
+
+end
+
+if a
+
+	puts "hi"			<<- will return undefined local variable or method if a is undefined
+
+end
+
+Local variables do not, like global and instance variables, have the value nil before initialization (definition)
+
+**In the main object, instance methods are all private (no explicit receiver):**
+
+
+**Local variable scope:**
+
+proc { }
+loop { }
+class { }
+module { }
+def { }
+
+**Fixnum (and Bignum) are not references to the 1 object. Number 'objects' change their object id's dynamically.**
+one = anotherone = 1
+
+**Global variables:**
+$_ (last value read by gets) and $~ (regexp match) actually have local scope
+
+
+

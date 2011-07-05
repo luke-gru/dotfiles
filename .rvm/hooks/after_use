@@ -1,0 +1,2 @@
+echo "Ruby dir: $rvm_ruby_home"
+echo "Gems dir: $rvm_ruby_gem_home <-- Gemset"

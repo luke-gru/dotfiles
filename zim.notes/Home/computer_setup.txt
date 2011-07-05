@@ -39,7 +39,7 @@ Creation-Date: 2011-04-21T18:44:25.010049
 
 //System://
 -Gnome partition editor (gparted)
--fonts: ttf-inconsolata
+-fonts: ttf-inconsolata, mensch
 -alarm clock
 -dropbox
 
@@ -50,6 +50,17 @@ Creation-Date: 2011-04-21T18:44:25.010049
 -awk (could be under gawk for GNU-awk)
 -par
 
-//SSH Tunneling/Port-Forwarding Services://
+//Rubygems://
+SSH Tunneling/Port-Forwarding Services:
 -showoff-io (gem)
 -localtunnel (gem)
+-gist (cmdline tool)
+
+//Stdout viewer in browser://
+-bcat (rtomayko)
+
+//Languages://
+markdown
+
+
+

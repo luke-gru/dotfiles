@@ -60,6 +60,7 @@ class TaxCalculator
 		@name, @block = name, block
 
 	end
+
 	
 	def get_tax(amount)
 
@@ -102,6 +103,6 @@ ________________________________________________________________________________
 //prefixed by %x, it will be executed as a command by your operating system. //
 //The value of the expression is the standard output of that command. Newlines will not be stripped://
 
-redefining backquotes {def `(cmd)}, Pickaxe p. 142
+redefining backquotes def `(cmd)}, Pickaxe p. 142
 
 

@@ -4,6 +4,7 @@
 [core]
   	editor = vim
 	sharedRepository = 640
+	excludesfile = /home/luke/dotfiles/.gitignore
 [alias]
 	co = checkout
 	ci = commit
@@ -32,8 +33,6 @@
 	rewrite = true
 [apply]
 	whitespace = warn
-[format]
-	pretty = oneline
 [push]
 	default = tracking
 [github]

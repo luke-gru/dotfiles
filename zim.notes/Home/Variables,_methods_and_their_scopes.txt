@@ -8,7 +8,7 @@ __@@class variables__ are //inherited// by children but //propagate upward// if 
 
 __@instance variables__ are available within instance methods throughout a class body. Referencing
 an uninitialized instance variable returns nil. Each object (instance of a class) has a unique set
-of instance variables.
+of instance variables. Instance variables 'initialized' in 
 
 __local variables__ are unique in that their scopes are //statically determined// by Ruby, but their existence is established dynamically.
 A local variable is created dynamically when it is first assigned a value during program execution. However, the **scope** of a local

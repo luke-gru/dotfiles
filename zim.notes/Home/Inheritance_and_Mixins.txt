@@ -60,7 +60,26 @@ Grouchy says hee, hee!
 *There is an interesting trick with extend. If you use it within a class definition, the module’s
 methods become class methods* (see Pickaxe p. 379)
 
-**Metaprogramming and Class-level macros:**
+**self.included & self.extended**
+
+Module Foo
+	def self.included?(base)						<<- Base is class that included the module (host class)
+
+		base.extend(OtherModule)
+
+	end
+
+end
+
+Module Baz
+
+	def self.extended?(base)
+
+		base.extend(OtherModule)
+
+	end
+
+end
 
 
 

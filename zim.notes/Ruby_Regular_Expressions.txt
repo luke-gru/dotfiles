@@ -61,7 +61,7 @@ Regexp.new("...", "i") OR [[/.../]] OR %r{ ... }  OR regexp::new (constructor) o
 	{m}	m occurences of prev. regexp
 
 
-	\1-9       nth previous captured group **					in **gsub** it's '//x'
+	\1-9       nth previous captured group **					in **gsub** it's '\\x'
 	\A          beginning of a string
 	\b          backspace(0x08)(inside[]only)
 	\b          word boundary(outside[]only)

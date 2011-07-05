@@ -51,13 +51,25 @@ $git remote -v update							<<- update refs for remote of current branch and see
 git for-each-ref --format='%(committerdate)%09%(refname)' \
   --sort=-committerdate refs/remotes/
 
+**Stashing index away**
+$git stash											<<- stash the index (most recent stash available as stash@{0}
+$git stash show stash@{0}						<<- show most recent stash as diffstat
+$git stash drop <stash>							<<- remove stash
+$git stash show -p								<<- show <stash> as diff with option from diffoptions (--patch)
+$git stash pop <stash>							<<- remove stash and apply
+$git stash apply									<<- apply over working copy
+$git stash --keep-index							<<- stash the index but keep it
+
+**Submodules**
+$git rm --cached vendors/submodule1			<<- remove submodule from index
+$put in .gitmodules "ignore  = dirty"			<<- ignores dirty submodule in .gitmodules
+
 **Getting some SHA1s**
 $git ls-remote <URL> (or alias)										<<- check sha1 of branch on the remote repo
 $git --git-dir=/path/to/repo/.git rev-parse origin/branch_X		<<- check sha1 of //local //branch_x from anywhere on filesystem
 $git --git-dir=/path/to/repo/.git rev-parse --verify HEAD			<<- check sha1 of //local //HEAD from anywhere on filesystem
 //Note: references to remote branch heads are stored in //__ .git/refs/remotes/origin/branch_X__
 $git ls-files --stage													<<- names and SHA1s of what is in the .git/index dir.
-
 
 
 **Updating history on remote (ie 'I made a mistake')**
@@ -79,12 +91,13 @@ $git diff master...branchB						<<- same as above (diff the merge base of master
 $git diff --word-diff								<<- inline diff instead of whole lines
 
 **revert/reset** 
-$git reset HEAD //filename						//<<- reset to last commit version, discard changes (default reset is --mixed)
-$git reset --hard									<<-  reset working directory to latest commit on branch, discard all changes
+$git reset HEAD //filename						//<<- reset to last commit version (default = mixed = discard change in //index, //unstage!)
+$git reset --hard									<<-  reset working directory to latest commit on branch, discard all changes in cwd and index
+$git reset --soft 									<<- reset branch HEAD to be at specified commit, keep cwd and index changes
 $git reset --hard HEAD^1							<<- reset working dir. to one commit ref ago, with a --hard reset
 $git checkout -- benchmarks.rb					<<- unstaged, modified file, revert back to index
-$git checkout HEAD^ -- fileB						<<- reset fileB to the state it was one commit ago (parent version)
-$git checkout -- fileB								<<- revert fileB back to index state (have not added fileB to staging area again)
+$git checkout HEAD^ -- fileB						<<- reset fileB to the state it was one commit ago (parent version), getting gid of indexed state and changing cwd state
+$git checkout -- fileB								<<- revert fileB back to index state
 $git checkout 
 git checkout origin/master -- fileB				<<- revert fileB back to state of remote origin/master
 
