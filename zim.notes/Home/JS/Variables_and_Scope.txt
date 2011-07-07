@@ -1,0 +1,20 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-07-06T20:24:22.251219
+
+====== Variables and Scope ======
+
+**Scope**
+When variables are defined in a function, they are available (and defined!) throughout the function (wherever they're defined). For example, inside nested functions they're also available.
+
+**Declaration**
+Variables not declared by var are implicity declared and are global variables.
+
+**Scope Chain**
+Scope chain runs up from call scope to global scope, and everything in between that follows the chain.
+
+
+
+
+
+

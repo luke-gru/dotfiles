@@ -1,0 +1,34 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-07-06T20:47:27.801753
+
+====== Objects ======
+
+**Literals:**
+var point = { x:2.3, y:-1.2 };			=> property x and property y with their values
+
+//Nested Literals://
+
+var rectangle = { upperLeft: { x: 2, y: 2 },
+lowerRight: { x: 4, y: 4}
+};
+
+
+**Constructed:**
+
+var o = new Object( );
+var now = new Date( );
+var pattern = new RegExp("\\sjava\\s", "i");
+
+
+
+
+**Properties:**
+
+document.images[1].width
+This code refers to the width //property// of an object stored in the second element of an
+array stored in the //images //property of the document object.
+
+
+
+

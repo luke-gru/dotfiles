@@ -1,0 +1,21 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-07-06T20:38:17.483283
+
+====== Primitive vs Reference Types ======
+
+**Primitive:**
+Numbers (all numbers are floating-point in JS)				<= all are 8 bytes
+Strings (not really primitive, but act as primitive. Actually immutable reference type)
+Boolean, null, undefined
+
+**Reference:**
+Arrays
+Objects
+Functions
+
+Reference the same area in memory. Example: if var 'a' has a value with a reference type and 'b' = 'a', and a is changed, b is changed. 	<= This isn't so for primitive types
+
+
+
+

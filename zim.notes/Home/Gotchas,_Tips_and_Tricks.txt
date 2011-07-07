@@ -30,6 +30,18 @@ class { }
 module { }
 def { }
 
+**defined? is not assigned?**
+a = 2
+b = 1 if a == 1
+
+if defined?b
+  puts "hi"
+end
+
+=> "hi"
+
+b is still defined even though not assigned to!
+
 **Fixnum (and Bignum) are not references to the 1 object. Number 'objects' change their object id's dynamically.**
 one = anotherone = 1
 
