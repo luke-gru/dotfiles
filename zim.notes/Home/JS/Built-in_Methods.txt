@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-07-08T21:04:55.527891
+
+====== Built-in Methods ======
+
+**Array**
+Array.sort() 	=>optionally takes function argument to return the element that comes first (comparison)
+
+
+

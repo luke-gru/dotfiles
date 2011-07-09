@@ -1,0 +1,60 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-07-07T22:20:14.562042
+
+====== Weird Operators ======
+
++ (gives precedence to Strings)
+= (rtl associativity)
+<=> (gives precedence to Numbers, not Strings)
+delete 			=> undefine property or variable (built-in core + client-side properties + vars declared with //var// cannot be deleted)
+				     returns true if deleted, false if it can't, and true if the variable doesn't exist...
+				     Also, delete affects ONLY properties, NOT the objects referred to by the properties
+
+typeof				=> return data type as string
+void 				=> return undefined value while discarding its operand value
+**in**	   var point = {x:1, y:2};
+          var x_coord = "x" in point		=> true (lefthand value is name of property in righthand object)
+
+**instanceof **     var d = new Date();
+			d instanceof Date;	  => true
+			d instanceof Object;	  => true (doesn't work like Ruby)
+			d instanceof Number	  => false
+
+
+**new** Constructor(args)		=> Constructor function takes optional parens //only// without args
+
+**dot .** Object.identifer (property name, either variable (the property) or method)
+
+					property !exist, returns //undefined//
+					
+
+**ary []   **Array[integer expression]	(unlike dot operator, the rvalue can be a complex expression)
+
+	      Object["string"] => property	   (constant, variable, expression)
+
+i++					=> increments, returns //non-incremented//
+++i					=> increments, returns //incremented//
+(same for decrement operator)
+
+**Identity and Equality, Reference and Primitive**
+ == and === operators work differently when using reference data types. They're only 'equal' or 'identical' when referring to the same object.
+
+**weird cases in identity (===)**
+//NaN //is not identical to anything (even itself)		=> check NaN-ness with isNaN()
+strings have to contain exactly the same chars, be the same length to be ===
+undefined === undefined
+null === null
+bool === bool
+
+**weird cases in equality (==)**
+null == undefined (type conversion)
+string == number if type conversion yields equal number
+false == 0, true == 1
+object == primitive if type conversion (toString, valueof) yields equal value
+
+
+
+
+
+

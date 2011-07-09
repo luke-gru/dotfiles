@@ -8,7 +8,14 @@ Creation-Date: 2011-07-06T20:15:40.362540
 
 [[Home:JS:Primitive vs Reference Types|Primitive vs Reference Types]]
 
-[[Home:JS:Functions|Functions as Expressions]]
+[[Home:JS:Functions|Functions]]
+
+[[Home:JS:Built-in Methods|Built-in Methods]]
 
 [[Home:JS:Objects|Objects]]
 
+[[Home:JS:Weird Operators|Weird Operators]]
+
+[[Home:JS:Compound Statements|Compound Statements]]
+
+[[Home:JS:Exception Handling|Exception Handling]]

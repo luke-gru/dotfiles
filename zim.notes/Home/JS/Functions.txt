@@ -4,6 +4,74 @@ Creation-Date: 2011-07-06T20:44:27.644472
 
 ====== Functions ======
 
-Functions (function literals, to be exact) are expressions in JS. They only optionally need a name (like lambda or proc methods)
+function //funcname//(args) { statement(s) }
+
+**Rules:**
+Function literals are expressions in JS. They only optionally need a name (like lambda or proc methods)
+Functions must have braces, unlike other statements
+A Function definition creates a new function object and stores it in a new property called //funcname//
+
+**Quirks:**
+Functions can be  called before they're defined, as JS parses the function and stores it during the parse.
+
+**Return:**
+Returning nothing from the function will return //undefined//. 
+
+**Recursive Functions:**
+// A recursive function (one that calls itself) that computes factorials
+// Recall that x! is the product of x and all positive integers less than it
+
+function factorial(x)
+{
+if (x <= 1)
+return 1;
+return x * factorial(x-1);
+}
+
+**Parameters:**
+Javascript does NOT throw an error if the amt. of arguments is not as expected.
+< than expected, right-side arguments given the undefined value
+> than expected, extra values ignored
+
+**Where we can define functions:**
+Top-level code, top-level function code, NOT in conditionals (ECMAv3). Note that function literals can appear anywhere!
+
+**Anonymous functions (lambdas) using Function constructor**
+var f = new Function("x", "y", "return x*y;");		=> last parameter is the body of the function. All params are strings.
+
+Anonymous functions aren't restricted by being compiled during parsing, they are dynamic!
+
+**Function Literals:**
+//lambda literal://
+var f = function(x) { return x*x; };
+
+//named literal://
+var f = function fact(x) { if (x <= 1) return 1; else return x*fact(x-1);  };
+
+//define and invoke in one shot://
+var tensquared = (function(x) {return x*x;})(10);
+
+**Differences b/t Function Constructors and Function Literals:**
+Function literals are compiled only once, and can be called many times if stored. Function constructors are compiled every time they're called.
+Function literals don't take weird string arguments and body.
+
+**Functions are stored as variables! (see DGTJ page 107)**
+function square(x) { return x*x; }
+var b = square;						=> This is like Ruby's //alias// method. 
+
+**Functions assigned to object properties:**
+var o = new Object;
+o.square = new Function("x", "return x*x");
+y = o.square(16);
+
+[[Home:JS:Arguments property object|Arguments property object]]
+
+[[Home:JS:Function properties and methods|Function properties and methods]]
+
+[[Home:JS:Defining Constructor Functions|Defining Constructor Functions]]
+
+
+
+
 
 

@@ -1,0 +1,34 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-07-09T09:50:06.626451
+
+====== Prototypes and Inheritance ======
+
+**How it works:**
+The prototype of an object is defined by the //constructo//r function that was used to create
+and initialize the object. All functions in JavaScript have a prototype property that
+refers to an object. This prototype object is initially empty, but any properties you define
+in it will be inherited by //all objects// created by the constructor.
+
+**Property Resolution:**
+When you read property p of an object o, JavaScript first checks to see if o has a property named p. If it
+does not, it next checks to see if the prototype object of o has a property named p. Property resolution is hella fast		=> Unlike in Ruby :(
+Writing a value to a property obviously only looks in the object itself, not the Prototype object.
+
+If you set the property p in an object o that inherits that property from its prototype, what happens is that
+ you create a new property p directly in o.			=> nice
+
+**Dynamically create class constant, methods in the Prototype Object**
+circle = new Circle();				=> now we can set properties in the prototype object. We only need one object of a class in order to do this.
+Circle.prototype.pi = 3.14159;
+
+**Create new Prototype methods:**
+// Returns true if the last character is c
+String.prototype.endsWith = function(c) {
+return (c == this.charAt(this.length-1))
+}
+
+var message = "hello world"
+message.endsWith("c");		=> false
+message.endsWith("d");		=> true
+

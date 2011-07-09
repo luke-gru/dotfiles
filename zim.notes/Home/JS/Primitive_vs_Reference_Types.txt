@@ -7,7 +7,8 @@ Creation-Date: 2011-07-06T20:38:17.483283
 **Primitive:**
 Numbers (all numbers are floating-point in JS)				<= all are 8 bytes
 Strings (not really primitive, but act as primitive. Actually immutable reference type)
-Boolean, null, undefined
+Boolean, null, undefined. If a String is null, undefined, 0, "", or NaN, it converts to false.
+
 
 **Reference:**
 Arrays

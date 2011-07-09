@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-07-09T09:32:46.265534
+
+====== Defining Constructor Functions ======
+
+function Rectangle(w, h)
+{
+this.width = w;
+this.height = h;
+}
+
+var rec = new Rectangle(10, 15);

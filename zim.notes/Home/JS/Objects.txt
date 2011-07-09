@@ -4,6 +4,13 @@ Creation-Date: 2011-07-06T20:47:27.801753
 
 ====== Objects ======
 
+**JS objects:**
+Objects are composite data types: they aggregate multiple values into a single unit and
+allow us to store and retrieve those values by name. Another way to explain this is to say
+that an object is an unordered collection of properties, each of which has a name and a
+value. The named values held by an object may be primitive values like numbers and
+strings, or they may themselves be //objects//.
+
 **Literals:**
 var point = { x:2.3, y:-1.2 };			=> property x and property y with their values
 
@@ -13,22 +20,38 @@ var rectangle = { upperLeft: { x: 2, y: 2 },
 lowerRight: { x: 4, y: 4}
 };
 
-
 **Constructed:**
-
-var o = new Object( );
+var o = new Object( );			=> here 'Object' is a //constructor function. //This object has no properties (empty)
 var now = new Date( );
 var pattern = new RegExp("\\sjava\\s", "i");
 
-
-
-
 **Properties:**
-
 document.images[1].width
 This code refers to the width //property// of an object stored in the second element of an
 array stored in the //images //property of the document object.
 
+**Dot Notation for Properties:**
+var book = new Object( );
+book.title = "Javascript: The Definitive Guide"
 
+//Nested property objects://
+book.chapter1 = new Object( );
+book.chapter1.title = "Intro to Javascript"
+book.chapter1.pages = 19
+
+book.chapter2 = { title: "Lexical Structure", pages: 6 }
+
+Properties don't get assigned using //var//
+Properties can be reassigned dynamically
+
+**Enumerating Properties:**
+function DisplayPropertyNames(obj) {				=> for/in loops don't enumerate in any particular determined order
+var names = "";
+//for//(var name //in// obj) names += name + "\n";
+alert(names);
+}
+
+**Deleting Properties:**
+delete book.chapter1;			=> removes property, does not set to undefined
 
 
