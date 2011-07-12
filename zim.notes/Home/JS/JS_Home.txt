@@ -38,6 +38,8 @@ Creation-Date: 2011-07-06T20:15:40.362540
 
 [[Home:JS:Client:Event Handlers|Event Handlers]]
 
+[[Home:JS:Client:Document object|Document object]]
+
 [[Home:JS:Client:Window object|Window object]]
 
 [[Home:JS:Client:Navigator object|Navigator object]]

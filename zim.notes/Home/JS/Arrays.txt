@@ -16,7 +16,7 @@ ary.join(/sep/ or 'sep')		=> "1,2,3,4"	=> defaults to comma-separated
 ary.reverse()					=> reverses the array in place
 ary.sort([func])				=> sorts in alphabetic (default) or through //comparison function. (return result < 0 : arg1 before, 0 or > 0 : arg1 after)//
 ary.concat(ary1,[ary2],...)	=> concats the arrays, flattening the first inner dimension
-ary.slice(1..5)					=> quirk: if the second num in range is negative, -1 is actually -2 (in Ruby), -2 is -3 (and so on...). Only for the second num in the range
+ary.slice(start,end)					=> quirk: if the second num in range is negative, -1 is actually -2 (in Ruby), -2 is -3 (and so on...). Only for the second num in the range
 ary.splice(arg1, [arg2])		=> only arg1, delete the array elements from hereon in and return them in a new array.
 								=> 2 args, delete elements at these positions and return them in a new array
 								=> more args, process start at first arg, take up 2nd arg positions (delete this many args and return them) and insert arg3, arg4
