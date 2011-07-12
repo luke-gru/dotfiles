@@ -11,7 +11,7 @@ Creation-Date: 2011-04-21T18:44:25.010049
 -rvm => ruby
 -vim
 -chromium
-	-xmarks (username: luke.gru@gmail.com, pass hint: high pass)
+	-xmarks (username:// luke.gru@gmail.com//, pass hint: high pass)
 	-adblock plus 
 
 	-imgur the world
@@ -28,6 +28,7 @@ Creation-Date: 2011-04-21T18:44:25.010049
 -filezilla
 -sqlite database browser
 -exuberant-ctags
+-rhino (javascript interpreter)
 
 //Media://
 -VLC
@@ -44,7 +45,7 @@ Creation-Date: 2011-04-21T18:44:25.010049
 -dropbox
 
 //Chat://
--ircii
+-ircII
 
 //Utilities://
 -awk (could be under gawk for GNU-awk)

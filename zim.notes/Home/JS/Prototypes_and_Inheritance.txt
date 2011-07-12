@@ -7,18 +7,19 @@ Creation-Date: 2011-07-09T09:50:06.626451
 **How it works:**
 The prototype of an object is defined by the //constructo//r function that was used to create
 and initialize the object. All functions in JavaScript have a prototype property that
-refers to an object. This prototype object is initially empty, but any properties you define
-in it will be inherited by //all objects// created by the constructor.
+refers to an object (except the function Object( ) itself). This prototype object is initially empty (well, it holds the //constructor// property), 
+but any properties you define in it will be inherited by //all objects// created by the constructor.
 
 **Property Resolution:**
 When you read property p of an object o, JavaScript first checks to see if o has a property named p. If it
-does not, it next checks to see if the prototype object of o has a property named p. Property resolution is hella fast		=> Unlike in Ruby :(
+does not, it next checks to see if the prototype object of o has a property named p. It continues up the chain
+until reaching Object.prototype.																				=> Like in Ruby (almost...?)
 Writing a value to a property obviously only looks in the object itself, not the Prototype object.
 
 If you set the property p in an object o that inherits that property from its prototype, what happens is that
  you create a new property p directly in o.			=> nice
 
-**Dynamically create class constant, methods in the Prototype Object**
+**Dynamically create instance properties, methods in the Prototype Object**
 circle = new Circle();				=> now we can set properties in the prototype object. We only need one object of a class in order to do this.
 Circle.prototype.pi = 3.14159;
 
@@ -32,3 +33,33 @@ var message = "hello world"
 message.endsWith("c");		=> false
 message.endsWith("d");		=> true
 
+**Inheritance Chain:**
+All  Objects have a prototype object. These prototype objects all inherit from __Object__'s prototype object.
+
+**Inheriting from other Classes:**
+Complex.prototype:
+// This is the constructor for the subclass.
+function MoreComplex(real, imaginary) {
+this.x = real;
+this.y = imaginary;
+}
+// __We force its prototype to be a Complex object__. This means that
+// instances of our new class inherit from MoreComplex.prototype,
+// which inherits from Complex.prototype, which inherits from
+// Object.prototype.
+__MoreComplex.prototype = new Complex(0,0);__
+// Now add a new method or other new features to this subclass.
+MoreComplex.prototype.swap = function( ) {
+var tmp = this.x;
+this.x = this.y;
+this.y = tmp;
+}
+
+//Problem: //The constructor for the class// MoreComplex //is overridden by its inheriting from the prototype of Complex.
+//Solution: //__MoreComplex.prototype.constructor = MoreComplex;__						=> doesn't work in v. < 1.2
+
+**Calling Super:**
+Cat.prototype.haveABaby=function(){ 
+	Mammal.prototype.haveABaby.call(this);			=> have to call it explicitly, no actual 'super' function
+	alert("mew!");										=> and then extend it here
+}

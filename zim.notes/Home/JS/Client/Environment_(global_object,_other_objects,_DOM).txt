@@ -1,0 +1,20 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-07-12T11:01:24.094942
+
+====== Environment (global object, other objects, DOM) ======
+
+**Global Object:**
+Window object 		=> has document property that refers the Document object, location property that refers to Location object.
+					    //self, window //are self-referential properties
+
+
+All global variables are defined as properties of the window (just like in core, nothing new here)
+
+//Quirk://
+
+Each window or frame has a unique Window object. 
+
+Window objects contain __frames__ array that refers to all //frames// within the original window.
+
+**Document Object:**

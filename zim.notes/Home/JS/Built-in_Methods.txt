@@ -4,8 +4,40 @@ Creation-Date: 2011-07-08T21:04:55.527891
 
 ====== Built-in Methods ======
 
+**All built-in objects:**
+__toString( )	__	=> invokes when it needs to coerce an object to another type. (+, alert(...), document.write(...))
+			       when invoked on objects, just gives "[object //Class//]"
+
+
+//Function.toString  => source code of function//
+//Array.toString	=> string version of each element//
+
+Lots of user-defined classes give their own version of toString( )
+Invoke Object's prototype method: //Object.prototype.toString.apply(o);// 	=> Always invokes the default
+
+Other uses: find the class of an object, because typeof only gives us //Object //or //Function//
+
+__toLocaleString()__	=> highest definition in Object class. Just returns toString() in Object. Specialized classes use to return
+					localized string representation
+					
+
+__valueOf()__	=> convert object to primitive type that's not a string (usually number). Should return primitive value representative of //this//.
+
+			Objects that don't have a primitive representation just return themselves (most objects).
+			
+
+__hasOwnProperty()__	=> arg is a property of //this//, and not an inherited property
+
+
+__propertyIsEnumerable()__	=> true if arg is a property of //this// and is enumerable by a //for/in// loop (pretty useless, just use hasOwnProperty)
+
+__isPrototypeOf__	=> returns true if //this// is a prototype of arg
+Function.prototype.isPrototypeOf(Object);		=> true, Object.constructor == Function
+
+
 **Array**
 Array.sort() 	=>optionally takes function argument to return the element that comes first (comparison)
+
 
 
 

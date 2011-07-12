@@ -11,8 +11,8 @@ delete 			=> undefine property or variable (built-in core + client-side properti
 				     returns true if deleted, false if it can't, and true if the variable doesn't exist...
 				     Also, delete affects ONLY properties, NOT the objects referred to by the properties
 
-typeof				=> return data type as string
-void 				=> return undefined value while discarding its operand value
+**typeof**				=> return data type as string [number, object, function]
+**void **				=> return undefined value while discarding its operand value
 **in**	   var point = {x:1, y:2};
           var x_coord = "x" in point		=> true (lefthand value is name of property in righthand object)
 
@@ -27,6 +27,7 @@ void 				=> return undefined value while discarding its operand value
 **dot .** Object.identifer (property name, either variable (the property) or method)
 
 					property !exist, returns //undefined//
+
 					
 
 **ary []   **Array[integer expression]	(unlike dot operator, the rvalue can be a complex expression)

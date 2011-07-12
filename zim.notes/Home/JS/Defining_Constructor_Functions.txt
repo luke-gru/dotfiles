@@ -11,3 +11,13 @@ this.height = h;
 }
 
 var rec = new Rectangle(10, 15);
+
+**The Constructor Property:**
+var o = new Complex(1,2);
+o.constructor == Complex;				=> constructor property is always inherited from the prototype
+// Evaluates to true
+
+//For a constructor function CF, CF.prototype.constructor == CF//
+
+**Constructor Property and Strict Typeing**
+This property informs us of the class of an object.

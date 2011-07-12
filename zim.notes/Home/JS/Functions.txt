@@ -39,7 +39,8 @@ Top-level code, top-level function code, NOT in conditionals (ECMAv3). Note that
 **Anonymous functions (lambdas) using Function constructor**
 var f = new Function("x", "y", "return x*y;");		=> last parameter is the body of the function. All params are strings.
 
-Anonymous functions aren't restricted by being compiled during parsing, they are dynamic!
+Anonymous functions aren't restricted by being compiled during parsing, they are dynamic! But remember, they are
+not lexically scoped like all other functions, their scope is top-level ALWAYS
 
 **Function Literals:**
 //lambda literal://

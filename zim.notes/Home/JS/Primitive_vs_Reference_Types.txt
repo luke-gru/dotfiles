@@ -6,7 +6,7 @@ Creation-Date: 2011-07-06T20:38:17.483283
 
 **Primitive:**
 Numbers (all numbers are floating-point in JS)				<= all are 8 bytes
-Strings (not really primitive, but act as primitive. Actually immutable reference type)
+Strings (not really primitive, but act as primitive. Actually immutable //reference// type, compared by value though)
 Boolean, null, undefined. If a String is null, undefined, 0, "", or NaN, it converts to false.
 
 
@@ -17,6 +17,40 @@ Functions
 
 Reference the same area in memory. Example: if var 'a' has a value with a reference type and 'b' = 'a', and a is changed, b is changed. 	<= This isn't so for primitive types
 
+**Booleans:**
+like in PHP: 0, "" are all __false__
+__False:__ NaN, null, undefined
+
+__True:__ everything else, all objects are true (all arrays, functions...), infinity is true, negative infinity is true
 
 
+**Type Conversions on Objects:**
+Definitive Guide page 163
+Concatenation and comparison usually result in objects that call toString() //(unless they have a useful valueOf() method)//
+
+String context: toString() method
+Number context: valueOf() method			=> if valueOf() returns useless stuff about the object, toString is then called, and then valueOf() called on that
+
+with Object +, valueOf() is called first. If returns primitive (number), then good. If not, toString()
+
+//Exception: Date object + always calls toString(). Date object <=>, calls valueOf()//
+
+**Explicit Type Conversions:**
+String(x)		=> like in Ruby
+Boolean(x)
+Object(x)
+Number(x)	=> doesn't allow string to have non-space characters after the number (UNLIKE ruby)
+				to allow this, use parseInt(x) (can parse non-base 10 also!),  parseFloat(x) for integers and floats
+				parseInt(11, 2)	=> parse 11 as binary (second arg is base)
+				parseInt("ten")	=> NaN
+
+var string_x = x + ""			=> string
+var num_x = x - 0				=> num
+var bool_x = !!x				=> bool
+
+number_toString(10)			=> base 10 as default
+
+number_toFixed(2)			=> 2 digits after decimal point
+number_toExponential(x)	=> 1 digit before decimal, x digits after decimal
+number_toPrecision(x)		=> like toExponential, uses exponential if number of digits before and after floating point can't be displayed properly, if it gets to the point 										then it starts rounding
 

@@ -44,6 +44,15 @@ book.chapter2 = { title: "Lexical Structure", pages: 6 }
 Properties don't get assigned using //var//
 Properties can be reassigned dynamically
 
+**Objects as Associative Arrays:**
+object.property
+object["property"]			=> same thing. Useful for iterating over arrays with loops and reading properties dynamically, etc...
+
+//Example of a useful application://
+var stock_name = get_stock_name_from_user(
+	var shares = get_number_of_shares( );
+	portfolio[stock_name] = shares;
+
 **Enumerating Properties:**
 function DisplayPropertyNames(obj) {				=> for/in loops don't enumerate in any particular determined order
 var names = "";
@@ -53,5 +62,15 @@ alert(names);
 
 **Deleting Properties:**
 delete book.chapter1;			=> removes property, does not set to undefined
+
+**Class Properties:**
+Circle.PI = 3.14;					=> because functions are just objects, they can have properties as well. These are NOT read-only.
+
+**Class (static) Methods:**
+Date.parse( );						=> built-in class method for the Date class. Unlike in Ruby, in JS class methods can't use the //this// keyword meaningfully
+							       because  these are //actual// non-instance methods. Ruby only has instance methods.
+
+
+
 
 

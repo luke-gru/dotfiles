@@ -49,7 +49,7 @@ object. Thus, when you invoke a function, you are actually invoking a method of 
 global object. Within such a function, the this keyword refers to the global object. Thus,
 there is no technical difference between functions and methods. The real difference lies in
 design and intent: methods are written to operate somehow on the this object, while
-functions usually stand alone and do not use the this object.										=> Like in Ruby!
+functions usually stand alone and do not use the this object.										=> Sort of like in Ruby!
 
 **Defining, Invoking Methods:**
 // This function uses the this keyword, so it doesn't make sense to

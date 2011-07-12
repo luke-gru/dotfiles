@@ -4,18 +4,38 @@ Creation-Date: 2011-07-06T20:15:40.362540
 
 ====== JS Home ======
 
+**Core**
+
 [[Home:JS:Variables and Scope|Variables and Scope]]
 
 [[Home:JS:Primitive vs Reference Types|Primitive vs Reference Types]]
 
 [[Home:JS:Functions|Functions]]
 
+[[Home:JS:Prototypes and Inheritance|Prototypes and Inheritance]]
+
 [[Home:JS:Built-in Methods|Built-in Methods]]
 
 [[Home:JS:Objects|Objects]]
+
+[[Home:JS:Strings|Strings]]
+
+[[Home:JS:Arrays|Arrays]]
+
+[[Home:JS:Regexes|Regexes]]
 
 [[Home:JS:Weird Operators|Weird Operators]]
 
 [[Home:JS:Compound Statements|Compound Statements]]
 
 [[Home:JS:Exception Handling|Exception Handling]]
+
+**Client-Side:**
+
+[[Home:JS:Client:Environment (global object, other objects, DOM)|Environment (global object, other objects, DOM)]]
+
+
+
+
+
+
