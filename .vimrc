@@ -466,7 +466,7 @@ function! s:CombineSelection(line1, line2, cp)
 endfunction
 "/glyph commands
 
-"view markup in browser (linux)
+"view markup'd markdown in browser (linux)
 nnoremap <leader>pm :w!<CR>:!markdown % > %.html && sensible-browser file://%:p.html<CR><CR>
 
 
@@ -481,12 +481,12 @@ if has("autocmd")
             \ BrowserReload();
             \ content.window.scrollTo(vimXo,vimYo);
             \ repl.quit();'  |
-            \ nc localhost 4242 2>&1 > /dev/null
+            \ nc localhost 4242
     endif
   endfunction
 
   command! -nargs=1 Repl silent !echo
-        \ "repl.home();
+        "\ repl.home();
         \ content.location.href = '<args>';
         \ repl.enter(content);
         \ repl.quit();" |
@@ -494,7 +494,7 @@ if has("autocmd")
 
   nmap <leader>mh :Repl http://
   "mnemonic is Http
-  nmap <silent> <leader>ml :Repl file:///%:p<CR>
+  nmap <leader>ml :Repl file:///%:p<CR>
   "mnemonic is Local
   nmap <silent> <leader>ms :Repl http://localhost/
 
@@ -521,7 +521,7 @@ if has("autocmd")
   " line below not working for some reason
   " au Filetype ruby let g:rubycomplete_classes_in_global = 1
   au FileType perl silent! compiler perl
-  au FileType javascript setl ai et sta sw=2 sts=2 ts=2 cin isk+=$
+  au FileType javascript setl ai et sta sw=4 sts=4
 
   au BufReadPost *.snippets setl expandtab
   au BufReadPost *.snippets echo "'expandtab' option is set to" &expandtab

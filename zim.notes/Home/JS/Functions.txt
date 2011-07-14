@@ -65,6 +65,25 @@ var o = new Object;
 o.square = new Function("x", "return x*x");
 y = o.square(16);
 
+**Closures:**
+var digit_name = function () {
+    var ary = [ "zero", "one", "two", "three", "four", "five" ];
+
+    return function (here) {
+        return ary[here] += "z";
+    };
+}();
+
+var res = digit_name(0);
+print(res);
+print(digit_name(0));
+
+var i = 0
+while (i<6) {
+    print(digit_name(i));
+    i += 1;
+}
+
 [[Home:JS:Arguments property object|Arguments property object]]
 
 [[Home:JS:Function properties and methods|Function properties and methods]]

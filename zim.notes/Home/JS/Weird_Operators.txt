@@ -11,7 +11,7 @@ delete 			=> undefine property or variable (built-in core + client-side properti
 				     returns true if deleted, false if it can't, and true if the variable doesn't exist...
 				     Also, delete affects ONLY properties, NOT the objects referred to by the properties
 
-**typeof**				=> return data type as string [number, object, function]
+**typeof**				=> return data type as string [number, object, function, string, boolean, undefined]
 **void **				=> return undefined value while discarding its operand value
 **in**	   var point = {x:1, y:2};
           var x_coord = "x" in point		=> true (lefthand value is name of property in righthand object)

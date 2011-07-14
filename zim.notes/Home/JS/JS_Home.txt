@@ -34,8 +34,17 @@ Creation-Date: 2011-07-06T20:15:40.362540
 
 [[Home:JS:Client:Environment (global object, other objects, DOM)|Environment (global object, other objects, DOM)]]
 
+[[Home:JS:Client:Embedding in HTML|Embedding in HTML]]
 
+[[Home:JS:Client:Event Handlers|Event Handlers]]
 
+[[Home:JS:Client:Window object|Window object]]
 
+[[Home:JS:Client:Navigator object|Navigator object]]
 
+[[Home:JS:Client:Screen Object|Screen Object]]
+
+[[Home:JS:Client:Location Object|Location Object]]
+
+[[Home:JS:Client:History Object|History Object]]
 

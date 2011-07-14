@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-07-13T21:11:57.976798
+
+====== History Object ======
+
+**Methods:**
+back()
+forward()
+go()
+

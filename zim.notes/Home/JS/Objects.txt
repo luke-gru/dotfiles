@@ -26,6 +26,7 @@ var now = new Date( );
 var pattern = new RegExp("\\sjava\\s", "i");
 
 **Properties:**
+//There is no such thing as having a property of a property unless the first property is an object!//
 document.images[1].width
 This code refers to the width //property// of an object stored in the second element of an
 array stored in the //images //property of the document object.

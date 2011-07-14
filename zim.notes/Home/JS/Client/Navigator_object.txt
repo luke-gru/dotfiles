@@ -1,0 +1,17 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-07-13T16:59:06.655690
+
+====== Navigator object ======
+
+**Properties: (Definitive Guide p. 206)**
+
+userAgent
+//Example for Firefox: //Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.18) Gecko/20110628 Ubuntu/10.10 (maverick) Firefox/3.6.18
+//Example for Chromium: //Mozilla/5.0 (X11; Linux i686) AppleWebKit/534.30 (KHTML, like Gecko) Ubuntu/10.10 Chromium/12.0.742.112 Chrome/12.0.742.112 Safari/534.30
+
+platform
+cookieEnabled
+userLanguage
+
+Uses: Client sniffing

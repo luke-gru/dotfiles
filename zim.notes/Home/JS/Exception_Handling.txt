@@ -5,7 +5,7 @@ Creation-Date: 2011-07-08T19:38:32.524973
 ====== Exception Handling ======
 
 **Throw:**
-Works just like in Ruby . Can throw any expression.
+Works just like in Ruby: can throw any expression.
 
 //Example://
 function factorial(x) {
@@ -30,6 +30,6 @@ alert(n + "! = " + f);
 }
 catch (ex) { // If the user's input was not valid, we end up here
 // Tell the user what the error is
-alert(ex);
+alert(ex.__message__);			=> message method for error object (like Ruby)
 }
 

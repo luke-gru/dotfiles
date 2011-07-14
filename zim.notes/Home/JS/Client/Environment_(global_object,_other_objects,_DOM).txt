@@ -17,4 +17,20 @@ Each window or frame has a unique Window object.
 
 Window objects contain __frames__ array that refers to all //frames// within the original window.
 
-**Document Object:**
+**DOM 0:**
+
+Current Window	-> self,window {parent, top}
+				-> navigator
+				-> frames[]
+				-> location
+				-> history
+
+					-> document							-> forms[]		anchors[]		links[]		images[]		applets[]		embeds[]
+
+				-> screen										     |
+																    V
+															   elements[] (Select -> options[])
+
+							Button, Checkbox, FileUpload, Hidden, Password, Radio, Reset, Select, Submit, Text, Textarea
+							
+

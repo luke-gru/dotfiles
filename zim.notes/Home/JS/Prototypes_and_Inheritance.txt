@@ -63,3 +63,7 @@ Cat.prototype.haveABaby=function(){
 	Mammal.prototype.haveABaby.call(this);			=> have to call it explicitly, no actual 'super' function
 	alert("mew!");										=> and then extend it here
 }
+
+
+**Private variables, private functions, and privileged functions:**
+
