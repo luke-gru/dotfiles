@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-07-12T09:24:55-04:00
+
+====== Document object ======
+
+**Properties:**
+style (object)				=> has properties named after css properties!
+//Example://
+v//ar obj= document.getElementById("id");//
+//obj.style.visibility = "visible";//
+
+
+
+

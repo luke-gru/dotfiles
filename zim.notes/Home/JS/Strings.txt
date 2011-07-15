@@ -25,6 +25,10 @@ string.match(/regex/flag)							=> returns ["array", "of", "matching", "elements
 
 
 string.split(/,/)										=> array of elements (split can take a string like in Ruby)
+string.slice(2,4)									=> start at 2, go up to **3**!
+string.splice(
+string.substring(range)								=> excludes last in range (x...y)
+string.substr(start, leng)							=> gives you leng characters
 
 string.indexOf("string", start=0)					=> returns index of string, and -1 if not found
 string.lastIndexOf("string")

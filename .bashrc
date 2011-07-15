@@ -140,10 +140,6 @@ alias neverrebase='git config branch.autosetuprebase never'
 #/aliases
 
 #rvm prompt
-PS1="(\$(~/.rvm/bin/rvm-prompt v g))$PS1"
-[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
-[[ -s "/home/luke/.rvm/scripts/rvm" ]] && source "/home/luke/.rvm/scripts/rvm"
-
 export LESS=-RFX
 alias gruber="/home/luke/Desktop/code/gruber.rb"
 alias pills="$HOME/Desktop/code/ruminder/ruminder.rb"
