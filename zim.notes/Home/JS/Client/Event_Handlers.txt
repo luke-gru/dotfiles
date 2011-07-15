@@ -10,7 +10,7 @@ Creation-Date: 2011-07-12T13:26:27.359691
 																							//this.checked //is true if checked, false if not
 
 
-__onclick__		=> if it returns false, there is no //default// action associated with the element (example, <a>, <area> <submit>
+__onclick__		=> if it returns false, there is no //default// action associated with the element (example, <a> doesn't go anywhere)
 
 __onmousedown, onmouseup__		=> supported by all tags
 
