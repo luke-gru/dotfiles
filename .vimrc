@@ -60,7 +60,7 @@ set ruler
 set list "show me listchars
 let mapleader=" "
 set report=0 "always report when changing lines
-set winaltkeys=no
+set winaltkeys=no "allow use of <alt> for mappings by disabling window alt
 set tags=tags;,tags
 set textwidth=0 "default, overridden local to buffer for certain filetypes, see autocommands
 set virtualedit=block "so useful, f11 virtualedit=all, f9 back to block
@@ -126,6 +126,14 @@ set pastetoggle=<F8>
 
 funct! WrapKeys()
   if &wrap == 1
+    set nowrap
+    nnoremap j j
+    nnoremap k k
+    vnoremap j j
+    vnoremap k k
+    echo "wrap keys off"
+  elseif &wrap == 0
+    set wrap
     nnoremap j gj
     nnoremap k gk
     vnoremap j gj
@@ -135,12 +143,6 @@ funct! WrapKeys()
     vnoremap <Down> gj
     vnoremap <Up> gk
     echo "wrap keys on"
-  elseif &wrap == 0
-    nnoremap j j
-    nnoremap k k
-    vnoremap j j
-    vnoremap k k
-    echo "wrap keys off"
   endif
 endfunction
 
@@ -154,6 +156,7 @@ endif
 
 " diff mappings
 nmap <leader>dh :DiffOrig<CR>
+" mnemonic of 'diff HEAD'
 nmap <leader>du :diffupdate<CR>
 nmap <leader>do :diffoff<CR>
 "/diff stuff
@@ -219,6 +222,7 @@ map <leader>cd :cd <C-R>=expand("%:p:h") <CR>
 :cabbr mks mks! ~/.vim/sessions/session
 :cabbr Ls ls
 :cabbr LS ls
+:cabbr W w
 :cabbr B# b#
 
 if isdirectory(glob("~/.vim/views"))
@@ -234,9 +238,9 @@ else
   echoerr "Backup directory ~/.backup doesn't exist!"
 endif
 
-if version >= 730
+if version >= 703
   set undofile
-  if has("unix") || if has("mac")
+  if has("unix")
     set undodir=/tmp
   endif
 endif
@@ -246,11 +250,10 @@ set mouse=a
 set history=40 "command-line history remembered. default = 20
 set bs=2 "backspace over everything in insert mode
 
-" :let loaded_project = 1 uncomment to turn off project plugin
+"let loaded_project = 1 "uncomment to turn off project plugin
 set cmdheight=3 "cmd line height.
 "the include path for current file, and the find command and its variants
 set path+=.,,./**,~/.vim/pathinclude "search path when using gf, find sfind etc...
-"project
 set laststatus=2 " All windows have status lines
 set shortmess=at " To avoid the 'Hit ENTER to continue' promp
 set helpheight=20 "minimum height for help wins, default=20, 0 is default spli
@@ -259,14 +262,14 @@ set helpheight=20 "minimum height for help wins, default=20, 0 is default spli
 "plugin stuff
 let g:syntastic_auto_loc_list=1
 let g:syntastic_disable_file_types = ['php']
-let g:proj_flags='gimst' "default is imst, g toggles proj file w/ F12
+let g:proj_flags='imst' "default is imst, g toggles proj file w/ F12
 let g:proj_run1='silent !gvim %f'
 let g:proj_run4='!git add %f'
 let g:proj_run5='!git add .'
 nmap <leader>sd :SyntasticDisable<CR>
 nmap <leader>se :SyntasticEnable<CR>
 let g:bufExplorerSplitRight=1
-if version >= 730
+if version >= 703
   nnoremap <F5> :GundoToggle<CR>
 else
   nmap <F5> <Nop>
@@ -326,9 +329,12 @@ cnoremap <leader>se SyntasticEnable
 cnoremap <leader>sd SyntasticDisable 
 " /syntastic mappings
 
+" clipboard yank
 nnoremap <C-y> "+y
 nnoremap <C-\> "+p
-" yanking remaps
+" clipboard
+inoremap <C-\> <ESC>"+p0
+" default yanking remaps
 nnoremap Y y$
 nnoremap gy :call Preserve("normal 0y$")<CR>
 
@@ -337,14 +343,14 @@ nmap <Leader>2 :setlocal tabstop=2 shiftwidth=2<CR>
 nmap <Leader>4 :setlocal tabstop=4 shiftwidth=4<CR>
 nmap <Leader>8 :setlocal tabstop=8 shiftwidth=8<CR>
 
-" --TAB MAPPINGS--
+" --TABS MAPPINGS--
 "  CTRL-L, CTRL, R or tab previous, next
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 "  ALT-L, ALT-R for moving tabs left/right
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
-" --/TAB MAPPINGS--
+" --/TABS MAPPINGS--
 
 " fold mappings
 nmap <silent> <CR> za
@@ -494,7 +500,7 @@ if has("autocmd")
 
   nmap <leader>mh :Repl http://
   "mnemonic is Http
-  nmap <leader>ml :Repl file:///%:p<CR>
+  nmap <leader>ml :Repl file://%:p<CR>
   "mnemonic is Local
   nmap <silent> <leader>ms :Repl http://localhost/
 
