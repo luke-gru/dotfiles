@@ -50,3 +50,5 @@ Creation-Date: 2011-07-06T20:15:40.362540
 
 [[Home:JS:Client:History Object|History Object]]
 
+[[Home:JS:Client:AJAX|AJAX]]
+

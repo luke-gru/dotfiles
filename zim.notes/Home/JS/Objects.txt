@@ -21,7 +21,7 @@ lowerRight: { x: 4, y: 4}
 };
 
 **Constructed:**
-var o = new Object( );			=> here 'Object' is a //constructor function. //This object has no properties (empty)
+var o = new Object( );			=> here 'Object' is a //constructor function. //This object has one property by default (__constructor)__ that, in this case, is __Object__
 var now = new Date( );
 var pattern = new RegExp("\\sjava\\s", "i");
 
