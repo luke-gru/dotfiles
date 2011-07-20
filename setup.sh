@@ -65,6 +65,11 @@ then
   rm $HOME/.viminfo
 fi
 
+if [ -e $HOME/.xmodmap ]
+then
+  rm $HOME/.xmodmap
+fi
+
 if [ -d $HOME/zim.notes ]
 then
   rm $HOME/zim.notes
@@ -102,6 +107,7 @@ ln -s $dotfiles_dir/dotfiles/.gitconfig $HOME/.gitconfig
 ln -s $dotfiles_dir/dotfiles/.gitignore $HOME/.gitignore
 ln -s $dotfiles_dir/dotfiles/.irbrc $HOME/.irbrc
 ln -s $dotfiles_dir/dotfiles/.ircrc $HOME/.ircrc
+ln -s $dotfiles_dir/dotfiles/.xmodmap $HOME/.xmodmap
 ln -s $dotfiles_dir/dotfiles/.profile $HOME/.profile
 ln -s $dotfiles_dir/dotfiles/.rvmrc $HOME/.rvmrc
 ln -s $dotfiles_dir/dotfiles/.viminfo $HOME/.viminfo

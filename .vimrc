@@ -146,6 +146,9 @@ funct! WrapKeys()
   endif
 endfunction
 
+"software capslock toggle
+inoremap  <C-l> <Plug>CapsLockToggle 
+
 "diff stuff
 set diffopt+=vertical,context:4
 

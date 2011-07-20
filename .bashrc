@@ -152,3 +152,8 @@ if [ -e $HOME/allmine ]
 then
   source "$HOME/allmine"
 fi
+
+if [ -e $HOME/.xmodmap ]
+then
+  source "$HOME/.xmodmap"
+fi
