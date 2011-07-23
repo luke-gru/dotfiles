@@ -62,7 +62,8 @@ let mapleader=" "
 set report=0 "always report when changing lines
 set winaltkeys=no "allow use of <alt> for mappings by disabling window alt
 set tags=tags;,tags
-set textwidth=0 "default, overridden local to buffer for certain filetypes, see autocommands
+set textwidth=0 "default, overridden local to buffer for certain filetypes,
+"see autocommands
 set virtualedit=block "so useful, f11 virtualedit=all, f9 back to block
 set nojoinspaces "oh historical reasons... for SHAME
 
@@ -101,7 +102,9 @@ set noerrorbells "no annoying little vi error noises!
 set scrolloff=3 "give me context of 3 lines when at top v bottom of buffer
 set nobackup
 set tabstop=2 " This is how many columns each literal tab indents
-set softtabstop=2 " This is how many columns each tab key hit counts for in INSERT mode. If noexpandtab is set and tabstop=softtabstop, VIM always uses tabs.
+set softtabstop=2 " This is how many columns each tab key hit counts for in
+"INSERT mode. If noexpandtab is set and tabstop=softtabstop, VIM always uses
+"tabs.
 set expandtab "replace tab characters with spaces
 set sw=2 "shiftwidth
 set shiftround "when indenting with >>, <<, do to nearest sw
@@ -147,7 +150,7 @@ funct! WrapKeys()
 endfunction
 
 "software capslock toggle
-inoremap  <C-l> <Plug>CapsLockToggle 
+inoremap  <C-l> <Plug>CapsLockToggle
 
 "diff stuff
 set diffopt+=vertical,context:4
@@ -173,29 +176,6 @@ if exists(":Tabularize")
 endif
 "/alignment stuff
 
-"wipe all hidden buffers
-function! CloseHiddenBuffers()
-  " figure out which buffers are visible in any tab
-  let visible = {}
-  for t in range(1, tabpagenr('$'))
-    for b in tabpagebuflist(t)
-      let visible[b] = 1
-    endfor
-  endfor
-  " close any buffer that are loaded and not visible
-  let l:tally = 0
-  for b in range(1, bufnr('$'))
-    if bufloaded(b) && !has_key(visible, b)
-      let l:tally += 1
-      exe 'bw ' . b
-    endif
-  endfor
-  echon "Found " . l:tally . " hidden buffers"
-endfun
-
-command! -nargs=* Seek call CloseHiddenBuffers()
-"/wipe all hidden buffers
-
 "edit file in same dir. as current buffer mappings
 map <leader>ee :e <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
@@ -205,7 +185,6 @@ map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 "fast cd
 map <leader>cd :cd <C-R>=expand("%:p:h") <CR>
-
 
 "my Rails abbreviations
 :iabbr ie initialize
@@ -235,7 +214,8 @@ else
 endif
 
 if isdirectory(glob("~/.backup"))
-  set directory=~/.backup  "dir for swap files, // ensures full path in swap name separated by %
+  set directory=~/.backup  "dir for swap files, // ensures full path in swap
+  "name separated by %
 else
   set directory=/tmp
   echoerr "Backup directory ~/.backup doesn't exist!"
@@ -256,7 +236,8 @@ set bs=2 "backspace over everything in insert mode
 "let loaded_project = 1 "uncomment to turn off project plugin
 set cmdheight=3 "cmd line height.
 "the include path for current file, and the find command and its variants
-set path+=.,,./**,~/.vim/pathinclude "search path when using gf, find sfind etc...
+set path+=.,,./**,~/.vim/pathinclude "search path when using gf, find sfind
+"etc...
 set laststatus=2 " All windows have status lines
 set shortmess=at " To avoid the 'Hit ENTER to continue' promp
 set helpheight=20 "minimum height for help wins, default=20, 0 is default spli
@@ -269,8 +250,6 @@ let g:proj_flags='imst' "default is imst, g toggles proj file w/ F12
 let g:proj_run1='silent !gvim %f'
 let g:proj_run4='!git add %f'
 let g:proj_run5='!git add .'
-nmap <leader>sd :SyntasticDisable<CR>
-nmap <leader>se :SyntasticEnable<CR>
 let g:bufExplorerSplitRight=1
 if version >= 703
   nnoremap <F5> :GundoToggle<CR>
@@ -296,7 +275,7 @@ function! Preserve(command)
   " Clean up: restore previous search history, and cursor position
   let @/=_s
   call cursor(l, c)
-endfunction 
+endfunction
 
 "n- and i-mode mappings
 
@@ -306,15 +285,20 @@ nnoremap <leader>n :noh<CR>
 " colorschemes and font types
 nnoremap <Leader>fm :set guifont=Monospace\ 10<CR>
 nnoremap <Leader>fi :set guifont=Inconsolata\ Medium\ 12<CR>
-nnoremap <Leader>cm :colorscheme mayansmoke<CR>
-nnoremap <Leader>cv :colorscheme vividchalk<CR>
-nnoremap <Leader>cb :colorscheme blackboard<CR>
-nnoremap <Leader>cx :colorscheme xoria256<CR>
-nnoremap <Leader>ci :colorscheme ir_black<CR>
+" following color mappings contain 'k' instead of 'c'
+" because of NerdCommenter
+nnoremap <Leader>km :colorscheme mayansmoke<CR>
+nnoremap <Leader>kv :colorscheme vividchalk<CR>
+nnoremap <Leader>kb :colorscheme blackboard<CR>
+nnoremap <Leader>kx :colorscheme xoria256<CR>
+nnoremap <Leader>ki :colorscheme ir_black<CR>
 nnoremap <Leader>cp :colorscheme peaksea<CR>
-command! -bar Starwars :let &background = (&background=="light"?"dark":"light")
-command! -bar -nargs=0 Bigger :let &guifont = substitute(&guifont,'\d\+$','\=submatch(0)+1','')
-command! -bar -nargs=0 Smaller :let &guifont = substitute(&guifont,'\d\+$','\=submatch(0)-1','')
+command! -bar Starwars :let &background =(&background=="light"?"dark":"light")
+
+command! -bar -nargs=0 Bigger :let &guifont =
+      \ substitute(&guifont,'\d\+$','\=submatch(0)+1','')
+command! -bar -nargs=0 Smaller :let &guifont =
+      \ substitute(&guifont,'\d\+$','\=submatch(0)-1','')
 " /colorschemes and font types
 
 " rails-vim mappings
@@ -328,8 +312,8 @@ nnoremap <leader>rep :Rextract<CR>
 " syntastic mappings
 nnoremap <leader>se :SyntasticEnable<CR>
 nnoremap <leader>sd :SyntasticDisable<CR>
-cnoremap <leader>se SyntasticEnable 
-cnoremap <leader>sd SyntasticDisable 
+cnoremap <leader>se SyntasticEnable
+cnoremap <leader>sd SyntasticDisable
 " /syntastic mappings
 
 " clipboard yank
@@ -388,7 +372,8 @@ inoremap <silent> <C-o> <C-x><C-o>
 "jumps
 nnoremap <C-b> <C-o>
 
-" Locate and return character above current cursor position regardless of blank lines
+" Locate and return character above current cursor position regardless of
+" blank lines
 " taken directly from this vim-scripting tutorial:
 " http://www.ibm.com/developerworks/linux/library/l-vim-script-1/index.html
 function! LookUpwards()
@@ -408,8 +393,6 @@ endfunction
 " Reimplement CTRL-Y within insert mode...
 imap <silent>  <C-Y>  <C-R><C-R>=LookUpwards()<CR>
 
-
-nmap <leader>- :call Preserve("%s/\s*$//e")<CR>                
 nmap <leader>= :call Preserve("normal gg=G")<CR>
 "/n- and i-mode mappings
 
@@ -465,9 +448,12 @@ endif
 
 
 "command for displaying certain gylphs, only for fonts that have the chars
-command! -range -nargs=0 Underline       call s:CombineSelection(<line1>, <line2>, '0332')
-command! -range -nargs=0 DoubleUnderline call s:CombineSelection(<line1>, <line2>, '0333')
-command! -range -nargs=0 Strikethrough   call s:CombineSelection(<line1>, <line2>, '0336')
+command! -range -nargs=0 Underline       call s:CombineSelection
+      \ (<line1>, <line2>, '0332')
+command! -range -nargs=0 DoubleUnderline call s:CombineSelection
+      \ (<line1>, <line2>, '0333')
+command! -range -nargs=0 Strikethrough   call s:CombineSelection
+      \ (<line1>, <line2>, '0336')
 
 function! s:CombineSelection(line1, line2, cp)
   execute 'let char = "\u'.a:cp.'"'
@@ -476,10 +462,12 @@ endfunction
 "/glyph commands
 
 "view markup'd markdown in browser (linux)
-nnoremap <leader>pm :w!<CR>:!markdown % > %.html && sensible-browser file://%:p.html<CR><CR>
+nnoremap <leader>pm :w!<CR>:!markdown % > %.html && sensible-browser
+      \ file://%:p.html<CR><CR>
 
 
 if has("autocmd")
+  autocmd!
 
   "mozrepl stuff
   function! Refresh_firefox()
@@ -495,7 +483,7 @@ if has("autocmd")
   endfunction
 
   command! -nargs=1 Repl silent !echo
-        "\ repl.home();
+  "\ repl.home();
         \ content.location.href = '<args>';
         \ repl.enter(content);
         \ repl.quit();" |
@@ -510,15 +498,43 @@ if has("autocmd")
   autocmd BufWriteCmd *.html*,*.css* :call Refresh_firefox()
   "/mozrepl stuff
 
+  "trailing whitespace stuff, from
+  "http://got-ravings.blogspot.com/search/label/vim
+  set statusline+=%{StatuslineTrailingSpaceWarning()}
+
+  "recalculate the trailing whitespace warning when idle, and after saving
+  autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
+
+  "return '[\s]' if trailing white space is detected
+  "return '' otherwise
+  function! StatuslineTrailingSpaceWarning()
+    if !exists("b:statusline_trailing_space_warning")
+      if search('\s\+$', 'nw') != 0
+        let b:statusline_trailing_space_warning = '[\s]'
+      else
+        let b:statusline_trailing_space_warning = ''
+      endif
+    endif
+    return b:statusline_trailing_space_warning
+  endfunction
+
   "vimrc
-  autocmd! bufwritepost .vimrc source $MYVIMRC
+
+  autocmd bufwritepost .vimrc source $MYVIMRC
+  autocmd bufread * syntax enable
+  "remove trailing whitespace
+  augroup whitespace
+    au!
+    autocmd BufWritePre * :%s/\s\+$//e
+  augroup END
   "text and mail
   au FileType mail,gitcommit setl tw=68 list formatoptions formatoptions+=an
   "-q option for par handles nested quotations in plaintext mail
   au FileType mail setl formatprg=par\ -q
   " au FileType qf silent unmap <buffer> <CR>
   au FileType mail,gitcommit echo "'textwidth' set to" &textwidth
-  au BufRead *.txt setl tw=78 formatoptions formatoptions+=an formatprg=par\ -w78
+  au BufRead *.txt setl tw=78 formatoptions formatoptions+=an formatprg=par\
+        \ -w78
   "don't know if I like that for php, hopefully won't use php much anyway
   au FileType cpp,c,cs,java setl ai et sta sw=4 sts=4 cin
   au FileType php,vb setl ai et sta sw=4 sts=4
@@ -531,6 +547,7 @@ if has("autocmd")
   " au Filetype ruby let g:rubycomplete_classes_in_global = 1
   au FileType perl silent! compiler perl
   au FileType javascript setl ai et sta sw=4 sts=4
+  au FileType binary augroup! whitespace
 
   au BufReadPost *.snippets setl expandtab
   au BufReadPost *.snippets echo "'expandtab' option is set to" &expandtab
@@ -549,21 +566,96 @@ if has("autocmd")
         \   exe "normal! g'\"" |
         \ endif
 
-endif
+  "long line warnings
+  set statusline+=%{StatuslineLongLineWarning()}
+  "....
 
+  "recalculate the long line warning when idle and after saving
+  autocmd cursorhold,bufwritepost * unlet! b:statusline_long_line_warning
 
-if has("gui_running")
-  " GUI is running or is about to start.
-  " set gvim window size and set gvim pos
-  au GUIEnter * set lines=80 columns=80
-  au GUIEnter * winpos 618 24
-else
-  " This is console Vim.
-  if exists("+lines")
-    set lines=50
+  "return a warning for "long lines" where "long" is either &textwidth or 80
+  "(if no &textwidth is set)
+
+  "return '' if no long lines
+  "return '[#x,my,$z] if long lines are found, were x is the number of long
+  "lines, y is the median length of the long lines and z is the length of the
+  "longest line
+  function! StatuslineLongLineWarning()
+    if !exists("b:statusline_long_line_warning")
+      let long_line_lens = s:LongLines()
+
+      if len(long_line_lens) > 0
+        let b:statusline_long_line_warning = "[" .
+              \ '#' . len(long_line_lens) . "," .
+              \ 'm' . s:Median(long_line_lens) . "," .
+              \ '$' . max(long_line_lens) . "]"
+      else
+        let b:statusline_long_line_warning = ""
+      endif
+    endif
+    return b:statusline_long_line_warning
+  endfunction
+
+  "return a list containing the lengths of the long lines in this buffer
+  function! s:LongLines()
+    let threshold = (&tw ? &tw : 80)
+    let spaces = repeat(" ", &ts)
+
+    let long_line_lens = []
+
+    let i = 1
+    while i <= line("$")
+      let len = strlen(substitute(getline(i), '\t', spaces, 'g'))
+      if len > threshold
+        call add(long_line_lens, len)
+      endif
+      let i += 1
+    endwhile
+
+    return long_line_lens
+  endfunction
+
+  "find the median of the given array of numbers
+  function! s:Median(nums)
+    let nums = sort(a:nums)
+    let l = len(nums)
+
+    if l % 2 == 1
+      let i = (l-1) / 2
+      return nums[i]
+    else
+      return (nums[l/2] + nums[(l/2)-1]) / 2
+    endif
+  endfunction
+
+  "define :HighlightLongLines command to highlight the offending parts of
+  "lines that are longer than the specified length (defaulting to 80)
+  command! -nargs=? HighlightLongLines call s:HighlightLongLines('<args>')
+
+  function! s:HighlightLongLines(width)
+    let targetWidth = a:width != '' ? a:width : 79
+    if targetWidth > 0
+      exec 'match Todo /\%>' . (targetWidth) . 'v/'
+    else
+      echomsg "Usage: HighlightLongLines [natural number]"
+    endif
+  endfunction
+
+  if has("gui_running")
+    " GUI is running or is about to start.
+    " set gvim window size and set gvim pos
+    au GUIEnter * set lines=80 columns=80
+    au GUIEnter * winpos 618 24
+  else
+    " This is console Vim.
+    if exists("+lines")
+      set lines=50
+    endif
+    if exists("+columns")
+      set columns=100
+    endif
   endif
-  if exists("+columns")
-    set columns=100
-  endif
+
+"end of if has autocmd
 endif
 

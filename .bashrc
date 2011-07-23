@@ -155,5 +155,5 @@ fi
 
 if [ -e $HOME/.xmodmap ]
 then
-  source "$HOME/.xmodmap"
+  xmodmap "$HOME/.xmodmap"
 fi
