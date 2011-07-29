@@ -10,7 +10,7 @@ toLowerCase()
 
 
 //Regex matching methods://
-string.search(/regex/flag);							 => doesn't support g-flag, converts non-regexes to regexes
+string.search(/regex/flag);							 => doesn't support g-flag, converts non-regexes to regexes, returns index of match, or -1 on no match
 
 string.replace(/regex/flag, "string")				 => default non-global			=> returns itself, not the new string. save it into variable
 string.replace("string", "string")					 => doesn't convert first string to regex

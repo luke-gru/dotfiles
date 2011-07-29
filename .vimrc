@@ -62,11 +62,10 @@ let mapleader=" "
 set report=0 "always report when changing lines
 set winaltkeys=no "allow use of <alt> for mappings by disabling window alt
 set tags=tags;,tags
-set textwidth=0 "default, overridden local to buffer for certain filetypes,
+set textwidth=80 "overridden local to buffer for certain filetypes,
 "see autocommands
 set virtualedit=block "so useful, f11 virtualedit=all, f9 back to block
 set nojoinspaces "oh historical reasons... for SHAME
-
 "set formatoptions-=c "don't break comments according to textwidth option
 set hls "highlight search
 set statusline=
@@ -540,7 +539,7 @@ if has("autocmd")
   au FileType php,vb setl ai et sta sw=4 sts=4
   au FileType xml,xsd,xslt setl ai et sw=2 sts=2 ts=2
   au FileType python setl ts=4 sw=4 expandtab
-  au FileType ruby set omnifunc=rubycomplete#Complete |
+  au FileType ruby setl keywordprg=ri omnifunc=rubycomplete#Complete |
         \ let g:rubycomplete_rails = 1 |
         \ let g:rubycomplete_buffer_loading = 1
   " line below not working for some reason
@@ -640,6 +639,18 @@ if has("autocmd")
       echomsg "Usage: HighlightLongLines [natural number]"
     endif
   endfunction
+
+  "add modeline to file with current settings
+  " Append modeline after last line in buffer.
+  " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
+  " files.
+  function! AppendModeline()
+    let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d :",
+          \ &tabstop, &shiftwidth, &textwidth)
+    let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
+    call append(line("$"), l:modeline)
+  endfunction
+  nnoremap <silent> <Leader>mo :call AppendModeline()<CR>
 
   if has("gui_running")
     " GUI is running or is about to start.
