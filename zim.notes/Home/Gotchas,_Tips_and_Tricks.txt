@@ -22,14 +22,12 @@ Local variables do not, like global and instance variables, have the value nil b
 **In the main object, instance methods are all private (no explicit receiver):**
 
 
-**Local variable scope:**
+**New local** **variable scope:**
 
-proc { }
-loop { }
-class { }
-module { }
-def { }
-
+class { }		=> except with Class.new do ... end
+module { }		=> except with Module.new do ... end
+def { }			=> except with define_method(sym) do... end
+Kernel.load	=> script executed in new local scope
 **defined? is not assigned?**
 a = 2
 b = 1 if a == 1

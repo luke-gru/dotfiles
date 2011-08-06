@@ -36,7 +36,7 @@ return uniqueInteger.counter++;
 **Apply and Call Methods:**
 f.call(o, 1, 2);					=> object o is //this //in the invocation, 1 and 2 are args
 
-f.apply(o, [1,2]);				=> same as above, args are in an array
+f.apply(o, [1,2]);				=> same as above, args are in an array 			=> this is used in function definitions to use arguments as the args array
 
 //Example, to find largest number in array://
 var biggest = Math.max.apply(null, array_of_numbers);
