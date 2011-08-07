@@ -83,6 +83,8 @@ alias l='ls -CF'
 
 #good ol gv, good in terminal and good in vim!
 alias gv='gvim --remote-silent'
+alias cls='clear; ls'
+alias e='exit'
 alias pills="$HOME/Desktop/code/ruminder/ruminder.rb"
 
 # reload bash config

@@ -1,12 +1,24 @@
-require 'rubygems'
-require 'interactive_editor'
 require 'pp'
-@home = "~"
-@desk = "~/Desktop"
-@code = "~/Desktop/code"
+require 'fileutils'
+
+def require_or_msg(lib, msg = nil)
+  require lib
+  yield if block_given?
+rescue LoadError
+  puts msg if msg
+end
+
+require_or_msg "rubygems" do
+  require_or_msg "interactive_editor"
+end
+
+@home   = "~"
+@desk   = "~/Desktop"
+@code   = "~/Desktop/code"
 @myruby = "~/Desktop/clones/ruby"
 @clones = "~/Desktop/clones"
 @source = "~/Desktop/source"
+@gems   = "~/.rvm/gems"
 
 @files = Proc.new do
   instance_variables.each do |iv|
@@ -15,3 +27,14 @@ require 'pp'
   end
   nil
 end
+
+def myfiles
+  @files.call
+end
+
+class Object
+  def local_methods
+    (methods - Object.instance_methods).sort
+  end
+end
+
