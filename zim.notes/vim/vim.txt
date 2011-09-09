@@ -5,6 +5,7 @@ Creation-Date: 2010-12-20T19:20:41.147318
 ====== vim ======
 *[[vim:compile options|compile options]]
 *[[vim: Opening a vim session|Opening a vim session]]
+*[[vim:navigating help|navigating help]]
 My VIM plugins: //vim.rails, vim.project, vim.snipmate, vim.surround, autotags (need exuberant ctags), fugitive, pathogen,//
 
 --Vim, Gvim resource and command list--
@@ -39,7 +40,8 @@ C-w T										<<- move window to new tab when current tab contains > 1 window
 c2w										<<- change 2 words (delete 2 words and put me in insert mode)
 C- 6										<<- last edited buffer
 gt, gf										<<- go to next tab, next file (in set path)
-'"											<<- when jumping, brings you to cursor pos. before jump
+gi											<<- enter insert mode where last editing happened
+''											<<- brings you back to position before jump or before a mark was set
 R											<<- replaces text, swallowing it, put in //replace// mode
 gR											<<- virtual replace mode, fancy stuff
 gV											<<- visual mode, only one command, then back to normal @ b.o.l. good for macros
@@ -51,7 +53,9 @@ r = 	cl w/out having to ESC
 .											<<- repeat last change command that wasn't u or a **:** command (can be / command)
 f<, F<										<<- find first < occurence forwards, backwards  (repeat same dir w/ **;** and other dir w/ **,**
 t<, T<										<<- find first < occurence backwards. same repeats as f and F
-]m, [m										<<- find next method, find prev. method 
+]m, [m										<<- find next method, find prev. method
+]p										       <<- paste and adjust indent
+
 V											<<- v-mode whole line
 C-v											<<- v-block-mode (on axis point)
 p											<<- puts register somewhere (context-created)	ddp= line below cursor dwp = after cursor
@@ -76,6 +80,14 @@ zj, zk										<<- move down to beginning of next fold, move up to end of prev.
 zC											<<- close folds recursively
 zO											<<- open folds recursively
 zM											<<- close all folds in current window
+
+//jumps://
+C-o										<<- older jump, 1 back
+C-i											<<- newer jump, 1  fwd  	(show w/:jumps)
+//changes://
+3g;											<<- back 3 changes
+3g,											<<- fwd   3 changes               (show w/:changes)
+
 
 **Manipulating registers:**
 after recording, can puts register with:
@@ -123,7 +135,7 @@ now, ranges can be specified as 't, 'b	<<- note that ' gives you only row, first
 								               acts only with current tab. Cannot be a cmd that changes the order of or adds to the windows
 
 //:bufdo [command] | [command] ...	       //<<- execute command in all buffers
-
+:changes									<<- show <changeslist>
 
 **Global Commands:**
 //:g //
@@ -183,6 +195,10 @@ C-x C-k										<<- dictionary word search
 
 C-w										<<- delete word before cursor
 C-u											<<- delete stuff i just inserted
+C-t											<<- add shiftwidth of indent
+C-d										<<- remove shiftwidth of indent
+0C-d										<<- delete all indent for this line
+^C-d										<<- same as above, but restore for next line
 
 **Using Registers (places where Vim stores text):**
 "fyas										<<- yanks a sentence, stores in register f
@@ -207,7 +223,7 @@ C-w gf										<<- edits file under cursor in new tab
 
 **Project plugin:**
 //:Project (F12)//								<<- opens project window (F12 is my map)
-:\C											<<- set up project				(file filter = "*.rb *.html.erb *.js.rjs
+:\C											<<- set up project				(file filter = "*.rb *.html.erb *.js.rjs")
 //:saveas ~/.projects/projname				//<<- save project
 //:r ~/.projects/projname					//<<- load project (mapped to __proj__)
 
@@ -235,4 +251,6 @@ ycs'"
 //user_32: //undo, forward in time, backwards in time
 //user_40: //mappings, making commands, autocommands, eventignore
 //user_41: //built-in functions, how to script, basic VimL scripting language
+
+//registers: change.txt//
 

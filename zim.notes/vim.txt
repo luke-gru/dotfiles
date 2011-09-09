@@ -1,0 +1,7 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-08-21T11:20:03.697288
+
+====== vim ======
+Vim placeholder for hierarchy creation!!
+

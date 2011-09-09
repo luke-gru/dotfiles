@@ -4,6 +4,8 @@ Creation-Date: 2011-04-23T18:49:59.387026
 
 ====== commands and utilities ======
 
+[[Linux:man pages|man pages]]
+
 see [[linux:Commandline editing|Commandline editing]]
 
 __Utilities:__

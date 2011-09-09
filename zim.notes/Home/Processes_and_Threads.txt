@@ -1,0 +1,129 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-09-05T16:09:14.207948
+
+====== Processes and Threads ======
+
+//Note: if stderr is needed to not be merged w/ stdout, use Popen3//
+
+From rtomayko's **Posix::Spawn**
+
+//In //__Ruby 1.9__//, a versatile new process spawning interface was added//
+// (Process::spawn) as the foundation for enhanced versions of existing//
+//  process-related methods like Kernel#system, Kernel#`, and IO#popen. These//
+//  methods are backward compatible with their Ruby 1.8 counterparts but//
+//  support a large number of new options.//
+
+ #   spawn([env], command, [argv1, ...], [options])
+ #   system([env], command, [argv1, ...], [options])
+ #   popen([[env], command, [argv1, ...]], mode="r", [options])
+
+**Process Signals**
+In Unix, a process can have children created by fork/vfork or similar system calls . When the child terminates, a** SIGCHLD**
+signal is sent to the parent. By default the signal is simply ignored. However, commonly, the **wait** system call implemented
+in a handler for the **SIGCHLD,** so that the parent may act upon the exit status of the child.
+
+Signal.trap('CHLD', 'IGNORE') => automatically reap terminated children
+
+
+**Process module**
+
+__Process.fork__ 		=> without associated block, returns pid of child, and if// inside// child returns nil 
+
+The thread calling fork is the only thread in the created child process. Fork doesn‘t copy other threads.
+
+pid = Process.fork
+if pid.nil? then
+  # In child
+  exec "whatever --take-very-long"
+else
+  # In parent
+  Process.detach(pid)
+end
+
+pid1 = fork { sleep 100 } 		=> with block, everything inside block is the forked process
+pid2 = fork { sleep 10 }
+
+Process.waitpid(pid1)		=> waits for the process to terminate and collects the termination status
+__Process.detach__(pid2)		=> register disinterest, basically collects the status automatically upon completion, DO NOT WAIT.
+                                                                      It does this by creating a separate thread to collect this status.
+
+__Process.wait__					=> wait for all children. Blocking. Returns pid of child when collecting
+
+__Process.waitall__				=> wait for all children, returning [pid, Process::Status object]
+
+__Process.pid__					=> returns pid of current process
+
+__Process.ppid__					=> returns pid of current process's parent process
+
+__Process.setrlimit__				=> set resource (time, cpu) for the process
+Process.getrlimit
+
+__Process.kill__					=> can send kill message to process with signal
+
+
+__Process.exit__					=> exits process by sending //SystemExit //exception
+Process.exit!					=> skip exit handlers when exiting
+
+__Process.exec__					=> replaces current process with param(command)
+*raises //SystemCallError //if command can't be executed
+
+__Process.daemon__				=> params(nochdir=nil, noclose=nil) Detaches from controlling terminal, runs in background as system daemon. Changes dir
+to '/' (chdir) and > dev/null 2>&1 (close)
+
+__Process.abort__				=> terminate execution right away, call Kernel.exit(false). params(msg = nil). If msg given, write to stderr before terminatingabort
+
+**IO class and Kernel module**
+
+__IO.pipe__						=> creates pair of pipe endpoints between the created subprocess and the current process
+   rd, wr = IO.pipe
+
+   if fork
+     wr.close
+     puts "Parent got: <#{rd.read}>"
+     rd.close
+     Process.wait
+   else
+     rd.close
+     puts "Sending message to parent"
+     wr.write "Hi Dad"
+     wr.close					=> needed to send an EOF condition signal
+   end
+produces:
+
+   Sending message to parent
+   Parent got: <Hi Dad>
+
+__IO.popen__ 						=> Runs the specified command as a subprocess; the subprocess‘s standard input and output will be connected to the returned IO object.
+if cmd = "-", new instance of Ruby is started as subprocess
+
+**with block:**
+
+If a block is given, Ruby will run the command as a child connected to Ruby with a pipe. Ruby‘s end of the pipe will be passed
+as a parameter to the block. At the end of block, Ruby close the pipe and sets $?. In this case IO.popen returns the value of
+the block.
+
+output_saved = IO.popen("grep foo", "w+") do |pipe|			=> pipe is parent process
+  pipe.puts "hello foo\nnew line"
+  pipe.close_write
+  p output = pipe.read											=> note that you cannot get the subprocess pid
+end
+p output_saved
+
+**with block and ("-"):**
+
+IO.popen("-") {|pipe| $stderr.puts "#{Process.pid} is here, pid is #{pipe.inspect}"}		=> runs //twice//
+=> 5471 is here, pid is **#<IO:fd 3>**
+=> 6250 is here, pid is **nil**
+
+
+**without block and ("-"):**
+   pipe = IO.popen("-")				=> pipe is nil in child, pid for parent
+   if pipe
+     $stderr.puts "In parent, child pid is #{pipe.pid}"	    => see __ios.pid__ (Returns the process ID of a child process associated with ios. This will be set by IO.popen)
+   else
+     $stderr.puts "In child, pid is #{$$}"
+   end
+
+=>   In child, pid is **26209**
+=>   In parent, child pid is **26209**

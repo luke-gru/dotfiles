@@ -13,6 +13,7 @@
 	bra = branch -a
 	ds = diff --stat
 	dcs = diff --cached --stat
+	dsc = diff --cached --stat
 	remotes = remote -v show
   	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   	type = cat-file -t

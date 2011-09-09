@@ -46,5 +46,30 @@ one = anotherone = 1
 **Global variables:**
 $_ (last value read by gets) and $~ (regexp match) actually have local scope
 
+**Unbound Methods:**
+Unbound singleton methods cannot be bound to any objects besides the singleton (makes sense)
 
+**Local variable assigned  or not?**
+ruby-1.9.2-p180 :038 > f = f
+ => nil 
+ruby-1.9.2-p180 :039 > if f.nil?
+ruby-1.9.2-p180 :040?>   puts "unassigned"
+ruby-1.9.2-p180 :041?>   else
+ruby-1.9.2-p180 :042 >     "assigned"
+ruby-1.9.2-p180 :043?>   end
+unassigned
+ => nil 
 
+**Singleton Classes**
+Their type is Class (as their class is Class), yet they also inherit from Class (weird, huh?). Also, singleton class lookup is parallel, a meta-singleton class looks up only in other meta-singleton classes.
+
+**Class Object Stuff:**
+class Puppy < Class						=> TypeError: Can't make subclass of class
+class Puppy < Object.singleton_class	=> TypeError: Can't make subclass of singleton class
+
+**Inheritance, Superclasses and Method-lookup:**
+The superclass relation only ever includes classes and it is fixed at class creation
+time (by stating "class X < Y" or "Class.new Y") but the inheritance
+relation includes classes and modules and is modified whenever a
+module is included somewhere in the class hierarchy.  Only the
+inheritance relation is considered for method lookups.

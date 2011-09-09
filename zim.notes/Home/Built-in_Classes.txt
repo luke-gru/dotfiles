@@ -12,15 +12,7 @@ Creation-Date: 2010-12-21T17:09:27.052291
 //t = Time.new.strftime(string)				<<- formats time according to the directives in the given string (see ri strftime, ruby-core)//
 
 **File:**
-File.foreach("/etc/passwd") do |line|
-	__next if__ line =~ /^#/											<<- skip comments
-
-	__parse__(line) unless line =~ /^$/							     <<- don't parse empty lines
-
-end
-__________________________________
-print File.read(____FILE____)											<<- prints source file if in source file
-print File.read("NameOfFile")									<<- prints NameOfFile in current directory 
+File.expand_path("../lib", __FILE__) 		=> trick to add a path to the full current path, ie: if this is run in the root of a project, it adds '/lib' to the end 
 
 
 //for more info see: //

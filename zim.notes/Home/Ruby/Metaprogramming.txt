@@ -7,6 +7,12 @@ Creation-Date: 2011-07-03T21:12:25.432195
 **Modules and mixins - caveat**
 Note that Module static methods are useless when included or extended in a class, as only their instance methods are accessible from classes that include them.
 
+__Module.constants__	=> return all top-level constants
+
+__Module#constants__ 	=> return all constants in the current scope
+
+__Module.nesting__		=> return array of module namespace information for the current namespace
+
 **Anonymous singleton classes vs class objects**
 
 class << Test
@@ -28,3 +34,4 @@ Test.hello
 **Hook methods**
 
 Module.included(host_class)
+

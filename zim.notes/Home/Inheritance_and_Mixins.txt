@@ -38,7 +38,7 @@ Module __Comparable__: gets you (<, <=, ==, >=, and >), as well as the method __
 
 //p. 96 of Pickaxe for more info.//
 
-**Extend: (adds a module as superclass of a particular object's Class):**
+**Extend: (includes the module in the singleton class of a particular object):**
 
 it is sometimes useful to add the instance methods to a// particular// object. You do this
 using Object__.extend__. Here’s an example:
@@ -81,8 +81,12 @@ Module Baz
 
 end
 
+**Weird Module Quirks:**
 
+Module objects do not respond to method_missing or respond_to_missing hooks, they are skipped completely.
 
-
+Module objects are skipped if super is called from a descending class or module object. This is because
+super is invoked in the SUPERCLASS, and superclasses skip modules as modules are not classes (even though
+included modules are turned into anonymous classes, superclass DOES skip them.
 
 

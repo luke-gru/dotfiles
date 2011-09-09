@@ -85,7 +85,7 @@ alias l='ls -CF'
 alias gv='gvim --remote-silent'
 alias cls='clear; ls'
 alias e='exit'
-alias pills="$HOME/Desktop/code/ruminder/ruminder.rb"
+alias lsa='ls -a'
 
 # reload bash config
 alias reload='source ~/.bashrc'
@@ -122,7 +122,8 @@ export IRCRC="$HOME/.ircrc"
 alias lampp='sudo /opt/lampp/lampp'
 
 #for use after ack list search:
-alias vimp='vim $(!! -l)'
+alias vimp='vim $(!!)'
+alias vimpack='vim $(!! -l)'
 
 alias pills="$HOME/Desktop/code/ruminder/ruminder.rb"
 #rvm
@@ -130,7 +131,6 @@ alias gemset='rvm gemset name'
 alias gemsets='rvm gemset list'
 alias gems='gem list'
 alias rubies='rvm list'
-alias fix='rvm use 1.9.2@def'
 #git
 alias gcl='git config --list'
 alias gdiff='git diff | gvim --remote-silent'
@@ -148,7 +148,6 @@ PS1="(\$(~/.rvm/bin/rvm-prompt v g))$PS1"
 
 export LESS=-RFX
 alias gruber="/home/luke/Desktop/code/gruber.rb"
-alias pills="$HOME/Desktop/code/ruminder/ruminder.rb"
 
 if [ -e $HOME/allmine ]
 then
