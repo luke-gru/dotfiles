@@ -310,7 +310,6 @@ nnoremap <Leader>fm :set guifont=Monospace\ 10<CR>
 nnoremap <Leader>fi :set guifont=Inconsolata\ Medium\ 12<CR>
 " following color mappings contain 'k' instead of 'c'
 " because of NerdCommenter
-nnoremap <Leader>km :colorscheme mayansmoke<CR>
 nnoremap <Leader>kv :colorscheme vividchalk<CR>
 nnoremap <Leader>kb :colorscheme blackboard<CR>
 nnoremap <Leader>kx :colorscheme xoria256<CR>
@@ -384,6 +383,12 @@ vnoremap > >gv
 
 " hightlight text I just pasted, compliments gv well
 nnoremap gV `[v`]
+
+" Keep search matches in the middle of the window.
+nnoremap n nzzzv
+nnoremap N Nzzzv
+" don't move on *
+nnoremap * *<C-o>
 
 " ESCaping
 inoremap <A-m> <ESC>
@@ -694,6 +699,7 @@ if has("autocmd")
   " don't know if I like that for php, hopefully won't use php much anyway
   au FileType cpp,c,cs,java setl ai et sta sw=4 sts=4 cin
   au FileType php,vb setl ai et sta sw=4 sts=4
+  au FileType php nnoremap <leader>bi :%s/^\(print "<br \/>"\)/    \1/g<CR>
   au BufNewFile,BufRead /var/www/*.module  set ft=php
   au FileType xml,xsd,xslt setl ai et sw=2 sts=2 ts=2
   au FileType python setl ts=4 sw=4 expandtab

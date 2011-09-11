@@ -22,6 +22,8 @@ curl
 
 wget
 
+[[linux:netstat|netstat]]
+
 printf
 
 __Commands__**:**
