@@ -29,6 +29,7 @@ fc 100 105	[range of commands, editor opens, commands execute sequentially]
 
 **history keystrokes:**
 <C-r>				=> reverse incr. search
+<C-g>				=> get out of history search mode
 <C-s>				=> forward inc. search
 <A-p>				=> reverse search
 <A-n>				=> forward search

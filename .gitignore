@@ -1,9 +1,11 @@
 *.swp
 tags
 *.log
-cv.odt
+cv.*
 *.pdf
 *.md.html
 *.markdown.html
+*.gem
 ideas
 IDEAS
+

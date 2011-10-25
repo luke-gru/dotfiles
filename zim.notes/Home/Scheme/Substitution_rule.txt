@@ -1,0 +1,25 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-09-13T16:37:46.026356
+
+====== Substitution rule ======
+
+**To evaluate a combination expression:**
+1. evaluate the operator to get the procedure
+2. evaluate the operands to get the arguments
+3. Apply the procedure to the arguments
+4. Copy the body of the procedure, substituting the arguments supplied with the formal parameters (symbols) of the procedure
+5. Evaluate the resulting new body. 
+
+**To evaluate a conditional expression (IF, COND):**
+1. evaluate the predicate expression
+2. if the predicate expression is true
+		evaluate the consequent
+
+    otherwise
+
+		evaluate the alternative
+
+
+
+

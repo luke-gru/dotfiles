@@ -4,6 +4,8 @@ Creation-Date: 2011-04-24T12:41:29.169005
 
 ====== ack ======
 
+__man ack-grep__
+
 **_   /|**
 **\'o.O'**
 **=(___)= **
@@ -18,10 +20,11 @@ Ack uses Perl regexes!
 **word-boundary 1: **$ack '**\b**require**\b**'
 **word-boundary 2:** $ack** -w** require
 **list filenames: **$ack **-l** -w require
-**open previously listed files (as args!) in vim: **vim $(!! -l)
 **string literal search: **ack** -Q **'$.browser**'										**<<- quotes to escape shell interpretation of $
 **context searching: **ack -C 1 return 											<<- 1 line before and after the matching line, for context
 
+perl -i -p -e's/foo/bar/g' $(ack-grep -f --php)					<<- replace all occurences of foo w/ bar in all php files
+vim $(!! -l)										     				       <<- open previously listed files (as args!) in vim:
 
 **Perl regular expressions: (man perlre if perl-doc package is installed)**
 

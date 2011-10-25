@@ -1,0 +1,82 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-09-24T15:37:26.161768
+
+====== Design Patterns ======
+
+**Object-oriented:**
+
+//Main ideas://
+
+__Responsibility__
+1) If possible (and realistic), objects should take responsibility for their implementation, not client code.
+
+__Cohesion__
+2) Create components that share a //clear //responsibility. When explaining a class' responsibility, try not to
+use the words //and //or //or.//
+
+__Coupling__
+3) When possible, decouple by creating new classes. Factory classes can take conditionals, but make sure
+to provide a common interface to the objects that are being created, or the client might have to type-check
+if the conditional is a little complicated.
+
+__Orthogonality__
+4) When components have clear inputs and outputs and are independent of the bigger system, they can be
+reused easily. Their errors are bound to a small area. Altering an orthogonal component is easy and won't
+require changes elsewhere. //Strive for orthogonal components.//
+
+__Creating Classes__
+5) Try to create classes that have a focussed, clear responsibility and that //do not try to do too much.//
+On the other hand, we want to create objects that describe what they are! If too many classes end
+in //er//, there is a problem. The solution: name classes that describe  the object, not the object's
+behavior!
+
+**Buzz words:**
+
+[[Home:Design Patterns:Polymorphism|Polymorphism]]
+
+[[Home:Design Patterns:Encapsulation|Encapsulation]]
+
+**Four signposts for retooling/rethinking your design:**
+
+__Code duplication__
+Maybe the instances of repetition in a system belong together. If you change something in one
+part of the repetition, will it change the other? If so, this code probably belongs in a single place.
+
+__The class who knew too much__
+A class should know exactly as much as it should need to know. The outside world is a scary place
+for classes, so try to keep them ignorant and lean. Don't use global variables in a class.
+
+__Jack of all trades__
+A class should do one thing, and do it well. We live in a globalized era, and classes need to
+specialize! If creating subclasses creates problems and lots of conditional code, split
+the Jack-of-all-trades class into two or more classes.
+
+__Too many switches__
+Conditional code can sometimes be crying out for polymorphism. Be wary and try to notice
+whenever a conditional statement pops up. The same conditional statements mirrored across
+multiple methods in a class means that the class probably needs to be extracted into two or more.
+The new classes should probably have a shared abstract base class.
+
+[[Home:Design Patterns:UML|UML]]
+
+**Classical** **Design Patterns:**
+
+[[Home:Design Patterns:Strategy|Strategy]]
+
+//Generating objects://
+
+[[Home:Design Patterns:Singleton|Singleton]]
+
+[[Home:Design Patterns:Factory Method|Factory Method]]
+
+[[Home:Design Patterns:Abstract Factory|Abstract Factory]]
+
+[[Home:Design Patterns:Prototype|Prototype]]
+
+**Dynamic/Reflective/Meta-Design Patterns:**
+
+[[Home:Design Patterns:Non-Classical:Dynamic Methods|Dynamic Methods]]
+
+[[Home:Design Patterns:Non-Classical:Ghost Methods and Dynamic Proxy|Ghost Methods and Dynamic Proxy]]
+

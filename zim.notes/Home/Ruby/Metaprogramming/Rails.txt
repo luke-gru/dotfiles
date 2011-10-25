@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-10-01T16:30:54.411051
+
+====== Rails ======
+
+**ActiveSupport:**
+
+Module#alias_method_chain 						<<- AS/core-ext/module/aliasing.rb
+
+**ActiveRecord:**
+
+ActiveRecord::Base#method_missing				<<-AR/attribute_methods.rb

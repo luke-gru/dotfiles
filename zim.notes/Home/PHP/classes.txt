@@ -1,0 +1,40 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-09-11T16:36:46.867457
+
+====== classes ======
+
+**Creating classes:**
+
+class Comment {
+    public __static function__ add($author, $body, $article_id) {								=> static functions (class functions)
+        $addCommentSQL = "INSERT INTO comments (id, author, body, article_id) " .
+                         "VALUES (NULL, '{$author}', '{$body}', '{$article_id}');";
+        $results = mysql_query($addCommentSQL) or die ("error in SQL query {$addCommentSQL}");
+        return true;
+    }
+
+    public $id;								=> __properties must have an explicit visibility__ (unless used w/ var, don't do this)
+    public $author;
+    public $body;
+
+    function ____construct__($id, $author, $body) {
+        $this->id = $id;
+        $this->author = $author;
+        $this->body = $body;
+    }
+}
+
+**Extending classes (inheriting from a class):**
+//Properties, visibility and extending Classes://
+
+- see //constructors.php // for constructor behavior
+private properties are always present in the extending class' objects, but unless an object calls parent::__someMethod(), 
+the properties will remain NULL
+
+An object can actually have 2 properties named 'msg' (if one is private), because a property is namespaced by its visibility
+
+
+**Implementations:**
+
+

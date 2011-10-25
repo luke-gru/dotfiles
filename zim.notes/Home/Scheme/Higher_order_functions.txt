@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-09-14T21:06:45.473716
+
+====== Higher order functions ======
+
+**Definition:**
+Procedures that take procedures as arguments, and output procedures.
+
+

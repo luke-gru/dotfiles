@@ -27,7 +27,7 @@ fi
 
 if [ -e $HOME/.git-completion.bash ]
 then
-  rm $HOME/.git-completion.bash 
+  rm $HOME/.git-completion.bash
 fi
 
 if [ -e $HOME/.gitconfig ]
@@ -90,6 +90,11 @@ then
   rm -rf $HOME/.backup
 fi
 
+if [ -e $HOME/.inputrc ]
+then
+  rm -rf $HOME/.inputrc
+fi
+
 echo "What directory is 'dotfiles' in? *don't put a trailing '/'"
 #should fix this, that's embarassing
 read dotfiles_dir
@@ -112,5 +117,6 @@ ln -s $dotfiles_dir/dotfiles/.profile $HOME/.profile
 ln -s $dotfiles_dir/dotfiles/.rvmrc $HOME/.rvmrc
 ln -s $dotfiles_dir/dotfiles/.viminfo $HOME/.viminfo
 ln -s $dotfiles_dir/dotfiles/.vimrc $HOME/.vimrc
+ln -s $dotfiles_dir/dotfiles/.inputrc $HOME/.inputrc
 #have to add Desktop/*
 exit 0

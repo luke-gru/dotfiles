@@ -1,15 +1,25 @@
 require 'pp'
 require 'fileutils'
 
-def require_or_msg(lib, msg = nil)
+
+def require_or_msg(lib)
   require lib
   yield if block_given?
-rescue LoadError
-  puts msg if msg
+rescue LoadError => e
+  puts e.message if e.message
+end
+
+def require_and_puts(lib)
+  puts "requiring #{lib}"
+  require_or_msg lib
 end
 
 require_or_msg "rubygems" do
-  require_or_msg "interactive_editor"
+  require 'interactive_editor'
+end
+
+if ENV['GEM_PATH'] =~ /rails/
+  require_and_puts 'active_support/all'
 end
 
 @home    = "~"
@@ -50,6 +60,11 @@ def loaded_gems
   nil
 end
 
+def add_load_path(dir=`pwd`)
+  $:.unshift dir.chomp
+  Dir.glob("#{dir}*")
+end
+
 class Object
   def local_methods
     if self.instance_of?(Class)
@@ -73,3 +88,13 @@ class Module
   end
 end
 
+class Range
+  def method_missing(method, *args, &block)
+    if [].respond_to? method
+      to_a.__send__(method, *args, &block)
+    else
+      super
+    end
+  end
+
+end

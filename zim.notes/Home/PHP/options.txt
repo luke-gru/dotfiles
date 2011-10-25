@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-09-11T17:33:53.631983
+
+====== options ======
+
+__magic_quotes_gpc__ 					=> option for php engine: all double and single quotes get escaped. On by default. 
+
+__get_magic_quotes_gpc__ returns bool, 0 if magic quotes is off
+

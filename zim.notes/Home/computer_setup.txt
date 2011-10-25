@@ -9,7 +9,14 @@ Creation-Date: 2011-04-21T18:44:25.010049
 //Web Development://
 -git (remember to ssh keygen)
 -rvm => ruby
--vim
+-vim > 7
+
+-phpsh
+-links (text browser to work w/ manpageview in vim)
+-mysql-server-x.x
+-php-mysql
+-phpmyadmin
+
 -chromium
 	-xmarks (username:// luke.gru@gmail.com//, pass hint: high pass)
 	-adblock plus 
@@ -24,7 +31,6 @@ Creation-Date: 2011-04-21T18:44:25.010049
 	-mozrepl
 
 -screen ruler
--xampp
 -filezilla
 -sqlite database browser
 -exuberant-ctags

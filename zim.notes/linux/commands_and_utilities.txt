@@ -7,6 +7,7 @@ Creation-Date: 2011-04-23T18:49:59.387026
 [[Linux:man pages|man pages]]
 
 see [[linux:Commandline editing|Commandline editing]]
+for history commands, see [[linux:shell:bash|bash]]
 
 __Utilities:__
 

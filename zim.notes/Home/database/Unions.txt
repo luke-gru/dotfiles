@@ -1,0 +1,20 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-09-29T17:28:46.695017
+
+====== Unions ======
+
+**UNION:**
+The UNION operator is used to combine the result-set of __two or more__ SELECT statements.
+
+Notice that each SELECT statement within the UNION must have the same number of columns.
+The columns must also have similar data types. Also, the columns in each SELECT statement must
+be in the same order.
+
+//Format://
+SELECT column_name(s) FROM table_name1
+UNION
+SELECT column_name(s) FROM table_name2
+
+If any two rows are identical, UNION will take one only. Use //UNION ALL //to get back multiple
+identical rows.

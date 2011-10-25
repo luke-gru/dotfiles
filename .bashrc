@@ -57,7 +57,7 @@ unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-  xterm*|rxvt*)
+  xterm*|rxvt*|screen*)
     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
     ;;
   *)
@@ -68,8 +68,8 @@ esac
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
   alias ls='ls --color=auto'
-  #alias dir='dir --color=auto'
-  #alias vdir='vdir --color=auto'
+  # alias dir='dir --color=auto'
+  # alias vdir='vdir --color=auto'
 
   alias grep='grep --color=auto'
   alias fgrep='fgrep --color=auto'
@@ -110,44 +110,53 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
   . /etc/bash_completion
 fi
 
-export EDITOR=/usr/bin/vim
+export EDITOR=`which vim`
 source ~/.git-completion.bash
 # export PATH=/path/to/dir:$PATH          <<-- Format for adding to PATH in .bashrc
+
+if [ -d $HOME/pear/bin ]; then
+  export PATH=$PATH:$HOME/pear/bin
+fi
+
 export TERM=xterm
 export IRCNICK=luke-gru
 export IRCNAME=lukeDOTgruATgmail
 export IRCRC="$HOME/.ircrc"
 
-#aliases
+# aliases
 alias lampp='sudo /opt/lampp/lampp'
 
-#for use after ack list search:
+# for use after ack list search:
 alias vimp='vim $(!!)'
 alias vimpack='vim $(!! -l)'
 
 alias pills="$HOME/Desktop/code/ruminder/ruminder.rb"
-#rvm
+# rvm
 alias gemset='rvm gemset name'
 alias gemsets='rvm gemset list'
 alias gems='gem list'
 alias rubies='rvm list'
-#git
+# git
 alias gcl='git config --list'
 alias gdiff='git diff | gvim --remote-silent'
 alias g='git'
+alias gpom='git push origin master'
+# change the rebasing
 alias alwaysrebase='git config branch.autosetuprebase always'
 alias localrebase='git config branch.autosetuprebase local'
 alias neverrebase='git config branch.autosetuprebase never'
-#more aliases in .gitconfig
-#/aliases
+# more aliases in .gitconfig
+# /aliases
 
-#rvm prompt
+# rvm prompt
 PS1="(\$(~/.rvm/bin/rvm-prompt v g))$PS1"
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 [[ -s "/home/luke/.rvm/scripts/rvm" ]] && source "/home/luke/.rvm/scripts/rvm"
 
 export LESS=-RFX
 alias gruber="/home/luke/Desktop/code/gruber.rb"
+# start tmux with 256 colors
+alias tmux="tmux -2"
 
 if [ -e $HOME/allmine ]
 then
@@ -158,3 +167,9 @@ if [ -e $HOME/.xmodmap ]
 then
   xmodmap "$HOME/.xmodmap"
 fi
+
+if [ -d $HOME/bin ]
+then
+  export PATH=$HOME/bin:$PATH
+fi
+

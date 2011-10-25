@@ -1,0 +1,7 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-10-07T00:22:10.656974
+
+====== Bundler ======
+//bundle exec rails server thin //in app root						<<- gets you server logging
+

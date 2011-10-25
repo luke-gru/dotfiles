@@ -1,0 +1,90 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-09-27T17:44:29.434037
+
+====== Ghost Methods and Dynamic Proxy ======
+
+**method_missing (Kernel#method_missing)**
+
+
+**Dynamic Proxy:**
+An object that catches Ghost Methods and forwards them to another object,
+maybe wrapping some logic around the call.
+
+//Example 1//
+class Table
+	def __method_missing__(id,*args,&block)
+
+		return as($1.to_sym,*args,&block) if id.to_s =~ /^to_(.*)/
+		return rows_with($1.to_sym => args[0]) if id.to_s =~ /^rows_with_(.*)/
+		super
+
+	end
+
+# ...
+
+//Example 2//
+class Computer
+	def initialize(computer_id, data_source)
+
+		@id = computer_id
+		@data_source = data_source
+
+	end
+	def __method_missing__(name, *args)
+
+		super if !@data_source__.respond_to?__("get_#{name}_info" )
+		info = @data_source.__send__("get_#{name}_info" , args[0])
+		price = @data_source.__send__("get_#{name}_price" , args[0])
+		result = "#{name.to_s.capitalizOnce you get back fr
+		e}: #{info} ($#{price})"
+		return "* #{result}" if price >= 100
+		result
+
+	end
+
+end
+
+//Don't forget to override respond_to? or use respond_to_missing//
+class Computer
+	def respond_to?(method)
+
+		@data_source.respond_to?("get_#{method}_info" ) || super
+
+	end
+
+# ...
+
+//see delegate.rb (forwards ghost-methods to the delegate object)//
+
+**Hash-properties:**
+
+class MyOpenStruct
+	def initialize
+
+		@attributes = {}
+
+	end
+	
+	def method_missing(name, *args)
+
+		attribute = name.to_s
+		if attribute =~ /=$/
+
+			@attributes[attribute.chop] = args[0]
+
+		else
+
+			@attributes[attribute]
+
+		end
+
+	end
+
+end
+icecream = MyOpenStruct.new
+icecream.flavor = "vanilla"
+
+**Best practices:**
+inherit from //BasicObject// to avoid name-clashes
+

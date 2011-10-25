@@ -29,12 +29,16 @@ Creation-Date: 2010-12-09T20:06:45.294364
 [[Encoding, Transcoding]]
 [[Talking to Networks]]
 
-[[Ruby:Metaprogramming|Metaprogramming]]
 [[Processes and Threads]]
+[[Ruby:Metaprogramming|Metaprogramming]]
+
+[[Home:Ruby:Enumerable|Enumerable]]
+
 
 **Ruby on Rails**
 [[Rails command line functions]]
 [[rails gems]]
+[[Home:Rails:Bundler|Bundler]]
 [[Rspec            |Rspec]]
 
 [[Naming Conventions]] (ORM)

@@ -12,6 +12,8 @@ control structures such as loops. Lambdas are intended to act like methods. So, 
 stricter when checking the parameters passed to them, and a return in a lambda exits much as it
 would from a method.
 
+Procs are used to pass blocks around to different methods, and to convert blocks to procs for other uses.
+
 
 **Creating a Proc:**
 __Proc.new__, __lamba__, //method//(otherparam, __&__procparam) 							<<- lambda { |params| ... } = 	__->(params) {...}__ in Ruby >=1.9
@@ -56,3 +58,40 @@ __end__
 0
 1
 2
+
+**Defining methods with &blocks**
+def math(a, b)
+	yield(a, b)
+
+end
+
+def teach_math(a, b, __&operation__)					<<- passes the block as a proc to the next method
+	puts "Let's do the math:"
+	puts math(a, b,__ &operation__)
+
+end
+teach_math(2, 3) {|x, y| x * y}
+####
+Let's do the math:
+6
+
+**Calling methods with &blocks**
+def my_method(greeting)
+	puts "#{greeting}, #{yield}!"
+
+end
+my_proc = proc { "Bill" }
+my_method("Hello" ,__ &my_proc__)					<<- turns the proc back into a block when it hits the method
+####
+Hello, Bill!
+
+**Turning a Proc into a method:**
+prok = Proc.new {|x| x + 1}
+
+MyClass.__send__(:define_method, :other_method, &prok)
+
+**Turning a method into a Proc:**
+m = object.method :my_method						<<- only bound methods can be turned into procs!
+p = m.to_proc
+
+

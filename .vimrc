@@ -5,7 +5,6 @@ call pathogen#helptags()
 " /pathogen
 
 set nocompatible " not compatible with vi
-syntax enable
 
 if has("autocmd")
   filetype plugin on " all plugins are on by default
@@ -16,9 +15,7 @@ endif
 if hostname() == "luke-Pavilion-dv4000-PX311UA-ABL" ||
       \ hostname() == "luke-K52F" ||
       \ hostname() == "ubuntu"
-  " set guifont=Mensch\ Regular\ 13
   set guifont=Inconsolata\ Medium\ 12
-  " set guifont=Monaco\ 12
   set swapsync=fsync
   set dictionary=usr/dict/words
 elseif has("mac")
@@ -33,34 +30,27 @@ elseif has("unix")
   endif
 endif
 
+
 " *terminal colors*
-" IMPORTANT: Uncomment one of the following lines to force
-" using 256 colors (or 88 colors) if your terminal supports it,
-" but does not automatically use 256 colors by default.
 set t_Co=256
-" set t_Co=88
 set background=dark
 
 if (&t_Co == 256 || &t_Co == 88) && !has('gui_running')
-  " \ filereadable(expand("$HOME/.vim/plugin/guicolorscheme.vim"))
-  " Use the guicolorscheme plugin to makes 256-color or 88-color
-  " terminal use GUI colors rather than cterm colors.
-  " runtime! plugin/guicolorscheme.vim
-  " GuiColorScheme XXX
   colorscheme xoria256
 elseif &diff
   colorscheme peaksea
 else
-  "colorscheme blackboard
   colorscheme xoria256
 endif
 " /terminal colors
 
-
 set ruler
+set title
 set list " show me listchars
+"" mapleader is spacebar
 let mapleader=" "
 set report=0 " always report when changing lines
+set more " pause listings when whole screen is filled
 set modelines=5 " just to make sure
 set pastetoggle=<F2>
 set winaltkeys=no " allow use of <alt> for mappings by disabling window alt
@@ -72,6 +62,7 @@ set nojoinspaces " oh historical reasons... for SHAME
 set hls " highlight search
 set foldcolumn=1 " must... see... folds
 set foldmethod=marker " marker folding  styles
+" start statusline with a blank slate
 set statusline=
 set statusline+=%2*[b%n]%*\        " flags and buf num.
 set statusline+=%t                 " tail of the filename
@@ -81,11 +72,6 @@ set statusline+=%r                 " read only flag
 set statusline+=%y                 " filetype
 set statusline+=%m                 " modified flag
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
-"if exists("g:loaded_syntastic_plugin")
-"  set statusline+=%#warningmsg#
-"  set statusline+=%{SyntasticStatuslineFlag()}
-"  set statusline+=%*
-"endif
 set statusline+=%=        " left/right separator
 set statusline+=%{exists('*CapsLockStatusline')?CapsLockStatusline():''}
 set statusline+=c=%c,     " x=cursor column
@@ -95,15 +81,17 @@ set showmode
 set showcmd
 set showmatch " matching brackets
 set magic     "see pattern.txt
-" Set to auto read when a file is changed from the outside
 set autoread      " when a file is changed outside of vim and it's in the buffer
+set switchbuf=useopen "jump to first open window that contains the buffer
 set lazyredraw    " don't redraw screen when running macros
 set matchtime=3   " 3/10 of second paren matches
 set wildmenu      " give me menu for tab completion
 set wildmode=full " all I need (and default)
 set wildcharm=<C-z> " let me tab a cmdline mapping
 set wildignore+=*~
-set suffixes+=.git,tags " lower priority for wildmenu
+set wildignore+=*.DS_Store?,*.0,*.obj,*.exe,*.dll,*.manifest
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
+set suffixes+=.git,.hg,.svn,tags " lower priority for wildmenu
 set noerrorbells  " no annoying little vi error noises!
 set novisualbell
 set scrolloff=3   " give me context of 3 lines when at top v bottom of buffer
@@ -131,12 +119,13 @@ set cpoptions+=$ " compatibility with vi options, when using nmode c or C, show
 set nu " line numbering
 set incsearch   " show search while typing, incrementally
 set ignorecase  " ignore the case of regexes
-set smartcase   " but don't ignore them when I type a capital letter, to
-"override i
+set smartcase   " but don't ignore them when I type a capital letter
 if exists("+spelllang")
   set spelllang=en_us
 endif
 
+" sometimes it's useful to treat separate lines as
+" separate lines, even when wrapped
 funct! ToggleWrapKeys()
   if &wrap == 1
     set nowrap
@@ -159,20 +148,6 @@ funct! ToggleWrapKeys()
   endif
 endfunction
 command! -nargs=0 WK call ToggleWrapKeys()
-
-funct! ToggleWrapMargin()
-  if &wm == 0
-    " turn wrap margin on
-    set tw=0
-    set wm=76
-    echo "tw=0, wm=76"
-  else
-    set wm=0
-    set tw=76
-    echo "wm=0, tw=76"
-  endif
-endfunction
-command! -nargs=0 WM call ToggleWrapMargin()
 
 " *diff stuff*
 set diffopt+=vertical,context:4
@@ -202,20 +177,17 @@ endif
 map <leader>ee :e <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
-map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " /edit mappings
 
 " fast cd
 map <leader>cd :cd <C-R>=expand("%:p:h") <CR>
 
 " *my Rails abbreviations*
-" mnemonic is rubyinit
-:iabbr rinit initialize
+:iabbr rie initialize
 :iabbr rto redirect_to
 :iabbr bto button_to
 :iabbr lto link_to
 :iabbr jsit javascript_include_tag
-:iabbr attrac attr_accessible
 :iabbr attra attr_accessor
 :iabbr attrr attr_reader
 :iabbr attrw attr_writer
@@ -237,8 +209,7 @@ else
 endif
 
 if isdirectory(glob("~/.backup"))
-  set directory=~/.backup  " dir for swap files, // ensures full path in swap
-  " filename separated by %
+  set directory=~/.backup
 else
   set directory=/tmp
   echoerr "Backup directory ~/.backup doesn't exist!"
@@ -260,20 +231,22 @@ set bs=2       " backspace over everything in insert mode
 " let loaded_project = 1 "uncomment to turn off project plugin
 set cmdheight=3 " cmd line height.
 " the include path for current file, and the find command and its variants
-set path+=.,,./**,~/.vim/pathinclude
+set path+=.,,./**
 set laststatus=2  " All windows have status lines
 set shortmess=at  " To avoid the 'Hit ENTER to continue' promp
 set helpheight=20 " minimum height for help wins, default=20, 0 is default split
-"win height
+" win height
 
 " *plugin stuff*
 let g:syntastic_auto_loc_list=1
-let g:syntastic_disable_file_types = ['php']
-let g:proj_flags='imst' " default is imst, g toggles proj file w/ F12
+let g:proj_flags='imst' " default is imst
 let g:proj_run1='silent !gvim %f'
 let g:proj_run4='!git add %f'
 let g:proj_run5='!git add .'
 let g:bufExplorerSplitRight=1
+nmap <leader>f :FufFileWithCurrentBufferDir<CR>
+nmap <leader>b :FufBuffer<CR>
+nmap <leader>t :FufTaggedFile<CR>
 if version >= 703
   nnoremap <F5> :GundoToggle<CR>
 else
@@ -305,31 +278,11 @@ endfunction
 " stop hightlighting for hlsearch, turn back on w/ next search
 nnoremap <leader>n :noh<CR>
 
-" colorschemes and font types
-nnoremap <Leader>fm :set guifont=Monospace\ 10<CR>
-nnoremap <Leader>fi :set guifont=Inconsolata\ Medium\ 12<CR>
-" following color mappings contain 'k' instead of 'c'
-" because of NerdCommenter
-nnoremap <Leader>kv :colorscheme vividchalk<CR>
-nnoremap <Leader>kb :colorscheme blackboard<CR>
-nnoremap <Leader>kx :colorscheme xoria256<CR>
-nnoremap <Leader>ki :colorscheme ir_black<CR>
-nnoremap <Leader>cp :colorscheme peaksea<CR>
-command! -bar Starwars :let &background =(&background=="light"?"dark":"light")
-
 command! -bar -nargs=0 Bigger :let &guifont =
       \ substitute(&guifont,'\d\+$','\=submatch(0)+1','')
 command! -bar -nargs=0 Smaller :let &guifont =
       \ substitute(&guifont,'\d\+$','\=submatch(0)-1','')
 " /colorschemes and font types
-
-" rails-vim mappings
-nnoremap <leader>rc :Rcontroller<CR>
-nnoremap <leader>rvc :RVcontroller<CR>
-nnoremap <leader>rml :Rmigration<CR>
-nnoremap <leader>rmi :Rinvert<CR>
-nnoremap <leader>rep :Rextract<CR>
-" /rails-vim mappings
 
 " syntastic mappings
 nnoremap <leader>se :SyntasticEnable<CR>
@@ -404,12 +357,6 @@ inoremap <C-b> <ESC>^i
 " default <c-o> I find useless, so map it to omni
 inoremap <silent> <C-o> <C-x><C-o>
 
-" finding filenames
-
-" *jumps*
-" last jump
-nnoremap <C-b> <C-o>
-
 " Locate and return character above current cursor position regardless of
 " blank lines
 " taken directly from this vim-scripting tutorial:
@@ -421,7 +368,6 @@ function! LookUpwards()
   let target_line_num = search(target_pattern . '*\S', 'bnW')
 
   " If target line found, return vertically copied character...
-
   if !target_line_num
     return ""
   else
@@ -443,9 +389,8 @@ cnoremap <C-a> <C-b>
 cnoremap <C-s> source ~/.vim/sessions/session
 " works well with tab for tab completion previous
 
-" to make tab understand I want to view the contents of the dir, not do <C-n>
-cnoremap <leader>t i<BS>
-
+" classic...
+cnoremap w!! w !sudo tee % > /dev/null
 " /c-mode mappings
 
 " *v-mode mappings*
@@ -471,9 +416,8 @@ endfunc
 " *working with wrapped text*
 " softwrap
 command! -nargs=0 Swrap setl wrap linebreak nolist showbreak=…
-" ellipsis = unicode 2026
-" (hard wrapping options in autocmds below for filetypes)
-" //working with wrapped text
+" ellipsis: unicode 2026
+" /working with wrapped text
 
 " *encoding (set)*
 " http://vim.wikia.com/wiki/Working_with_Unicode
@@ -548,6 +492,19 @@ if has("unix") || has("mac")
   nnoremap gG :OpenURL http://www.google.com/search?q=<cword><CR>
   nnoremap gW :OpenURL http://en.wikipedia.org/wiki/Special:Search?search=<cword><CR>
 endif
+
+" turn on/off sql highlighting for PHP files
+silent! function! PHP_sql_color_on()
+  let g:php_sql_query=1
+  so $MYVIMRC
+endfunction
+
+silent! function! PHP_sql_color_off()
+  if exists("g:php_sql_query")
+    unlet g:php_sql_query
+  endif
+  so $MYVIMRC
+endfunction
 
 
 function! FoldView()
@@ -631,35 +588,6 @@ command! -bar Run :execute Run()
 if has("autocmd")
   autocmd!
 
-  " mozrepl stuff
-  function! Refresh_firefox()
-    if &modified && has("gui_running")
-      write
-      silent !echo  'vimYo = content.window.pageYOffset;
-            \ vimXo = content.window.pageXOffset;
-            \ BrowserReload();
-            \ content.window.scrollTo(vimXo,vimYo);
-            \ repl.quit();'  |
-            \ nc localhost 4242
-    endif
-  endfunction
-
-  command! -nargs=1 Repl silent !echo
-  " \ repl.home();
-        \ content.location.href = '<args>';
-        \ repl.enter(content);
-        \ repl.quit();" |
-        \ nc localhost 4242
-
-  nmap <leader>mh :Repl http://
-  "mnemonic is Http
-  nmap <leader>ml :Repl file://%:p<CR>
-  "mnemonic is Local
-  nmap <silent> <leader>ms :Repl http://localhost/
-
-  autocmd BufWriteCmd *.html*,*.css* :call Refresh_firefox()
-  " /mozrepl stuff
-
   " trailing whitespace stuff, from
   " http://got-ravings.blogspot.com/search/label/vim
   set statusline+=%{StatuslineTrailingSpaceWarning()}
@@ -694,15 +622,27 @@ if has("autocmd")
   au FileType mail setl formatprg=par\ -q
   " au FileType qf silent unmap <buffer> <CR>
   au FileType mail,gitcommit echo "'textwidth' set to" &textwidth
+  au BufRead */zim.notes/* set filetype=zim
   au BufRead *.txt setl tw=78 wrap formatoptions formatoptions+=an formatprg=par\
         \ -w78
   " don't know if I like that for php, hopefully won't use php much anyway
   au FileType cpp,c,cs,java setl ai et sta sw=4 sts=4 cin
+  au FileType css set iskeyword+=-
   au FileType php,vb setl ai et sta sw=4 sts=4
-  au FileType php nnoremap <leader>bi :%s/^\(print "<br \/>"\)/    \1/g<CR>
+  " indent all 'print <br />' so I can ignore them while
+  " debugging in PHP
+  au FileType php nnoremap <leader>bi :%s/^\(print "<br \/>;\?"\)/    \1/g<CR>
+  " sql color
+  au FileType php nnoremap <leader>sc :call PHP_sql_color_on()<CR>
+  " sql uncolor
+  au FileType php nnoremap <leader>su :call PHP_sql_color_off()<CR>
+  " highlight SQL in strings
+  au FileType php set makeprg=php\ -l\ %
+  au BufRead php.ini-* set ft=dosini
   au BufNewFile,BufRead /var/www/*.module  set ft=php
   au FileType xml,xsd,xslt setl ai et sw=2 sts=2 ts=2
   au FileType python setl ts=4 sw=4 expandtab
+  au BufRead Gemfile*,*.ru set ft=ruby
   au FileType ruby setl keywordprg=ri omnifunc=rubycomplete#Complete |
         \ let g:rubycomplete_rails = 1 |
         \ let g:rubycomplete_buffer_loading = 1
@@ -722,7 +662,7 @@ if has("autocmd")
   " rss as xml
   au BufReadPost *.rss set ft=xml
 
-  au GUIEnter * set title icon guioptions-=T
+  au GUIEnter * set icon guioptions-=T
   au GUIEnter * if has("diff") && &diff | set columns=165 | endif
   " last cursor position in buffer
   au BufReadPost *
@@ -794,24 +734,25 @@ if has("autocmd")
   if has("gui_running")
     " GUI is running or is about to start.
     " set gvim window size and set gvim pos
-    au GUIEnter * set lines=80 columns=80
+    au GUIEnter * set lines=38 columns=100
     au GUIEnter * winpos 618 24
   else
     " This is console Vim.
     if exists("+lines")
-      set lines=50
+      set lines=38
     endif
     if exists("+columns")
-      set columns=100
+      set columns=90
     endif
   endif
 
-" /of if has autocmd
 endif
+" /autocmds
 
 
 " to override certain settings on other computers
-" keep at end of file
+" (keep at end of file)
+syntax enable
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif

@@ -22,12 +22,13 @@ Local variables do not, like global and instance variables, have the value nil b
 **In the main object, instance methods are all private (no explicit receiver):**
 
 
-**New local** **variable scope:**
+**New local** **variable scope (Scope gates):**
 
 class { }		=> except with Class.new do ... end
 module { }		=> except with Module.new do ... end
 def { }			=> except with define_method(sym) do... end
 Kernel.load	=> script executed in new local scope
+
 **defined? is not assigned?**
 a = 2
 b = 1 if a == 1
@@ -49,7 +50,7 @@ $_ (last value read by gets) and $~ (regexp match) actually have local scope
 **Unbound Methods:**
 Unbound singleton methods cannot be bound to any objects besides the singleton (makes sense)
 
-**Local variable assigned  or not?**
+**Local variable assigned to itself:**
 ruby-1.9.2-p180 :038 > f = f
  => nil 
 ruby-1.9.2-p180 :039 > if f.nil?
@@ -64,7 +65,7 @@ unassigned
 Their type is Class (as their class is Class), yet they also inherit from Class (weird, huh?). Also, singleton class lookup is parallel, a meta-singleton class looks up only in other meta-singleton classes.
 
 **Class Object Stuff:**
-class Puppy < Class						=> TypeError: Can't make subclass of class
+class Puppy < Class						=> TypeError: __Can't make subclass of class__
 class Puppy < Object.singleton_class	=> TypeError: Can't make subclass of singleton class
 
 **Inheritance, Superclasses and Method-lookup:**
@@ -73,3 +74,25 @@ time (by stating "class X < Y" or "Class.new Y") but the inheritance
 relation includes classes and modules and is modified whenever a
 module is included somewhere in the class hierarchy.  Only the
 inheritance relation is considered for method lookups.
+
+**Version Incompatibilities:**
+
+def my_method
+	yield(2)
+end
+
+x = 1
+my_method do |x|
+# do nothing special
+end
+x					# => 2 (behavior changed in 1.9 -> would be 1)
+
+**Dup vs Clone:**
+clone copies singleton class of the object, dup does not
+both are shallow copies of the object
+
+both copy the instance variables, and freeze the object if frozen?
+
+dup calls Object#initialize_dup, clone calls Object#initialize_clone, which both call initialize_copy (internal method)
+
+

@@ -1,0 +1,18 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-09-24T19:21:46.272629
+
+====== Polymorphism (class switching) ======
+
+**What is it?**
+Maintenance of multiple implementations behind a common interface.
+
+**Why do we use it?**
+Client code can treat all children of an interface-defining superclass //the//
+//same way//. This way, the client doesn't have to know about the classes, doesn't
+have to type-check, etc... Also, at runtime, cool effects abound.
+
+**When do we use it?**
+Keep an eye out for excess conditionals in either client code or a class's instance
+methods. This could signal that polymorphism is a good choice. Also, try to look
+for classes that have many similarities regarding their //methods //(responsibilities).

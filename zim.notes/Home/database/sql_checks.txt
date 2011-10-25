@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-09-11T16:41:01.859960
+
+====== sql checks (your SQL query's not working...) ======
+
+**A checklist of potential problems**
+
+//INSERT/UPDATE//
+
+1. Make sure all auto-incremented values are inserted or updated as NULL in the query.
+2. Make sure the database allows NULL values for the things you are not inserting.
+3.
+
+

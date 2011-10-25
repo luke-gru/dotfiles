@@ -1,0 +1,62 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-10-04T20:20:56.660722
+
+====== Enumerable ======
+
+**#sort_by**
+//Uses a schwartzian transform (decorate, sort, undecorate)//
+
+class Array
+	def sort_by
+
+		map { |a| [yield(a), a] }.sort.map { |a| a[1] }
+
+	end
+
+end
+
+a = (1..40).to_a
+a.sort_by {|n| n.to_s}
+
+**#injekt**
+
+  def injekt(operation_or_value=nil)
+	case operation_or_value
+	when Symbol
+
+	# convert things like reduce(:+) into reduce { |r,e| r + e }
+
+		return injekt { |r,e| r.send(operation_or_value, e) }
+
+	when nil
+
+		acc = nil
+
+	else
+
+		acc = operation_or_value
+
+	end
+
+
+	each do |a|
+
+		if acc.nil?
+
+			acc = a
+
+		else
+
+			#puts acc
+			acc = __yield(acc, a)__
+
+		end
+
+	end
+	return acc		=> accumulation
+
+end
+
+
+

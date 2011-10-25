@@ -1,0 +1,30 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-09-24T19:30:11.279128
+
+====== Encapsulation ======
+
+**What is it?**
+The hiding of data and functionality from the client.
+
+**Why do we use it?**
+It's used to enforce an interface b/t the client and the data/functionality. There's
+less chance of the corruption of an object's data this way.
+
+Polymorphism offers another kind of encapsulation: hiding the underlying
+strategies and procedures from the client, allowing them to treat objects
+the same way, regardless of their sub-type.
+
+Also, it's good to hide as much from the outside world as you can in classes
+and in methods. This way, coupling is loosened, and orthogonality is improved.
+
+Importantly, sometimes  encapsulation is really faith-based.
+Both the client and data/functionality have to abide by the often
+implicit rules.
+
+**When do we use it?**
+When it would be good to use polymorphism. Also, when data/functionality
+is complicated and can be abstracted/hidden from the client without giving
+away the client's runtime flexibility (if flexibility is desirable).
+
+

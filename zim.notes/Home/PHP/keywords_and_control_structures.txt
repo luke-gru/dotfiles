@@ -1,0 +1,30 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-09-11T18:48:24.621758
+
+====== keywords and control structures ======
+
+**Switch statement:**
+
+$lang = $_GET['language'];
+
+switch($lang) {
+
+case "french":
+    header("Location:multi_french.html");
+    __break;__
+case "english":
+    header("Location:multi_english.html");
+   __ break;__
+case "spanish":
+    header("Location:multi_spanish.html");
+   __ break;__
+case "german":
+    header("Location:multi_german.html");
+    __break;__
+
+}
+
+**Parallel assignment:**
+list(a, b, c) = 1,2,3
+

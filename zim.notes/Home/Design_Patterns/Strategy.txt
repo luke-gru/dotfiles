@@ -1,0 +1,28 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-09-25T10:55:17.476856
+
+====== Strategy ======
+
+**Strategy is used to move algorithms into a separate type.**
+**It uses delegation to get the proper strategy (algorithm) for the object.**
+
+This separate strategy type is usually abstract, and the specific strategies subclass the base abstract strategy.
+
+For the objects, there's usually another abstract base class for the objects, like //Lesson. Lesson //holds 
+a composition reference to the abstract strategy, to take advantage of polymorphism.
+
+The abstract strategy class //uses //(takes as an argument) the abstract object class in one or
+more of its methods.
+
+In the Strategy pattern, the client code is usually responsible for picking which strategy to use. The
+concrete strategy classes should strive to have the same interface.
+
+**When to use:**
+Good idea to use when 2 or more algorithms (strategies) needed for two or more concrete classes.
+
+**Why use it?**
+Decouples the code, focuses responsibility of classes, and very extensible and easy to maintain.
+
+**Main idea:**
+Encapsulate the concept that varies! Here, that concept is the strategy (algorithm).

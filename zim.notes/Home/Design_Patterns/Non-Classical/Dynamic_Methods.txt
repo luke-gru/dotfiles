@@ -1,0 +1,50 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-09-27T17:14:28.573575
+
+====== Dynamic Methods ======
+**Calling and defining methods on the spot**
+
+**Dynamic Dispatch:**
+Calling methods (and defining them) during runtime
+
+Example:
+
+# Load configuration if any
+if conf.rc and File.exists?( conf.rc )
+	YAML.load_file(conf.rc).each do |k,v|
+
+		conf.send("#{k}=" , v)
+
+	end
+
+end
+
+**Pattern Dispatch:**
+Same thing as above, but most often using //reflection //and //filtering of method patterns// to call certain methods
+
+class Computer
+	def initialize(computer_id, data_source)
+
+		@id = computer_id
+		@data_source = data_source
+		data_source.methods.grep(/^get_(.*)_info$/) { Computer.define_component $1 }
+
+end
+
+	def self.define_component(name)
+
+		define_method(name) {												<<- **dynamic methods**
+
+			info = @data_source.send "get_#{name}_info" , @id
+			price = @data_source.send "get_#{name}_price" , @id
+			result = "#{name.capitalize}: #{info} ($#{price})"
+			return "* #{result}" if price >= 100
+			result
+
+		  }
+
+	end
+
+end
+

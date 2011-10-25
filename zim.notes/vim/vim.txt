@@ -107,6 +107,7 @@ now, ranges can be specified as 't, 'b	<<- note that ' gives you only row, first
 //:saveas filename//
 //:file filename								//<<- rename file, no write
 //:read filename							//<<- puts file text one line below cursor
+//:x											//<<- same as :wq
 ://0r !ls	//									<<- first line of file, print output of terminal 'ls' in current working dir.
 //:new ++opt (file)							//<<- open new horiz. [noname] window
 //:split (file)									<<- //open current or (file) in split. Don't perform autocommands WinEnter, WinLeave, BufEnter, BufLeave
@@ -115,6 +116,7 @@ now, ranges can be specified as 't, 'b	<<- note that ' gives you only row, first
 //:tabnew//
 :3tag										<<- jump forwards 3 tags
 //:#r filename								//<<- reads file and inserts it after current line. #s can be used to insert it at line #
+//:dis OR reg								//<<- display all registers
 //:view filename							//<<- open file in read-only
 //:write  >> filename						//<<- appends all text to file (or selected text when in v mode)
 //:[ran,ge]s/oldword/newword[tags]		//<<- % is general sub (default range = current line #, and first occurence of each line only)
@@ -191,6 +193,7 @@ C-r	r										<<- insert register "r (C-r " is insert current register)
 C-k											<<- insert digraph
 C-x C-f										<<- filename search, grep current directory (C-x [crosshair mode])
 C-x C-d									<<- macro definition search
+C-X C-o									<<- omni-completion search (remapped to C-o in .vimrc)
 C-x C-k										<<- dictionary word search
 
 C-w										<<- delete word before cursor
@@ -212,6 +215,7 @@ C-d										<<- remove shiftwidth of indent
 
 
 **PLUGINS::**
+
 **Rails Plugin:**
 :A(T,W)									<<- alternate file (usually tests)
 :R											<<- related file: 						 (**Model:**__schema_migration__**		Controller:**__Module__**	View:**__Controller__)
@@ -237,8 +241,9 @@ dst										<<- delete surrounding tag
 ysw"										<<- y to escape //sub.//
 //vmode://
 s"
-yds"										<<- the y (mnemonic is '//yeah, so...')// is to escape the delete command
+yds"										<<- the y (mnemonic is '//yeah, so...')// is to escape the delete (and change) command
 ycs'"
+
 **SnipMate plugin:**
 
 

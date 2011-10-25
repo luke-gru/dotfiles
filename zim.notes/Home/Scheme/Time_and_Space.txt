@@ -1,0 +1,34 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-09-13T17:10:36.779081
+
+====== Time and Space ======
+
+//A linear iteration (loop)//
+
+(define (peano_sum x y)
+	(if (= x 0))
+	      y
+	(peano_sum (-1+ x) (1+ y)))
+
+
+**Substitution:**
+
+(peano_sum 3 5)
+(peano_sum 2 6)
+(peano_sum 1 7)
+(peano_sum 0 8)
+8
+
+Since the amount of __time __this takes is directly proportional to x (if I added 1 to x, I would have another line),
+the time is said to be O(x) => to the order of the input argument X. 
+
+The __space__ that this takes up is constant. It is O(1) => to the order of 1
+
+
+//A recursive process//
+
+(define (peano_sum x y)
+     (if (= x 0)
+       y
+      (1+ (peano_sum (-1+ x) y) )))

@@ -1,0 +1,45 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-09-11T17:39:48.684076
+
+====== strings ======
+
+**Interpolation:**
+
+print "The sum of __$number1__ and __$number2__ is " . $sum . "<br />";				=> direct
+print "The sum of __{$number1}__ and __{$number2}__ is " . $sum . "<br />";			=> braces
+
+**Functions:**
+
+__strlen__(s)
+__strtoupper__(s)
+__strtolower__(s)
+__ucwords__(s)
+__ucfirst__(s)							=> uppercase first word only
+__trim__(s)							=> strip whitespace. also, (rtrim, ltrim)
+__explode__(str_delim, $string)		=> returns array delimited by str_delim. Ex: $words = explode(' ', $string)
+
+__preg_split__("//",string)			=> returns array delimited by regex. Ex: $letters = preg_split("/[,.\s0-9 ]|/", $string)
+__preg_replace__(/old/, /new/, string)	=> pattern or replacement can be arrays of patterns and replacements!
+
+__nl2br__(s)							=> returns string w/ newlines replaced w/ breaks
+
+__substr__("abcde", -3, 2) 			=> start at -3 position, get 2 chars (string, index, length)
+									if length is negative, take away that many chars from the end of the string
+									if length is not given as a parameter, get till the end
+
+__str_replace__(old, new, string) 	=> replaces all occurences//(gsub)//
+__strpos__("John is cool", " ") 		=> gives the first index of a string inside another string
+
+
+
+**Functions that return EXPLICIT boolean values:**
+
+__ctype_alnum__(s)
+__ctype_digit__(s)
+__ctype_lower/upper__(s)
+__strcmp__(s1, s2)						=> Compares 2 strings dictionary-style, returns -1 if s1 is smaller, 0 if equal, 1 if s1 is bigger. //Case sensitive//
+__strcasecmp__(s1, s2)					=> same as above, //case insensitive//
+__ctypealpha__(s)							=> bool, TRUE if string is alphabetic
+__preg_match__("/pattern/", string)  	=> returns 0 or 1 (stops after first match)
+

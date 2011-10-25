@@ -1,0 +1,23 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-09-11T18:38:29.579358
+
+====== IO ======
+
+**Getting file lines 1 at a time:**
+while (!feof($file)) {
+}
+
+**Functions:**
+__fopen__(path, mode)					=> returns file handle
+modes = r w a
+__is_readable__(path)					=> returns bool
+__is_writable__(path)						=> returns bool
+__file_exists__(path)						=> returns bool
+__fclose__($handle)
+__fwrite__($handle, data, [max bytes])
+__fread__($handle, length)				=> returns data
+__file__($handle)							=> reads whole file, puts into array delimited by "\n"
+__file_get_contents__($handle)			=> opens, reads and closes, returns data as //one big string//
+__fgets__($handle,[length])				=> returns one line
+__feof__($handle)							=> returns bool (true if eof)

@@ -1,0 +1,44 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2011-09-24T18:44:31.123473
+
+====== lambdas and closures ======
+
+**lambdas:**
+
+//old://
+$logger = create_function('$product', 'print "   logging {$product->name}\n";');
+
+//new (5.3)://
+$logger = function($product) {
+	print "  logging {$product->name}\n";
+
+}__;__
+
+Used when? Used for //callbacks //in __delegation.__ When you need functionality to be defined at runtime, dynamic, event-driven, not
+sure of the specifics of the function or not sure how many functions to call on an event-fire. Also, make code more
+reusable in many contexts.
+
+**Closures:**
+
+class Totalizer {
+
+  static function warnAmount(__$amt__) {
+	__$count = 0;__
+	return function($product) __use ($amt, &$count)__ {
+
+		__count += $product->price;__
+		if ($count > $amt) {
+
+			print "reached high price";
+
+		}
+
+	}
+
+  }
+
+}
+
+
+
