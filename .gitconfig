@@ -2,24 +2,31 @@
 	name = Luke Gruber
 	email = luke.gru@gmail.com
 [core]
-  	editor = vim
+	editor = vim
 	sharedRepository = 640
 	excludesfile = /home/luke/dotfiles/.gitignore
 [alias]
 	co = checkout
 	ci = commit
+	mg = merge
+	pom = push origin master
 	st = status -sb
 	br = branch
 	bra = branch -a
+	branches = branch -a
+	d = diff
 	ds = diff --stat
+	dc = diff --cached
 	dcs = diff --cached --stat
 	dsc = diff --cached --stat
 	remotes = remote -v show
-  	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-  	type = cat-file -t
-  	dump = cat-file -p
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
 	cl = clone
 	saveass = reflog show HEAD@{now} -10
+	untracked = ls-files --others --exclude-from=.git/info/exclude
+
 [color]
 	ui = true
 [branch]

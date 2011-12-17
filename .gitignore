@@ -5,6 +5,7 @@ cv.*
 *.pdf
 *.md.html
 *.markdown.html
+*.gemspec
 *.gem
 ideas
 IDEAS

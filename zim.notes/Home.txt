@@ -18,6 +18,8 @@ Creation-Date: 2010-12-10T18:12:56.197973
 
 [[Comp sci:home|Comp sci]]
 
+[[Home:C|C]]
+
 [[git]]
 
 [[vim:vim|vim]]

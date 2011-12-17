@@ -68,8 +68,6 @@ esac
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
   alias ls='ls --color=auto'
-  # alias dir='dir --color=auto'
-  # alias vdir='vdir --color=auto'
 
   alias grep='grep --color=auto'
   alias fgrep='fgrep --color=auto'
@@ -80,18 +78,25 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+# all non-hidden dirs in current directory
+alias lsd='ls -d */'
+# all dirs in current directory
+alias lsda='ls -d */ .*/'
+# list all files in current directory
+alias lsf='find . -maxdepth 1 -type f -print | cut -c 3- | xargs ls'
+alias hid="lsf | grep -e '^\.'"
 
-#good ol gv, good in terminal and good in vim!
-alias gv='gvim --remote-silent'
 alias cls='clear; ls'
 alias e='exit'
 alias lsa='ls -a'
 
+# bashrc
 # reload bash config
 alias reload='source ~/.bashrc'
+alias bashrc='$EDITOR ~/.bashrc'
 
 # Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
+# sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
@@ -119,6 +124,8 @@ if [ -d $HOME/pear/bin ]; then
 fi
 
 export TERM=xterm
+
+# irc
 export IRCNICK=luke-gru
 export IRCNAME=lukeDOTgruATgmail
 export IRCRC="$HOME/.ircrc"
@@ -126,26 +133,41 @@ export IRCRC="$HOME/.ircrc"
 # aliases
 alias lampp='sudo /opt/lampp/lampp'
 
+# vim stuff
 # for use after ack list search:
 alias vimp='vim $(!!)'
+# good ol gv, good in terminal and good in vim!
+alias gv='gvim --remote-silent'
 alias vimpack='vim $(!! -l)'
+alias vimrc='$EDITOR ~/.vimrc'
 
-alias pills="$HOME/Desktop/code/ruminder/ruminder.rb"
 # rvm
 alias gemset='rvm gemset name'
 alias gemsets='rvm gemset list'
 alias gems='gem list'
 alias rubies='rvm list'
+
+# tmux
+# start tmux with 256 colors
+alias tmux="tmux -2"
+
+# ack-grep
+alias ack='ack-grep'
+
 # git
-alias gcl='git config --list'
 alias gdiff='git diff | gvim --remote-silent'
 alias g='git'
-alias gpom='git push origin master'
-# change the rebasing
+# change the rebasing defaults
 alias alwaysrebase='git config branch.autosetuprebase always'
 alias localrebase='git config branch.autosetuprebase local'
 alias neverrebase='git config branch.autosetuprebase never'
-# more aliases in .gitconfig
+
+# sysadmin type stuff
+# list processes in terms of cpu %
+alias pcpu='ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu | sed "/^ 0.0 /d"'
+# list processes in a tree hierarchy
+alias phier='ps -e -o pid,args --forest'
+
 # /aliases
 
 # rvm prompt
@@ -154,9 +176,6 @@ PS1="(\$(~/.rvm/bin/rvm-prompt v g))$PS1"
 [[ -s "/home/luke/.rvm/scripts/rvm" ]] && source "/home/luke/.rvm/scripts/rvm"
 
 export LESS=-RFX
-alias gruber="/home/luke/Desktop/code/gruber.rb"
-# start tmux with 256 colors
-alias tmux="tmux -2"
 
 if [ -e $HOME/allmine ]
 then

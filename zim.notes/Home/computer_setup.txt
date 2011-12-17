@@ -11,6 +11,8 @@ Creation-Date: 2011-04-21T18:44:25.010049
 -rvm => ruby
 -vim > 7
 
+-build-essential
+-apache2
 -phpsh
 -links (text browser to work w/ manpageview in vim)
 -mysql-server-x.x
@@ -46,9 +48,9 @@ Creation-Date: 2011-04-21T18:44:25.010049
 
 //System://
 -Gnome partition editor (gparted)
--fonts: ttf-inconsolata, mensch
+-fonts: ttf-inconsolata
 -alarm clock
--dropbox
+-touchpad-indicator
 
 //Chat://
 -ircII

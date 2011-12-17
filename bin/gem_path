@@ -1,28 +1,16 @@
 #!/usr/bin/env ruby
 #//  vim: set ts=2 sw=2 tw=78 ft=ruby ://
 
+class NoRVMError < StandardError; end
+
 gem_paths = ENV['GEM_PATH']
 gem_path = if gem_paths
              File.join gem_paths.split(':').first, 'gems'
            else
+             raise NoRVMError, "RVM isn't installed."
            end
 
 if ARGV.empty?
   print gem_path
   exit 0
-else
-  option = ARGV.first
-  if !option.nil? and option == '-a' then @all = true; shell_pattern = ARGV[1]
-  else shell_pattern = option end
-  files = Dir.glob(File.join(gem_path, shell_pattern))
-  if files.size > 0
-    case files.size
-    when 1
-      @all ? puts(files) : print(files.first)
-    else
-      @all ? puts(files) : print('.')
-    end
-    exit 0
-  end
 end
-

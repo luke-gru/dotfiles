@@ -46,6 +46,19 @@ end
 def e
   quit
 end
+alias q e
+
+def ls
+  files = Dir.glob('*').sort
+  files.each do |f|
+    if Dir.exists? f
+      puts f + '/'
+    else
+      puts f
+    end
+  end
+  nil
+end
 
 def myfiles
   @files.call
@@ -61,17 +74,26 @@ def loaded_gems
 end
 
 def add_load_path(dir=`pwd`)
-  $:.unshift dir.chomp
-  Dir.glob("#{dir}*")
+  dir.chomp! if dir[-1] == "\n"
+  $:.unshift dir
+  dir << '/' unless dir[-1] == '/'
+  files = Dir.glob("#{dir}*")
+  files.each {|f| f << '/' if Dir.exists? f}
 end
 
 class Object
   def local_methods
     if self.instance_of?(Class)
-      (methods - Class.methods).sort
+      (methods - Class.instance_methods).sort
     else
-    (methods - Object.instance_methods).sort
+      (methods - Object.instance_methods).sort
     end
+  end
+end
+
+class Class
+  def local_instance_methods
+    (instance_methods - Class.instance_methods).sort
   end
 end
 
@@ -90,7 +112,7 @@ end
 
 class Range
   def method_missing(method, *args, &block)
-    if [].respond_to? method
+    if $:.respond_to? method
       to_a.__send__(method, *args, &block)
     else
       super
