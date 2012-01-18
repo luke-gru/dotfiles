@@ -4,7 +4,7 @@ Creation-Date: 2011-07-28T18:39:23.032172
 
 ====== database ======
 
-[[Home:database:ANSI SQL|ANSI SQL]]
+ANSI SQL
 
 [[Home:database:Joins|Joins]]
 

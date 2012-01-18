@@ -13,7 +13,6 @@ Use -v :
 
 !Class => Regexp	 !Parent Class => Object
 
-Resources: [[http://www.rubular.com|Rubular]] [ a Ruby regular expression editor], [[http://strugglingwithruby.blogspot.com/2009/05/regular-expressions-in-ruby.html|StrugglingWithRuby]]
 Legend: Ruby Regular Expression => RRE
 _______________________________________________________________________________________________________________________________________
 
@@ -22,9 +21,9 @@ ________________________________________________________________________________
 Regexp.new("...", "i") OR [[/.../]] OR %r{ ... }  OR regexp::new (constructor) or #{...}
 
 → **Comparison methods:**  RRE.match(string)   and   =~ (operator)
-						        => [[matchdata			]]       => index of first match
+						        => matchdata			       => index of first match
 
-								    bothmethods => [[var $~]]
+								    bothmethods => var $~
 
 
 → **Rules for RREs:**

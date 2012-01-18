@@ -1,9 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2010-12-31T18:27:17.062940
-
-====== Encoding, Transcoding ======
-
-Pickaxe p. 251-63
-
-

@@ -4,21 +4,13 @@ Creation-Date: 2010-12-10T18:12:56.197973
 
 ====== Home ======
 
-[[home:Ruby_and_RoR|Ruby and RoR]]
-
-[[Home:PHP:PHP Home|PHP]]
-
 [[Home:Design Patterns|Design Patterns]]
 
 [[Home:Scheme:index|Scheme]]
 
 [[Home:JS:JS Home|JS]]
 
-[[Home:CSS|CSS]]
-
 [[Comp sci:home|Comp sci]]
-
-[[Home:C|C]]
 
 [[git]]
 
@@ -30,11 +22,6 @@ Creation-Date: 2010-12-10T18:12:56.197973
 
 [[Heroku]]
 
-[[Home:postgreSQL|postgreSQL]]
-
 [[linux:Shell scripting|Shell scripting]]
 
 [[Home:computer setup|computer setup]]
-
-[[Home:Sites and Usernames|Sites and Usernames]]
-

@@ -10,30 +10,13 @@
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
+  # include .bashrc if it exists
+  if [ -f "$HOME/.bashrc" ]; then
+    . "$HOME/.bashrc"
+  fi
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-  
-#added Nov. 27, 2010 
-#added following on Dec. 15, 2010
-	
-alias gs='git status '
-alias ga='git add '
-alias gb='git branch '
-alias gc='git commit'
-alias gd='git diff'
-alias go='git checkout '
-alias gk='gitk --all&'
-alias gx='gitx --all'
-
-# sample PATH below from linuxforums.org
-#PATH=$PATH:$HOME/bin
-#PATH=$PATH:/home/flebber/Python
-

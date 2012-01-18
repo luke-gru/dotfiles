@@ -11,8 +11,6 @@ for history commands, see [[linux:shell:bash|bash]]
 
 __Utilities:__
 
-[[linux:awk:awk|awk]]
-
 [[linux:ack|ack]]
 
 [[linux:grep|grep]]

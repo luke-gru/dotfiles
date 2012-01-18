@@ -25,7 +25,7 @@ $ls | egrep 'blah'													<<- grep accepts stdin from commands
 
 **grep regular expressions**
 .		=> any char
-*		=> 0 or more
+* => 0 or more
 +		=> 1 or more
 ?		=> 1 or 0
 ^  		=> beg. of line
@@ -34,7 +34,7 @@ $		=> end of line
 \<, \>	=> word boundary
 {2,4}	=> at least 2, at most 4
 {4}		=> exactly 4
-[ ]		=> char. classes (any)
+[ ] => char. classes (any)
 [^ ]		=> any that isnt in this char class
 [0-9a-zA-z]		=> char class ranges
 []^[-]				=> note that this is 4 literal chars in this char class (char class positioning)

@@ -1,5 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2010-12-10T20:22:31.952953
-
-====== Controller ======

@@ -82,7 +82,7 @@ end
 	<%= render(:partial => "cart", :object => @cart) %>									<<- unrender if @cart.items.empty? == false
 <% **end** %>
 
-So we need a helper method that takes a //condition, a hash argument and a block. Also, we need to wrap the block in a div! (//__content_tag__ [[Home:Helper Methods|helper]])
+So we need a helper method that takes a //condition, a hash argument and a block. Also, we need to wrap the block in a div! (//__content_tag__ helper)
 
 **def** hidden_div_if(condition, attributes = {}, &block)
 

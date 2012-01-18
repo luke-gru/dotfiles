@@ -112,7 +112,7 @@ end
 
 class Range
   def method_missing(method, *args, &block)
-    if $:.respond_to? method
+    if [].respond_to? method
       to_a.__send__(method, *args, &block)
     else
       super

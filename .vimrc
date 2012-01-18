@@ -35,10 +35,13 @@ set t_Co=256
 set background=dark
 
 if (&t_Co == 256 || &t_Co == 88) && !has('gui_running')
+  " terminal
   colorscheme xoria256
 elseif &diff
+  " diff
   colorscheme peaksea
 else
+  " gvim
   colorscheme xoria256
 endif
 " /terminal colors
@@ -62,6 +65,7 @@ set nojoinspaces " Oh historical reasons... for SHAME.
 set hls " Highlight search.
 set foldcolumn=1 " Must... see... folds.
 set foldmethod=marker " Marker folding styles.
+set iskeyword+=-
 " Start statusline with a blank slate.
 set statusline=
 set statusline+=%2*#%n%*\        " Flags and buf num.
@@ -180,7 +184,7 @@ if version >= 703
 endif
 
 " *diff stuff*
-set diffopt+=vertical,context:4
+set diffopt+=vertical,context:4,iwhite
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
         \ | wincmd p | diffthis
@@ -224,15 +228,27 @@ noremap <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 noremap <leader>cd :cd <C-R>=expand("%:p:h") <CR>
 
 " *my Ruby/Rails abbreviations*
-iabbr rie initialize
-iabbr rto redirect_to
-iabbr bto button_to
-iabbr lto link_to
-iabbr attra attr_accessor
-iabbr attrr attr_reader
-iabbr attrw attr_writer
-iabbr slt stylesheet_link_tag
-iabbr jsit javascript_include_tag
+iabbr rin initialize
+iabbr rhabtm has_and_belongs_to_many
+iabbr rrto redirect_to
+iabbr rres respond_to do \|format\|
+iabbr rbuto button_to
+iabbr rbeto belongs_to
+iabbr rlto link_to
+iabbr ratra attr_accessor
+iabbr ratrp attr_protected
+iabbr ratrac attr_accessible
+iabbr ratrr attr_reader
+iabbr ratrw attr_writer
+iabbr rcatra cattr_accessor
+iabbr rmatra mattr_accessor
+iabbr rvat verify_authenticity_token
+iabbr rpff protect_from_forgery
+iabbr rslt stylesheet_link_tag
+iabbr rjsit javascript_include_tag
+iabbr rofcfs options_from_collection_for_select
+iabbr rofs options_for_select
+iabbr ranaf accepts_nested_attributes_for
 " /my Rails abbreviations
 
 iabbr myemail luke<DOT>gru<AT>gmail<DOT>com
@@ -251,10 +267,13 @@ cabbr B# b#
 let g:syntastic_auto_loc_list=1
 let g:bufExplorerSplitRight=1
 let g:bufExplorerShowRelativePath=1
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+let NERDTreeShowHidden=0
 
 nnoremap <leader>se :SyntasticEnable<CR>
 nnoremap <leader>sd :SyntasticDisable<CR>
-nnoremap <silent> <leader>to :NERDTreeToggle<CR>
+nnoremap <silent> <leader>t :NERDTreeToggle<CR>
 nnoremap <silent> <leader>a :Ack <cWORD><CR>
 nnoremap <silent> <leader>be :BufExplorer<CR>
 nnoremap <silent> <leader>la :h local-additions<CR>
@@ -264,7 +283,7 @@ function! Preserve(command)
   " Preparation: save last search, and cursor position.
   let _s=@/
   let l = line(".")
-  let c = col(".")
+  let c = virtcol(".")
   " Do the business:
   execute a:command
   " Clean up: restore previous search history, and cursor position.
@@ -316,6 +335,8 @@ noremap <silent> <F4> <ESC>:so $MYVIMRC<CR>
 
 " making [count] newlines below cursor
 nnoremap <leader>; o<ESC>
+" split, like a reverse-J(join)
+nnoremap S i<CR><ESC>
 
 nnoremap <F9> :set virtualedit=block<CR>
 nnoremap <F10> <nop>
@@ -373,8 +394,24 @@ function! LookUpwards()
     return matchstr(getline(target_line_num), target_pattern)
   endif
 endfunction
-" Reimplement CTRL-Y within insert mode...
+
+function! LookDownwards()
+  " Locate current column and preceding line from which to copy.
+  let column_num      = virtcol('.')
+  let target_pattern  = '\%' . column_num . 'v.'
+  let target_line_num = search(target_pattern . '*\S', 'nW')
+
+  " If target line found, return vertically copied character.
+  if !target_line_num
+    return ""
+  else
+    return matchstr(getline(target_line_num), target_pattern)
+  endif
+endfunction
+
+" Reimplement CTRL-Y and CTRL-E in insert mode...
 inoremap <silent>  <C-Y>  <C-R><C-R>=LookUpwards()<CR>
+inoremap <silent>  <C-E>  <C-R><C-R>=LookDownwards()<CR>
 
 nnoremap <leader>= :call Preserve("normal gg=G")<CR>
 " /n- and i-mode mappings
@@ -384,7 +421,8 @@ cnoremap <C-b> <left>
 cnoremap <C-f> <right>
 cnoremap <C-a> <C-b>
 " classic...
-cnoremap w# w !sudo tee % > /dev/null
+" <C-w> for root
+cnoremap <silent> <C-w> w !sudo tee % > /dev/null<CR>
 " /c-mode mappings
 
 " *v-mode mappings*
@@ -433,54 +471,51 @@ endfunction
 " Add modeline to file with current settings.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
 " files.
-function! AppendModeline()
+function! InsertModeline()
   let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d :",
         \ &tabstop, &shiftwidth, &textwidth)
   let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
   call append(line("0"), l:modeline)
 endfunction
 
-function! RubyShebang()
+function! InsertRubyShebang()
   let l:shebang = "#!/usr/bin/env ruby"
   call append(line("0"), l:shebang)
 endfunction
 
-command! -nargs=0 Rsheb call RubyShebang()
-command! -nargs=0 Mode call AppendModeline()
+command! -nargs=0 Rsheb call InsertRubyShebang()
+command! -nargs=0 Mode call InsertModeline()
 command! -nargs=* Xe !chmod +x <args>
 command! -nargs=0 Xe !chmod +x %
 
-if has("unix") || has("mac")
-  " From https://github.com/tpope/tpope/blob/master/.vimrc
-  function! OpenURL(url)
-    if has("win32")
-      exe "!start cmd /cstart /b ".a:url.""
-    elseif $DISPLAY !~ '^\w'
-      exe "silent !sensible-browser \"".a:url."\""
-    else
-      exe "silent !sensible-browser -T \"".a:url."\""
-    endif
-    redraw!
-  endfunction
-  command! -nargs=1 OpenURL :call OpenURL(<q-args>)
-  " Open URL under cursor in browser.
-  nnoremap gB :OpenURL <cfile><CR>
-  nnoremap gG :OpenURL http://www.google.com/search?q=<cword><CR>
-  nnoremap gW :OpenURL
-        \ http://en.wikipedia.org/wiki/Special:Search?search=<cword><CR>
-endif
+" From https://github.com/tpope/tpope/blob/master/.vimrc
+function! OpenURL(url)
+  if has("win32")
+    exe "!start cmd /cstart /b ".a:url.""
+  elseif $DISPLAY !~ '^\w'
+    exe "silent !sensible-browser \"".a:url."\""
+  else
+    exe "silent !sensible-browser -T \"".a:url."\""
+  endif
+  redraw!
+endfunction
+command! -nargs=1 OpenURL :call OpenURL(<q-args>)
+
+" Open URL under cursor in browser.
+nnoremap gB :OpenURL <cfile><CR>
+nnoremap gG :OpenURL http://www.google.com/search?q=<cword><CR>
+nnoremap gW :OpenURL
+      \ http://en.wikipedia.org/wiki/Special:Search?search=<cword><CR>
 
 " Turn on/off sql highlighting for PHP files.
 silent! function! PHP_sql_color_on()
   let g:php_sql_query=1
-  so $MYVIMRC
 endfunction
 
 silent! function! PHP_sql_color_off()
   if exists("g:php_sql_query")
     unlet g:php_sql_query
   endif
-  so $MYVIMRC
 endfunction
 
 function! FoldView()
@@ -567,8 +602,6 @@ command! -bar Run :execute Run()
 if has("autocmd")
   au!
 
-  autocmd bufread * syntax enable
-
   " vimrc source on write
   augroup vimrc
     au!
@@ -601,7 +634,7 @@ if has("autocmd")
         \ -w78
   augroup END
 
-  augroup notes
+  augroup zim
     au!
     au BufRead */zim.notes/* set filetype=zim
   augroup END
@@ -622,7 +655,7 @@ if has("autocmd")
 
   augroup ft_css
     au!
-    au FileType less,css setl iskeyword+=- foldmethod=marker foldmarker={,}
+    au FileType less,css setl foldmethod=marker foldmarker={,}
           \ omnifunc=csscomplete#CompleteCSS
   augroup END
 
@@ -708,7 +741,7 @@ if has("autocmd")
     " Set gvim window size and position.
     au GUIEnter * set lines=38 columns=100
     au GUIEnter * winpos 618 24
-    au GUIEnter * set icon guioptions-=T
+    au GUIEnter * set noicon guioptions-=T
     au GUIEnter * if has("diff") && &diff | set columns=165 | endif
   else
     " This is console Vim.

@@ -80,7 +80,7 @@ print $1 . "\n";
 
 >__ississ__
 
-Ascetic: (hehe ...)
+Ascetic:
 my($text) = "mississippi";
 $text =~ m/(i.***?**s)/;
 print $1 . "\n";

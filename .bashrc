@@ -123,6 +123,11 @@ if [ -d $HOME/pear/bin ]; then
   export PATH=$PATH:$HOME/pear/bin
 fi
 
+if [ -d $HOME/android-sdks ]; then
+  export PATH=$PATH:$HOME/android-sdks/tools
+  export PATH=$PATH:$HOME/android-sdks/platform-tools
+fi
+
 export TERM=xterm
 
 # irc
@@ -154,6 +159,10 @@ alias tmux="tmux -2"
 # ack-grep
 alias ack='ack-grep'
 
+# copy/paste to/from clipboard
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
 # git
 alias gdiff='git diff | gvim --remote-silent'
 alias g='git'
@@ -167,6 +176,7 @@ alias neverrebase='git config branch.autosetuprebase never'
 alias pcpu='ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu | sed "/^ 0.0 /d"'
 # list processes in a tree hierarchy
 alias phier='ps -e -o pid,args --forest'
+alias ip="ifconfig | grep -Eo 'inet addr:192\.[^ ]+' | grep -Eo [0-9.]+"
 
 # /aliases
 
@@ -192,3 +202,10 @@ then
   export PATH=$HOME/bin:$PATH
 fi
 
+# not sure why this isn't working when I set the default, but here it goes
+rvm gemset use rails3.1.0
+export JAVA_HOME="/usr/lib/jvm/java-6-sun-1.6.0.26/bin"
+alias rhodes='rvm use 1.8.7@rhodes'
+alias traf="cd $HOME/workspace/traffic"
+alias trafm="cd $HOME/workspace/trafficmanager"
+alias trafr="cd $HOME/Desktop/code/cophenetic/streetsmart"

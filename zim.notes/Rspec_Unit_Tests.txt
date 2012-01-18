@@ -1,9 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2011-02-07T21:11:09.085132
-
-====== Rspec Unit Tests ======
-checkout **spec/models/user_spec.rb** in __twitter-like__
-
-
-
