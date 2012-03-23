@@ -9,8 +9,7 @@
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
 
-# append to the history file, don't overwrite it
-shopt -s histappend
+shopt -s histappend     # append to the history file, don't overwrite it
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1HISTSIZE=1000
 HISTFILESIZE=2000
@@ -117,7 +116,6 @@ fi
 
 export EDITOR=`which vim`
 source ~/.git-completion.bash
-# export PATH=/path/to/dir:$PATH          <<-- Format for adding to PATH in .bashrc
 
 if [ -d $HOME/pear/bin ]; then
   export PATH=$PATH:$HOME/pear/bin
@@ -135,15 +133,12 @@ export IRCNICK=luke-gru
 export IRCNAME=lukeDOTgruATgmail
 export IRCRC="$HOME/.ircrc"
 
-# aliases
-alias lampp='sudo /opt/lampp/lampp'
-
 # vim stuff
 # for use after ack list search:
 alias vimp='vim $(!!)'
+alias vimpack='vim $(!! -l)'
 # good ol gv, good in terminal and good in vim!
 alias gv='gvim --remote-silent'
-alias vimpack='vim $(!! -l)'
 alias vimrc='$EDITOR ~/.vimrc'
 
 # rvm
@@ -171,12 +166,18 @@ alias alwaysrebase='git config branch.autosetuprebase always'
 alias localrebase='git config branch.autosetuprebase local'
 alias neverrebase='git config branch.autosetuprebase never'
 
+md () { mkdir -p "$1"; cd "$1"; }
+
 # sysadmin type stuff
 # list processes in terms of cpu %
 alias pcpu='ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu | sed "/^ 0.0 /d"'
 # list processes in a tree hierarchy
 alias phier='ps -e -o pid,args --forest'
 alias ip="ifconfig | grep -Eo 'inet addr:192\.[^ ]+' | grep -Eo [0-9.]+"
+
+alias bexec="bundle exec"
+alias newg="gnome-terminal &"
+alias newx="xterm &"
 
 # /aliases
 
@@ -203,9 +204,13 @@ then
 fi
 
 # not sure why this isn't working when I set the default, but here it goes
-rvm gemset use rails3.1.0
+rvm use ruby-1.9.2-p180@rails3.1.0
 export JAVA_HOME="/usr/lib/jvm/java-6-sun-1.6.0.26/bin"
-alias rhodes='rvm use 1.8.7@rhodes'
-alias traf="cd $HOME/workspace/traffic"
-alias trafm="cd $HOME/workspace/trafficmanager"
-alias trafr="cd $HOME/Desktop/code/cophenetic/streetsmart"
+export PATH=$JAVA_HOME:$PATH
+
+alias dirs="\dirs -v"
+alias 1="cd ~+1"
+alias 2="cd ~+2"
+alias 3="cd ~+3"
+alias 4="cd ~+4"
+alias 5="cd ~+5"

@@ -18,29 +18,27 @@ Creation-Date: 2011-04-21T18:44:25.010049
 -mysql-server-x.x
 -php-mysql
 -phpmyadmin
-
--chromium
-	-xmarks (username:// luke.gru@gmail.com//, pass hint: high pass)
-	-adblock plus 
-
-	-imgur the world
-	-unsubscribe for gmail
-	-depersonalize for search security
-	-freshstart cross-browser session management
-
--firefox
-	-xmarks (username: //luke-gru//, pass hint: linuxpass)
-	-mozrepl
-
+-wireshark
+-perftools
 -screen ruler
 -filezilla
 -sqlite database browser
 -exuberant-ctags
--rhino (javascript interpreter)
+-rhino (javascript interpreter) or spidermonkey
+-Calibre
+
+-chromium
+	-xmarks (username:// luke.gru@gmail.com//, pass hint: high pass)
+	-adblock plus 
+       -unsubscribe for gmail
+      -freshstart cross-browser session management
+
+-firefox
+	-xmarks (username: //luke-gru//, pass hint: linuxpass)
 
 //Media://
 -VLC
--rhythmbox
+-radio tray
 
 //Notes/Sync://
 -zim desktop wiki
@@ -50,7 +48,7 @@ Creation-Date: 2011-04-21T18:44:25.010049
 -Gnome partition editor (gparted)
 -fonts: ttf-inconsolata
 -alarm clock
--touchpad-indicator
+-touchpad-indicator (ubuntu)
 
 //Chat://
 -ircII
@@ -61,15 +59,4 @@ Creation-Date: 2011-04-21T18:44:25.010049
 
 //Rubygems://
 SSH Tunneling/Port-Forwarding Services:
--showoff-io (gem)
--localtunnel (gem)
 -gist (cmdline tool)
-
-//Stdout viewer in browser://
--bcat (rtomayko)
-
-//Languages://
-markdown
-
-
-

@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-#//  vim: set ts=2 sw=2 tw=78 ft=ruby ://
+# vim: set ts=2 sw=2 tw=78 ft=ruby
 
 class NoRVMError < StandardError; end
 

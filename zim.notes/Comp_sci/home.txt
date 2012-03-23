@@ -7,7 +7,7 @@ Creation-Date: 2011-06-30T12:18:33.367020
 **Binary:**
 10010010 = 1 byte, 2 nibbles. 	lsb (least signifant byte) is on the rightmost, msb (most sig. byte) is on the leftmost
 
-10010010 = (1(digit) * 2(base)**7(weight) ) + (0 * 2**6) + (0 * 2**5) + (1 * 2**4) + (0 * 2**3) + (0 * 2**2) + (1 * 2**1) + (0 * 2**0) = 128 + 16 + 2 = decimal 146
+10010010 = (1(digit) * 2(base)^**7(weight) **) + (0 * 2^**6**) + (0 * 2^**5**) + (1 * 2^**4**) + (0 * 2^**3**) + (0 * 2^**2**) + (1 * 2^**1**) + (0 * 2^**0**) = 128 + 16 + 2 = decimal 146
 
 1 byte (8 bits) can be number 0 - 255 decimal, or 00000000 - 11111111 binary
 

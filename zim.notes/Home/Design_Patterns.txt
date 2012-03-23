@@ -60,13 +60,27 @@ The new classes should probably have a shared abstract base class.
 
 [[Home:Design Patterns:UML|UML]]
 
-**Classical** **Design Patterns:**
+**Classical** **Design Patterns**
 
-[[Home:Design Patterns:Strategy|Strategy]]
+[[Home:Design Patterns:Strategy|Strategy]] aka Policy
 
-//Generating objects://
+[[Home:Design Patterns:Observer|Observer]] (Publish-subscribe, Dependents)
 
-[[Home:Design Patterns:Singleton|Singleton]]
+Composite
+
+Visitor
+
+Interpreter
+
+Command
+
+[[Home:Design Patterns:State|State]]
+
+[[Home:Design Patterns:Memento|Memento]] (token)
+
+**Generating objects**
+
+[[+Singleton|Singleton]]
 
 [[Home:Design Patterns:Factory Method|Factory Method]]
 
@@ -74,7 +88,7 @@ The new classes should probably have a shared abstract base class.
 
 [[Home:Design Patterns:Prototype|Prototype]]
 
-**Dynamic/Reflective/Meta-Design Patterns:**
+**Dynamic/Reflective/Meta-Design Patterns**
 
 [[Home:Design Patterns:Non-Classical:Dynamic Methods|Dynamic Methods]]
 

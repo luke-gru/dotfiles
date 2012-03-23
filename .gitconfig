@@ -20,10 +20,13 @@
 	dcs = diff --cached --stat
 	dsc = diff --cached --stat
 	remotes = remote -v show
+	rems = remote -v show
+	rem = remote
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	type = cat-file -t
 	dump = cat-file -p
 	cl = clone
+	up-subs = submodule foreach git fetch origin --tags && git pull origin master && git submodule update --init --recursive
 	saveass = reflog show HEAD@{now} -10
 	untracked = ls-files --others --exclude-from=.git/info/exclude
 

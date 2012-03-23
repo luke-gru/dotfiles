@@ -1,9 +1,4 @@
-" pathogen
-filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-" /pathogen
-
+call pathogen#infect()
 set nocompatible " Not compatible with vi.
 
 if has("autocmd")
@@ -144,7 +139,7 @@ set helpheight=20 " Minimum height for help wins, default=20, 0 is default
 " for splits.
 " *startup info and sessions*
 set sessionoptions-=options
-set viminfo+=<100
+set viminfo+='15,<500,s15,h,:50,/50
 
 " *encoding (set)*
 " http://vim.wikia.com/wiki/Working_with_Unicode
@@ -169,8 +164,8 @@ else
   set viewdir=/tmp
 endif
 
-if isdirectory(glob("~/.backup"))
-  set directory=~/.backup
+if isdirectory(glob("~/.vim/backup"))
+  set directory=~/.vim/backup
 else
   set directory=/tmp
   echoerr "Backup directory ~/.backup doesn't exist!"
@@ -219,17 +214,33 @@ nnoremap <leader>do :diffoff<CR>
 " /diff stuff
 
 " *edit file in same dir. as current buffer mappings*
-noremap <leader>ee :e <C-R>=expand("%:p:h") . "/" <CR>
-noremap <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
-noremap <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
+nnoremap <leader>ee :e <C-R>=expand("%:p:h") . "/" <CR>
+nnoremap <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
+nnoremap <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 " /edit mappings
 
-" fast cd
-noremap <leader>cd :cd <C-R>=expand("%:p:h") <CR>
+" cd relative to getcwd()
+nnoremap <leader>cd :cd <C-R>=expand("%:p:h") <CR>
+nnoremap <leader>cp :cprevious<CR>
+nnoremap <leader>cn :cnext<CR>
+nnoremap <leader>cc :cclose<CR>
+
+nnoremap <leader>q :q<CR>
+
+" vsplit alternate buffer to the right
+nnoremap <leader>sar :execute "rightbelow vsplit " . bufname("#")<CR>
+" vsplit alternate buffer to the left
+nnoremap <leader>sal :execute "leftabove  vsplit " . bufname("#")<CR>
+" split alternate buffer below
+nnoremap <leader>sab :execute "rightbelow  split " . bufname("#")<CR>
+" split alternate buffer above
+nnoremap <leader>saa :execute "leftabove   split " . bufname("#")<CR>
 
 " *my Ruby/Rails abbreviations*
-iabbr rin initialize
+iabbr rinit initialize
 iabbr rhabtm has_and_belongs_to_many
+iabbr rhbaw http_basic_authenticate_with
+iabbr rhsp has_secure_password
 iabbr rrto redirect_to
 iabbr rres respond_to do \|format\|
 iabbr rbuto button_to
@@ -275,6 +286,7 @@ nnoremap <leader>se :SyntasticEnable<CR>
 nnoremap <leader>sd :SyntasticDisable<CR>
 nnoremap <silent> <leader>t :NERDTreeToggle<CR>
 nnoremap <silent> <leader>a :Ack <cWORD><CR>
+nnoremap <leader>xxx :silent execute "grep! -R " . shellescape('<cWORD>') . " ."<CR>:copen<CR>
 nnoremap <silent> <leader>be :BufExplorer<CR>
 nnoremap <silent> <leader>la :h local-additions<CR>
 " /plugin stuff
@@ -335,8 +347,14 @@ noremap <silent> <F4> <ESC>:so $MYVIMRC<CR>
 
 " making [count] newlines below cursor
 nnoremap <leader>; o<ESC>
-" split, like a reverse-J(join)
+nnoremap <localleader>; :<c-u>execute "normal! mqA;\<esc>`q"<CR>
+" split, like a reversed J(join)
 nnoremap S i<CR><ESC>
+" append, until the end of this line, to the line below
+nnoremap gA 0"xd$$ja<SPACE><ESC>"xp
+" different from gA, this is equivalent to going back to where gi would take
+" you, then moving to the beginning of the line.
+nnoremap gI g;I
 
 nnoremap <F9> :set virtualedit=block<CR>
 nnoremap <F10> <nop>
@@ -346,8 +364,6 @@ nnoremap <F11> :set virtualedit=all<CR>
 nnoremap <leader>lt :set list!<CR>:set list?<CR>
 
 " indenting, useful stuff..
-nnoremap < <<
-nnoremap > >>
 vnoremap < <gv
 vnoremap > >gv
 
@@ -363,18 +379,15 @@ nnoremap * *<C-o>
 
 " ESCaping
 inoremap <A-m> <ESC>
-inoremap <F1> <ESC>
 
 " emacs... don't tell anyone
 inoremap <C-e> <ESC>A
 inoremap <C-a> <ESC>I
-
-" There is no <C-b> in i_mode, so I'll map it to go the start of the line
-" as well
-inoremap <C-b> <ESC>I
+inoremap <C-b> <ESC>i
+inoremap <C-f> <ESC><right>a
 
 " *omnicompletion*
-" Default i_<c-o> I find useless, so map it to omnicomplete
+" Default i_CTRL-o I find useless, so map it to omnicomplete
 inoremap <silent> <C-o> <C-x><C-o>
 
 " Locate and return character above current cursor position regardless of
@@ -430,7 +443,12 @@ vnoremap <C-y> "+y
 " /v-mode mappings
 
 " *o-mode mappings*
+" parameters
 onoremap p i(
+" inner next paren pair
+onoremap in( :<c-u>normal! f(vi(<CR>
+" inner last paren pair
+onoremap ip( :<c-u>normal! F)vi(<CR>
 " /o-mode mappings
 
 " *syntax groups*
@@ -610,7 +628,8 @@ if has("autocmd")
 
   augroup html
     au!
-    autocmd FileType html setl textwidth=0
+    autocmd FileType html setl textwidth=0 nowrap
+    autocmd FileType html iabbrev <buffer> --- &mdash;
   augroup END
 
   " remove trailing whitespace
@@ -619,7 +638,7 @@ if has("autocmd")
     autocmd BufWritePre * :%s/\s\+$//e
   augroup END
 
-  au FileType binary augroup! whitespace
+  au FileType binary autocmd! whitespace BufWritePre
 
   " text and mail
   augroup text_and_mail
@@ -632,11 +651,6 @@ if has("autocmd")
     au FileType mail,gitcommit echo "'textwidth' set to" &textwidth
     au BufRead *.txt setl tw=78 formatprg=par\
         \ -w78
-  augroup END
-
-  augroup zim
-    au!
-    au BufRead */zim.notes/* set filetype=zim
   augroup END
 
   augroup data
@@ -681,12 +695,14 @@ if has("autocmd")
   augroup ft_ruby
     au!
     au BufRead,BufNewFile Gemfile*,*.ru,Vagrantfile set ft=ruby
-    au FileType ruby setl keywordprg=ri omnifunc=rubycomplete#Complete |
+    au FileType ruby,eruby,rails setl keywordprg=ri omnifunc=rubycomplete#Complete |
           \ let g:rubycomplete_rails = 1 |
-          \ let g:rubycomplete_buffer_loading = 1
+          \ let g:rubycomplete_buffer_loading = 1 |
+          \ let g:rubycomplete_classes_in_global = 1
 
     au FileType ruby onoremap m :<c-u>execute
           \ "normal! ?^\\s*def\r:nohlsearch\rjV/end\r"<CR>
+    set iskeyword+=?
   augroup END
 
   augroup ft_js

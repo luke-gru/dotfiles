@@ -1,7 +1,6 @@
 require 'pp'
 require 'fileutils'
 
-
 def require_or_msg(lib)
   require lib
   yield if block_given?
@@ -14,7 +13,7 @@ def require_and_puts(lib)
   require_or_msg lib
 end
 
-require_or_msg "rubygems" do
+require_and_puts "rubygems" do
   require 'interactive_editor'
 end
 
@@ -118,5 +117,4 @@ class Range
       super
     end
   end
-
 end
