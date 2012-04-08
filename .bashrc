@@ -9,7 +9,7 @@
 # ... or force ignoredups and ignorespace
 HISTCONTROL=ignoredups:ignorespace
 
-shopt -s histappend     # append to the history file, don't overwrite it
+shopt -s histappend # append to the history file, don't overwrite it
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1HISTSIZE=1000
 HISTFILESIZE=2000
@@ -73,57 +73,21 @@ if [ -x /usr/bin/dircolors ]; then
   alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-# all non-hidden dirs in current directory
-alias lsd='ls -d */'
-# all dirs in current directory
-alias lsda='ls -d */ .*/'
-# list all files in current directory
-alias lsf='find . -maxdepth 1 -type f -print | cut -c 3- | xargs ls'
-alias hid="lsf | grep -e '^\.'"
-
-alias cls='clear; ls'
-alias e='exit'
-alias lsa='ls -a'
-
-# bashrc
-# reload bash config
-alias reload='source ~/.bashrc'
-alias bashrc='$EDITOR ~/.bashrc'
-
-# Add an "alert" alias for long running commands.  Use like so:
-# sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
+  source ~/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-  . /etc/bash_completion
+  source /etc/bash_completion
 fi
 
 export EDITOR=`which vim`
-source ~/.git-completion.bash
 
-if [ -d $HOME/pear/bin ]; then
-  export PATH=$PATH:$HOME/pear/bin
-fi
-
-if [ -d $HOME/android-sdks ]; then
-  export PATH=$PATH:$HOME/android-sdks/tools
-  export PATH=$PATH:$HOME/android-sdks/platform-tools
+if [ -f $HOME/.git-completion.bash ]; then
+  source $HOME/.git-completion.bash
 fi
 
 export TERM=xterm
@@ -133,65 +97,12 @@ export IRCNICK=luke-gru
 export IRCNAME=lukeDOTgruATgmail
 export IRCRC="$HOME/.ircrc"
 
-# vim stuff
-# for use after ack list search:
-alias vimp='vim $(!!)'
-alias vimpack='vim $(!! -l)'
-# good ol gv, good in terminal and good in vim!
-alias gv='gvim --remote-silent'
-alias vimrc='$EDITOR ~/.vimrc'
-
-# rvm
-alias gemset='rvm gemset name'
-alias gemsets='rvm gemset list'
-alias gems='gem list'
-alias rubies='rvm list'
-
-# tmux
-# start tmux with 256 colors
-alias tmux="tmux -2"
-
-# ack-grep
-alias ack='ack-grep'
-
-# copy/paste to/from clipboard
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
-
-# git
-alias gdiff='git diff | gvim --remote-silent'
-alias g='git'
-# change the rebasing defaults
-alias alwaysrebase='git config branch.autosetuprebase always'
-alias localrebase='git config branch.autosetuprebase local'
-alias neverrebase='git config branch.autosetuprebase never'
-
-md () { mkdir -p "$1"; cd "$1"; }
-
-# sysadmin type stuff
-# list processes in terms of cpu %
-alias pcpu='ps -e -o pcpu,cpu,nice,state,cputime,args --sort pcpu | sed "/^ 0.0 /d"'
-# list processes in a tree hierarchy
-alias phier='ps -e -o pid,args --forest'
-alias ip="ifconfig | grep -Eo 'inet addr:192\.[^ ]+' | grep -Eo [0-9.]+"
-
-alias bexec="bundle exec"
-alias newg="gnome-terminal &"
-alias newx="xterm &"
-
-# /aliases
-
 # rvm prompt
 PS1="(\$(~/.rvm/bin/rvm-prompt v g))$PS1"
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 [[ -s "/home/luke/.rvm/scripts/rvm" ]] && source "/home/luke/.rvm/scripts/rvm"
 
 export LESS=-RFX
-
-if [ -e $HOME/allmine ]
-then
-  source "$HOME/allmine"
-fi
 
 if [ -e $HOME/.xmodmap ]
 then
@@ -203,14 +114,6 @@ then
   export PATH=$HOME/bin:$PATH
 fi
 
-# not sure why this isn't working when I set the default, but here it goes
-rvm use ruby-1.9.2-p180@rails3.1.0
-export JAVA_HOME="/usr/lib/jvm/java-6-sun-1.6.0.26/bin"
-export PATH=$JAVA_HOME:$PATH
-
-alias dirs="\dirs -v"
-alias 1="cd ~+1"
-alias 2="cd ~+2"
-alias 3="cd ~+3"
-alias 4="cd ~+4"
-alias 5="cd ~+5"
+if [ -f ~/.bashrc.local ]; then
+  source ~/.bashrc.local
+fi

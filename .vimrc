@@ -7,9 +7,7 @@ if has("autocmd")
 endif
 
 " My computers: fonts, dictionary, etc...
-if hostname() == "luke-Pavilion-dv4000-PX311UA-ABL" ||
-      \ hostname() == "luke-K52F" ||
-      \ hostname() == "ubuntu"
+if hostname() == "luke-K52F"
   set guifont=Inconsolata\ Medium\ 12
   set swapsync=fsync
   set dictionary=usr/dict/words
@@ -281,6 +279,7 @@ let g:bufExplorerShowRelativePath=1
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 let NERDTreeShowHidden=0
+let NERDTreeWinSize=24
 
 nnoremap <leader>se :SyntasticEnable<CR>
 nnoremap <leader>sd :SyntasticDisable<CR>
@@ -351,7 +350,7 @@ nnoremap <localleader>; :<c-u>execute "normal! mqA;\<esc>`q"<CR>
 " split, like a reversed J(join)
 nnoremap S i<CR><ESC>
 " append, until the end of this line, to the line below
-nnoremap gA 0"xd$$ja<SPACE><ESC>"xp
+nnoremap gA "xd$$ja<SPACE><ESC>"xp
 " different from gA, this is equivalent to going back to where gi would take
 " you, then moving to the beginning of the line.
 nnoremap gI g;I
@@ -367,7 +366,7 @@ nnoremap <leader>lt :set list!<CR>:set list?<CR>
 vnoremap < <gv
 vnoremap > >gv
 
-" Hightlight text I just pasted, compliments gv well.
+" Highlight text I just pasted, compliments gv well.
 nnoremap gV `[v`]
 
 " Keep search matches in the middle of the window.
@@ -551,71 +550,6 @@ function! FoldView()
 endfunction
 command! -bar FoldView :call FoldView()
 
-" Useful MAKE function taken from
-" https://github.com/tpope/tpope/blob/master/.vimrc
-function! Run()
-  let old_makeprg = &makeprg
-  let cmd = matchstr(getline(1),'^#!\zs[^ ]*')
-  if exists("b:run_command")
-    exe b:run_command
-  elseif cmd != '' && executable(cmd)
-    wa
-    let &makeprg = matchstr(getline(1),'^#!\zs.*').' %'
-    make
-  elseif &ft == "mail" || &ft == "text" ||
-    &ft == "help" || &ft == "gitcommit"
-    setlocal spell!
-  elseif exists("b:rails_root") && exists(":Rake")
-    wa
-    Rake
-  elseif &ft == "ruby"
-    wa
-    if executable(expand("%:p")) || getline(1) =~ '^#!'
-      compiler ruby
-      let &makeprg = "ruby"
-      make %
-    elseif expand("%:t") =~ '_test\.rb$'
-      compiler rubyunit
-      let &makeprg = "ruby"
-      make %
-    elseif expand("%:t") =~ '_spec\.rb$'
-      compiler ruby
-      let &makeprg = "spec"
-      make %
-    else
-      !irb -r"%:p"
-    endif
-  elseif &ft == "html" || &ft == "xhtml" || &ft == "php" ||
-         &ft == "aspvbs" || &ft == "aspperl"
-    wa
-    if !exists("b:url")
-      call OpenURL(expand("%:p"))
-    else
-      call OpenURL(b:url)
-    endif
-  elseif &ft == "vim"
-    wa
-    unlet! g:loaded_{expand("%:t:r")}
-    return 'source %'
-  elseif &ft == "sql"
-    1,$DBExecRangeSQL
-  elseif expand("%:e") == "tex"
-    wa
-    exe "normal :!rubber -f %:r && xdvi %:r >/dev/null 2>/dev/null &\<CR>"
-  else
-    wa
-    if &makeprg =~ "%"
-      make
-    else
-      make %
-    endif
-  endif
-  let &makeprg = old_makeprg
-  return ""
-endfunction
-
-command! -bar Run :execute Run()
-
 " start autocmd section
 if has("autocmd")
   au!
@@ -752,21 +686,14 @@ if has("autocmd")
           \ endif
   augroup END
 
+  au VimEnter * set lines=38 columns=92
+  au VimEnter * winpos 618 24
+
   if has("gui_running")
     " GUI is running or is about to start.
     " Set gvim window size and position.
-    au GUIEnter * set lines=38 columns=100
-    au GUIEnter * winpos 618 24
     au GUIEnter * set noicon guioptions-=T
     au GUIEnter * if has("diff") && &diff | set columns=165 | endif
-  else
-    " This is console Vim.
-    if exists("+lines")
-      set lines=38
-    endif
-    if exists("+columns")
-      set columns=90
-    endif
   endif
 
 endif
@@ -774,6 +701,7 @@ endif
 
 " Keep at end of file.
 syntax enable
+
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif

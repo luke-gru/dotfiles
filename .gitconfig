@@ -27,6 +27,7 @@
 	dump = cat-file -p
 	cl = clone
 	up-subs = submodule foreach git fetch origin --tags && git pull origin master && git submodule update --init --recursive
+	up-sub-refs = submodule update --init
 	saveass = reflog show HEAD@{now} -10
 	untracked = ls-files --others --exclude-from=.git/info/exclude
 
