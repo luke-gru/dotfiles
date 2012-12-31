@@ -55,18 +55,6 @@ then
   rm $HOME/.bash_aliases
 fi
 
-# directories
-
-if [ -d $HOME/zim.notes ]
-then
-  rm -r $HOME/zim.notes
-fi
-
-if [ -d "$HOME/.dirs" ]
-then
-  rm -r "$HOME/.dirs"
-fi
-
 ## = remove the .NEW suffix if there aren't any conflicts
 
 # non-directory files
@@ -86,8 +74,3 @@ ln -s $HOME/dotfiles/.rvmrc $HOME/.rvmrc
 ln -s $HOME/dotfiles/.gemrc $HOME/.gemrc
 ln -s $HOME/dotfiles/.inputrc $HOME/.inputrc
 ln -s $HOME/dotfiles/.xmodmap $HOME/.xmodmap
-
-# directories
-ln -s $HOME/dotfiles/zim.notes $HOME/zim.notes
-ln -s "$HOME/dotfiles/.dirs" "$HOME/.dirs"
-ln -s "$HOME/dotfiles/bin" "$HOME/binNEW" ##

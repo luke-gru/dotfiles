@@ -7,5 +7,6 @@ cv.*
 *.markdown.html
 *.gemspec
 *.gem
-ideas
-IDEAS
+ideas*
+IDEAS*
+.rvmrc

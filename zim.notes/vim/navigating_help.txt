@@ -1,9 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2011-08-21T11:09:43.495139
-
-====== navigating help ======
-
- insert.txt 						=> imode
- i_CTRL-x						=> prefix and suffix, properly formatted
- i_CTRL-X_CTRL-E				=> compound command, prefix and suffixes

@@ -1,41 +1,27 @@
 require 'pp'
 require 'fileutils'
 
-def require_or_msg(lib)
-  require lib
-  yield if block_given?
-rescue LoadError => e
-  puts e.message if e.message
-end
-
-def require_and_puts(lib)
-  puts "requiring #{lib}"
-  require_or_msg lib
-end
-
-require_and_puts "rubygems" do
-  require 'interactive_editor'
-end
-
-if ENV['GEM_PATH'] =~ /rails/
-  require_and_puts 'active_support/all'
-end
-
-@home    = "~"
-@desk    = "~/Desktop"
-@code    = "~/Desktop/code"
-@myruby  = "~/Desktop/clones/myruby"
-@myrails = "~/Desktop/clones/myrails"
-@clones  = "~/Desktop/clones"
-@source  = "~/Desktop/source"
-@gems    = "~/.rvm/gems"
-
-@files = Proc.new do
-  instance_variables.each do |iv|
-    next if iv =~ /prompt|files/
-      print "#{iv}: ", instance_variable_get(iv), "\n"
+def require_and_msg(lib)
+  begin
+    require lib
+  rescue LoadError => e
+    puts "couldn't load #{lib}"
+    return
   end
-  nil
+  puts "loaded #{lib}"
+end
+
+def _require(lib)
+  require lib
+  libs = yield
+  libs.each {|l| require_and_msg l}
+end
+
+_require "rubygems" do
+  [].tap do |libs|
+    libs << 'interactive_editor'
+    libs << 'active_support/all'
+  end
 end
 
 def h
@@ -57,10 +43,6 @@ def ls
     end
   end
   nil
-end
-
-def myfiles
-  @files.call
 end
 
 def loaded_gems

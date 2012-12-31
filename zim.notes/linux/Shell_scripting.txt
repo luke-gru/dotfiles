@@ -1,9 +1,0 @@
-Content-Type: text/x-zim-wiki
-Wiki-Format: zim 0.4
-Creation-Date: 2011-04-23T19:25:49.939962
-
-====== Shell scripting ======
-
-see [[linux:shell:bash|bash]] or [[linux:commands and utilities|linux commands & utils]]
-
-

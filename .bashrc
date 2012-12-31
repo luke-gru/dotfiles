@@ -102,8 +102,6 @@ PS1="(\$(~/.rvm/bin/rvm-prompt v g))$PS1"
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 [[ -s "/home/luke/.rvm/scripts/rvm" ]] && source "/home/luke/.rvm/scripts/rvm"
 
-export LESS=-RFX
-
 if [ -e $HOME/.xmodmap ]
 then
   xmodmap "$HOME/.xmodmap"

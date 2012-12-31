@@ -21,7 +21,7 @@ alias lsa='ls -a'
 alias reload='source ~/.bashrc'
 alias bashrc='$EDITOR ~/.bashrc'
 
-md () { mkdir -p "$1"; cd "$1"; }
+mdir () { mkdir -p "$1"; cd "$1"; }
 
 # sysadmin type stuff
 # list processes in terms of cpu %
@@ -72,6 +72,7 @@ fi
 
 if type -p "rvm" > /dev/null 2>&1
 then
+  echo "woohoo"
   alias gemset='rvm gemset name'
   alias gemsets='rvm gemset list'
   alias rubies='rvm list'
@@ -96,6 +97,12 @@ fi
 if type -p "sensible-browser" > /dev/null 2>&1
 then
   alias browse='sensible-browser'
+fi
+
+if type -p "markdown" > /dev/null 2>&1
+then
+  alias md='markdown'
+  mdme () { markdown "$1" > "$1.html"; browse "$1.html"; }
 fi
 
 # For use with the '$HOME/.dirs' directory. Source a file in that directory and quickly

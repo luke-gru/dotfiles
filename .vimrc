@@ -235,6 +235,7 @@ nnoremap <leader>sab :execute "rightbelow  split " . bufname("#")<CR>
 nnoremap <leader>saa :execute "leftabove   split " . bufname("#")<CR>
 
 " *my Ruby/Rails abbreviations*
+iabbr rfile __FILE__
 iabbr rinit initialize
 iabbr rhabtm has_and_belongs_to_many
 iabbr rhbaw http_basic_authenticate_with
@@ -283,11 +284,12 @@ let NERDTreeWinSize=24
 
 nnoremap <leader>se :SyntasticEnable<CR>
 nnoremap <leader>sd :SyntasticDisable<CR>
-nnoremap <silent> <leader>t :NERDTreeToggle<CR>
 nnoremap <silent> <leader>a :Ack <cWORD><CR>
-nnoremap <leader>xxx :silent execute "grep! -R " . shellescape('<cWORD>') . " ."<CR>:copen<CR>
 nnoremap <silent> <leader>be :BufExplorer<CR>
 nnoremap <silent> <leader>la :h local-additions<CR>
+nnoremap <silent> <leader>t :silent! TlistClose<CR>:NERDTreeToggle<CR>
+nnoremap <silent> <leader>g :silent! NERDTreeClose<CR>:TlistToggle<CR>
+nnoremap <leader>h :call g:chromaHighlight()<CR>
 " /plugin stuff
 
 function! Preserve(command)
@@ -346,7 +348,6 @@ noremap <silent> <F4> <ESC>:so $MYVIMRC<CR>
 
 " making [count] newlines below cursor
 nnoremap <leader>; o<ESC>
-nnoremap <localleader>; :<c-u>execute "normal! mqA;\<esc>`q"<CR>
 " split, like a reversed J(join)
 nnoremap S i<CR><ESC>
 " append, until the end of this line, to the line below
@@ -432,8 +433,7 @@ nnoremap <leader>= :call Preserve("normal gg=G")<CR>
 cnoremap <C-b> <left>
 cnoremap <C-f> <right>
 cnoremap <C-a> <C-b>
-" classic...
-" <C-w> for root
+" classic... <C-w> for root
 cnoremap <silent> <C-w> w !sudo tee % > /dev/null<CR>
 " /c-mode mappings
 
@@ -641,8 +641,7 @@ if has("autocmd")
 
   augroup ft_js
     au!
-    au FileType javascript setl ai et sta sw=4 sts=4
-    au FileType javascript setl foldmethod=marker foldmarker={,}
+    au FileType javascript setl ai et sta sw=2 sts=2
   augroup END
 
   augroup ft_c
@@ -675,6 +674,11 @@ if has("autocmd")
     au!
     au BufReadPost *.make setl noexpandtab ts=8 sts=8 sw=8
     au BufReadPost *.make echo "'expandtab' option is set to" &expandtab
+  augroup END
+
+  augroup riml
+    au!
+    au BufEnter *.riml set syntax=riml
   augroup END
 
   " last cursor position in buffer
