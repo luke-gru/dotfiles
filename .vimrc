@@ -183,8 +183,7 @@ if !exists(":DiffOrig")
         \ | wincmd p | diffthis
 endif
 
-" Sometimes I find it useful to treat wrapped lines as
-" separate lines.
+" Sometimes I find it useful to treat wrapped lines as separate lines.
 funct! ToggleWrapKeys()
   if &wrap == 1
     set nowrap
@@ -234,39 +233,12 @@ nnoremap <leader>sab :execute "rightbelow  split " . bufname("#")<CR>
 " split alternate buffer above
 nnoremap <leader>saa :execute "leftabove   split " . bufname("#")<CR>
 
-" *my Ruby/Rails abbreviations*
-iabbr rfile __FILE__
-iabbr rinit initialize
-iabbr rhabtm has_and_belongs_to_many
-iabbr rhbaw http_basic_authenticate_with
-iabbr rhsp has_secure_password
-iabbr rrto redirect_to
-iabbr rres respond_to do \|format\|
-iabbr rbuto button_to
-iabbr rbeto belongs_to
-iabbr rlto link_to
-iabbr ratra attr_accessor
-iabbr ratrp attr_protected
-iabbr ratrac attr_accessible
-iabbr ratrr attr_reader
-iabbr ratrw attr_writer
-iabbr rcatra cattr_accessor
-iabbr rmatra mattr_accessor
-iabbr rvat verify_authenticity_token
-iabbr rpff protect_from_forgery
-iabbr rslt stylesheet_link_tag
-iabbr rjsit javascript_include_tag
-iabbr rofcfs options_from_collection_for_select
-iabbr rofs options_for_select
-iabbr ranaf accepts_nested_attributes_for
-" /my Rails abbreviations
-
 iabbr myemail luke<DOT>gru<AT>gmail<DOT>com
 
 " sessions, views and projects
 cabbr sess source ~/.vim/sessions/
 cabbr mks mks! ~/.vim/sessions/
-cabbr mkv mkview ~/.vim/views/
+cabbr mkv mkview &viewdir
 
 cabbr Ls ls
 cabbr LS ls
@@ -391,28 +363,20 @@ inoremap <C-f> <ESC><right>a
 inoremap <silent> <C-o> <C-x><C-o>
 
 " Locate and return character above current cursor position regardless of
-" blank lines.
-" taken directly from this vim-scripting tutorial:
+" blank lines. Taken from this vim-scripting tutorial:
 " http://www.ibm.com/developerworks/linux/library/l-vim-script-1/index.html
-function! LookUpwards()
-  " Locate current column and preceding line from which to copy.
-  let column_num      = virtcol('.')
-  let target_pattern  = '\%' . column_num . 'v.'
-  let target_line_num = search(target_pattern . '*\S', 'bnW')
-
-  " If target line found, return vertically copied character.
-  if !target_line_num
-    return ""
+function! LookUpOrDown(dir)
+  if a:dir ==# 'down'
+    let pat = 'nW'
+  elseif a:dir ==# 'up'
+    let pat = 'bnW'
   else
-    return matchstr(getline(target_line_num), target_pattern)
+    throw "LookUpOrDown: dir must be one of ('up', 'down')"
   endif
-endfunction
-
-function! LookDownwards()
   " Locate current column and preceding line from which to copy.
   let column_num      = virtcol('.')
   let target_pattern  = '\%' . column_num . 'v.'
-  let target_line_num = search(target_pattern . '*\S', 'nW')
+  let target_line_num = search(target_pattern . '*\S', pat)
 
   " If target line found, return vertically copied character.
   if !target_line_num
@@ -423,8 +387,8 @@ function! LookDownwards()
 endfunction
 
 " Reimplement CTRL-Y and CTRL-E in insert mode...
-inoremap <silent>  <C-Y>  <C-R><C-R>=LookUpwards()<CR>
-inoremap <silent>  <C-E>  <C-R><C-R>=LookDownwards()<CR>
+inoremap <silent>  <C-Y>  <C-R><C-R>=LookUpOrDown("up")<CR>
+inoremap <silent>  <C-E>  <C-R><C-R>=LookUpOrDown("down")<CR>
 
 nnoremap <leader>= :call Preserve("normal gg=G")<CR>
 " /n- and i-mode mappings
@@ -471,19 +435,6 @@ command! -nargs=0 Swrap setl wrap linebreak nolist showbreak=…
 " View markup'd markdown in browser (linux).
 nnoremap <leader>pm :w!<CR>:!markdown % > %.html && sensible-browser
       \ file://%:p.html<CR><CR>
-
-" Define :HighlightLongLines command to highlight the offending parts of
-" lines that are longer than the specified length (defaulting to 78).
-command! -nargs=? HighlightLongLines call s:HighlightLongLines('<args>')
-
-function! HighlightLongLines(width)
-  let targetWidth = a:width != '' ? a:width : 78
-  if targetWidth > 0
-    exec 'match Todo /\%>' . (targetWidth) . 'v/'
-  else
-    echomsg "Usage: HighlightLongLines [natural number]"
-  endif
-endfunction
 
 " Add modeline to file with current settings.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
@@ -548,7 +499,7 @@ function! FoldView()
     endif
   endif
 endfunction
-command! -bar FoldView :call FoldView()
+command! -bar FoldView call FoldView()
 
 " start autocmd section
 if has("autocmd")
@@ -563,7 +514,6 @@ if has("autocmd")
   augroup html
     au!
     autocmd FileType html setl textwidth=0 nowrap
-    autocmd FileType html iabbrev <buffer> --- &mdash;
   augroup END
 
   " remove trailing whitespace
@@ -579,12 +529,9 @@ if has("autocmd")
     au!
     au FileType mail,gitcommit setl tw=68 list wrap formatoptions
           \ formatoptions+=an
-    "-q option for par handles nested quotations in plaintext mail
-    au FileType mail setl formatprg=par\ -q
     " au FileType qf silent unmap <buffer> <CR>
     au FileType mail,gitcommit echo "'textwidth' set to" &textwidth
-    au BufRead *.txt setl tw=78 formatprg=par\
-        \ -w78
+    au BufRead *.txt setl tw=78
   augroup END
 
   augroup data
@@ -633,9 +580,6 @@ if has("autocmd")
           \ let g:rubycomplete_rails = 1 |
           \ let g:rubycomplete_buffer_loading = 1 |
           \ let g:rubycomplete_classes_in_global = 1
-
-    au FileType ruby onoremap m :<c-u>execute
-          \ "normal! ?^\\s*def\r:nohlsearch\rjV/end\r"<CR>
     set iskeyword+=?
   augroup END
 
