@@ -166,7 +166,7 @@ if isdirectory(glob("~/.vim/backup"))
   set directory=~/.vim/backup
 else
   set directory=/tmp
-  echoerr "Backup directory ~/.backup doesn't exist!"
+  echoerr "Backup directory ~/.vim/backup doesn't exist!"
 endif
 
 if version >= 703
@@ -261,7 +261,7 @@ nnoremap <silent> <leader>be :BufExplorer<CR>
 nnoremap <silent> <leader>la :h local-additions<CR>
 nnoremap <silent> <leader>t :silent! TlistClose<CR>:NERDTreeToggle<CR>
 nnoremap <silent> <leader>g :silent! NERDTreeClose<CR>:TlistToggle<CR>
-nnoremap <leader>h :call g:chromaHighlight()<CR>
+nnoremap <leader>h :call g:ChromaHighlight()<CR>
 " /plugin stuff
 
 function! Preserve(command)
