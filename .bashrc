@@ -92,16 +92,6 @@ fi
 
 export TERM=xterm
 
-# irc
-export IRCNICK=luke-gru
-export IRCNAME=lukeDOTgruATgmail
-export IRCRC="$HOME/.ircrc"
-
-# rvm prompt
-PS1="(\$(~/.rvm/bin/rvm-prompt v g))$PS1"
-[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
-[[ -s "/home/luke/.rvm/scripts/rvm" ]] && source "/home/luke/.rvm/scripts/rvm"
-
 if [ -e $HOME/.xmodmap ]
 then
   xmodmap "$HOME/.xmodmap"
@@ -115,3 +105,14 @@ fi
 if [ -f ~/.bashrc.local ]; then
   source ~/.bashrc.local
 fi
+
+update_PS1 () {
+  if [ $? = 0 ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1)\$ '
+    PS1="$PS1"
+  else
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1)\$ '
+    PS1="$PS1"
+  fi;
+}
+PROMPT_COMMAND=update_PS1
