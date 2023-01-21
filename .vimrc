@@ -7,7 +7,7 @@ if has("autocmd")
 endif
 
 " My computers: fonts, dictionary, etc...
-if hostname() == "luke-K52F"
+if hostname() == "lukeg"
   set guifont=Inconsolata\ Medium\ 12
   set swapsync=fsync
   set dictionary=usr/dict/words
@@ -527,10 +527,6 @@ if has("autocmd")
   " text and mail
   augroup text_and_mail
     au!
-    au FileType mail,gitcommit setl tw=68 list wrap formatoptions
-          \ formatoptions+=an
-    " au FileType qf silent unmap <buffer> <CR>
-    au FileType mail,gitcommit echo "'textwidth' set to" &textwidth
     au BufRead *.txt setl tw=78
   augroup END
 
